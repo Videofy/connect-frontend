@@ -1,0 +1,14 @@
+{
+  "name": "key-value-map",
+  "repo": "tm-components/key-value-map",
+  "description": "A dictionary using arrays.",
+  "version": "0.0.2",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

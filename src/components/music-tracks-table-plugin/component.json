@@ -1,0 +1,24 @@
+{
+  "name": "music-tracks-table-plugin",
+  "repo": "monstercat/music-tracks-table-plugin",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/date-time": "*",
+    "tm-components/regex": "*",
+    "yields/hms": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "is-mobile",
+    "music-tracks-plugin",
+    "playlist-model",
+    "sort-util"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

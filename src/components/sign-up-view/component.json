@@ -1,0 +1,29 @@
+{
+  "name": "sign-up-view",
+  "repo": "monstercat/sign-up-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/countries": "*",
+    "component/querystring": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "view-plugin",
+    "password-toggle-plugin",
+    "parse",
+    "user-whitelist"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

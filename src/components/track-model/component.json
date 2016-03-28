@@ -1,0 +1,24 @@
+{
+  "name": "track-model",
+  "repo": "monstercat/track-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/querystring": "*",
+    "component/url": "*",
+    "visionmedia/debug": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "format-quality",
+    "parse",
+    "super-model"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

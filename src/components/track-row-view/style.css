@@ -1,0 +1,19 @@
+tr.track-row > td.genre {
+  position: relative;
+  padding: 0;
+}
+
+tr.track-row > td.genre > .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.4em;
+  height: 100%;
+  background-color: transparent;
+}
+
+@media (max-width: 1024px) {
+  .tracks-view tr.track-row .actions {
+    width: 93px;
+  }
+}

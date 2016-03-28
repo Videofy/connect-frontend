@@ -1,0 +1,23 @@
+{
+  "name": "whitelist-channel-view",
+  "repo": "monstercat/whitelist-channel-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*",
+    "jb55/bluebird": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "view-plugin",
+    "user-whitelist",
+    "context-menu-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ]
+}

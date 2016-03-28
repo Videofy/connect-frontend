@@ -1,0 +1,60 @@
+.drop-zone
+.mast.ss.back-header.hide
+  span
+  label.ss.cutoff-text(role="playlist-name") Now Playing
+  .ss.inline-toolbar.back-link
+    button.ss.fake.cl-danger-hover(role="download" title="Download Playlist")
+      i.fa.fa-cloud-download
+    button.ss.fake.cl-action-hover(role="rename" title="Rename Playlist")
+      i.fa.fa-pencil-square-o
+    button.ss.fake.cl-action-hover(role="save" title="Save Playlist")
+      i.fa.fa-save
+    button.ss.fake.cl-danger-hover(role="clear" title="Remove All Tracks From Playlist")
+      i.fa.fa-trash-o
+    button.ss.fake.cl-action-hover(role="new" title="Create a New Playlist")
+      i.fa.fa-plus-circle
+if mode == "loading"
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+p.hide(role="error") There was an error with the playlist.
+label(role="add-tracks-msg").hide
+  | To add tracks, 
+  if mobile
+    | click "Add to Playlist" in the track's options menu.
+  else
+    | drag and drop them from the catalog or hit their 
+    i.fa.fa-plus-circle
+    |  button.
+label(role="create-playlist-msg").hide
+  if mobile
+    | Hit "Add to Playlist" in the track's options menu 
+  else
+    | Drag and drop tracks here or hit their 
+    i.fa.fa-plus-circle
+    |  button 
+  | to create a temporary playlist.
+div.table-container
+  table.tracks.ss
+    tbody(role="tracks")
+      each track in tracks
+        tr(track-id="#{track.trackId}"
+          release-id="#{track.releaseId}"
+          lost=(track.lost ? true : undefined)
+          class=(track.lost ? "lost" : undefined))
+          if track.lost
+            td= track.index + 1
+            td(colspan='4') Track Not Found
+            td.actions
+              i.fa.fa-chevron-circle-down(role="options"
+                index="#{track.index}")
+          else
+            td= track.index + 1
+            td(index="#{track.index}")
+              i.fa.fa-volume-up(role="status")
+              = track.title
+            td(index="#{track.index}")= track.artists
+            td.ss.hide-below.w500(index="#{track.index}")= track.release
+            td.ss.hide-below.w500(index="#{track.index}")= track.genre
+            td.actions
+              i.fa.fa-chevron-circle-down(role="options"
+                index="#{track.index}")

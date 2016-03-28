@@ -1,0 +1,22 @@
+{
+  "name": "user-billing-view",
+  "repo": "monstercat/user-billing-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "parse",
+    "view-plugin",
+    "input-binder"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ]
+}

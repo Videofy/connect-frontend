@@ -1,0 +1,13 @@
+table.ss.bordered
+  thead
+    tr
+      th User
+      th Role
+      th Commission Split
+      th Actions
+  tbody(role='account-users')
+    if mode == 'loading'
+      tr
+        td.ss.center-text(colspan=4)
+          .ss.loader
+            i.fa.fa-refresh.fa-spin

@@ -1,0 +1,17 @@
+{
+  "name": "i18",
+  "repo": "tm-components/i18",
+  "description": "Locale o'mally.",
+  "version": "1.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

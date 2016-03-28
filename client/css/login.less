@@ -1,0 +1,83 @@
+
+@loginGap: 40px;
+@userIconSize: 34px;
+@boxStroke: #cacaca;
+@timelineBarWidth: 4px;
+@boxStrokeBottom: #acb2bf;
+
+.content-box-shadow() {
+  //box-shadow: 0 1px 3px rgba(0,0,0,.14), 0 0 15px rgba(13,120,240,.03), inset 0 0 92px rgba(0,0,0,.05);
+}
+
+
+.login-box, .content-box {
+  border: 1px solid @boxStroke;
+  .border-radius(5px); // border radius
+  background-color: #fdfdfd; // layer fill content + color overlay
+  .content-box-shadow();
+}
+
+.login-box {
+  margin-top: @loginGap;
+}
+
+.login-head, .content-box-head {
+  @height: 33px;
+  padding-top: 6px;
+  .box-sizing(border-box);
+  text-align: center;
+  color: #52565e;
+  text-shadow: 0 2px 0 rgba(255,255,255,.3);
+  height: @height;
+  border-bottom: 1px solid @boxStroke; // stroke
+  .border-radius(5px 5px 0 0); // border radius
+  background-color: #f1f5f5; // layer fill content
+  //.box-shadow(~"0 2px 2px rgba(0,0,0,.07), inset 0 0 5px rgba(255,255,190,.23)"); // drop shadow and inner glow
+  background-image: url('/img/login_head.png');
+  border-bottom-color: @boxStrokeBottom;
+}
+
+.login-text {
+  @pad: 15px;
+  text-align: center;
+  font-family: "myriad-pro";
+  font-weight: bold;
+  margin: @pad 0 @pad;
+}
+
+.login-user-icon {
+  height: @userIconSize;
+  width: @userIconSize;
+  .at2x('/img/login_user.png', @userIconSize, @userIconSize);
+}
+
+.login-form-actions {
+  padding: 20px;
+  padding-left: 20px;
+  margin: 0px auto 0px auto;
+  border-top: 1px solid rgba(195, 201, 209, .7); // layer fill content + color overlay
+  .box-shadow(inset 0 1px 1px rgba(0,0,0,.05)); // drop shadow
+  text-align: center;
+}
+
+.login-timeline {
+  margin-top: @loginGap * 2.3;
+}
+
+.timeline-bar {
+  width: @timelineBarWidth;
+  height: 4000px;
+  position: absolute;
+  overflow: hidden;
+  left: 49.4%;
+  top: 0px;
+  z-index: -10;
+  opacity: .31; // layer alpha
+  border: 1px solid rgba(0,0,0,.42); // stroke
+  background-color: #c3c3c7; // layer fill content + color overlay
+}
+
+.form-center {
+  margin: auto;
+  text-align: center;
+}

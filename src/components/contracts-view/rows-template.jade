@@ -1,0 +1,40 @@
+if models.length
+  each model in models
+    - var vars = model.attributes.variables
+    tr
+      td
+        a(href="/##{model.getViewUrl()}")= vars.title
+      td= vars.type
+      td= model.getAsFormatedDate('variables.date')
+      td
+        if model.isComplete()
+          i.fa.fa-check-circle
+          |  Completed
+        else if model.isCanceled()
+          i.fa.fa-times-circle
+          |  Canceled
+        else
+          i.fa.fa-exclamation-circle.ss.cl-danger
+          |  Signatures Required
+      td
+        .ss.inline-toolbar
+          a.ss.fake.cl-inherit.cl-action-hover(
+            href="#{model.getPdfUrl()}"
+            title="Open PDF"
+            target="_blank")
+            i.fa.fa-file-pdf-o
+          if permissions.contracts.add
+            a.ss.fake.cl-inherit.cl-action-hover(
+              href="/#contracts/create/#{model.id}"
+              title="Create a copy of this contract.")
+              i.fa.fa-copy
+          if permissions.contracts.cancel
+            button.ss.fake.cl-danger-hover(
+              role='cancel'
+              title="Cancel the contract."
+              contract-id="#{model.id}")
+              i.fa.fa-ban
+else
+  tr
+    td(colspan="5")
+      label.ss.heavy.center-text No contracts to display.

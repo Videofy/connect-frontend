@@ -1,0 +1,71 @@
+.sign-up-view {
+  background: transparent url("/img/DSC02629.JPG") no-repeat center center fixed;
+  background-size: cover;
+  color: black;
+  overflow: hidden;
+}
+
+.sign-up-view .cover {
+  background: rgba(0, 0, 0, 0.6);
+  min-height: 100vh;
+  padding: 3em;
+  box-sizing: border-box;
+}
+
+.sign-up-view h1 {
+  color: white;
+  font-family: "Gotham Bold";
+  font-size: 2em;
+  line-height: normal;
+  margin: 1rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sign-up-view .constricter {
+  max-width: 384px;
+  margin: 0 auto;
+}
+
+.sign-up-view .regform {
+  background: white;
+  border-radius: 0.5em;
+  padding: 1em;
+  text-align: center;
+}
+
+.sign-up-view .regform input.ss {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.sign-up-view .regform p[role='error'] {
+  margin: 1em 0 0 0;
+}
+
+.sign-up-view .regform table.rows td {
+  position: relative;
+}
+
+.sign-up-view .regform .setup + p {
+  padding-top: 1em;
+}
+
+.sign-up-view .regform .setup :last-child {
+  margin-bottom: 0;
+}
+
+.sign-up-view button.welcomer {
+  margin: 1em 0;
+  width: 100%;
+}
+
+.sign-up-view a.btn-welcomer {
+  display: block;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.sign-up-view td.vendor-select {
+  max-width: 70px;
+}

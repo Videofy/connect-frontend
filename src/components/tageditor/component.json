@@ -1,0 +1,16 @@
+{
+  "name": "tageditor",
+  "repo": "monstercat/tageditor",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "jb55/codom": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

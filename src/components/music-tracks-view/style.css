@@ -1,0 +1,208 @@
+.disable-pointer-events .music-tracks-view > table {
+  pointer-events: none;
+}
+
+.music-tracks-view > table {
+  text-align: left;
+  width: 100%;
+}
+
+.music-tracks-view > table > thead > tr > th {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+  transition: border-color 0.25s, color 0.25s;
+  white-space: nowrap;
+}
+
+.music-tracks-view > table > thead > tr > th[sort].sort-active {
+  border-bottom: solid 1px dodgerblue;
+}
+
+.music-tracks-view > table > thead > tr > th[sort] i.asc,
+.music-tracks-view > table > thead > tr > th[sort] i.desc {
+  color: dodgerblue;
+  display: none;
+  margin-left: 0.25em;
+}
+
+.music-tracks-view > table > thead > tr > th[sort].sort-active.asc i.asc,
+.music-tracks-view > table > thead > tr > th[sort].sort-active.desc i.desc {
+  display: inline-block;
+}
+
+.music-tracks-view > table > thead > tr > th[sort]:hover {
+  border-bottom: solid 1px dodgerblue;
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+.music-tracks-view > table td {
+  background-color: white;
+  padding: 0.25em 0.5em;
+  white-space: nowrap;
+}
+
+.music-tracks-view > table td.actions {
+  width: 1%;
+  padding-right: 0;
+}
+
+.music-tracks-view > table td i[status="paused"],
+.music-tracks-view > table td i[status="playing"],
+.mobile .music-tracks-view > table td i[role="pause-mobile"],
+.mobile .music-tracks-view > table tr.active.playing td i[role="play-mobile"] {
+  display: none;
+}
+
+.music-tracks-view > table td i[status="paused"],
+.music-tracks-view > table td i[status="playing"] {
+  margin-right: 0.5em;
+}
+
+.music-tracks-view > table td i[role='in-playlist'],
+.music-tracks-view > table td i[role='add'] {
+  cursor: pointer;
+}
+
+.music-tracks-view > table td i[role="add"] {
+  color: #dfdfdf;
+  transition: color 0.25s ease-in-out;
+}
+
+.music-tracks-view > table td i[role="add"]:hover {
+  color: inherit;
+}
+
+.music-tracks-view i[role='in-playlist'] {
+  display: none;
+}
+
+.music-tracks-view .added i[role="add"] {
+  display: none;
+}
+
+.music-tracks-view .added i[role="in-playlist"] {
+  display: inline-block;
+}
+
+.music-tracks-view > table td i[role="options"] {
+  cursor: pointer;
+  margin-left: 0.5em;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.music-tracks-view > table tr:hover td i[role="options"],
+.music-tracks-view > table tr.selected td i[role="options"],
+.mobile .music-tracks-view > table td i[role="options"] {
+  opacity: 1;
+}
+
+.music-tracks-view > table td.align-right {
+  text-align: right;
+}
+
+.music-tracks-view > table td.trackname span {
+  display: inline-block;
+  width: 100%;
+}
+
+.music-tracks-view > table > tbody > tr td:first-child:hover i[role="add"] {
+  opacity: 1;
+}
+
+.music-tracks-view > table tr.active:not(.playing) td i[status="paused"],
+.music-tracks-view > table tr.playing td i[status="playing"],
+.mobile .music-tracks-view > table tr.active.playing td i[role="pause-mobile"] {
+  display: inline-block;
+}
+
+.mobile .music-tracks-view > table tr.active td i[role="play-mobile"],
+.mobile .music-tracks-view > table tr.active.playing td i[role="pause-mobile"]
+ {
+  color: dodgerblue;
+}
+
+body:not(.mobile) .music-tracks-view > table tr.selected td {
+  color: white;
+  background-color: dodgerblue;
+}
+
+.music-tracks-view > table tr:nth-child(even) td {
+  background: #F5F5F5;
+}
+
+.music-tracks-view .disabled-track, .music-tracks-view .unreleased-track {
+  cursor: pointer;
+  font-size: 90%;
+  margin-left: 0.3em;
+  vertical-align: text-top;
+}
+
+@media (max-width: 1024px) {
+  .mobile .music-tracks-view > table td {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    padding: 1em 0.5em;
+  }
+
+  .music-tracks-view > table td.artists {
+    min-width: 150px;
+    white-space: normal;
+  }
+
+  .mobile .music-tracks-view > table td i[role="options"],
+  .mobile .music-tracks-view .disabled-track {
+    font-size: 1.2em;
+    vertical-align: initial;
+  }
+}
+
+@media (max-width: 500px) {
+  .music-tracks-view tr {
+    box-sizing: border-box;
+  }
+
+  .music-tracks-view > table td {
+    white-space: normal;
+    width: auto;
+  }
+
+  .music-tracks-view > table td.genre {
+    padding: 0;
+    width: 5px;
+  }
+
+  .music-tracks-view > table td.actions {
+    padding-right: 0.5em;
+    text-align: right;
+    width: 50px; /* 18+14+18 */
+  }
+
+  .mobile .music-tracks-view .actions i {
+    margin-right: 14px;
+  }
+
+  .music-tracks-view .actions i[role="in-playlist"],
+  .music-tracks-view .added .actions i[role="add"] {
+    display: none;
+  }
+
+  .music-tracks-view .added .actions i[role="in-playlist"] {
+    display: inline-block;
+  }
+
+  .music-tracks-view .actions i:last-child {
+    margin: 0;
+  }
+
+  /*** Specific Pages ***/
+  .music-catalog-view > table td {
+    padding: 1em 0.5em;
+  }
+
+  .music-podcasts-view > table td {
+    padding: 0.75em 0.5em;
+  }
+}

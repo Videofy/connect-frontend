@@ -1,0 +1,32 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "melodyk/string-util": "*",
+    "tm-components/file-dropper": "*",
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "style.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "context-menu-plugin",
+    "download-button",
+    "file-uploader",
+    "formats",
+    "private-player-plugin",
+    "row-view-plugin",
+    "view-plugin",
+    "track-model"
+  ],
+  "main": "index.js",
+  "name": "track-row-view",
+  "repo": "monstercat/track-row-view",
+  "description": "",
+  "version": "0.0.1"
+}

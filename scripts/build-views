@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+options="{}"
+./node_modules/.bin/jade -D -O $options -o ./public ./views

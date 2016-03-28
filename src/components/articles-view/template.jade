@@ -1,0 +1,18 @@
+.ss.input-button
+  input.ss(type='text' role='new-article-title' placeholder='New Article Title')
+  button.ss.bg-action.hover.actioneer(role='upload-article')
+    .inactive Upload
+    i.active.fa.fa-gear.fa-spin
+br
+br
+table.ss.bordered
+  thead
+    th.sortable(sort-on='title') Title
+        i.fa.fa-sort-asc.indicator-asc
+        i.fa.fa-sort-desc.indicator-desc
+    th Actions
+  tbody
+    tr
+      td(colspan=2)
+        .ss.loader
+          i.fa.fa-refresh.fa-spin

@@ -1,0 +1,19 @@
+.genre-editor-view {
+  position: relative;
+}
+.genre-editor-view input.genre-color {
+  width: 4em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.genre-editor-view .color-block {
+  display: inline-block;
+  margin: 0 0 0 0.25em;
+  width: 2.0em;
+  height: 2.0em;
+  border: solid 1px #cccccc;
+  border-radius: 0.3em;
+  background: #fff;
+  vertical-align: top;
+  cursor: pointer;
+}

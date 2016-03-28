@@ -1,0 +1,27 @@
+.news-stream-item-view .link {
+  cursor: pointer;
+}
+
+.news-stream-item-view .content {
+  align-items: center;
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin: 1em;
+  padding-bottom: 1em;
+}
+
+.news-stream-item-view .release-thumbnail-view {
+  margin-right: 1em;
+}
+
+.news-stream-item-view .details span {
+  display: block;
+}
+
+.news-stream-item-view .title {
+  font-size: 1.3em;
+}
+
+.news-stream-item-view .date {
+  font-size: 0.9em;
+}

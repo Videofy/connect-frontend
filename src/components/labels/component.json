@@ -1,0 +1,16 @@
+{
+  "name": "labels",
+  "repo": "monstercat/labels",
+  "description": "labels template",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "template.js",
+  "scripts": [
+    "template.js"
+  ]
+}

@@ -1,0 +1,26 @@
+.signin-view {
+  width: 320px;
+  background: white;
+}
+
+.signin-view .center-box {
+  padding: 1em;
+}
+
+.signin-view .monstercat {
+  margin: 0 auto 2em auto;
+  min-width: 3em;
+  min-height: 3em;
+}
+
+.signin-view input[type="email"].ss,
+.signin-view input[type="password"].ss,
+.signin-view input[type="tel"].ss {
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 350px) {
+  .signin-view {
+    width: 280px;
+  }
+}

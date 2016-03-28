@@ -1,0 +1,10 @@
+@media (max-width: 600px) {
+  .statements-view .ss.table-filters .options {
+    display: none;
+  }
+}
+@media (min-width: 600px) {
+  .statements-view .ss.table-filters .results-count {
+    display: block;
+  }
+}

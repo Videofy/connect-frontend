@@ -1,0 +1,23 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "style.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "view-plugin"
+  ],
+  "main": "index.js",
+  "name": "general-page-view",
+  "repo": "monstercat/general-page-view",
+  "description": "",
+  "version": "0.0.1"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "subscription-plans-view",
+  "repo": "monstercat/subscription-plans-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/superagent": "*",
+    "tm-components/enabler": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "mit",
+  "main": "index.js",
+  "local": [
+    "collection-fsr-plugin",
+    "label-view",
+    "list-manage-view",
+    "parse",
+    "sort-util",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "row.js",
+    "row-template.js",
+    "pane.js",
+    "pane-template.js",
+    "empty-template.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

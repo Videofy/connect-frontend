@@ -1,0 +1,31 @@
+.news-stream {
+  background-color: #fff;
+  max-width: 520px;
+  min-height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.news-stream .news-stream-title {
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
+  font-size: 1em;
+  line-height: normal;
+  margin: 0;
+  padding: 1em 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.news-stream .filter {
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
+  list-style-type: none;
+  margin: 0;
+  padding: 0.5em 1em;
+}
+
+.news-stream .filter select {
+  color: dodgerblue;
+  margin-left: 0.5em;
+  padding: 0;
+  width: inherit;
+}

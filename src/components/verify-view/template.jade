@@ -1,0 +1,30 @@
+.ss.pushout
+  .ss.card.w320.center-box
+    .ss.monstercat.default.cancel-margin-top
+    .ss.loader.cancel-margin-bottom
+      i.fa.fa-refresh.fa-spin
+    p.ss.msg.bg-success.center-text.hide Method was succesful.
+    p.ss.msg.bg-error.center-text.hide An unknown error occured.
+    .setup
+      p.ss Please fill out the following information.
+      table.ss.rows.expand
+        tbody
+          tr
+            td
+              input.ss.expand(type="text"
+                role="real-name"
+                placeholder="Full Name")
+          tr
+            td
+              input.ss.expand(type="password"
+                role="new-password"
+                placeholder="New Password")
+          tr
+            td
+              input.ss.expand(type="password"
+                role="confirm"
+                placeholder="Confirm Password")
+          tr
+            td
+              button.ss.block-fill.bg-action.hover(role="verify" disabled) Verify
+    button.ss.block-fill.cancel-margin-bottom.hide(role="return") Return to Connect

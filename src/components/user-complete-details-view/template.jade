@@ -1,0 +1,44 @@
+section
+  h5.ss.center-text.cancel-margin-top Please complete the required fields below.
+  table.ss.rows
+    tbody
+      if !model.get('name') && !!model.isOfTypes('artist')
+        tr
+          td
+            label.ss Artist Name
+          td
+            input.ss.expand(type="text"
+              placeholder="Artist/Display Name"
+              title="Alias name used, such as an artist name or a display name."
+              property="name")
+      if !model.get('realName')
+        tr
+          td
+            label.ss Name
+          td
+            input.ss.expand(type="text"
+              placeholder="First and Last Name"
+              title="First and Last Name"
+              property="realName")
+      if !model.get('location')
+        tr
+          td
+            label.ss Country
+          td
+            select.ss(property='location')
+              option(disabled
+                value=''
+                selected=(hasLocation ? undefined : true)) Select One
+              each country in countries
+                option(value='#{country}'
+                  selected=(location == country ? true : undefined))= country
+      if permissions.canAccess('self.update.paymentType') && model.get('paymentType') == 'PayPal' && !model.get('paypalEmail')
+        tr
+          td
+            label.ss PayPal Email
+          td
+            input.ss.expand(type="text"
+              placeholder="example@monstercat.com"
+              property="paypalEmail")
+  .ss.right-text.block-fill
+    button.ss.bg-action.hover(role='complete') Update

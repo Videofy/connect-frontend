@@ -1,0 +1,22 @@
+{
+  "name": "user-model",
+  "repo": "monstercat/user-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/superagent":"*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "binary-downloader",
+    "parse",
+    "super-model",
+    "whitelist-item-model"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

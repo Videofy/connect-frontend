@@ -1,0 +1,21 @@
+{
+  "name": "download-button",
+  "repo": "monstercat/download-button",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "jb55/ap": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/debug": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ]
+}

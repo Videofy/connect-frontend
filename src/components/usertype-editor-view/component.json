@@ -1,0 +1,23 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "input.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "template-renderer"
+  ],
+  "main": "index.js",
+  "name": "usertype-editor-view",
+  "repo": "monstercat/usertype-editor-view",
+  "description": "",
+  "version": "0.0.1"
+}

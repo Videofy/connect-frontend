@@ -1,0 +1,26 @@
+{
+  "name": "paypal-payment-view",
+  "repo": "monstercat/paypal-payment-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/enabler": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "end-point",
+    "template-renderer",
+    "user-model",
+    "subscription-plan",
+    "parse"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ]
+}

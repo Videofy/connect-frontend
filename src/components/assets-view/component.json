@@ -1,0 +1,34 @@
+{
+  "name": "assets-view",
+  "repo": "monstercat/assets-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "collection-fsr-plugin",
+    "commission-b-collection",
+    "commissions-b-view",
+    "input-cancel-plugin",
+    "input-list-view",
+    "parse",
+    "tab-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "details-template.js",
+    "details-view.js",
+    "index.js",
+    "pane-template.js",
+    "pane-view.js",
+    "row-template.js",
+    "row-view.js",
+    "template.js"
+  ],
+  "styles": []
+}

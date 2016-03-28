@@ -1,0 +1,92 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else if mode == 'error'
+  .ss.center-text
+    p.ss.heavy= error
+    p= strings.phrases.tryAgain
+else
+  - var types = model.get('userTypes')
+  .ss
+    header
+      nav.ss.table-filters
+        .options
+          .ss.input-button
+            input.ss(type="text" role="new-plan-title" placeholder="New Plan Title")
+            button.ss.bg-action.hover(role="add-plan")= strings.defaults.add
+        .filter
+          label.ss.results(role='results-count')
+          .ss.search
+            input.ss(type="text" role="filter" placeholder="#{strings.defaults.filter}")
+      nav.ss.table-filters.more-filters
+        .options
+          select.ss(filter='userTypes')
+            option(value='' selected) All Types
+            each type in types
+              option(value='#{type}')= strings.userTypes[type] || type
+          select.ss(filter='env')
+            option(value='') All Environments
+            option(value='production' selected) Production
+            option(value='development') Development
+            option(value='staging') Staging
+          select.ss(filter='period')
+            option(value='' selected) All Periods
+            option(value=1) 1 Month
+            option(value=3) 3 Months
+            option(value=12) 1 Year
+          select.ss(filter='channelNum')
+            option(value='' selected) All Channels
+            option(value=2) 2 Channels
+            option(value=3) 3 Channels
+            option(value=4) 4 Channels
+            option(value=5) 5 Channels
+            option(value=6) 6 Channels
+            option(value=7) 7 Channels
+          label.ss.checkbox= strings.defaults.activeOnly
+            input.ss(type='checkbox' filter='active' checked)
+
+    section
+      div
+        table.ss.pane-table
+          thead.ss.hide-below.w500
+            tr
+              th.sortable(sort-on="planId")= strings.defaults.planName
+                i.fa.fa-sort-asc.indicator-asc
+                i.fa.fa-sort-desc.indicator-desc
+              th.sortable(sort-on="period")= strings.defaults.period
+                i.fa.fa-sort-asc.indicator-asc
+                i.fa.fa-sort-desc.indicator-desc
+              th.sortable(sort-on="channelNum")= strings.defaults.channelNum
+                i.fa.fa-sort-asc.indicator-asc
+                i.fa.fa-sort-desc.indicator-desc
+              th.sortable(sort-on="amount")= strings.defaults.amount
+                i.fa.fa-sort-asc.indicator-asc
+                i.fa.fa-sort-desc.indicator-desc
+              th= strings.defaults.userTypes
+              th.sortable(sort-on="active")= strings.defaults.active
+                i.fa.fa-sort-asc.indicator-asc
+                i.fa.fa-sort-desc.indicator-desc
+              th.sortable(sort-on="env")= strings.defaults.environment
+                i.fa.fa-sort-asc.indicator-asc
+                i.fa.fa-sort-desc.indicator-desc
+              th.sortable(sort-on="userNum")= strings.subscriptionPlans.userNum
+                i.fa.fa-sort-asc.indicator-asc
+                i.fa.fa-sort-desc.indicator-desc
+              th= strings.defaults.actions
+          tbody
+            tr
+              td(colspan=9)
+                .ss.loader
+                  i.fa.fa-refresh.fa-spin
+
+    nav.ss.table-pagination.no-pages
+      button.ss.fake(role='page-previous')
+        i.fa.fa-chevron-left
+        span  Previous 
+          span(role='increment')= increment
+      label.ss(role='results') &nbsp;
+      button.ss.fake(role='page-next')
+        span Next 
+          span(role='increment')= increment
+          |  
+        i.fa.fa-chevron-right

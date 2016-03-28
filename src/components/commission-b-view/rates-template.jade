@@ -1,0 +1,29 @@
+h5 Mechanical Effect Rates
+
+select.ss(role='new-country')
+  each country in countries
+    option(value='#{country.alpha3}')= country.name
+|  
+select.ss(role='new-effect')
+  option(value='single') Single
+  option(value='release10') Over 10 Tracks
+|  
+.ss.input-button
+  input.ss(type='text' role='new-rate' placeholder='3/4')
+  button.ss.bg-action.hover(role='add-effect')= strings.defaults.add
+
+br
+br
+
+table.ss.bordered
+  thead
+    tr
+      th Country
+      th Effect
+      th Rate
+      th
+  tbody
+    tr
+      td(colspan=4)
+        .ss.loader
+          i.fa.fa-refresh.fa-spin

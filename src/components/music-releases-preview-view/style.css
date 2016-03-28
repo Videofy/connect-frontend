@@ -1,0 +1,223 @@
+.presenter-view.art-preview img {
+  max-width: 90vw;
+  max-height: 90vh;
+  box-shadow: 0 0 5em rgba(0, 0, 0, 0.5);
+}
+
+.music-releases-preview-view {
+  background: white;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 1);
+  height: 0;
+  transition: height 0.5s;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.music-releases-preview-view.open {
+  height: 20em;
+}
+
+.music-releases-preview-view .container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.music-releases-preview-view .art, 
+.music-releases-preview-view .shade, 
+.music-releases-preview-view .core {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: height 0.5s;
+}
+
+.music-releases-preview-view .art {
+  background: whitesmoke no-repeat center center;
+  background-size: 110%;
+  filter: blur(8px);
+}
+
+.music-releases-preview-view .shade {
+  background: linear-gradient(160deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+}
+
+.music-releases-preview-view .core {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.music-releases-preview-view .info {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: auto;
+}
+
+.music-releases-preview-view .close-bar {
+  color: white;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.music-releases-preview-view .info > .release-art {
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 1rem 1rem 0 0;
+  position: relative;
+  width: 17em;
+}
+
+.music-releases-preview-view .info > .release-art > .image {
+  height: 100%;
+  position: absolute;
+  text-align: right;
+  width: 100%;
+}
+
+.music-releases-preview-view .info > .release-art > .image > img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.music-releases-preview-view .info > .details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.music-releases-preview-view label {
+  cursor: default;
+  font-size: 1.2em;
+  line-height: normal;
+  margin: 0;
+}
+
+.music-releases-preview-view label[role='title'] {
+  font-family: "Gotham Bold";
+  font-size: 1.6em;
+  text-transform: uppercase;
+}
+
+.music-releases-preview-view label[role='title'] .actions {
+  display: inline;
+  margin-left: 1rem;
+}
+
+.music-releases-preview-view label[role='title'] .actions i {
+  opacity: 0.5;
+  transition: opacity 0.25s;
+  cursor: pointer;
+}
+
+.music-releases-preview-view .meta-text:hover label[role='title'] .actions i:hover,
+.music-releases-preview-view label[role='title'] .actions i.active,
+.music-releases-preview-view .meta-text:hover label[role='title'] .actions i.active {
+  opacity: 1;
+}
+
+.music-releases-preview-view .meta-text {
+  flex-shrink: 0;
+}
+
+.music-releases-preview-view .tracks {
+  border-bottom: solid 0.1em rgba(255, 255, 255, 0.2);
+  border-top: solid 0.1em rgba(255, 255, 255, 0.2);
+  flex: 1;
+  height: 100%;
+  margin: 0.5rem 0 0 0;
+  overflow: auto;
+  padding: 0.25em 0;
+}
+
+.music-releases-preview-view .tracks > table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.music-releases-preview-view .tracks td {
+  font-size: 1.1em;
+  line-height: normal;
+  padding: 0.1em 0.25em;
+  white-space: nowrap;
+}
+
+.music-releases-preview-view .tracks td:first-child {
+  padding-left: 0;
+}
+
+.music-releases-preview-view .tracks td:last-child {
+  padding-right: 0;
+  width: 1em;
+}
+
+.music-releases-preview-view .tracks td.tnum {
+  text-align: right;
+  width: 1%;
+}
+
+.music-releases-preview-view .tracks tr i[status="paused"],
+.music-releases-preview-view .tracks tr i[status="playing"] {
+  display: none;
+  margin-right: 0.25em;
+}
+
+.music-releases-preview-view .tracks tr.active:not(.playing) td i[status="paused"],
+.music-releases-preview-view .tracks tr.active.playing td i[status="playing"] {
+  display: inline-block;
+}
+
+.music-releases-preview-view .tracks tr i[role='add'],
+.music-releases-preview-view .tracks tr i[role='in-playlist'] {
+  cursor: pointer;
+}
+
+.music-releases-preview-view .tracks tr i[role='in-playlist'],
+.music-releases-preview-view .tracks tr.added i[role="add"] {
+  display: none;
+}
+
+.music-releases-preview-view .tracks tr.added i[role="in-playlist"],
+.music-releases-preview-view .tracks tr.active i[role="status"] {
+  display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .mobile .music-releases-preview-view .tracks td {
+    line-height: 2;
+  }
+
+  .music-releases-preview-view .shade {
+    background: linear-gradient(160deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0.7) 100%);
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile .music-releases-preview-view .tracks td {
+    line-height: 2.5;
+  }
+
+  .mobile .music-releases-preview-view.open {
+    height: 100%;
+  }
+
+  .music-releases-preview-view .meta-text {
+    width: 80%;
+  }
+
+  .music-releases-preview-view .info > .release-art {
+    height: 4em;
+    position: absolute;
+    right: 0;
+    width: 4em;
+  }
+}

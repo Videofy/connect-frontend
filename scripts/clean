@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "cleaning client templates..."
+find src -name '*.jade' | sed "s/\.jade$/\.js/" | xargs rm -f
+echo "cleaning client styles..."
+find src -name '*.less' | sed "s/\.less$/\.css/" | xargs rm -f
+rm -f client/css/monstercat.css
+echo "cleaning client js..."
+find src -name '*.coffee' | sed "s/\.coffee$/\.js/" | xargs rm -f
+rm -f client/bQuery.js
+rm -f client/monstercat.js
+rm -f /tmp/connect.changed.store
+echo "cleaning component build..."
+rm -rf client/component

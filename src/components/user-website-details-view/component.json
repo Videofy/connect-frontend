@@ -1,0 +1,26 @@
+{
+  "name": "user-website-details-view",
+  "repo": "monstercat/user-website-details-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "input-binder",
+    "input-list-view",
+    "user-profile-image-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

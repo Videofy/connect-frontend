@@ -1,0 +1,12 @@
+.release-details-view {
+  display: flex;
+}
+
+.release-details-view > [role='tracks'] {
+  flex: 1;
+  padding-left: 1em;
+}
+
+.release-details-view > table tr > th {
+  vertical-align: top;
+}

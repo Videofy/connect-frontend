@@ -1,0 +1,21 @@
+label.ss.heavy Subscription Setting
+.ss.labelfields
+  .field.update-sub-type
+    .key
+      label.ss Subscription Type
+    .value
+      select.ss.type-select-update
+        option(value="gold") Gold
+        option(value="licensee") Licensee
+  .field    
+    .key
+      label.ss Payment Interval
+    .value
+      label.ss.interval 1 Month
+  .field
+    .key
+      label.ss Cost
+    .value
+      label.ss.subscription-cost
+button.ss.bg-action(role="update-subscription")  Update
+button.ss.bg-action(role="cancel-subscription-update")  Cancel Subscription

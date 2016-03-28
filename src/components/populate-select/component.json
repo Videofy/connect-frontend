@@ -1,0 +1,17 @@
+{
+  "name": "populate-select",
+  "repo": "monstercat/populate-select",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "sort-util"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,33 @@
+table.ss.rows
+  tbody
+    tr.ss.hide-above.w500
+      th Signing As
+    tr
+      th.ss.hide-below.w500 Signing As
+      td= user.getNameAndRealName()
+    tr.ss.hide-above.w500
+      th Signing Key
+    tr
+      th.ss.hide-below.w500 Password 
+      td
+        input.ss.expand(type='password' role='sign-key')
+    tr.ss.hide-above.w500
+      th Signature
+    tr
+      th.ss.hide-below.w500 Signature
+      td
+        canvas(role='pad' width="300" height="150")
+    tr
+      td.ss.hide-below.w500
+      td
+    tr
+      td.ss.hide-below.w500
+      td
+        .ss.input-button
+          button.ss(role="clear") Clear
+          button.ss.bg-action.hover.actioneer(role="upload") Upload Signature
+        | 
+        button.ss.bg-danger.hover.actioneer(role='sign')
+            span.inactive Sign
+            span.active Signing 
+              i.fa.fa-gear.fa-spin

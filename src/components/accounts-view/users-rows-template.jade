@@ -1,0 +1,18 @@
+if mode == 'loading'
+  tr
+    td.ss.center-text(colspan=4)
+      .ss.loader
+        i.fa.fa-refresh.fa-spin
+else
+  if !users || !users.length
+    tr
+      td.ss.center-text(colspan='4') No users in account.
+  else
+    each user in users
+      tr
+        td= user.name
+        td= user.role
+        td= user.commissionRatio
+        td
+          button.ss.fake.cl-danger-hover(role='delete' user-id='#{user.userId}')
+            i.fa.fa-trash-o

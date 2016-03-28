@@ -1,0 +1,22 @@
+{
+  "name": "contract-model",
+  "repo": "monstercat/contract-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/date-time": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "local": [
+    "contract-assets",
+    "parse",
+    "super-model"
+  ]
+}

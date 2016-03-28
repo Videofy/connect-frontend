@@ -1,0 +1,28 @@
+.contracts-view .options > select.ss:first-child {
+  margin-left: 0;
+}
+
+.contracts-view .pane-table > tbody > tr.pane-row:hover > td {
+  cursor: default;
+}
+
+.contracts-view .pane-table > tbody > tr.pane-row > td > a,
+.contracts-view .pane-table > tbody > tr.pane-row:hover > td > a:hover {
+  color: inherit;
+}
+
+@media (max-width: 1024px) {
+  .contracts-view .actions {
+    width: 68px; /* 18+7+18+7+18 */
+  }
+}
+
+@media (max-width: 500px) {
+  .contracts-view .contract-title > .hide-above.w500 {
+    font-size: 90%;
+  }
+
+  .contracts-view .options > select:nth-last-of-type(1) {
+    margin-right: 0;
+  }
+}

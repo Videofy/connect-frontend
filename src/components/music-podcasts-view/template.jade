@@ -1,0 +1,31 @@
+table
+  thead.ss.hide-below.w500
+    tr
+      th
+      th(sort="track") Episode 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+      th(sort="date") Release Date 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+  tbody
+    each track in tracks
+      tr(track-id="#{track.id}" release-id="#{track.queryables.rid}" role="play")
+        td.ss.hide-above.w500.details
+          span= track.title
+          span= track.date.format()
+        td.ss.actions.ss.hide-below.w500
+          i.fa.fa-plus-circle.fa-fw(role="add" title="Add track to the current playlist.")
+          i.fa.fa-check.fa-fw(role="in-playlist" title="In current playlist. Tap to remove.")
+        td.ss.actions.ss.hide-above.w500
+          i.fa.fa-play.fa-fw(role="play-mobile")
+          i.fa.fa-pause.fa-fw(role="pause-mobile")
+          i.fa.fa-chevron-circle-down(role="options")
+        td.ss.hide-below.w500.trackname(draggable="true")
+          i.fa.fa-volume-up(status="playing" title="Currently Playing")
+          i.fa.fa-volume-off(status="paused" title="Currently Paused")
+          = track.title
+          if showLicenseInfo && !track.licensable
+            i.fa.fa-exclamation-circle.disabled-track.ss.cl-warning(role="disabled-track")
+          i.fa.fa-chevron-circle-down.hide-below.w1024(role="options" title="More options.")
+        td.ss.hide-below.w500= track.date.format()

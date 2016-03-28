@@ -1,0 +1,6 @@
+- var identity = model.get('identity')
+- var link = model.get('name') == "twitch" ? "http://www.twitch.tv/"+identity+"/profile" : "http://www.youtube.com/channel/" + identity
+.ss.inline-toolbar
+  button.ss.fake(role="status")
+    i(role='status-icon')
+  a.ss(href="#{link}" role='link' target="_blank")= identity

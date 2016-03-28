@@ -1,0 +1,14 @@
+{
+  "name": "enabler",
+  "repo": "tm-components/enabler",
+  "description": "A view enabler.",
+  "version": "0.0.3",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

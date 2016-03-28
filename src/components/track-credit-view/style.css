@@ -1,0 +1,20 @@
+.track-credit-view > textarea.ss {
+  display: block;
+  height: 80px;
+  margin: 0;
+  width: 500px;
+}
+
+.presenter-view.track-credit .content {
+  background: white;
+  border-radius: 0.5em;
+  box-shadow: 0em 0em 5em rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  padding: 1em;
+}
+
+@media (max-width: 500px) {
+  .track-credit-view > textarea.ss {
+    width: 300px;
+  }
+}

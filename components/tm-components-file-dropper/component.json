@@ -1,0 +1,16 @@
+{
+  "name": "file-dropper",
+  "repo": "tm-components/file-dropper",
+  "description": "",
+  "version": "0.0.5",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter": "*",
+    "tm-components/key-value-map": "*"
+  },
+  "development": {},
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

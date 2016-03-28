@@ -1,0 +1,9 @@
+.status-view .content {
+  color: white;
+  padding: 1em;
+  font-weight: bold;
+}
+
+.status-view .content ul {
+  margin: 0 0 0 1em;
+}

@@ -1,0 +1,24 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "tm-components/color-picker": "*",
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "input.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "template-renderer"
+  ],
+  "main": "index.js",
+  "name": "color-picker-view",
+  "repo": "monstercat/color-picker-view",
+  "description": "",
+  "version": "0.0.1"
+}

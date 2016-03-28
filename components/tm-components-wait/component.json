@@ -1,0 +1,14 @@
+{
+  "name": "wait",
+  "repo": "tm-components/wait",
+  "description": "",
+  "version": "1.0.0",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

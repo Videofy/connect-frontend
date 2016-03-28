@@ -1,0 +1,25 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "tm-components/key-value-map": "*",
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "input.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js",
+    "row-template.js"
+  ],
+  "local": [
+    "view-plugin"
+  ],
+  "main": "index.js",
+  "name": "list-manage-view",
+  "repo": "monstercat/list-manage-view",
+  "description": "",
+  "version": "0.0.1"
+}

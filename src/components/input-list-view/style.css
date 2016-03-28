@@ -1,0 +1,4 @@
+.input-list-view > table.ss > tbody > tr > td,
+.list-manage-view > table.ss > tbody > tr > td {
+  padding-bottom: 0;
+}

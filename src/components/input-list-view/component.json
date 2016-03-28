@@ -1,0 +1,26 @@
+{
+  "name": "input-list-view",
+  "repo": "monstercat/input-list-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/node": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "parse",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "row-template.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

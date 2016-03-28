@@ -1,0 +1,9 @@
+td.filename.ss.details
+  span= model.get("filename")
+  span.ss.hide-above.w500= model.getAsFormatedDate("createdDate")
+td.ss.hide-below.w500.filetype= model.get("filetype")
+td.ss.hide-below.w500.date= model.getAsFormatedDate("createdDate")
+td.ss.actions.button-group
+  button.ss.fake
+    a(href="/document/dl/#{model.id}").ss.cl-action-hover
+      i.fa.fa-cloud-download

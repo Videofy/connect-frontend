@@ -1,0 +1,19 @@
+{
+  "name": "track-mixins",
+  "repo": "monstercat/track-mixins",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "monstercat/genre-colors": "*",
+    "component/querystring": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

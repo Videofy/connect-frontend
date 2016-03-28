@@ -1,0 +1,19 @@
+{
+  "name": "crud-collection",
+  "repo": "monstercat/crud-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "end-point",
+    "super-collection",
+    "super-model"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

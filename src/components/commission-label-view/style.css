@@ -1,0 +1,8 @@
+.commission-label-view canvas {
+  display: block;
+}
+
+.commission-label-view input[type='text'].ss {
+  width: 50px;
+  text-align: center;
+}

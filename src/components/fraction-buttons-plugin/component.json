@@ -1,0 +1,17 @@
+{
+  "name": "fraction-buttons-plugin",
+  "repo": "monstercat/fraction-buttons-plugin",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

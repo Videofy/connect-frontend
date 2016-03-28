@@ -1,0 +1,38 @@
+.user-invite-view {
+  background-color: white;
+  height: 100%;
+  max-width: 720px;
+  position: absolute;
+  width: 100%;
+}
+
+.user-invite-view .loader {
+  width: 100%;
+}
+
+.user-invite-view .invite-table {
+  padding: 1em;
+}
+
+.user-invite-view table th {
+  padding-right: 1em;
+  text-align: right;
+}
+
+.list-label {
+  vertical-align: text-top;
+}
+
+.user-invite-view table input.ss[type="text"],
+.user-invite-view table input.ss[type="email"],
+.user-invite-view table select.ss {
+  width: 250px;
+}
+
+@media (max-width: 400px) {
+  .user-invite-view table input.ss[type="text"],
+  .user-invite-view table input.ss[type="email"],
+  .user-invite-view table select.ss {
+    width: 200px;
+  }
+}

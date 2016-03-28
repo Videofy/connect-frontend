@@ -1,0 +1,33 @@
+
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "style.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "input-clear-plugin",
+    "music-podcasts-view",
+    "music-releases-view",
+    "music-tracks-view",
+    "subscription-required-view",
+    "tab-view",
+    "view-plugin",
+    "tab-change-plugin",
+    "track-collection",
+    "release-collection"
+  ],
+  "main": "index.js",
+  "name": "music-view",
+  "repo": "monstercat/music-view",
+  "description": "",
+  "version": "0.0.1"
+}

@@ -1,0 +1,31 @@
+- var models = collection.models
+table.ss.bordered
+  thead
+    tr
+      th Title
+      th Date
+      th Action
+  tbody
+    if mode == 'loading'
+      tr
+        td(colspan=3)
+          .ss.loader
+            i.fa.fa-refresh.fa-spin
+    else if !models.length
+      tr
+        td.ss.center-text(colspan=3)
+          label.ss.heavy There are no documents.
+    else
+      each model in models
+        tr
+          td= model.get('title')
+            if !model.hasAttachment()
+              |  
+              span.ss.heavy (No Attachment)
+          td= model.getDateStr('date', 'M j, Y / g:i A')
+          td
+            .ss.inline-toolbar
+              if model.hasAttachment()
+                a.ss.fake.cl-inherit.cl-action-hover(href="#{model.getDownloadUri()}"
+                                                     target="_blank")
+                  i.fa.fa-file-o

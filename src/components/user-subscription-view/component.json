@@ -1,0 +1,32 @@
+{
+  "name": "user-subscription-view",
+  "repo": "monstercat/user-subscription-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "subscription-payment-view",
+    "update-subscription-view",
+    "user-model",
+    "subscription-model",
+    "subscription-referral-view",
+    "view-plugin",
+    "subscription-plan",
+    "parse",
+    "referral-collection"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

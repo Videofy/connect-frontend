@@ -1,0 +1,18 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "component/emitter": "*",
+    "visionmedia/debug": "*"
+  },
+  "keywords": [],
+  "scripts": [
+    "index.js"
+  ],
+  "local": [],
+  "main": "index.js",
+  "name": "transfers",
+  "repo": "monstercat/transfers",
+  "description": "",
+  "version": "0.0.1"
+}

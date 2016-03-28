@@ -1,0 +1,24 @@
+{
+  "name": "color-picker",
+  "repo": "component/color-picker",
+  "description": "Simple color picker component.",
+  "version": "0.0.4",
+  "keywords": [
+    "color",
+    "picker",
+    "ui"
+  ],
+  "dependencies": {
+    "component/autoscale-canvas": "*",
+    "component/emitter": "*",
+    "tm-components/color": "*",
+    "tm-components/point": "*"
+  },
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "color-picker.css"
+  ],
+  "license": "MIT"
+}

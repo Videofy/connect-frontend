@@ -1,0 +1,50 @@
+.container-view {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  min-width: 320px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.container-view > .content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.container-view > .content > .inner-content {
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.container-view > .menu-view,
+.container-view > .player-view {
+  flex-shrink: 0;
+}
+
+.container-view > .toasts-view {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.container-view > .toasts-view .toast-view {
+  color: white;
+  left: 50%;
+  pointer-events: all;
+  position: relative;
+  text-align: center;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+}

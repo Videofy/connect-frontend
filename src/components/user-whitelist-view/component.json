@@ -1,0 +1,29 @@
+{
+  "name": "user-whitelist-view",
+  "repo": "monstercat/user-whitelist-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/enabler": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "user-whitelist-item-view",
+    "view-plugin",
+    "user-whitelist",
+    "subscription-plan",
+    "parse"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

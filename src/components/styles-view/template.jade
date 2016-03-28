@@ -1,0 +1,142 @@
+div.style-guide(role="style-guide")
+hr
+
+h2 Headings and Text
+.wrapper
+  h1 Heading 1
+  h2 Heading 2
+  h3 Heading 3
+  h4 Heading 4
+  h5 Heading 5
+  h6 Heading 6
+  p.ss Paragraph
+  a.ss Anchor
+  label.ss Label
+
+h2 Inputs
+h3 Input Types
+.wrapper
+  input.ss(type="text" placeholder="Text")
+  input.ss(type="email" placeholder="Email")
+  input.ss(type="password" placeholder="Password")
+  input.ss(type="date" placeholder="yyyy-mm-dd")
+  input.ss(type="number" placeholder="Number")
+  select.ss
+    option Select
+    option Option 2
+    option Option 3
+  textarea.ss(placeholder="Text Area")
+  label.ss.checkbox
+    input.ss(type="checkbox")
+    | Checkbox
+  label.ss.radio
+    input.ss(type="radio")
+    | Radio
+
+h3 Input Buttons
+.wrapper
+  .ss.input-button
+    input.ss(type="text" placeholder="Text")
+    button.ss.bg-action.hover Button
+  .ss.input-button
+    select.ss
+      option Select
+      option Option 2
+      option Option 3
+    button.ss.bg-action.hover Button
+
+h3 Input States
+.wrapper
+  input.ss(type="text" placeholder="Default")
+  input.ss.error(type="text" placeholder="Error")
+  input.ss.ok(type="text" placeholder="Ok")
+  input.ss(type="text" placeholder="Disabled" disabled)
+
+h2 Buttons
+h3 Button Types
+.wrapper
+  button.ss Button
+  br
+  button.ss.fake
+    i.fa.fa-times
+    |  Fake Button
+
+h3 Button Colours
+.wrapper
+  button.ss.bg-default.hover Default
+  button.ss.bg-info.hover Info, Action, Success
+  button.ss.bg-warning.hover Warning
+  button.ss.bg-error.hover Error, Danger, Attention
+  button.ss(disabled) Disabled
+
+h2 Tables
+h3 Table Filters
+nav.ss.table-filters
+  .options
+    button.ss Button
+    .ss.input-button
+      input.ss(type="text" placeholder="Text")
+      button.ss.bg-action.hover Button
+    label.results-count Results Count
+  .filter
+    label.results Results
+    .ss.search
+      input.ss(type="text" placeholder="Search")
+.ss.table-filters
+  .options
+    button.ss You can also add a second row
+
+h3 Bordered Table
+.wrapper
+  table.ss.bordered
+    thead
+      th Heading
+      th Heading
+      th Heading
+    tbody
+      tr
+        td Cell
+        td Cell
+        td Cell
+      tr
+        td Cell
+        td Cell
+        td Cell
+      tr
+        td Cell
+        td Cell
+        td Cell
+
+h3 Table Rows
+p Especially useful for setting up forms
+.wrapper
+  table.ss.rows
+    thead
+      th Heading
+      th Heading
+      th Heading
+    tbody
+      tr
+        td Cell
+        td Cell
+        td Cell
+      tr
+        td Cell
+        td Cell
+        td Cell
+      tr
+        td Cell
+        td Cell
+        td Cell
+.wrapper
+  table.ss.rows
+    tbody
+      tr
+        th Heading
+        td Cell
+      tr
+        th Heading
+        td Cell
+      tr
+        th Heading
+        td Cell

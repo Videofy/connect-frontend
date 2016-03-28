@@ -1,0 +1,19 @@
+{
+  "name": "music-tracks-plugin",
+  "repo": "monstercat/music-tracks-plugin",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "playlist-model",
+    "track-context-menu-plugin"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "ap",
+  "repo": "jb55/ap",
+  "description": "Apply function, otherwise return value",
+  "version": "1.0.0",
+  "keywords": [],
+  "dependencies": {
+    "component/type": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}

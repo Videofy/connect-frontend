@@ -1,0 +1,34 @@
+{
+  "name": "users-view",
+  "repo": "monstercat/users-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "collection-view-listing",
+    "collection-view-listing-filter",
+    "collection-fsr-plugin",
+    "fsr-render-rows",
+    "input-cancel-plugin",
+    "pane-util",
+    "pane-view",
+    "sort-util",
+    "user-collection",
+    "user-page-view",
+    "user-row-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "input.css"
+  ]
+}

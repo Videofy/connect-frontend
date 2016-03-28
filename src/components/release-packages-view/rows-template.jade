@@ -1,0 +1,18 @@
+if models && models.length
+  each model in models
+    tr
+      - var logs = model.get('jobLogs')
+      - var last = logs.length - 1
+      - var statuses = logs.map(function (log) { return log.status; })
+      - var status = statuses[last]
+      - var msgs = logs.map(function(log) { return log.message || log.error })
+      - var progress = (status == 'finished' ? 1 : model.progress || 0) * 100
+      td= status ? humanize(status) : "New"
+      td= progress.toFixed(0)
+        | %
+      td= msgs[last] || strings.phrases.noLogs
+      td.ss.nowrap= model.getAsFormatedDate('createdDate', 'M j, Y g:i A')
+else
+  tr
+    td(colspan='4')
+      p.ss.center-text= strings.packages.noPackages

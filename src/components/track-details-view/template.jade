@@ -1,0 +1,138 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else
+  table.ss.rows
+    tbody
+      tr
+        th
+          label.ss.heavy= strings.defaults.title
+        td
+          input.ss(type='text' property='title')
+
+      tr
+        th
+          label.ss.heavy= strings.defaults.artistsTitle
+        td
+          input.ss(type='text' property='artistsTitle')
+
+      tr
+        th
+          label.ss.heavy= strings.defaults.artists
+        td(list-target='artists')
+          i.fa.fa-refresh.fa-spin
+
+      tr
+        th
+          label.ss.heavy= strings.trackDetails.featuring
+        td(list-target='featuring')
+          i.fa.fa-refresh.fa-spin
+
+      tr
+        th
+          label.ss.heavy= strings.trackDetails.remixers
+        td(list-target='remixers')
+          i.fa.fa-refresh.fa-spin
+
+      tr
+        th
+          label.ss.heavy= strings.trackDetails.remixOf
+        td
+          select.ss(property='remixOf' disabled)
+            option(value='' disabled) Loading...
+
+      tr
+        th
+          label.ss.heavy= strings.trackDetails.altNames
+        td(list-target='altNames')
+          i.fa.fa-refresh.fa-spin
+
+      tr
+        th
+          label.ss.heavy= strings.trackDetails.debutDate
+        td
+          input.ss(type='date', property='created')
+
+      tr
+        th
+          label.ss.heavy= strings.defaults.iswc
+        td
+          input.ss(type='text' property='iswc')
+
+      tr
+        th
+          label.ss.heavy= strings.defaults.isrc
+        td
+          .ss.input-button
+            input.ss(type='text' property='isrc')
+            button.ss.bg-action.hover.actioneer(role='generate-isrc')
+              span.inactive Generate
+              i.active.fa.fa-gear.fa-spin
+
+      tr
+        th
+          label.ss.heavy= strings.trackDetails.additionalIsrcs
+        td(list-target='isrcs')
+          i.fa.fa-refresh.fa-spin
+
+      tr
+        th
+          label.ss.heavy= strings.trackDetails.bpm
+        td
+          .ss.input-button
+            input.ss(type='number' property='bpm')
+            button.ss.bg-action.hover.actioneer(role='calculate-bpm')
+              span.inactive Calculate
+              i.active.fa.fa-gear.fa-spin
+
+      tr
+        th
+          label.ss.heavy= strings.trackDetails.trackLength
+        td
+          .ss.input-button
+            input.ss(type='number' property='duration')
+            button.ss.bg-action.hover.actioneer(role='calculate-length')
+              span.inactive Calculate
+              i.active.fa.fa-gear.fa-spin
+      tr
+        th
+          label.ss.heavy= strings.defaults.genres
+        td(list-target='genres')
+          i.fa.fa-refresh.fa-spin
+
+      tr
+        th
+          label.ss.heavy= strings.defaults.tags
+        td(list-target='tags')
+          i.fa.fa-refresh.fa-spin
+
+      tr
+        th
+          label.ss.heavy Licensable
+        td
+          input.ss(type='checkbox' property='licensable') 
+
+      tr
+        th
+          label.ss.heavy Catalogs
+
+        td
+          label.ss.checkbox.inline Gold
+            input.ss(type='checkbox'
+              role='dictate-catalog'
+              value='gold'
+              checked=model.onCatalog('gold'))
+          label.ss.checkbox.inline License
+            input.ss(type='checkbox'
+              role='dictate-catalog'
+              value='license'
+              checked=model.onCatalog('license'))
+          label.ss.checkbox.inline Sync
+            input.ss(type='checkbox'
+              role='dictate-catalog'
+              value='sync'
+              checked=model.onCatalog('sync'))
+
+.lyrics-wrapper
+  label.ss.heavy Lyrics
+  textarea.ss.expand.w520(property='lyrics')

@@ -1,0 +1,8 @@
+if mode == 'error'
+  .ss.center-text.bg-error
+    p.ss.heavy= error
+else if errors && errors.length
+  .content.ss.bg-error
+    ul
+      each err in errors
+        li= err.message

@@ -1,0 +1,19 @@
+{
+  "name": "track-collection",
+  "repo": "monstercat/track-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "track-model",
+    "crud-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

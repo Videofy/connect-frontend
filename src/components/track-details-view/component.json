@@ -1,0 +1,32 @@
+{
+  "name": "track-details-view",
+  "repo": "monstercat/track-details-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/wait": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/debug": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "input-list-view",
+    "label-view",
+    "list-manage-view",
+    "parse",
+    "populate-select",
+    "sort-util",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

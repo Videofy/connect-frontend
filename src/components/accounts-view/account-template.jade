@@ -1,0 +1,25 @@
+tr
+  td(role='container' colspan="3")
+    if mode == 'loading'
+      .ss.loader
+        i.fa.fa-refresh.fa-spin
+    else
+      table.ss.rows
+        tr
+          th Name
+          td
+            input.ss(type='text' property='name')
+
+      select.ss(role='new-role')
+        option(value='' disabled='true' selected) Select Role
+        each name, role in roles
+          option(value='#{role}')= name
+      |  
+      input.ss.input-ratio(type='text' role='new-commission' placeholder='1/2')
+      |  
+      .search-input(role='search-users')
+        input.ss(type='text' placeholder='Username or Email')
+      |  
+      button.ss.bg-action.hover(role='add-user') Add User
+      br
+      br

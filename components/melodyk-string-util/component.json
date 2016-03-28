@@ -1,0 +1,12 @@
+{
+  "name": "string-util",
+  "version": "1.0.0",
+  "description": "Functions for strings",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repo": "https://raw.githubusercontent.com/melodyk/string-util"
+}

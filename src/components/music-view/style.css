@@ -1,0 +1,109 @@
+.music-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.music-view .subscription-required-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.music-view > nav.table-filters {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.music-view > nav > .tabs {
+  flex: 1;
+}
+
+.music-view > nav > .tabs > .tab-view li {
+  border-width: 0.25em;
+}
+
+.music-view > nav > .tabs > .tab-view li.active {
+  border-color: dodgerblue;
+}
+
+.music-view > nav > .filter {
+  margin: 0.7rem 1rem 0 0;
+}
+
+.music-view > nav > .filter > .search,
+.music-view > nav > .filter > label {
+  display: inline-block;
+}
+
+.music-view > nav > .filter > label {
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+.music-view > nav > .filter > .search {
+  width: 15em;
+}
+
+.music-view > nav > .filter > .search > input {
+  background: white;
+}
+
+.music-view .loader,
+.music-view .content {
+  flex: 1;
+  overflow: auto;
+  background: whitesmoke;
+  position: relative;
+}
+
+.music-view > nav.table-pagination {
+  border-top: solid 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-shrink: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.music-view > nav.table-pagination.no-pages > button {
+  display: none;
+}
+
+.music-view > nav.table-pagination > button {
+  flex-shrink: 0;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.music-view > nav.table-pagination > label {
+  flex: 1;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .music-view > nav {
+    display: block;
+  }
+
+  .music-view > nav.table-filters {
+    border-bottom: 0;
+    flex-direction: column;
+  }
+
+  .music-view > nav.table-pagination > button > i {
+    display: inherit;
+  }
+
+  .music-view > nav.table-pagination > button > span {
+    display: none;
+  }
+}

@@ -1,0 +1,13 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else
+  if showPrompt
+    label.ss.heavy.center-text= prompt
+  else
+    if !items.length
+      label.ss.heavy.center-text= empty
+    else
+      ul
+        each item in items
+          li(role='item' value='#{item.value}')= item.text

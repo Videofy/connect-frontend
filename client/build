@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+coffee -bc -o js bQuery.coffee
+
+ALLJS="
+js/bQuery.js
+js/jquery-1.7.1.js
+js/underscore.js
+js/backbone-0.9.9.js
+js/bootstrap-tooltip.js
+js/bootstrap-fileupload.js
+js/bootstrap-datepicker.js
+js/bootstrap-popover.js
+js/bootstrap-modal.js
+js/bootstrap-dropdown.js
+js/bootstrap-alert.js
+js/bootstrap-button.js
+component/build.js
+$(find ../src/backbone/mixins -name '*.js')
+"
+
+cat $ALLJS > "monstercat.js"

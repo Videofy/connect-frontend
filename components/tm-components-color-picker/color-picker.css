@@ -1,0 +1,16 @@
+
+.color-picker .pane {
+  display: inline-block;
+}
+
+.color-picker .pane:first-child {
+  margin-right: 0.5em;
+}
+
+.color-picker .pane.shade > canvas:hover {
+  cursor: crosshair;
+}
+
+.color-picker .pane.hue > canvas:hover {
+  cursor: row-resize;
+}

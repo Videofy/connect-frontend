@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "component/file-picker": "*",
+    "tm-components/file-dropper": "*",
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "input.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "file-uploader",
+    "template-renderer"
+  ],
+  "main": "index.js",
+  "name": "file-upload-view",
+  "repo": "monstercat/file-upload-view",
+  "description": "",
+  "version": "0.0.1"
+}

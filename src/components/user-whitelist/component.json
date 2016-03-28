@@ -1,0 +1,20 @@
+{
+  "name": "user-whitelist",
+  "repo": "monstercat/user-whitelist",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/superagent": "*",
+    "monstercat/parse-youtube-user": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "super-model"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

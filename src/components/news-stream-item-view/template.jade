@@ -1,0 +1,8 @@
+.content
+  a(href=model.get("link"))
+    .thumb
+  .details
+    a.title(href=model.get("link"))= model.get("title")
+    span.date= model.getAsFormatedDate("date")
+    span.text= model.get("text")
+    span.type= strings.dashboard.titles[(model.get("type") || "").toLowerCase()]

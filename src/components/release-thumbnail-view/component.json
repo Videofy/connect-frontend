@@ -1,0 +1,24 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "component/in-viewport": "0.0.1",
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "input.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "template-renderer"
+  ],
+  "main": "index.js",
+  "name": "release-thumbnail-view",
+  "repo": "monstercat/release-thumbnail-view",
+  "description": "",
+  "version": "0.0.1"
+}

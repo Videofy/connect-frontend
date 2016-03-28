@@ -1,0 +1,81 @@
+.cover
+  .ss.monstercat.default.white
+  h1= strings.signup.completeRegistration
+
+  .constricter
+    .regform
+      if mode == "loading"
+        .ss.loader
+          i.fa.fa-refresh.fa-spin
+      else if mode == "view"
+        table.ss.rows.expand
+          tbody
+            tr
+              td
+                input.ss.expand(type="email"
+                  property="email"
+                  placeholder="#{strings.defaults.emailAddress}")
+            tr
+              td
+                input.ss.expand(type="text"
+                  property="realName"
+                  placeholder="#{strings.defaults.fullName}")
+            tr
+              td.password-toggle.actioneer
+                input.ss.expand(type="password"
+                  property="password"
+                  placeholder="#{strings.defaults.password}")
+                span.ss.actioneer.sign-up.show-password(role="show-password")
+                  span.inactive
+                    i.ss.fa.fa-eye-slash.cl-default
+                  span.active
+                    i.ss.fa.fa-eye.cl-action
+            tr
+              td
+                select.ss.expand(property='location'
+                  placeholder='#{strings.defaults.country}')
+                  option(disabled selected value="")= strings.defaults.selectCountry
+                  each country in countries
+                    option= country
+        if hasWhitelist
+          hr
+          table.ss.rows.expand
+            tbody
+              tr
+                td(colspan="2")
+                  input.ss.expand(type="text"
+                    property="youtube"
+                    placeholder="YouTube Channel ID")
+              tr
+                td(colspan="2")
+                  input.ss.expand(type="text"
+                    property="twitch"
+                    placeholder="Twitch Name")
+              - for (var i = 2; i < channelNum; i++) {
+                tr
+                  td.vendor-select
+                    select.ss.expand(role="switch-type")
+                      option(value="twitch") Twitch
+                      option(value="youtube") YouTube
+                  td
+                    input.ss.expand(type="text"
+                      property="twitch"
+                      placeholder="Twitch Name")
+              - }
+          p.ss.cancel-margin-bottom
+            small= strings.signup.additionalChannelsMsg
+              br
+              | #{strings.signup.youtubeChanIdMsg} 
+              a.ss(href="https://www.youtube.com/account_advanced", target="_blank")= strings.signup.here
+              | .
+
+      unless mode == "loading"
+        p.ss.msg.bg-danger(role='error')= strings.signup.error
+
+  .constricter
+    if mode == "view"
+      button.welcomer(role="update")
+        span= strings.signup.finish
+        i.fa.fa-cog.fa-spin
+    else if mode == "error"
+      a.btn-welcomer(href="/#")= strings.signup.return

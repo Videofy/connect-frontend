@@ -1,0 +1,21 @@
+table.ss.bordered
+  thead
+    tr
+      th= strings.packages.jobStatus
+      th= strings.packages.totalProgress
+      th= strings.packages.latestLog
+      th= strings.defaults.date
+  tbody
+    if mode == 'loading'
+      tr
+        td(colspan='4')
+          .ss.loader
+            i.fa.fa-refresh.fa-spin
+br
+.ss.inline-toolbar
+  button.ss.actioneer(role='refresh')
+    i.fa.fa-refresh.inactive
+    i.fa.fa-refresh.fa-spin.active
+  button.ss.bg-action.hover.actioneer(role='create-package')
+    span.inactive= strings.defaults.create
+    i.active.fa.fa-gear.fa-spin

@@ -1,0 +1,19 @@
+{
+  "name": "user-log-collection",
+  "repo": "monstercat/user-log-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "end-point",
+    "super-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

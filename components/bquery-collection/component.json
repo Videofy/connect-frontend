@@ -1,0 +1,17 @@
+{
+  "name": "collection",
+  "repo": "bquery/collection",
+  "description": "Render subviews when elements are added to a collection",
+  "version": "0.2.0",
+  "keywords": [],
+  "dependencies": {
+    "jb55/ap": "*",
+    "component/each": "*",
+    "stagas/async-map": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}

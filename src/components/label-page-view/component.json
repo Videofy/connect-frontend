@@ -1,0 +1,29 @@
+{
+  "name": "label-page-view",
+  "repo": "monstercat/label-page-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "label-settings-view",
+    "publisher-collection",
+    "publishers-view",
+    "subscription-plans-collection",
+    "subscription-plans-view",
+    "tab-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

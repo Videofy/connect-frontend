@@ -1,0 +1,32 @@
+label.ss.heavy= strings.referral.referralFriends
+label.text= strings.referral.shareLinkMsg
+.referral-code.auto
+  .referral-code-container.margin-top= code
+  .socials.hide
+    span Share link on: 
+    a(role="share-fb")
+      i.fa.fa-facebook-official
+    a(role="share-tw")
+      i.fa.fa-twitter
+    a(role="share-gplus")
+      i.fa.fa-google-plus-square
+.referrals 
+  label.ss.heavy Referrals
+  table.ss.bordered.referrals-table
+    thead
+      tr
+        th= strings.referral.userEmail
+        th= strings.referral.creditEarned
+        th= strings.referral.joinDate
+    tbody
+      if !referrals || !referrals.length
+        tr
+          td.ss.center-text(colspan='6')= strings.referral.noReferrals
+      else
+        each ref in referrals
+          tr
+            td.referred-email= ref.referredEmail
+            td.credit
+              span $
+              span= ref.referrerDiscountAmount/100 || "" 
+            td.join-date= ref.createdDate

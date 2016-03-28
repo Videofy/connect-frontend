@@ -1,0 +1,7 @@
+.update-subscription-view .field.update-sub-type.hide {
+  display: none;
+}
+
+.update-subscription-view button{
+  margin-right: 10px;
+}

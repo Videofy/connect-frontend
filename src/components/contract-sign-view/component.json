@@ -1,0 +1,25 @@
+{
+  "name": "contract-sign-view",
+  "repo": "monstercat/contract-sign-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/file-dropper":"*",
+    "tm-components/signature_pad": "1.4.2",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

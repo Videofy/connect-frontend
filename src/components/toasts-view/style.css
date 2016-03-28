@@ -1,0 +1,24 @@
+.toast-view {
+  background: silver;
+  border: none;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  font-weight: bold;
+  opacity: 0;
+  padding: 0.5em 1em;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.toast-view.closable {
+  cursor: pointer;
+}
+
+.toast-view.active {
+  opacity: 1;
+}
+
+.toast-view p {
+  margin: 0;
+}

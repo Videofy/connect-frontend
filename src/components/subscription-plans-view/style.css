@@ -1,0 +1,15 @@
+.subscription-plans-view .checkbox{
+  margin: 0 0 0 0.5em;
+}
+
+.subscription-plans-view .actives-only{
+  margin: 0px;
+}
+
+.subscription-plans-view .table-filters.more-filters{
+  padding-top: 0px;
+}
+
+.subscription-plans-view .first-selector{
+  margin-left: 0px;
+}

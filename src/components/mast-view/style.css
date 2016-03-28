@@ -1,0 +1,64 @@
+.mast-view {
+  background-color: #fff;
+  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  display: block;
+  flex-shrink: 0;
+  min-width: 320px;
+  padding: 0.5em 1.0em;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.mast-view.hide {
+  display: none;
+}
+
+.mast-view > .mast-menu-toggle {
+  float: left;
+  padding: 0.6em 0 0 0;
+}
+
+.mast-view > .mast-menu-toggle i {
+  color: #989898;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+
+.mast-view > .mast-menu-toggle > i {
+  margin-right: 1em;
+}
+
+.mast-view > .mast-menu-toggle i.active {
+  color: dodgerblue;
+}
+
+.mast-view > .mast-menu-toggle i:hover {
+  color: dodgerblue;
+}
+
+.mast-view > .mast-logo {
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  height: 36px;
+  margin: 0 auto;
+}
+
+.mast-view > .mast-player {
+  float: right;
+}
+
+@media (max-width: 1024px) {
+  .mobile .mast-view i {
+    font-size: 1.5em;
+  }
+
+  .mobile .mast-view .volume-view,
+  .mobile .mast-view i[role="next"] {
+    display: none;
+  }
+}

@@ -1,0 +1,20 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else
+  nav.ss.table-filters
+    .options
+      .ss.input-button
+        input.ss(type="text"
+          role="publisher-name"
+          placeholder="Publisher Name")
+        button.ss.bg-action.hover(role="add-publisher")= strings.defaults.add
+
+  table.ss.pane-table
+    thead
+      tr
+        th= strings.defaults.publisher
+        th= strings.defaults.contact
+        th= strings.defaults.email
+        th= strings.defaults.address
+    tbody

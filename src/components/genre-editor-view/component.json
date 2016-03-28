@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "tm-components/color": "0.0.2",
+    "tm-components/element-model-binder": "*",
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "style.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "template-renderer",
+    "color-picker-view"
+  ],
+  "main": "index.js",
+  "name": "genre-editor-view",
+  "repo": "monstercat/genre-editor-view",
+  "description": "",
+  "version": "0.0.1"
+}

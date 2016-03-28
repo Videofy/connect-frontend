@@ -1,0 +1,18 @@
+.label-page-view > .tab-view > .content {
+  background: white;
+}
+
+.label-page-view .labelfields {
+  margin-left: 7em;
+  max-width: 300px;
+}
+
+.label-page-view .field .value {
+  text-align: right;
+}
+
+@media (max-width: 500px) {
+  .label-page-view .labelfields {
+    margin-left: 0;
+  }
+}

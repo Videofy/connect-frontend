@@ -1,0 +1,13 @@
+{
+  "name": "super-style",
+  "repo": "monstercat/super-style",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "styles": [
+    "input.css"
+  ]
+}

@@ -1,0 +1,27 @@
+if permissions.user.reinvite
+  button.ss.bg-action.hover.actioneer(role="resend-invite") Resend Invite Email
+if permissions.user.impersonate
+  |  
+  a(href="/api/user/#{model.id}/impersonate")
+    button.ss
+      i.fa.fa-eye
+      |  Impersonate
+br
+br
+table.ss.rows
+  tbody
+    tr
+      td
+        label.ss.heavy User Type
+      td.types
+
+    tr.alternative-names
+      td
+        label.ss.heavy Alternative Names
+      td.names
+
+    tr
+      td
+        label.ss.heavy Claims Ids
+      td.claims
+        .ids

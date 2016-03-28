@@ -1,0 +1,44 @@
+h5 Create a Label Admin
+
+table.ss.rows
+  tbody
+    tr
+      td
+        label.ss Email
+      td
+        input.ss(type="email" placeholder="example@monstercat.com" role="label-admin-email")
+    tr
+      td
+        label.ss Password
+      td
+        input.ss(type="password" role="label-admin-password")
+button.ss.bg-action.hover(role="add-label-admin")= strings.defaults.add
+
+hr
+
+- var isrc = model.get("isrc") || {}
+h5= strings.label.sections.isrc
+table.ss.rows
+  tbody
+    tr
+      td
+        label.ss.key= strings.label.isrc.country
+      td
+        input.ss.isrc-country(type="text"
+          placeholder="CC"
+          value="#{isrc.country || ''}"
+          maxlength="2")
+    tr
+      td
+        label.ss.key= strings.label.isrc.registrant
+      td
+        input.ss.isrc-registrant(type="text"
+          placeholder="XXX"
+          value="#{isrc.registrant || ''}"
+          maxlength="3")
+
+hr
+
+h5= strings.label.sections.genres
+.ss.labelfields
+  .controls(role='genres')

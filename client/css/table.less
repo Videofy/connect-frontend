@@ -1,0 +1,54 @@
+
+.table-striped-panels {
+  > tbody {
+    > tr.row-head {
+      cursor: pointer;
+
+      > td{
+        padding: 6px;
+      }
+
+    }
+  }
+}
+
+.table-borderless {
+  td, th {
+    border: 0;
+  }
+}
+
+.table-row-selected {
+  background-color: darken(@tableBackgroundAccent, 3%) !important;
+}
+
+.table-row-zebra {
+  background-color: darken(@tableBackgroundAccent, 1%);
+}
+
+table {
+
+  &.table {
+    //border: 1px solid #dddddd;
+  }
+
+  &.sortable {
+    > thead {
+
+      > tr {
+        background-color: white;
+
+        > th {
+          cursor: pointer;
+        }
+
+        > th {
+          &:hover {
+            background-color: darken(@tableBackgroundAccent, 3%);
+          }
+        }
+
+      }
+    }
+  }
+}

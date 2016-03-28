@@ -1,0 +1,19 @@
+{
+  "name": "asset-collection",
+  "repo": "monstercat/asset-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "asset-model",
+    "crud-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

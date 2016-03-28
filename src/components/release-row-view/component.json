@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "style.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "bquery-binders",
+    "release-context-menu-plugin",
+    "row-view-plugin",
+    "view-plugin"
+  ],
+  "main": "index.js",
+  "name": "release-row-view",
+  "repo": "monstercat/release-row-view",
+  "description": "",
+  "version": "0.0.1"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "playlist-collection",
+  "repo": "monstercat/playlist-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "crud-collection",
+    "playlist-model",
+    "super-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

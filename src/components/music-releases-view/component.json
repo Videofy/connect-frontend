@@ -1,0 +1,29 @@
+{
+  "name": "music-releases-view",
+  "repo": "monstercat/music-releases-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/date-time": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "is-mobile",
+    "is-narrow",
+    "music-releases-preview-view",
+    "music-tracks-table-plugin",
+    "release-context-menu-plugin",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

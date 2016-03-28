@@ -1,0 +1,19 @@
+{
+  "name": "publisher-collection",
+  "repo": "monstercat/publisher-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "publisher-model",
+    "crud-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

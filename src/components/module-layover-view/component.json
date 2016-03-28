@@ -1,0 +1,20 @@
+{
+  "name": "module-layover-view",
+  "repo": "monstercat/module-layover-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "template-renderer"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ]
+}

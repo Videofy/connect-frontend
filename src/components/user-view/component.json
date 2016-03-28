@@ -1,0 +1,19 @@
+{
+  "name": "user-view",
+  "repo": "monstercat/user-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "user-model",
+    "user-body-view"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

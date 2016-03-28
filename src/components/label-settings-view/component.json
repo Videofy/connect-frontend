@@ -1,0 +1,30 @@
+{
+  "name": "label-settings-view",
+  "repo": "monstercat/label-settings-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "jb55/ratio": "*",
+    "tm-components/element-model-binder": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "genre-editor-view",
+    "list-manage-view",
+    "parse",
+    "usertype-editor-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

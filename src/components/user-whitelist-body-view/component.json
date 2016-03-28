@@ -1,0 +1,25 @@
+{
+  "name": "user-whitelist-body-view",
+  "repo": "monstercat/user-whitelist-body-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*",
+    "tm-components/date-time":"*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "row-template.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "style.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "presenter-view",
+    "transfers-view",
+    "view-plugin"
+  ],
+  "main": "index.js",
+  "name": "mast-view",
+  "repo": "monstercat/mast-view",
+  "description": "",
+  "version": "0.0.1"
+}

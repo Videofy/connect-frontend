@@ -1,0 +1,19 @@
+{
+  "name": "commission-b-collection",
+  "repo": "monstercat/commission-b-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "commission-b-model",
+    "crud-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

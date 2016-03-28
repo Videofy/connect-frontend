@@ -1,0 +1,15 @@
+- var whitelisted = model.get("whitelistStatus") == "whitelisted"
+td.realname= model.get("realName")
+td.email= model.get("email")
+td.active.ss.center-text
+  if inactive
+    i.fa.fa-exclamation.ss.cl-danger
+  else
+    i.fa.fa-check
+td.period= model.getAsFormatedDate("created")
+td.yt-channels.channels-view(role="yt-channels")
+td.twitch-channels.channels-view(role="twitch-channels")
+td.actions
+  .ss.inline-toolbar
+    a.ss.cl-inherit.cl-action-hover(href="/#community/#{model.id}" role="link")
+      i.fa.fa-link

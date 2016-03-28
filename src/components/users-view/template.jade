@@ -1,0 +1,61 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else if mode == 'error'
+  .ss.center-text
+    p.ss.heavy= error
+    p= strings.phrases.tryAgain
+else
+  nav.ss.table-filters
+    .options
+      if canCreate
+        button.ss.bg-action.hover
+          a(href="/#community/create")= strings.defaults.add
+      select.ss(role="user-types-filter" filter="type")
+        option(value='')= strings.defaults.allTypes
+        for item, i in types
+          option(value="#{item[0]}")= item[1]
+    .filter
+      label.ss.results(role="results-count")
+      .ss.search
+        input.ss(type="text"
+          tabindex=1
+          role="filter"
+          placeholder="#{strings.defaults.filter}")
+        i.fa.fa-remove(role="cancel-filter")
+
+  section
+    div
+      table.ss.pane-table
+        thead
+          tr
+            th.sortable(sort-on='name')= strings.defaults.name
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th.sortable(sort-on='email')= strings.defaults.email
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th.sortable(sort-on='type')= strings.defaults.userTypes
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th= strings.defaults.identifier
+            th.sortable(sort-on='created')= strings.defaults.joinDate
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th.sortable(sort-on='lastSeen')= strings.defaults.lastSeen
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th.ss.cancel-padding= strings.defaults.actions
+        tbody
+
+  nav.ss.table-pagination.no-pages
+    button.ss.fake(role='page-previous')
+      i.fa.fa-chevron-left
+      span  Previous 
+        span(role='increment')= increment
+    label.ss(role='results') &nbsp;
+    button.ss.fake(role='page-next')
+      span Next 
+        span(role='increment')= increment
+        |  
+      i.fa.fa-chevron-right

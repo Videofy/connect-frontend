@@ -1,0 +1,17 @@
+{
+  "name": "agreement-view",
+  "repo": "monstercat/agreement-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

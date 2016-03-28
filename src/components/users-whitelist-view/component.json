@@ -1,0 +1,38 @@
+{
+  "name": "users-whitelist-view",
+  "repo": "monstercat/users-whitelist-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/download-string": "*",
+    "visionmedia/superagent": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "collection-fsr-plugin",
+    "collection-view-listing",
+    "collection-view-listing-filter",
+    "fsr-render-rows",
+    "input-cancel-plugin",
+    "pane-util",
+    "pane-view",
+    "sort-util",
+    "template-renderer",
+    "user-collection",
+    "user-whitelist-row-view",
+    "user-whitelist-body-view",
+    "user-whitelist",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "toasts-view",
+  "repo": "monstercat/toasts-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "toast-template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

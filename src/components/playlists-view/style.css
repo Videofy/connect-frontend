@@ -1,0 +1,115 @@
+@keyframes colorpulse {
+  from { color: inherit; }
+  50% { color: dodgerblue; }
+  to { color: inherit; }
+}
+
+.playlists-view {
+  position: relative;
+}
+
+.playlists-view i {
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.playlists-view label {
+  cursor: default;
+}
+
+.playlists-view > label {
+  font-weight: bold;
+  text-align: center;
+}
+
+.playlists-view > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.playlists-view > ul > li {
+  display: flex;
+  padding: 0.25em 1em;
+  line-height: initial;
+  border-top: solid 0.1em rgba(0, 0, 0, 0.05);
+  transition: color 1s;
+}
+
+.playlists-view.drag-active > ul > li[playlist-id] {
+  animation-name: colorpulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.playlists-view.drag-active > ul > li[playlist-id].dragging {
+  animation-play-state: paused;
+}
+
+.playlists-view > ul > li.dragging > .actions {
+  pointer-events: none;
+}
+
+.playlists-view > ul > li.active > .description label i {
+  display: inline-block;
+}
+
+.playlists-view > ul > li.add-playlist {
+  text-align: center;
+  display: block;
+  padding: 0.5em;
+}
+
+.playlists-view > ul > li.add-playlist i {
+  opacity: 0.5;
+}
+
+.playlists-view > ul > li.add-playlist i:hover {
+  opacity: 1;
+}
+
+.playlists-view > ul > li:first-child {
+  border-top: none;
+}
+
+.playlists-view > ul > li > .description {
+  flex: 1;
+  pointer-events: none;
+}
+
+.playlists-view > ul > li > .description label {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlists-view > ul > li > .description label i {
+  display: none;
+  margin-right: 0.5em;
+}
+
+.playlists-view > ul > li > .actions > i {
+  line-height: 1.3;
+  opacity: 0;
+}
+
+.playlists-view > ul > li:hover > .actions > i {
+  opacity: 1;
+}
+
+.mobile .playlists-view > ul > li > .actions > i {
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .mobile .playlists-view > ul > li > .description label,
+  .mobile .playlists-view > ul > li > .actions > i {
+    line-height: 2;
+  }
+
+  .mobile .playlists-view > ul > li.add-playlist i {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+  }
+}

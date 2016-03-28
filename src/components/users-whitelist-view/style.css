@@ -1,0 +1,29 @@
+.users-whitelist-view .table-filters label.actives-only {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.users-whitelist-view .table-filters label.actives-only > input {
+  margin: 0 0 0 0.5em;
+}
+
+.users-whitelist-view th {
+  white-space: nowrap;
+}
+
+.users-whitelist-view a {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .users-whitelist-view nav .actives-only {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .users-whitelist-view nav button {
+    padding: 0.3em;
+  }
+}

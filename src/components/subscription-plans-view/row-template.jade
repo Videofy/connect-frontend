@@ -1,0 +1,17 @@
+td= model.get("planId")
+td= model.get('period')
+td= model.get('channelNum')
+td $
+  span.price= (model.get('amount') / 100).toFixed(2)
+td= model.get('userTypes').map(function(type){ return strings.userTypes[type] || type; }).join(', ')
+td
+  if model.get('active')
+    i.fa.fa-check
+  else
+    i.fa.fa-times
+td= model.get('env')
+td= model.get("userNum")
+td.ss.cancel-padding
+  .ss.inline-toolbar
+    button.ss.fake.cl-danger-hover(role="destroy-plan")
+      i.fa.fa-trash-o

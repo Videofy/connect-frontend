@@ -1,0 +1,26 @@
+table.ss.bordered
+  thead
+    tr
+      th #
+      th= strings.defaults.title
+      th= strings.defaults.artists
+      th= strings.defaults.preReleaseDate
+      th
+  tbody
+    tr
+      td.ss.center-text(colspan=5)
+        if mode == 'loading'
+          .ss.loader
+            i.fa.fa-refresh.fa-spin
+        else if mode == 'error'
+          .ss.center-text
+            p.ss.heavy= error
+            p= strings.phrases.tryAgain
+if mode == 'view'
+  br
+  .ss.input-button
+    select.ss(role='select-track')
+      option(value='' selected disabled) Select One
+      each track in tracks
+        option(value="#{track.id}")= track.displayTrackArtistTitle()
+    button.ss.bg-action.hover(role='add-track') Add

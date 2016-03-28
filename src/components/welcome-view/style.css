@@ -1,0 +1,715 @@
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.presenter-view.signin .content {
+  background: white;
+  border-radius: 0.5em;
+  box-shadow: 0em 0em 5em rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.welcome-view {
+  background: transparent url("/img/DSC02629.JPG") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.welcome-view.goldie {
+  background-image: url('/img/2015161842.jpg');
+}
+
+.welcome-view button,
+.welcome-view nav button.ss {
+  -webkit-font-smoothing: antialiased;
+  background: transparent;
+  border: none;
+  color: white;
+  display: inline;
+  font-family: "Gotham Bold";
+  line-height: normal;
+  outline: none;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+.welcome-view button.ss.bg-custom {
+  border: 2px solid #414141;
+  color: #414141;
+  padding: 0.5em 1em;
+}
+
+.welcome-view button.ss.bg-custom i {
+  font-size: 0.8em;
+  margin-right: 0.5em;
+}
+
+.welcome-view button.ss.bg-custom.hover:hover {
+  background-color: #414141;
+  color: white;
+}
+
+.welcome-view nav button.ss {
+  padding: 0;
+  transition: none;
+}
+
+.welcome-view label {
+  cursor: default;
+}
+
+.welcome-view > .contents {
+  -webkit-animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -ms-animation: fadein 1s;
+  -o-animation: fadein 1s;
+  animation: fadein 1s;
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.welcome-view > nav {
+  background: rgba(0, 0, 0, 0.9);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.welcome-view > nav .actions {
+  flex-shrink: 0;
+}
+
+.welcome-view > nav .actions button {
+  font-size: 1.4em;
+  padding-top: 0.4em;
+  margin-left: 1em;
+}
+
+.welcome-view > nav .actions button a,
+.welcome-view > nav .actions button a:hover {
+  color: inherit;
+}
+
+.welcome-view > nav .slogo {
+  flex: 1;
+}
+
+.welcome-view > nav .slogo .monstercat {
+  cursor: pointer;
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+}
+
+.welcome-view > nav .slogo label {
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Gotham Bold", sans-serif;
+  font-size: 1.4em;
+  line-height: normal;
+  margin: 0;
+  padding: 0.4em 0 0 0.25em;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+.welcome-view > nav .slogo label .supertext {
+  top: -3px;
+}
+
+.welcome-view .splasher {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.welcome-view .splasher .pre,
+.welcome-view .splasher .post {
+  flex: 1;
+}
+
+.welcome-view .splasher .center {
+  flex-shrink: 0;
+  font-size: 1em;
+}
+
+.welcome-view .splasher p {
+  font-family: "Gotham Bold";
+  font-size: 2em;
+  line-height: 1;
+  margin: 3rem 0;
+  text-transform: uppercase;
+}
+
+.welcome-view .splasher p.block-slogan {
+  margin-top: 0;
+}
+
+.welcome-view .splasher .tagline span {
+  display: inline-block;
+}
+
+.welcome-view .splasher .tagline span ~ span {
+  margin-top: 0.25em;
+}
+
+.welcome-view .splasher .gold p.block-slogan {
+  font-size: 5.5em;
+}
+
+.welcome-view .splasher .license p.block-slogan {
+  font-size: 5em;
+}
+
+.welcome-view .splasher .all p.block-slogan {
+  font-size: 3em;
+}
+
+.welcome-view .splasher .gold p.block-slogan span:first-child {
+  font-size: 1.28em;
+}
+
+.welcome-view .splasher .all p.block-slogan span:first-child {
+  font-size: 1.9em;
+}
+
+.welcome-view .splasher .license p.block-slogan span:first-child,
+.welcome-view .splasher .license p.block-slogan span:last-child {
+  font-size: 1.3em;
+}
+
+.welcome-view .splasher .license .tagline {
+  font-size: 1.5em;
+}
+
+.welcome-view .splasher .license .tagline span:first-child {
+  font-size: 1.04em;
+}
+
+.welcome-view .splasher .gold p.block-slogan ~ button.welcomer {
+  padding: 0.5em 3.8em;
+}
+
+.welcome-view .splasher .license p.block-slogan ~ button.welcomer {
+  padding: 0.5em 3.3em;
+}
+
+.welcome-view .splasher .choices {
+  margin: 1em auto 0;
+  max-width: 443px;
+}
+
+.welcome-view label.options {
+  font-family: "Gotham Bold";
+  font-size: 1em;
+  font-weight: bold;
+  line-height: inherit;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+.welcome-view label.options button,
+.welcome-view label.options a,
+.welcome-view label.options a:hover {
+  color: #00FF8B;
+}
+
+.welcome-view label.options button {
+  font-size: 1em;
+  vertical-align: middle;
+}
+
+button.welcomer {
+  background: transparent;
+  border-radius: 0.25em;
+  border: solid 0.2em white;
+  color: white;
+  font-family: "Gotham Bold";
+  font-size: 1.6em;
+  line-height: 1;
+  outline: none;
+  padding: 0.5em;
+  text-transform: uppercase;
+  transition: all 0.5s;
+}
+
+button.welcomer:hover {
+  background: white;
+  color: black;
+}
+
+button.welcomer.gold {
+  border: solid 0.2em #FD703A;
+}
+
+button.welcomer.gold:hover {
+  background: #FD703A;;
+  color: #fff;
+}
+
+button.welcomer:disabled {
+  cursor: not-allowed;
+  background: transparent;
+  color: white;
+  opacity: 0.5;
+}
+
+button.welcomer.radical {
+  background: white;
+  color: black;
+  width: 97%;
+}
+
+button.welcomer.radical:hover {
+  background: dodgerblue;
+  border-color: dodgerblue;
+  color: white;
+}
+
+.choices button i,
+button.welcomer i {
+  display: none;
+}
+
+.waiting .choices button i,
+.waiting button.welcomer i {
+  display: inline-block;
+}
+
+.waiting .choices button span,
+.waiting button.welcomer span {
+  display: none;
+}
+
+.waiting .choices button,
+.waiting button.welcomer {
+  pointer-events: none;
+}
+
+.welcome-view .splasher [role='go-details'] {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+}
+
+.welcome-view .splasher [role='go-details'] .fa {
+  padding: 10px 0 0;
+}
+
+.welcome-view h2 {
+  text-transform: uppercase;
+  font-size: 3em;
+  margin: 0 0 0.5em;
+}
+
+.welcome-view h3 {
+  font-size: 1.6em;
+  line-height: normal;
+  margin: 1.5em 0 0.5em;
+  text-transform: uppercase;
+}
+
+.welcome-view p {
+  font-size: 1.4em;
+  line-height: 1.5;
+}
+
+.welcome-view ul {
+  background: rgb(244, 244, 244);
+  margin: 0;
+  padding: 2em 2em 2em 2.5em;
+  text-align: left;
+}
+
+.welcome-view ul li {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.welcome-view .constrict {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.welcome-view .banner {
+  background-color: silver;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: cover;
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  z-index: 0;
+}
+
+.welcome-view .banner1 {
+  background-image: url('/img/catalogueImage-w960.png'), linear-gradient(#1f1f23, #37363d);
+  background-position: 50%;
+  background-size: contain;
+}
+
+.welcome-view .banner2 {
+  background-image: url('/img/2015161842-w960.jpg');
+}
+
+.welcome-view .banner3 {
+  background-image: url('/img/219833116-w960.jpg');
+}
+
+.welcome-view .banner4 {
+  background-image: url('/img/042A6544-w960.jpg');
+}
+
+.welcome-view .details article {
+  background: white;
+  box-sizing: border-box;
+  color: black;
+  padding: 8em 1em;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+}
+
+.welcome-view .details .details-button {
+  margin: 1em 1em 0 0;
+}
+
+.welcome-view .price-options {
+  display: flex;
+  width: 100%;
+}
+
+.welcome-view .pricing {
+  background: whitesmoke;
+  box-sizing: border-box;
+  color: black;
+  padding: 3em 1em;
+}
+
+.welcome-view .price-options > div:not(:first-child) {
+  margin-left: 1em;
+}
+
+.welcome-view .price-options > div {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.welcome-view .price-options > div > .wrap {
+  background: white;
+  border-radius: 0.25em;
+  border: solid 1px rgb(232, 232, 232);
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  text-align: center;
+  width: 100%;
+}
+
+.welcome-view .price-options > div > .wrap ul {
+  flex-grow: 1;
+}
+
+.welcome-view .price-options > div > .wrap label {
+  text-align: left;
+}
+
+.welcome-view .price-options div.customize {
+  border-top: solid 1px rgb(232, 232, 232);
+}
+
+.welcome-view .price-options span.customize {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 1em 0;
+  text-transform: uppercase;
+}
+
+.welcome-view .price-options span.customize.hide {
+  display: none;
+}
+
+.welcome-view .price-options span.cost {
+  display: block;
+  margin: 0.5em 0 1em;
+}
+
+.welcome-view .price-options button.cost,
+.welcome-view .price-options button.cost:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: black;
+  cursor: default;
+}
+
+.welcome-view .price-options .customize .supertext {
+  font-style: normal;
+  font-size: 80%;
+  left: 1px;
+  top: 0;
+}
+
+.welcome-view .price-options .customize > label.method {
+  margin: 1em 2em;
+}
+
+.welcome-view .price-options .customize > .footnote {
+  margin: 1.5em 2em 1em;
+  text-align: left;
+}
+
+.welcome-view .price-options .customize > .footnote > p {
+  margin: 0 0 0.5em;
+}
+
+.welcome-view .price-options .customize > label.terms {
+  margin: 1em 2em 2em;
+}
+
+.welcome-view .price-options .customize > .choices {
+  padding: 0 2em;
+}
+
+.welcome-view .price-options .labelfields {
+  padding: 0 2em;
+  box-sizing: border-box;
+}
+
+.welcome-view .price-options .labelfields .key {
+  padding-top: 0.4em;
+}
+
+.welcome-view .price-options .labelfields .value {
+  text-align: right;
+  padding-bottom: 1em;
+}
+
+.welcome-view .pricing p {
+  font-size: 1em;
+  margin: 3em 0 0;
+}
+
+.welcome-view footer {
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 1.1em;
+  padding: 2em 1em;
+}
+
+.welcome-view footer span {
+  float: right;
+}
+
+.welcome-view footer nav a {
+  margin-right: 1em;
+}
+
+.welcome-view footer a {
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .welcome-view .splasher .center {
+    font-size: 0.8em;
+    padding: 0 1em;
+  }
+
+  .welcome-view .details article {
+    padding: 12em 3em;
+  }
+
+  .welcome-view .price-options {
+    flex-direction: column;
+  }
+
+  .welcome-view .price-options > div > .wrap {
+    border-top: 0;
+    border-bottom-color: lightgrey;
+    margin: 1em 0;
+    width: 100%;
+  }
+}
+
+.sign-up{
+  margin-top: 1em
+}
+
+.center.content{
+  margin: 0 auto;
+  display: block;
+  max-width: 840px;
+}
+
+.gold.text{
+  margin-left: 290px;
+}
+
+@media (max-width: 700px) {
+  .welcome-view h2 {
+    font-size: 2em;
+  }
+
+  .welcome-view p {
+    font-size: 1em;
+  }
+
+  .welcome-view {
+    background-image: url("/img/DSC02629-w960.JPG");
+  }
+
+  .welcome-view.goldie {
+    background-image: url('/img/2015161842-w960.jpg');
+  }
+
+  .welcome-view nav {
+    padding: 0.5em;
+  }
+
+  .welcome-view > nav .slogo .monstercat {
+    height: 1.7em;
+    width: 1.7em;
+  }
+
+  .welcome-view > nav .slogo label,
+  .welcome-view > nav .actions button {
+    font-size: 1em;
+    line-height: 1.5em;
+    padding-top: 0.2em;
+  }
+
+  .welcome-view > nav .actions button:first-child {
+    margin-left: 0;
+  }
+
+  .welcome-view .splasher .center {
+    font-size: 0.6em;
+  }
+
+  .welcome-view .splasher p {
+    margin: 2rem 0;
+  }
+
+  .welcome-view .ss.dual {
+    flex-direction: column;
+  }
+
+  .welcome-view .ss.dual > :first-child,
+  .welcome-view .ss.dual > :last-child {
+    margin: 0 0 0.5em 0;
+    width: auto;
+  }
+
+  .welcome-view .details article {
+    padding: 6em 1em;
+  }
+
+  .welcome-view footer span,
+  .welcome-view footer nav a {
+    display: block;
+    float: none;
+    margin: 0.3em 0 0 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-view nav .slogo label {
+    display: none;
+  }
+
+  .welcome-view > nav .actions button {
+    margin-left: 0.5em;
+  }
+
+  .welcome-view .splasher .center {
+    font-size: 0.5em;
+  }
+
+  .welcome-view .splasher .center.all {
+    font-size: 0.4em;
+  }
+
+  .welcome-view .splasher .gold p.block-slogan ~ button.welcomer,
+  .welcome-view .splasher .license p.block-slogan ~ button.welcomer,
+  .welcome-view .splasher .all .dual button.welcomer {
+    font-size: 2em;
+    padding: 0.5em 1.5em;
+  }
+
+  .welcome-view .pricing {
+    padding: 0;
+  }
+
+  .welcome-view .price-options > div.no-membership,
+  .welcome-view .price-options > div.goldie,
+  .welcome-view .price-options > div.license {
+    margin: 0;
+  }
+
+  .welcome-view .price-options > div > .wrap {
+    margin: 0;
+    padding: 1em 0;
+  }
+}
+
+@media (min-width: 480px) {
+  .welcome-view .banner1 {
+    background-image: url('/img/catalogueImage.png'), linear-gradient(#1f1f23, #37363d);
+  }
+
+  .welcome-view .banner2 {
+    background-image: url('/img/2015161842.jpg');
+  }
+
+  .welcome-view .banner3 {
+    background-image: url('/img/219833116.jpg');
+  }
+
+  .welcome-view .banner4 {
+    background-image: url('/img/042A6544.jpg');
+  }
+}
+

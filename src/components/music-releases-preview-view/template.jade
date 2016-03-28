@@ -1,0 +1,35 @@
+.container
+  if !isMobile
+    .art(style="background-image: url('#{art}')")
+  .shade
+  .core
+    .info
+      .details
+        if release._id
+          .meta-text
+            label(role="title")= release.title
+              if release.downloadable
+                .actions
+                  i.fa.fa-cloud-download(role="download" title="Download Release")
+            label(role="release-date")= release.date.format()
+            label(role="artist-names")= release.renderedArtists
+            label(role="genres")= release.genres.join(", ")
+          .tracks
+            table
+              tbody
+                each track in release.tracks
+                  tr(track-id="#{track._id}" release-id="#{release._id}" role="play")
+                    td.tnum #{track.trackNumber}.
+                    td.trackname(draggable="true")
+                      i.fa.fa-volume-up(status="playing" title="Currently Playing")
+                      i.fa.fa-volume-off(status="paused" title="Currently Paused")
+                      = track.title
+                    td.artists= track.artistsTitle
+                    td.actions
+                      i.fa.fa-plus-circle(role="add" track-id="#{track.id}" title="Add track to the current playlist.")
+                      i.fa.fa-check(role="in-playlist" track-id="#{track.id}" title="In current playlist. Tap to remove.")
+      .release-art
+        .image
+          img(src="#{art}" role="open-art")
+    .close-bar(role="close")
+      i.fa.fa-chevron-down

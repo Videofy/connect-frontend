@@ -1,0 +1,22 @@
+{
+  "name": "publishers-view",
+  "repo": "monstercat/publishers-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "parse",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "rows-template.js",
+    "template.js"
+  ]
+}

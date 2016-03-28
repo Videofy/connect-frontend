@@ -1,0 +1,17 @@
+{
+  "name": "is-mobile",
+  "repo": "monstercat/is-mobile",
+  "description": "From http://detectmobilebrowsers.com",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

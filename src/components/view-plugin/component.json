@@ -1,0 +1,20 @@
+{
+  "name": "view-plugin",
+  "repo": "monstercat/view-plugin",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/enabler": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "input-binder",
+    "template-renderer"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

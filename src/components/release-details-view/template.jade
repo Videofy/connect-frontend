@@ -1,0 +1,89 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else if mode == 'error'
+  .ss.center-text
+    p.ss.heavy= error
+    p= strings.phrases.tryAgain
+else
+  table.ss.rows
+    tr
+      th
+        label.ss.heavy= strings.defaults.title
+      td
+        input.ss(type="text" property="title")
+    tr
+      th
+        label.ss.heavy= strings.defaults.artists
+      td
+        input.ss(type="text" property="renderedArtists")
+    tr
+      th
+        label.ss.heavy= strings.defaults.type
+      td
+        select.ss(property="type")
+          each type in types
+            option(value='#{type}'
+              selected=(type == model.get('type') ? true : undefined))= type
+    tr
+      th
+        label.ss.heavy= strings.defaults.releaseDate
+      td
+        input.ss.heavy(type="date" property="releaseDate")
+    tr
+      th
+        label.ss.heavy= strings.defaults.preReleaseDate
+      td
+        - var pdate = model.get('preReleaseDate')
+        input.ss.heavy(type="date" property="preReleaseDate"
+          value=(pdate ? format('Y-m-d', new Date(pdate)) : undefined))
+    tr
+      th
+        label.ss.heavy= strings.defaults.catalogId
+      td
+        input.ss(type="text" property="catalogId")
+    tr
+      th
+        label.ss.heavy= strings.defaults.upc
+      td
+        input.ss(type="text" property="upc")
+    tr
+      th
+        label.ss.heavy= strings.defaults.coverArt
+      td
+        .ss.input-button
+          button.ss.bg-action.hover(role="view-art" disabled=(model.hasArt() ? undefined : 'disabled'))
+            span.inactive View
+          button.ss.bg-action.hover.actioneer(role="upload-cover-art")
+            span.inactive Upload
+            i.active.fa.fa-gear.fa-spin
+    tr
+      th
+        label.ss.heavy= strings.releaseDetails.links
+      td(role="links")
+    tr
+      th
+        label.ss.heavy= strings.releaseDetails.altNames
+      td(role='altnames')
+    tr
+      th
+        label.ss.heavy= strings.releaseDetails.visibleWebsite
+      td
+        input(type="checkbox" property="showOnWebsite")
+    tr
+      th
+        label.ss.heavy= strings.releaseDetails.visibleAdmin
+      td
+        input(type="checkbox" property="showToAdminsOnly")
+    tr
+      th
+        label.ss.heavy= strings.releaseDetails.visibleFree
+      td
+        input(type="checkbox" property="showAsFree")
+    tr(role='playlist')
+      th
+        label.ss.heavy= strings.releaseDetails.playlist
+      td
+        input.ss(type="text" property="playlistId")
+
+  div(role='tracks')

@@ -1,0 +1,16 @@
+.commission-users-view .split {
+  display: flex;
+  width: 100%;
+}
+
+.commission-users-view .split > div:last-child {
+  flex: 1;
+}
+
+.commission-users-view .split > div:first-child {
+  flex-shrink: 0;
+}
+
+.commission-users-view canvas {
+  margin-right: 2em;
+}

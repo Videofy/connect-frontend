@@ -1,0 +1,62 @@
+.context-menu-view {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.25s;
+  padding: 0.25em 0;
+  border-radius: 0.25em;
+  box-shadow: 0em 0em 1em rgba(0, 0, 0, 0.1);
+}
+
+.context-menu-view.open {
+  display: inline-block;
+  opacity: 1;
+}
+
+.context-menu-view > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.context-menu-view > ul li {
+  white-space: nowrap;
+}
+
+.context-menu-view > ul > li.separator {
+  width: 100%;
+  height: 0.1em;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0.25em 0;
+}
+
+.context-menu-view > ul > li.item > a {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  padding: 0em 1em;
+}
+
+.context-menu-view > ul > li.item > a:hover {
+  background: dodgerblue;
+  color: white;
+}
+
+.context-menu-view > ul > li.item[disabled] > a,
+.context-menu-view > ul > li.item[disabled] > a:hover {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+
+@media (max-width: 1024px) {
+  .mobile .context-menu-view > ul li {
+    line-height: 2;
+  }
+}

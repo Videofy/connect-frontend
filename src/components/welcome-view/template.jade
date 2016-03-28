@@ -1,0 +1,267 @@
+- var all = mode == "all" || mode == "sign-in"
+- var gold = mode == "golden" 
+- var license = mode == "licensee"
+- var mixcomp = mode == "mixcomp"
+
+mixin more-gold-info
+  h2 Access the Monstercat Catalog:
+  p Grants access to Monstercat Connect. Our platform that lets you stream the entire Monstercat catalog with full downloadable access to singles, EPs, and albums.
+
+mixin more-license-info-1
+  h2 Why did we launch this program?
+
+  p Content creators want easy, affordable access to high-quality licensed music. The Monstercat License Program is our solution, while still fairly supporting the original artists who have created the music.
+
+  p Similar services charge high monthly fees, but are not comparable due to limits on usage. Monstercat however, offers our entire downloadable catalogue of unique music with unlimited access for a low monthly price. With this program in place, all YouTube and Twitch content creators have a means to use our music in their work. We believe in Creators supporting Creators.
+
+mixin more-license-info-2
+  h2 What do I receive with a Monstercat License?
+  p Included with the Monstercat License is access to Monstercat Connect, our platform that lets creators download and stream the Monstercat catalog (800+ songs) of current and future singles, EPs and albums. The license grants the right for 100% monetization of your content on YouTube and Twitch!
+
+nav
+  .slogo(role="scroll-up")
+    .ss.monstercat.white
+    label Connect
+      span.supertext (BETA)
+  .actions
+    if gold || license || mixcomp
+      button(role="go-details") Details
+    else
+      button.ss.hide-below.w500(role="go-gold") Gold
+      button.ss.hide-below.w500(role="go-license") License
+    button(role="go-pricing") Pricing
+    if license
+      button
+        a(href="/#handbook/faq" target="_blank") FAQ
+    button(role="signin") Sign In
+.contents
+  section.splasher
+    .pre
+    if goldTitle
+      .center.gold
+        .center.content
+          p.block-slogan
+            span The Gold
+            br
+            span Membership
+          p.tagline Now Available For Everybody
+        if mixcomp && trialPeriod
+          button.welcomer.gold(role="go-pricing") Get #{trialPeriod} Free Trial
+        else
+          button.welcomer.gold(role="go-pricing") Join Now for $9.99/Month
+    else if license
+      .center.license
+        .center.content
+          p.block-slogan
+            span Creators
+            br
+            span Empowering
+            br
+            span Creators
+          p.tagline
+            span Unlimited Access to Monstercat Music;
+            br
+            span Soundtrack and Monetize Your Content
+          button.welcomer.radical(role="show-license-form") Subscribe
+    else
+      .center.all
+        .center.content
+          p.block-slogan
+            span This Is Connect
+            br
+            span The Ultimate Label Platform
+          .ss.dual
+            button.welcomer(role="go-gold") The Gold Membership
+            button.welcomer(role="go-license") The Monstercat License
+    .post
+    button(role="go-details") More Details
+      br
+      i.fa.fa-arrow-down
+  section.details
+    if all
+      article
+        .constrict
+          h2 What is Connect?
+          p Monstercat Connect is our platform that lets members download and stream the Monstercat catalog (800+ songs) of current and future singles, EPs and albums.
+      .banner.banner1
+    if all || gold || mixcomp
+      article.gold-details
+        .constrict
+          h2 What is Gold?
+          p Monstercat Gold is a subscription service that grants you unlimited access to all of Monstercat's current and future releases. This includes full downloadable access to the entire Monstercat catalog.
+          if all
+            a(href="/#gold")
+              button.details-button.ss.bg-custom.hover
+                i.fa.fa-external-link
+                | Learn More
+            button.details-button.ss.bg-custom.hover(role="show-gold-form") Get Gold
+      .banner.banner2
+    if gold || mixcomp
+      article
+        .constrict
+          +more-gold-info
+      .banner.banner1
+    if all || license
+      article.license-details
+        .constrict
+          h2 What is a Monstercat License?
+          p A Monstercat License is a monthly subscription that allows content creators to utilize the Monstercat Catalog on YouTube and Twitch. This removes all existing and future Content ID matches allowing content creators to earn 100% of their channel advertising royalties.
+          p A portion of your License subscription goes directly to the artists for each track you stream or download! We believe in generating new revenue streams for artists and this is a great way to fairly support content creators and musicians alike!
+          if all
+            a(href="/#license")
+              button.details-button.ss.bg-custom.hover
+                i.fa.fa-external-link
+                | Learn More
+            button.details-button.ss.bg-custom.hover(role="show-license-form") Get A License
+      .banner.banner4
+    if license
+      article
+        .constrict
+          +more-license-info-1
+      .banner.banner3.banner-right
+      article
+        .constrict
+          +more-license-info-2
+          h3 Still Have Questions?
+          p Check out our 
+            a.ss.cl-action.hover(href="/#handbook/faq" target="_blank") FAQ's
+            | .
+      .banner.banner1
+  section.pricing
+    article
+      .constrict
+        .price-options
+          if license
+            .no-membership
+              .wrap
+                h3 No Subscription
+                ul
+                  li Non-monetized YouTube and Twitch permission
+                  li Content ID matches will occur on your channel
+                  li Link credits required
+                  li Music must be purchased from approved sites
+                  li We will never strike/mute a stream using our publicly available music
+                span.customize
+                  button.ss.bg-custom.cost Free
+          if all || gold || mixcomp
+            .goldie
+              .wrap
+                h3 Gold Subscription
+                ul
+                  li Unlimited download and streaming access to the Monstercat catalog (800+ full songs)
+                  li Playlist your music directly within Connect
+                  li Access to the Monstercat Connect platform
+                  li Direct e-mail support
+                span.customize(role="show-gold-form-btn" class=(gold ? "hide" : undefined))
+                  if mixcomp && trialPeriod
+                    span.ss.bg-custom.hover Regular Price $9.99/Month
+                  else
+                    button.ss.bg-custom.hover(role="show-gold-form") $9.99/Month
+                .customize(role="gold-form" class=(all ? "hide" : undefined))
+                  if mixcomp && trialPeriod
+                    span.customize #{trialPeriod} Free trial with referral code!
+                  else
+                    span.customize(role="gold-price") $9.99/Month
+                  .ss.labelfields
+                    .field
+                      .key
+                        label User Email
+                      .value
+                        input.ss.expand(type="email" role="gold-email")
+                    if referralCodeOpen(['golden'])
+                      .field
+                        .key
+                          span Referral Code
+                          span.supertext 1
+                        .value
+                          input.ss.expand(type="text", role="gold-referral-code")
+                  if all || gold
+                    label.method Choose your payment method
+                    .ss.dual.choices
+                      button.ss.bg-default.hover(role="paypal")
+                        span PayPal
+                        span.supertext 2
+                        i.fa.fa-cog.fa-spin
+                      button.ss.bg-default.hover(role="stripe")
+                        span Credit
+                        i.fa.fa-cog.fa-spin
+                    .footnote
+                      p
+                        span.supertext 1 
+                        | Subscription payment starts after free trail period.
+                      p
+                        span.supertext 2
+                        | Only instant PayPal payments are accepted.
+                   if mixcomp 
+                     .ss.choices.sign-up
+                       button.ss.bg-default.hover(role="mix-signUp")
+                         span Sign Up
+                         i.fa.fa-cog.fa-spin
+                   label.terms By subscribing you agree with the 
+                     a.ss.cl-action.hover.nowrap(href="/#handbook/terms-of-service" target="_blank") Terms of Service
+                     | .
+          if all || license
+            .license
+              .wrap
+                h3 License Subscription
+                ul
+                  li 100% Monetize your YouTube &amp; Twitch content while subscribed
+                  li Unlimited download and streaming access to the Monstercat catalog (800+ full songs)
+                  li Access to the Monstercat Connect platform
+                  li Playlist your music directly within the platform. Perfect for Twitch streaming and YouTube video planning.
+                  li Direct e-mail support
+                span.customize(role="show-license-form-btn")
+                  button.ss.bg-custom.hover(role="show-license-form") $14.99/Month+
+                .customize.hide(role="license-form")
+                  span.customize Customize Your Plan
+                    span.cost(role='price') $14.99/Month
+                  .ss.labelfields
+                    .field
+                      .key
+                        label # of Accounts
+                          span.supertext 1
+                      .value
+                        select.ss.expand(role='channels')
+                          - var keys = Object.keys(options.channels)
+                          each key in keys
+                            option(value="#{options.channels[key]}")= key
+                    .field
+                      .key
+                        label User Email
+                      .value
+                        input.ss.expand(type="email" role="license-email")
+                    if referralCodeOpen(['licensee'])
+                      .field
+                        .key
+                          label Referral Code
+                        .value
+                          input.ss.expand(type="text" role="license-referral-code")
+                  label.method Choose your payment method
+                  .ss.dual.choices
+                    button.ss.bg-default.hover(role="paypal")
+                      span PayPal
+                      span.supertext 2
+                      i.fa.fa-cog.fa-spin
+                    button.ss.bg-default.hover(role="stripe")
+                      span Credit
+                      i.fa.fa-cog.fa-spin
+                  .footnote
+                    p
+                      span.supertext 1 
+                      | YouTube and Twitch channels. Each subscription includes one YouTube and one Twitch channel. Each additional account is 
+                      span.ss.nowrap $4.99/Month.
+                    p
+                      span.supertext 2 
+                      | Only instant PayPal payments are accepted.
+                  label.terms By subscribing you agree with the 
+                    a.ss.cl-action.hover.nowrap(href="/#handbook/terms-of-service" target="_blank") Terms of Service
+                    | .
+                    br
+                    | Whitelisting may take up to 24 hours to take effect.
+  footer
+    .constrict
+      span &copy; #{(new Date).getFullYear()} Monstercat
+      nav
+        a(href="/#handbook/privacy-policy" target="_blank") Privacy Policy
+        a(href="/#handbook/terms-of-service" target="_blank") Terms of Service
+        a(href="http://monstercat.com" target="_blank") Website

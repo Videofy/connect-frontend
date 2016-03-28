@@ -1,0 +1,19 @@
+{
+  "name": "referral-collection",
+  "repo": "monstercat/referral-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "crud-collection",
+    "super-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

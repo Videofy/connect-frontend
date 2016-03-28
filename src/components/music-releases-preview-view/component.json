@@ -1,0 +1,32 @@
+{
+  "name": "music-releases-preview-view",
+  "repo": "monstercat/music-releases-preview-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/date-time": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "formats",
+    "is-mobile",
+    "music-tracks-plugin",
+    "music-tracks-table-plugin",
+    "playlist-model",
+    "presenter-view",
+    "release-context-menu-plugin",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

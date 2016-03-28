@@ -1,0 +1,65 @@
+table
+  thead.ss.hide-below.w500
+    tr
+      th
+      th(sort="track") Track 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+      th(sort="artists") Artists 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+      th(sort="release") Release 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+      th(sort="number") # 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+      th(sort="duration") Length 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+      th(sort="bpm") BPM 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+      th(sort="genres") Genres 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+      th(sort="date") Release Date 
+        i.fa.fa-sort-asc.asc
+        i.fa.fa-sort-desc.desc
+  tbody
+    each track in tracks
+      tr(track-id="#{track.id}"
+        release-id="#{track.queryables.rid}"
+        role="play")
+        //- Phones
+        td.genre.ss.hide-above.w500(style="background-color: \##{track.genreColor}")
+        td.details.ss.hide-above.w500
+          span
+            = track.artists + " - " + track.title
+            if showLicenseInfo && !track.licensable
+              i.fa.fa-exclamation-circle.disabled-track.ss.cl-warning(role="disabled-track")
+          span= track.release + " - #" + track.trackNumber
+        td.ss.actions.ss.hide-above.w500
+          i.fa.fa-play.fa-fw.ss.mobile-only(role="play-mobile")
+          i.fa.fa-pause.fa-fw.ss.mobile-only(role="pause-mobile")
+          i.fa.fa-chevron-circle-down.fa-fw(role="options")
+        //- End Phones
+        td.ss.actions.ss.hide-below.w500
+          i.fa.fa-plus-circle.fa-fw(role="add" title="Add track to the current playlist.")
+          i.fa.fa-check.fa-fw(role="in-playlist" title="In current playlist. Tap to remove.")
+        td.trackname.ss.hide-below.w500(draggable="true")
+          i.fa.fa-volume-up.ss.hide-below.w1024.mobile-only(status="playing" title="Currently Playing")
+          i.fa.fa-volume-off.ss.hide-below.w1024.mobile-only(status="paused" title="Currently Paused")
+          = track.title
+          if showLicenseInfo && !track.licensable
+            i.fa.fa-exclamation-circle.disabled-track.ss.cl-warning(role="disabled-track")
+          if !track.released
+            i.fa.fa-exclamation-circle.ss.cl-attention.unreleased-track(title=strings.phrases.adminTrackMsg)
+          i.fa.fa-chevron-circle-down.hide-below.w1024(role="options" title="More options.")
+        td(draggable="true").artists.ss.hide-below.w500= track.artists
+        td(draggable="true").ss.hide-below.w500= track.release
+        td(draggable="true").ss.hide-below.w500.align-right= track.trackNumber
+        td(draggable="true").ss.hide-below.w500.align-right= track.duration
+        td(draggable="true").ss.hide-below.w500.align-right= track.bpm
+        td(draggable="true").ss.hide-below.w500= track.genres.join(", ")
+        td(draggable="true").ss.hide-below.w500= track.date.format()

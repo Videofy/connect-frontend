@@ -1,0 +1,28 @@
+.password-toggle {
+  position: relative;
+}
+
+.password-toggle input[role="password"].ss {
+  padding-right: 2em;
+}
+
+.password-toggle input[property="password"].ss {
+  padding-right: 2em;
+}
+
+.password-toggle .show-password {
+  cursor: pointer;
+  line-height: normal;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.password-toggle .show-password.sign-up {
+  right: 0.5em;
+}
+
+.password-toggle .show-password.usr-account {
+  right: 1em;
+}
+

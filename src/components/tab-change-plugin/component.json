@@ -1,0 +1,18 @@
+{
+  "name": "tab-change-plugin",
+  "repo": "monstercat/tab-change-plugin",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependecies": {
+  }, 
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "context-menu-view"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,169 @@
+doctype html
+html
+  head
+    title Connect
+    meta(name="viewport" content="width=device-width, user-scalable=no")
+    link(rel="shortcut icon" type="image/ico" href="/favicon.ico")
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet")
+    script(src="/js/superagent.js")
+    script(src="https://checkout.stripe.com/checkout.js")
+    script(type="text/javascript" src="//use.typekit.net/rcd6avj.js")
+    script(type="text/javascript").
+      try{Typekit.load();}catch(e){}
+
+  style(type="text/css").
+    @font-face {
+      font-family: 'Gotham Bold';
+      src: url('/font/Gotham-Bold.eot'); /* IE9 Compat Modes */
+      src: url('/font/Gotham-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+           url('/font/Gotham-Bold.woff') format('woff'), /* Modern Browsers */
+           url('/font/Gotham-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+           url('/font/Gotham-Bold.svg#6a327a217ddd10461b1acdc4d224fee0') format('svg'); /* Legacy iOS */
+
+      font-style:   normal;
+      font-weight:  700;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: white url('/img/DSC02629.JPG') center no-repeat fixed;
+      background-size: cover;
+      color: white;
+      font-family: "proxima-nova","Gibson-Light","Helvetica Neue","Ubuntu Light",Helvetica,Arial,sans-serif;
+      font-size: 14px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: "Gotham Bold", sans-serif;
+      font-size: 3.5em;
+      line-height: 1;
+      margin: 4rem 0;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 3em;
+      position: relative;
+      z-index: 1;
+    }
+
+    article {
+      margin: 0 auto;
+      max-width: 720px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+
+    button {
+      border-radius: 0.25em;
+      background: dodgerblue;
+      color: white;
+      border: none;
+      font-size: 1em;
+      font-weight: bold;
+      font-family: "Gotham Bold", sans-serif;
+      padding: 1em 1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .background {
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .slogo {
+      text-align: center;
+    }
+
+    .slogo label {
+      cursor: default;
+      display: inline-block;
+      font-family: "Gotham Bold", sans-serif;
+      font-size: 2em;
+      line-height: 1.4;
+      margin-bottom: 5px;
+      padding: 0 0 0 0.25em;
+      text-transform: uppercase;
+      vertical-align: top;
+    }
+
+    .slogo .monstercat {
+      background: transparent url("/labels/monstercat/icon-white.png") no-repeat center;
+      background-size: contain;
+      display: inline-block;
+      height: 2.5em;
+      width: 2.5em;
+    }
+
+  body
+    .background
+    section
+      .slogo
+        .monstercat
+        label Connect
+      article
+        h1 Monstercat Connect Enterprise Payment
+        button(role="pay" data-plan="#{id}") Complete Payment
+
+  script.
+    var request = superagent
+    var env = "#{env}"
+    var url = "https://api.monstercat.com/"
+    var TEST = ""
+
+    if (env != "production") TEST = "?test=true"
+
+    function getPlan (planId, done) {
+      request
+      .get(url + "subscription/plan/" + planId + TEST)
+      .end(function (err, res) {
+        if (err || res.status != 200) return done(err || JSON.parse(res.text))
+        done(undefined, res.body)
+      })
+    }
+
+    function pay (planId) {
+      getPlan(planId, function (err, plan) {
+        if (err) return alert(err.message)
+
+        function onToken (token) {
+          request
+          .post(url + "subscription/" + TEST)
+          .send({
+            plan: plan,
+            token: token
+          })
+          .end(function (err, res) {
+            if (err || res.status != 200) return alert(err || JSON.parse(res.text).message)
+            alert("Payment successful, thank you. You will now be redirected to Connect.")
+            window.location.href = "https://connect.monstercat.com"
+          })
+        }
+
+        var handler = StripeCheckout.configure({
+          key: plan.key,
+          image: "https://connect.monstercat.com/img/monstercat-square.png",
+          token: onToken
+        })
+        handler.open(plan)
+      })
+    }
+
+    document.body
+    .querySelector("[role='pay']")
+    .addEventListener("click", function (e) {
+      pay(e.target.getAttribute("data-plan"))
+    })

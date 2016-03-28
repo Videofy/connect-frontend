@@ -1,0 +1,17 @@
+.cover
+  .ss.monstercat.default.white
+  h1= strings.forgotPassword.setNew
+
+  .constricter
+    .regform
+      p.ss.msg.bg-error.center-text.cancel-margin-top.hide= strings.forgotPassword.error
+      p.ss.msg.bg-success.center-text.cancel-margin-top.hide= strings.forgotPassword.success
+
+      .setup
+        input.ss(type="password" role="password" placeholder="New Password")
+        input.ss(type="password" role="confirm" placeholder="Confirm Password")
+        button.ss.block-fill.cancel-margin-bottom(role="update")
+          span= strings.forgotPassword.updatePassword
+          i.fa.fa-cog.fa-spin.hide
+
+      a.ss.block-fill.cancel-margin-bottom.hide(role='signin' href="/#sign-in")= strings.defaults.signin

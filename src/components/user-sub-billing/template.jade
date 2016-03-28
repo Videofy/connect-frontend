@@ -1,0 +1,35 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else if mode == 'error'
+  .ss.center-text
+    p.ss.heavy= error
+    p= strings.phrases.tryAgain
+else
+  table.ss.bordered
+    thead
+      tr
+        th=strings.subscriptionBilling.paymentDate
+        th=strings.subscriptionBilling.planName
+        th=strings.subscriptionBilling.method
+        th=strings.subscriptionBilling.amount
+        th=strings.subscriptionBilling.Status
+        th
+    tbody
+      if !collection || !collection.models.length
+        tr
+          td.ss.center-text(colspan='3') No Payment Available.
+      else
+        each model in collection.models
+          - var amount = '$' + model.get("amount")/100
+          - var dlLink = '/subscription/download/invoice/' + model.get("transactionId")
+          - var query = '?paymentType=' + model.get("paymentType")
+          tr
+            td.payment-date= model.getAsFormatedDate("invoiceDate")
+            td.plan-name= model.get("plan")
+            td.payment-method= model.get("paymentMethod")
+            td.payment-amount= amount
+            td.payment-status= model.get("status")
+            td
+              a.ss.fake.cl-action-hover.ss.cl-inherit(href= dlLink+ query, title="Download Invoice as PDF")
+                i.fa.fa-cloud-download

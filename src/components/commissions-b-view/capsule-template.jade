@@ -1,0 +1,15 @@
+td= capitalize(model.get('type'))
+td= model.get('splits').length
+td
+  if !model.isWhole()
+    i.fa.fa-exclamation-circle.ss.cl-danger
+  else
+    i.fa.fa-check-circle
+td.ss.actions.cancel-padding
+  .ss.inline-toolbar
+    button.ss.fake.cl-danger-hover(role='delete-commission' title='Delete Commission')
+      i.fa.fa-trash-o
+    if model.get('type') == 'download'
+      button.ss.fake.cl-action-hover(role='clone-as' as-type='streaming' title='Clone to Streaming')
+        i.fa.fa-files-o
+

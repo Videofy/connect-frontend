@@ -1,0 +1,73 @@
+- var sizes         = ['S', 'M', 'L', 'XL']
+- var country       = model.get('country')
+- var shirtSize     = model.get('shirtSize')
+- var pantSize      = model.get('pantSize')
+- var hasCountry    = countries.indexOf(country) > -1
+- var hasShirt      = sizes.indexOf(shirtSize) > -1
+- var hasPant       = sizes.indexOf(pantSize) > -1
+
+table.ss.rows
+  tbody
+    tr
+      td
+        label.ss Street
+      td
+        input.ss.expand(type="text"
+          placeholder="1234 Example St."
+          property="street")
+    tr
+      td
+        label.ss Apt.
+      td
+        input.ss.expand(type="text"
+          placeholder="#205"
+          property="apartment")
+    tr
+      td
+        label.ss Province/State
+      td
+        input.ss.expand(type="text"
+          placeholder="BC"
+          property="province")
+    tr
+      td
+        label.ss Country
+      td
+        select.ss.expand(property='country')
+          option(disabled
+            value=''
+            selected=(hasLocation ? undefined : true)) Select One
+          each country in countries
+            option(value='#{country}'
+              selected=(location == country ? true : undefined))= country
+    tr
+      td
+        label.ss Zip/Postal Code
+      td
+        input.ss.expand(type="text"
+          placeholder="T0E 1S2"
+          property="postal")
+    tr
+      td
+        label.ss Shirt Size
+      td
+        select.ss.expand(property='shirtSize')
+          option(disabled
+            value=''
+            selected=(hasShirt ? undefined : true)) Select One
+          each size in sizes
+            option(
+              value='#{size}'
+              selected=(size == shirtSize ? true : undefined))= size
+    tr
+      td
+        label.ss Pant Size
+      td
+        select.ss.expand(property='pantSize')
+          option(disabled
+            value=''
+            selected=(hasPant ? undefined : true)) Select One
+          each size in sizes
+            option(
+              value='#{size}'
+              selected=(size == pantSize ? true : undefined))= size

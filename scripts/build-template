@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+file="$1"
+targ=$(echo "$file" | sed "s/\.jade$/\.js/")
+echo "var jade = require('jade');" > "$targ"
+echo "module.exports = " >> "$targ"
+jade -c -D -p "$file" < "$file" >> "$targ"
+echo ";" >> "$targ"

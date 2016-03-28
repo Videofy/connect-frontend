@@ -1,0 +1,20 @@
+{
+  "name": "article-model",
+  "repo": "monstercat/article-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "super-model",
+    "parse",
+    "file-uploader"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

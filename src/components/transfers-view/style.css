@@ -1,0 +1,51 @@
+.downloads-view {
+  background: white;
+  border-radius: 0.25em;
+}
+
+.downloads-view .contents {
+  max-height: 320px;
+  overflow: auto;
+}
+
+.downloads-view p {
+  margin: 0;
+  padding: 1em;
+}
+
+.downloads-view table {
+  width: 100%;
+}
+
+.downloads-view th, .downloads-view td {
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+.downloads-view th {
+  border-bottom: solid 1px rgb(202, 202, 202);
+}
+
+.downloads-view td {
+  border-bottom: solid 1px whitesmoke;
+}
+
+.downloads-view td:last-child {
+  text-align: right;
+}
+
+.downloads-view tr:last-child td {
+  border-bottom: none;
+}
+
+.downloads-view th:first-child, .downloads-view td:first-child {
+  padding-left: 2em;
+}
+
+.downloads-view th:last-child, .downloads-view td:last-child {
+  padding-right: 2em;
+}
+
+.downloads-view i.fa-ban {
+  color: rgb(202, 202, 202);
+}

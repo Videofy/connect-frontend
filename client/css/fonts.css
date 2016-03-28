@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url('/font/Gotham-Bold.eot'); /* IE9 Compat Modes */
+  src: url('/font/Gotham-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/font/Gotham-Bold.woff') format('woff'), /* Modern Browsers */
+       url('/font/Gotham-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/font/Gotham-Bold.svg#6a327a217ddd10461b1acdc4d224fee0') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}

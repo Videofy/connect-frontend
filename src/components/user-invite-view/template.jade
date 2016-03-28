@@ -1,0 +1,52 @@
+header.ss.back-header
+  a.ss.back-link(href="/#community")
+    i.fa.fa-chevron-left
+    = strings.inviteUser.back
+  h4.ss.back-title= strings.inviteUser.title
+  span
+table.ss.rows.invite-table(role="form")
+  tr
+    th.list-label
+      label.ss.heavy= strings.inviteUser.type
+    td.types
+  tr(role='trial-period').hide
+    th= strings.inviteUser.trialPeriod
+    td
+      select.ss(property="trialLength")
+        option(value=0) None
+        option(value=1) 1 Month
+        option(value=1) 2 Month
+        option(value=3) 3 Month
+  tr.hide(role='username-field')
+    th.usersName= strings.inviteUser.username
+    td
+      input.ss(type="text"
+        property="name"
+        placeholder="Name"
+        required)
+  tr
+    th= strings.inviteUser.realName
+    td
+      input.ss(type='text'
+        property='realName'
+        placeholder="Full Name"
+        required)
+  tr
+    th= strings.defaults.emailAddress
+    td
+      input.ss(type="email"
+        property="email"
+        placeholder="example@monstercat.com")
+  tr
+    th= strings.inviteUser.sendEmail
+    td
+      input.ss(type="checkbox"
+        role="send-invite"
+        checked)
+  tr
+    th
+    td
+      button.ss.bg-action.hover.actioneer(role="submit")
+        span.inactive= strings.defaults.add
+        span.active Adding 
+          i.fa.fa-gear.fa-spin

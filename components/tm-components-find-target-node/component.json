@@ -1,0 +1,16 @@
+{
+  "name": "find-target-node",
+  "repo": "tm-components/find-target-node",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [
+    "find",
+    "node"
+  ],
+  "dependencies": {},
+  "development": {},
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

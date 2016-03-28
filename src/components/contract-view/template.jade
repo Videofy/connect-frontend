@@ -1,0 +1,18 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else if mode == 'view'
+  div.body(role='body')
+  div.signatures(role='signatures')
+  div(role='signing')
+  - var attachments = model.get('attachments') || []
+  if attachments.length
+    div.attachments
+      h5.ss Attachments
+      ul
+        each attachment in attachments
+          li
+            a(href="#{model.getAttachmentUrl(attachment)}"
+              target="_blank")= attachment.name
+else
+  p.heavy.center-text The contract specified was not found.

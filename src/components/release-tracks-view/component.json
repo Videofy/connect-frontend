@@ -1,0 +1,30 @@
+{
+  "name": "release-tracks-view",
+  "repo": "monstercat/release-tracks-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/date-time": "*",
+    "tm-components/wait": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "parse",
+    "private-player-plugin",
+    "track-collection",
+    "sort-util",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "rows-template.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

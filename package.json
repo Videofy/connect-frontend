@@ -1,0 +1,30 @@
+{
+  "name": "monstercat",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "postinstall": "./scripts/clean && ./scripts/build-all",
+    "component": "component install --dev",
+    "start": "node server/index",
+    "watch": "node scripts/watch",
+    "build": "./scripts/build-all",
+    "clean": "./scripts/clean"
+  },
+  "engines": {
+    "node": "5.1.1",
+    "npm": "3.3.12"
+  },
+  "devDependencies": {
+    "eye-spy": "^3.0.0"
+  },
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "component": "git+https://github.com/jb55/component.git",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "less": "1.3.3",
+    "marked": "^0.3.5",
+    "mtimes-changed": "git+https://github.com/jb55/changed.git",
+    "myth": "^1.3.0"
+  }
+}

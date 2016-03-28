@@ -1,0 +1,14 @@
+{
+  "name": "legend",
+  "description": "legend UI element",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "repository": "yx2zhang-component/legend"
+}

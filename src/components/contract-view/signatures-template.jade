@@ -1,0 +1,9 @@
+h5 Signatures
+each signature in signatures
+  div.signature
+    label.ss.heavy= signature.name
+    if signature.imageDataUrl
+      label.ss= format(new Date(signature.date))
+      img(src="#{signature.imageDataUrl}")
+    else
+      | Waiting for Signature

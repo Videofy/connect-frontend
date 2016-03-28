@@ -1,0 +1,21 @@
+{
+  "name": "analytics",
+  "repo": "monstercat/analytics",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/debug": "*",
+    "jb55/humanize-string": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "end-point"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "renderer",
+  "repo": "monstercat/renderer",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

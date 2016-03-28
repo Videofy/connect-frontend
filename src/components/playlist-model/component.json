@@ -1,0 +1,20 @@
+{
+  "name": "playlist-model",
+  "repo": "monstercat/playlist-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/querystring": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "format-quality",
+    "super-model"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "user-profile-image-view",
+  "repo": "monstercat/user-profile-image-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/file-dropper": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "file-uploader",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "input.css"
+  ]
+}

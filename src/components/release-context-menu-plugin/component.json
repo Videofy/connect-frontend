@@ -1,0 +1,26 @@
+{
+  "name": "release-context-menu-plugin",
+  "repo": "monstercat/release-context-menu-plugin",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/date-time": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "context-menu-plugin",
+    "formats",
+    "is-mobile",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+  ]
+}

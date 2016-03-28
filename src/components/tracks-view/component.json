@@ -1,0 +1,38 @@
+{
+  "name": "tracks-view",
+  "repo": "monstercat/tracks-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "jb55/ratio":"*",
+    "tm-components/audio-player": "*",
+    "visionmedia/debug": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "collection-view-listing",
+    "collection-view-listing-filter",
+    "collection-fsr-plugin",
+    "fsr-render-rows",
+    "input-cancel-plugin",
+    "parse",
+    "pane-util",
+    "pane-view",
+    "view-plugin",
+    "sort-util",
+    "track-page-view",
+    "track-row-view",
+    "track-collection",
+    "publisher-collection",
+    "user-collection",
+    "account-collection"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ]
+}

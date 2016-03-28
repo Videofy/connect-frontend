@@ -1,0 +1,28 @@
+if mode == "loading"
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else
+  nav.ss.table-filters
+    .options
+    .filter
+      label.ss.results(role='results-count')
+      .ss.search
+        input.ss(type="text" role="filter" placeholder="#{strings.defaults.filter}")
+        //-i.fa.fa-remove
+
+  table.ss
+    thead.ss.hide-below.w500
+      tr
+        th= strings.defaults.fileName
+        th= strings.defaults.fileType
+        th= strings.defaults.creationDate
+        th= strings.defaults.actions
+    tbody
+      if collection.length == 0
+        tr
+          td(colspan="4")
+            p.ss.center-text= strings.statements.noStatements
+    tfoot.expand
+      tr
+        td(colspan="4")
+          button.ss.fake.block-fill(role="more")= strings.defaults.loadMore

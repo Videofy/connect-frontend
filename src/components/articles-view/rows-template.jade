@@ -1,0 +1,28 @@
+if mode == 'loading'
+    tr
+        td(colspan=2)
+            .ss.loader
+                i.fa.fa-refresh.fa-spin
+else if !models.length
+    tr
+        td.ss.center-text(colspan=2)
+            label.ss.heavy There are no articles for this item.
+else
+    each model in models
+        tr
+            td= model.get('title')
+                if !model.hasAttachment()
+                   |  
+                   span.ss.heavy (No Attachment)
+            td
+                .ss.inline-toolbar
+                    if model.hasAttachment()
+                        a.ss.fake.cl-inherit.cl-action-hover(
+                            href="#{model.getDownloadUri()}"
+                            target="_blank")
+                            i.fa.fa-file-o
+
+                    button.ss.fake.cl-danger-hover(
+                        role='destroy-article'
+                        article-id='#{model.id}')
+                        i.fa.fa-trash-o

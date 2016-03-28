@@ -1,0 +1,23 @@
+{
+  "name": "super-collection",
+  "repo": "monstercat/super-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/point": "*",
+    "jb55/bluebird": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "backbone-promises",
+    "end-point",
+    "sort-util",
+    "super-model"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

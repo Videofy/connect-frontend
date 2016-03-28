@@ -1,0 +1,38 @@
+if mode == 'error'
+  tr
+    td.ss.center-text(colspan=5)
+      p.ss.heavy= error
+      p= strings.phrases.tryAgain
+else if !tracks || !tracks.length
+  tr
+    td.ss.center-text(colspan='5') There are no tracks.
+else
+  each track in tracks
+    - var pdate = track.getPreReleaseDate(release.id)
+    tr(track-id="#{track.id}")
+      td
+        input.ss(type="number"
+          role='track-position'
+          step="1"
+          value= track.getPosition(release.id))
+      td= track.get('title')
+      td= track.get('artistsTitle')
+      td
+        input.ss(type='checkbox'
+                  checked=!!pdate
+                  role='toggle-predate'
+                  track-id=track.id)
+        input.ss(type='date'
+                  role='predate'
+                  value=(pdate ? format('Y-m-d', new Date(pdate)) : undefined)
+                  class=(!pdate ? 'hide' : undefined)
+                  track-id=track.id)
+      td
+        .ss.inline-toolbar
+          button.ss.fake.actioneer(role='play-track')
+            i.inactive.fa.fa-play-circle
+            i.active.fa.fa-pause
+          a.ss.cl-inherit(href="/#tracks/#{track.id}")
+            i.fa.fa-link
+          button.ss.fake.cl-danger-hover(role='remove-track')
+            i.fa.fa-trash-o

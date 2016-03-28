@@ -1,0 +1,191 @@
+.disable-pointer-events .music-releases-view {
+  pointer-events: none;
+}
+
+.music-releases-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.music-releases-view .music-releases-preview-view {
+  flex-shrink: 0;
+}
+
+.music-releases-view div.view-selectors {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  padding: 0.5em 1em;
+}
+
+.music-releases-view .view-selectors i {
+  color: #dfdfdf;
+  cursor: pointer;
+  margin-right: 1em;
+  transition: color 0.25s ease-in-out;
+}
+
+.music-releases-view .view-selectors i:hover,
+.music-releases-view .view-selectors i.active {
+  color: inherit;
+}
+
+.music-releases-view .releases {
+  overflow: auto;
+  flex: 1;
+  background: white;
+}
+
+.music-releases-view .releases table {
+  width: 100%;
+}
+
+.music-releases-view .releases table tr.playing i.status-paused,
+.music-releases-view .releases table tr i.status-playing {
+  display: none;
+}
+
+.music-releases-view .releases table tr i.status-paused,
+.music-releases-view .releases table tr.playing i.status-playing {
+  display: inline-block;
+}
+
+.mobile .music-releases-view .releases table tr.playing i.status-playing {
+  color: dodgerblue;
+}
+
+.music-releases-view .releases table td {
+  padding: 1em 0;
+}
+
+.music-releases-view .releases table td:first-child {
+  width: 96px;
+  padding: 1em;
+}
+
+.music-releases-view .releases table td:last-child {
+  padding: 1em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.music-releases-view .grid-view table tr:nth-child(even) {
+  background-color: #F5F5F5;
+}
+
+.music-releases-view .releases table td > img {
+  -webkit-animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -ms-animation: fadein 1s;
+  -o-animation: fadein 1s;
+  animation: fadein 1s;
+  display: block;
+  height: 96px;
+  min-height: 96px;
+  min-width: 96px;
+  width: 96px;
+}
+
+.music-releases-view [role='open'] {
+  cursor: pointer;
+}
+
+.music-releases-view .releases table label {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 725px) {
+  .music-releases-view .grid-view table tr {
+    display: inline-block;
+    padding-bottom: 1em;
+    width: 25%;
+  }
+
+  .music-releases-view .grid-view table td:last-child {
+    text-align: center;
+    width: 96px;
+  }
+
+  .music-releases-view .grid-view table td.inline-toolbar {
+    background-color: rgba(255,255,255,0.8);
+    display: block;
+    margin: -2.5em 0 0 1em;
+    opacity: 0;
+    padding: 0;
+    position: relative;
+    transition: opacity 0.25s;
+  }
+
+  .mobile .music-releases-view .grid-view td.inline-toolbar,
+  .music-releases-view .grid-view td.art:hover ~ td.inline-toolbar,
+  .music-releases-view .grid-view td.inline-toolbar:hover {
+    opacity: 1;
+  }
+
+  .music-releases-view .grid-view table div.details {
+    max-height: 85px;
+    max-width: 100%;
+    overflow: hidden;
+    padding-right: 1em;
+  }
+}
+
+td.art {
+  position: relative;
+}
+
+.indicator-unreleased {
+  position: absolute;
+  left: 1.5em;
+  top: 1.5em;
+}
+
+@media (max-width: 1450px) {
+  .music-releases-view .grid-view table tr {
+    width: 33.3%;
+  }
+
+  .music-releases-view .grid-view table tr:nth-child(n) {
+    background-color: inherit;
+  }
+
+  .music-releases-view .grid-view table tr:nth-child(3n-1) {
+    background-color: #F5F5F5;
+  }
+}
+
+@media (max-width: 1200px) {
+  .music-releases-view .grid-view table tr {
+    width: 50%;
+  }
+
+  .music-releases-view .grid-view table tr:nth-child(n) {
+    background-color: inherit;
+  }
+
+  .music-releases-view .grid-view table tr:nth-child(even) {
+    background-color: #F5F5F5;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mobile .music-releases-view i {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .music-releases-view .grid-view table label.heavy {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 725px) {
+  .music-releases-view div.view-selectors {
+    display: none;
+  }
+}

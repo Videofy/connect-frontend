@@ -1,0 +1,59 @@
+.subscription-referral-view{
+  overflow: auto;
+}
+
+.learn-cp {
+  margin: 0px 10px;
+  font-size: 15px;
+}
+
+.subscription-referral-view a.learn-cp{
+  color: green;
+}
+
+.referral-code{
+  overflow: auto;
+}
+
+.referral-code-container{
+  padding: 0.8em;
+  border: 1px dashed #ccc;
+  overflow: auto;
+  text-align: center;
+  float: left;
+}
+
+.subscription-referral-view .referral-link{
+  width: 20em;
+}
+
+.socials{
+  margin: 1.3em 0px 0px 10px;
+  float: left;
+}
+
+.socials i{
+  padding: 0px 0px 0px 5px;
+  font-size: 16px;
+  color: black;
+}
+
+.subscription-referral-view label{
+  cursor: default;
+}
+
+label.text{
+  padding-bottom: 0.5em;
+}
+
+.subscription-referral-view .margin-top{
+  margin: 0.5em 0px; 
+}
+
+.subscription-referral-view .credit{
+  color: #6bbd7a;
+}
+
+.subscription-referral-view .referrals-table.ss.bordered{
+  width: 40em;
+}

@@ -1,0 +1,21 @@
+.release-row-view td.artwork {
+  width: 64px;
+  min-width: 64px;
+  max-width: 64px;
+}
+
+.release-row-view [package-status] i {
+  display: none;
+}
+
+.release-row-view [package-status='dirty'] i.dirty,
+.release-row-view [package-status='packaged'] i.packaged,
+.release-row-view [package-status='failed'] i.failed,
+.release-row-view [package-status='progress'] i.progress,
+.release-row-view [package-status='new'] i.new,
+.release-row-view [package-status='finished'] i.finished,
+.release-row-view [package-status='upload-failed'] i.upload-failed,
+.release-row-view [package-status='uploaded'] i.uploaded,
+.release-row-view [package-status='unknown'] i.unknown {
+  display: initial;
+}

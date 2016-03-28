@@ -1,0 +1,22 @@
+{
+  "name": "track-context-menu-plugin",
+  "repo": "monstercat/track-context-menu-plugin",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "context-menu-plugin",
+    "formats",
+    "presenter-view",
+    "track-credit-view"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

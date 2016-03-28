@@ -1,0 +1,24 @@
+p.ss.msg.bg-error.center-text.cancel-margin-top.hide(role='notice-error') An unknown error has occured.
+p.ss.msg.bg-success.center-text.cancel-margin-top.hide(role='notice-success') Something successful happened.
+p.ss.center-text.cancel-margin-top.hide(role='notice-forgot')= strings.signin.noticeForgot
+p.ss.center-text.cancel-margin-top.hide(role='notice-token')= strings.signin.noticeForgot
+input.ss.expand(type="email" placeholder="Email" role="email")
+input.ss.expand(type="password" placeholder="Password" role="password")
+input.ss.expand.hide(type="tel" placeholder="Token" role="token")
+.ss.dual
+  button.ss.hide(role="back-to-signin")= strings.signin.back
+  button.ss.bg-action.hover.hide.actioneer(role="send-reset")
+    span.inactive= strings.signin.sendLink
+    i.fa.fa-gear.fa-spin.active
+.ss.dual
+  button.ss(role="forgot-password")= strings.signin.forgotPassword
+  button.ss.bg-action.hover.actioneer(role="signin")
+    span.inactive= strings.defaults.signin
+    i.fa.fa-gear.fa-spin.active
+.ss.dual
+  button.ss.hover.actioneer.hide(role="resend-token")
+    span.inactive= strings.signin.resendToken
+    i.fa.fa-gear.fa-spin.active
+  button.ss.bg-action.hover.actioneer.hide(role="verify-token")
+    span.inactive= strings.signin.verify
+    i.fa.fa-gear.fa-spin.active

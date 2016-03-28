@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+file=$1
+css=$(echo $file | sed "s/\.less/\.css/")
+lessc "$file" "$css"

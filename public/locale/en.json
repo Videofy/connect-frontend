@@ -1,0 +1,371 @@
+{
+    "locale": "en",
+    "strings": {
+        "userTypes": {
+            "admin": "Super Admin",
+            "artist": "Artist",
+            "deal:contentpixel": "Content Pixel",
+            "enterprise": "Enterprise",
+            "exporter": "Exporter",
+            "general": "General",
+            "gold": "Gold",
+            "golden": "Golden",
+            "label_admin": "Admin",
+            "licensee": "Licensee",
+            "manager": "Manager",
+            "network": "Network",
+            "subscriber": "Subscriber",
+            "yt_gamer": "YouTube Gamer",
+            "yt_producer": "YouTube Producer",
+            "yt_promoter": "YouTube Promoter",
+            "sync": "Sync",
+            "whitelist_manager": "White List Manager",
+            "user_manager": "User Manager",
+            "contract_manager": "Contract Manager",
+            "admin_readonly": "Admin (Read Only)"
+        },
+        "assets": {
+            "costOfGoods": "Cost of Goods"
+        },
+        "channelStates": {
+            "adding": "Adding To Whitelist",
+            "removing": "Removing From Whitelist"
+        },
+        "channelTypes": {
+            "twitch": "Twitch",
+            "twitchDesc": "Twitch Name",
+            "youtube": "YouTube",
+            "youtubeDesc": "YouTube Channel ID"
+        },
+        "commissions": {
+            "copyUserSplits": "Copy User Splits from Download Commissions",
+            "endDate": "End Date",
+            "labelSplit": "Label Split",
+            "selectPublisher": "Select Publisher",
+            "startDate": "Start Date",
+            "userBreakdown": "User Breakdown",
+            "userBreakdownMsg": "The user breakdown is mirrored from the downloads breakdown.",
+            "valuesSumError": "Values do not add up. Please revise allocations."
+        },
+        "dashboard": {
+            "newsStreamTitle": "Dashboard",
+            "titles": {
+                "album": "Album",
+                "ep": "EP",
+                "mixes": "Mix",
+                "single": "Single"
+            }
+        },
+        "defaults": {
+            "address": "Address",
+            "actions": "Actions",
+            "active": "Active",
+            "activeOnly": "Active Only",
+            "add": "Add",
+            "all": "All",
+            "allTypes": "All Types",
+            "amount": "Amount",
+            "artists": "Artists",
+            "cancel": "Cancel",
+            "catalogId": "Catalog Id",
+            "catalogNumber": "Catalog Number",
+            "channelNum": "Channel Num",
+            "channelStateFilter": "Channel State Filter",
+            "city": "City",
+            "clear": "Clear",
+            "close": "Close",
+            "contact": "Contact",
+            "country": "Country",
+            "coverArt": "Cover Art",
+            "create": "Create",
+            "createdDate": "Created Date",
+            "creationDate": "Creation Date",
+            "creator": "Creator",
+            "date": "Date",
+            "destroyMsg": "Are you sure you want to delete {WHAT}?",
+            "details": "Details",
+            "development": "Development",
+            "download": "Download",
+            "downloads": "Downloads",
+            "edit": "Edit",
+            "email": "Email",
+            "emailAddress": "Email Address",
+            "emailExport": "Export Email",
+            "emails": "Emails",
+            "endPeriod": "End Period",
+            "enviromentFilter": "Environment Filter",
+            "environment": "Environment",
+            "exportFailedEmails": "Export Failed Emails",
+            "fileName": "File Name",
+            "fileType": "File Type",
+            "filter": "Filter",
+            "filters": "Filters",
+            "filterTypes": "Filter Types",
+            "firstName": "First Name",
+            "fullName": "Full Name",
+            "genres": "Genres",
+            "ids": "Ids",
+            "identifier": "Identifier",
+            "inactive": "Inactive",
+            "isrc": "ISRC",
+            "iswc": "ISWC",
+            "join": "Join",
+            "joinDate": "Join Date",
+            "lastName": "Last Name",
+            "lastSeen": "Last Seen",
+            "licensable": "Licensable",
+            "leave": "Leave",
+            "loading": "Loading...",
+            "loadMore": "Load More",
+            "more": "More",
+            "name": "Name",
+            "none": "None",
+            "nonsubscribers": "Non-Subscribers",
+            "paid": "Paid",
+            "password": "Password",
+            "period": "Period",
+            "planName": "Plan Name",
+            "playlist": "Playlist",
+            "preReleaseDate": "Pre-Release Date",
+            "production": "Production",
+            "publisher": "Publisher",
+            "publishing": "Publishing",
+            "releaseDate": "Release Date",
+            "results": "Results",
+            "save": "Save",
+            "selectCountry": "Select Country",
+            "selectOne": "Select One",
+            "signin": "Sign In",
+            "showAll": "Show All",
+            "staging" : "Staging",
+            "status": "Status",
+            "streaming": "Streaming",
+            "subscribers": "Subscribers",
+            "subscription": "Subscription",
+            "subscriptionActive": "Subscription Active",
+            "subscriptionFilter": "Subscription Filter",
+            "tags": "Tags",
+            "title": "Title",
+            "twitchIdentities": "Twitch Channels",
+            "type": "Type",
+            "types": "Types",
+            "unknown": "Unknown",
+            "upc": "UPC",
+            "upload": "Upload",
+            "user": "User",
+            "users": "Users",
+            "userTypes": "User Types",
+            "view": "View",
+            "whitelistAdding": "Adding To Whitelist",
+            "whitelistRemoving": "Removing From Whitelist",
+            "whitelistStatus": "Whitelist Status",
+            "youtubeIdentities": "YouTube Channels"
+        },
+        "forgotPassword": {
+            "error": "An error occured.",
+            "passwordMismatch": "Passwords do not match.",
+            "setNew": "Set New Password",
+            "success": "Action was successful.",
+            "updatePassword": "Update Password",
+            "updateSuccess": "Password succesfully updated."
+        },
+        "inviteUser": {
+            "back": "Return to Users",
+            "type": "User Type",
+            "email": "Email Address",
+            "username": "Artist Name",
+            "sendEmail": "Send Invite Email?",
+            "realName": "Real Name",
+            "title": "Add New User",
+            "trialPeriod" : "Trial Period"
+        },
+        "label": {
+            "header": "Contract Header Image",
+            "icon": "Icon",
+            "isrc": {
+                "country": "Country Code",
+                "id": "Current Index",
+                "registrant": "Registrant Code"
+            },
+            "partyId": "Party Id",
+            "partyName": "Party Name",
+            "sections": {
+                "appearance": "Customize Appearance",
+                "commissions": "Label Share Commissions Split",
+                "ddex": "DDEX Information",
+                "genres": "Genres and Colors",
+                "isrc": "ISRC",
+                "userTypes": "User Types",
+                "subscriptionPlans": "Subscription Plans"
+            }
+        },
+        "labels": {
+            "addPlaceholder": "New Label Name",
+            "destroyMsg": "Are you sure you want to delete this label?"
+        },
+        "newsStreamKinds": {
+            "Album": "Releases",
+            "File": "Blog Posts"
+        },
+        "packages": {
+            "jobStatus": "Job Status",
+            "totalProgress": "Total Progress",
+            "latestLog": "Latest Log",
+            "noPackages": "No packages found."
+        },
+        "phrases": {
+            "tryAgain": "Please refresh the page to try again.",
+            "adminReleaseMsg": "You can see this release because you are an admin.",
+            "adminTrackMsg": "You can see this track because you are an admin.",
+            "noLogs": "There are no logs yet.",
+            "displayingResults": "%i of %i",
+            "noResultsTrySearch": "Nothing to display. Try searching for something.",
+            "trackErrorsMessage": "There are errors with this track."
+        },
+        "player": {
+            "error": "An error occurred loading the track.",
+            "noArtist": "Play a song from the catalog.",
+            "noTrack": "(No Track)"
+        },
+        "playlist": {
+            "newMsg": "Please enter a new name for the playlist.",
+            "errorMsg": "There was an error trying to rename the playlist."
+        },
+        "releaseDetails": {
+            "altNames": "Alt Names",
+            "links": "Links",
+            "visibleAdmin": "Visible to Admins Only",
+            "visibleFree": "Visible as Free ",
+            "visibleWebsite": "Visible on Website",
+            "playlist": "Playlist Id"
+        },
+        "releaseTypes": {
+            "Album": "Album",
+            "EP": "EP",
+            "Mixes": "Mixes",
+            "Podcast": "Podcast",
+            "Single": "Single"
+        },
+        "releases": {
+            "destroyMsg": "Are you sure you want to delete this release?",
+            "newPlaceholder": "New Release Title",
+            "updatePreReleaseMsg": "The release's pre-release date does not match the earliest track's pre-release date. Update it to match?"
+        },
+        "referral": {
+            "creditEarned": "Credit earned",
+            "joinDate": "Join date",
+            "noReferrals": "No Referrals Available.",
+            "referralFriends": "Referral Friends",
+            "shareLinkMsg": "Share the referral link with your friends. Both you and your friend get 25% discount on sign-up.",
+            "userEmail": "User email"
+        },
+        "roles": {
+            "artist": "Artist",
+            "manager": "Manager",
+            "none": "None"
+        },
+        "signin": {
+            "back": "Back",
+            "forgotPassword": "Forgot Password",
+            "noticeForgot": "Submit your email below and a recovery link will be sent to reset your password.",
+            "resendToken": "Resend Token",
+            "sendLink": "Send Link",
+            "sentResetMsg": "Recovery email was sent.",
+            "twoFactorMsg": "Please enter the token sent to your device.",
+            "verify": "Verify"
+        },
+        "signup": {
+            "additionalChannelsMsg": "Additional purchased channels can be registered from your account.",
+            "completeRegistration": "Complete Registration",
+            "error": "An error occurred.",
+            "here": "here",
+            "finish": "Finish",
+            "return": "Return to Connect",
+            "youtubeChanIdMsg": "You can find your YouTube Channel ID "
+        },
+        "statements": {
+            "noStatements": "No statements available."
+        },
+        "subscriberTypes": {
+            "sponsored": "Sponsored Licensees",
+            "licensee": "Subscribed Licensees"
+        },
+        "subscription": {
+            "creditApplyMsg": "Credit will automatically be applied to your recurring monthly payment.",
+            "creditCard": "Credit Card",
+            "paymentMethod": "Payment Method",
+            "paypal": "Paypal",
+            "remainingCredit": "Remaining Credit:",
+            "renew": "Renew",
+            "yourPlan": "Your Plan"
+        },
+        "trackBodyDetails": {
+            "noArtistSet": "<No artists added>"
+        },
+        "tracks": {
+            "destroy": "Are you sure you want to delete this track?",
+            "confirmTitle": "A track already exists with this title. Are you sure you want to continue?",
+            "newPlaceholder": "New Track Title"
+        },
+        "trackDetails": {
+            "additionalIsrcs": "Additional ISRCs",
+            "altNames": "Alternative Names",
+            "artistsTitle": "Artists Title",
+            "bpm": "BPM",
+            "debutDate": "Debut Date",
+            "hideFromCatalog": "Hide from Catalog",
+            "featuring": "Featuring",
+            "remixers": "Remixers",
+            "remixOf": "Remix Of",
+            "trackLength": "Track Length"
+        },
+        "twoFactor": {
+            "disabled": "Two-Factor Authentication (Disabled)",
+            "enabled": "Two-Factor Authentication (Enabled)"
+        },
+        "userBodyDetails": {
+            "about": "About Me",
+            "accTypes": "Account Types",
+            "addAltName": "Add alternative name.",
+            "addAltNames": "Add alternative names.",
+            "addClaimId": "Add claim ID.",
+            "altNames": "Alternative Names",
+            "bookings": "Bookings",
+            "email": "Email",
+            "links": "Links",
+            "location": "Location",
+            "management": "Management",
+            "name": "Real Name",
+            "nickname": "Nickname",
+            "password": "Password",
+            "profileImage": "Profile Image",
+            "subscribe": "Subscribe",
+            "ytChannel": "YouTube Channel"
+        },
+        "users": {
+            "destroyMsg": "Are you sure you want to delete this user?"
+        },
+        "whitelist": {
+            "activeOnly": "Active Only",
+            "markWhitelistConfirm": "All active users will be marked as whitelisted. Are you sure you want to do continue?",
+            "markWhitelisted": "Mark Whitelisted"
+        },
+        "subscriptionPlans": {
+          "newPlaceholder": "New Subscription Plan",
+          "create": "The plan id \"%s\" already exists. Are you sure you want to continue?",
+          "created": "Succesfully created plan with id \"%s\".",
+          "filterChannelNum":"Channel Number Filter",
+          "filterPeriod": "Period Filter",
+          "userNum": "Subscribers",
+          "destroy": "Are you sure you want to destroy the \"%s\" plan?",
+          "destroyed": "The plan \"%s\" has been destroyed."
+        },
+        "subscriptionBilling":{
+          "paymentDate": "Date",
+          "planName": "Plan Name",
+          "method": "Method",
+          "amount": "Amount",
+          "status": "Status"
+        }
+    }
+}

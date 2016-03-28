@@ -1,0 +1,19 @@
+{
+  "name": "user-collection",
+  "repo": "monstercat/user-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "user-model",
+    "crud-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

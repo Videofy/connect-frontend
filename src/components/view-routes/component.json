@@ -1,0 +1,41 @@
+{
+  "name": "view-routes",
+  "repo": "monstercat/view-routes",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "accounts-view",
+    "assets-view",
+    "contract-create-view",
+    "contract-view",
+    "contracts-view",
+    "dashboard-view",
+    "error-view",
+    "forgot-password-view",
+    "general-page-view",
+    "handbook-view",
+    "label-page-view",
+    "labels-view",
+    "music-view",
+    "releases-view",
+    "sign-up-view",
+    "statements-view",
+    "styles-view",
+    "tracks-view",
+    "user-invite-view",
+    "user-page-view",
+    "users-view",
+    "users-whitelist-view",
+    "verify-view",
+    "welcome-view",
+    "survey-view"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

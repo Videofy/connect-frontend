@@ -1,0 +1,16 @@
+{
+  "name": "node",
+  "repo": "tm-components/node",
+  "description": "Some helpful node functions.",
+  "version": "0.0.4",
+  "keywords": [],
+  "dependencies": {
+    "component/matches-selector": "0.1.2"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

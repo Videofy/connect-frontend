@@ -1,0 +1,20 @@
+{
+  "name": "session",
+  "repo": "monstercat/session",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter": "*",
+    "visionmedia/superagent": "*",
+    "jb55/dot-lens": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

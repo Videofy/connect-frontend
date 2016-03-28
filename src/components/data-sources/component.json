@@ -1,0 +1,34 @@
+{
+  "name": "data-sources",
+  "repo": "monstercat/data-sources",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "account-collection",
+    "asset-collection",
+    "contract-collection",
+    "document-collection",
+    "end-point",
+    "label-collection",
+    "label-model",
+    "news-stream-collection",
+    "playlist-collection",
+    "publisher-model",
+    "release-collection",
+    "subscription-model",
+    "super-collection",
+    "super-model",
+    "track-collection",
+    "user-collection",
+    "user-model"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

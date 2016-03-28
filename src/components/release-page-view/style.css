@@ -1,0 +1,5 @@
+.release-page-view .tab-view > .content {
+  padding: 1em;
+  background: white;
+  border-top: solid 1px rgba(0, 0, 0, 0.1)
+}

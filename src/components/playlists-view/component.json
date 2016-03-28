@@ -1,0 +1,28 @@
+{
+  "name": "playlists-view",
+  "repo": "monstercat/playlists-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "context-menu-plugin",
+    "drag-detector",
+    "drag-tracks-toggle-plugin",
+    "formats",
+    "playlist-model",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

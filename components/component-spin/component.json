@@ -1,0 +1,25 @@
+{
+  "name": "spin",
+  "repo": "component/spin",
+  "description": "Higher level spinner API",
+  "version": "0.0.2",
+  "keywords": [
+    "spin",
+    "spinner",
+    "load",
+    "loading",
+    "progress"
+  ],
+  "dependencies": {
+    "visionmedia/debug": "*",
+    "component/css": "*",
+    "component/spinner": "*",
+    "component/removed": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ],
+  "remotes": []
+}

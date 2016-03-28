@@ -1,0 +1,16 @@
+{
+  "name": "color",
+  "repo": "tm-components/color",
+  "description": "Color me beautiful!",
+  "version": "0.0.3",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/point": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

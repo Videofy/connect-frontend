@@ -1,0 +1,31 @@
+{
+  "name": "commission-b-view",
+  "repo": "monstercat/commission-b-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/countries": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/debug": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "commission-label-view",
+    "commission-users-view",
+    "collection-fsr-plugin",
+    "crud-collection",
+    "parse",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "rates-empty.js",
+    "rates-view.js",
+    "rates-template.js",
+    "rate-row-view.js",
+    "rate-row-template.js"
+  ]
+}

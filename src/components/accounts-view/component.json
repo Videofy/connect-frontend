@@ -1,0 +1,41 @@
+{
+  "name": "accounts-view",
+  "repo": "monstercat/accounts-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "account-collection",
+    "website-details-model",
+    "collection-fsr-plugin",
+    "parse",
+    "row-view-plugin",
+    "search-plugin",
+    "tab-view",
+    "user-website-details-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "account-template.js",
+    "account-view.js",
+    "account-users-template.js",
+    "account-users-view.js",
+    "empty-users-template.js",
+    "pane-template.js",
+    "pane-view.js",
+    "row-view.js",
+    "row-template.js",
+    "template.js",
+    "users-rows-template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

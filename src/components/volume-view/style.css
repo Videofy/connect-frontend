@@ -1,0 +1,29 @@
+.volume-view {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.mobile .volume-view {
+  display: none;
+}
+
+.volume-view .slider-view {
+  display: inline-block;
+  height: 0.5em;
+  position: relative;
+  transition: width 0.25s ease-in-out;
+  width: 0;
+}
+
+.volume-view:hover .slider-view,
+.volume-view:active .slider-view {
+  width: 5em;
+}
+
+.volume-view .slider-view .growth {
+  background: dodgerblue;
+}
+
+.volume-view .slider-view .bar {
+  background-color: rgb(223, 223, 223);
+}

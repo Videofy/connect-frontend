@@ -1,0 +1,11 @@
+table.ss.rows
+  tbody
+if options
+  .ss.input-button
+    select.ss
+      option(disabled=true selected)= strings.selectOne
+      each option in options
+        option(value="#{option.value}")= option.text
+    button.ss.bg-action.hover(role='add-item')= strings.add
+else
+  button.ss.bg-action.hover(role="add-item")= strings.add

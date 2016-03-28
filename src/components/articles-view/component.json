@@ -1,0 +1,25 @@
+{
+  "name": "articles-view",
+  "repo": "monstercat/articles-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/file-dropper": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "article-model",
+    "collection-fsr-plugin",
+    "parse",
+    "view-plugin"
+  ],
+  "scripts": [
+    "rows-template.js",
+    "index.js",
+    "template.js"
+  ]
+}

@@ -1,0 +1,31 @@
+table.ss.bordered
+  thead
+    th= strings.defaults.type
+    th= strings.defaults.createdDate
+    th= strings.defaults.status
+    th
+  tbody
+    if mode == 'loading'
+      tr
+        td(colspan="4")
+          .ss.loader
+            i.fa.fa-refresh.fa-spin
+    else if !collection.models.length
+      tr
+        td.ss.center-text(colspan="4")
+          label.ss.heavy This track does not belong to any contracts.
+    else
+      each model in collection.models
+        tr
+          td= model.get('blueprintName') || model.get("type")
+          td= model.getAsFormatedDate("createdDate", "M j, Y")
+          td
+            if model.get("canceled")
+              = strings.contracts.statuses.canceled
+            else if model.get("completed")
+              = strings.contracts.statuses.completed
+            else
+              = strings.contracts.statuses.signaturesNeeded
+          td
+            a.ss.cl-default(href="/#contracts/view/#{model.id}")
+              i.fa.fa-link

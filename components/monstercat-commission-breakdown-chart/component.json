@@ -1,0 +1,20 @@
+{
+  "name": "commission-breakdown-chart",
+  "repo": "monstercat/commission-breakdown-chart",
+  "description": "",
+  "version": "0.0.5",
+  "keywords": [],
+  "dependencies": {
+    "jb55/chart": "*",
+    "jb55/ratio": "*",
+    "tm-components/color": "*",
+    "visionmedia/debug": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [],
+  "scripts": [
+    "index.js"
+  ]
+}

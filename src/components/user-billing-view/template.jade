@@ -1,0 +1,27 @@
+div(role='paypal-email-info')
+  label.ss.heavy PayPal (Default)
+
+  table.ss.rows
+    tbody
+      tr
+        td
+          label.ss Email
+        td
+          input.ss(type="text"
+            placeholder="example@monstercat.com"
+            title="PayPal Email"
+            property="paypalEmail")
+
+label.ss.heavy Payment Option
+
+label.ss.radio
+  | PayPal
+  input.ss(type="radio" property="paymentType" value="PayPal")
+
+label.ss.radio
+  | Wire Transfer (Subject to a $25 CAD fee.)
+  input.ss(type="radio" property="paymentType" value="Wire")
+
+label.ss.radio
+  | Direct Deposit (Available only to Canadians.)
+  input.ss(type="radio" property="paymentType" value="Direct")

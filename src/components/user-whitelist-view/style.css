@@ -1,0 +1,15 @@
+.user-whitelist-view i[role='status'] {
+  margin-right: 0.5em;
+}
+
+.user-whitelist-view i[role='status'].fa-check-circle {
+  color: green;
+}
+
+.user-whitelist-view i[role='status'].fa-warning {
+  color: #ff8500;
+}
+
+.user-whitelist-view i[role='status'].fa-exclamation-circle {
+  color: red;
+}

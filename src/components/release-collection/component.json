@@ -1,0 +1,19 @@
+{
+  "name": "release-collection",
+  "repo": "monstercat/release-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "release-model",
+    "crud-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "download-string",
+  "repo": "tm-components/download-string",
+  "description": "Downloads a string.",
+  "version": "0.0.0",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

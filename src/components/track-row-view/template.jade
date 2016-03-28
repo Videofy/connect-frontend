@@ -1,0 +1,27 @@
+td.genre
+  .bar
+td.ss.cancel-padding
+  button.ss.fake.cl-action-hover.actioneer(role='play' title="Preview Track")
+    i.inactive.fa.fa-play-circle.fa-fw
+    i.active.fa.fa-pause.fa-fw.hide
+td.track-title= model.get("title")
+td.artists-title= model.get("artistsTitle")
+td.status.ss.cancel-padding.center-text
+  i.fa.fa-exclamation-circle.ss.cl-error.hide(role="status-state" title="#{strings.phrases.trackErrorsMessage}")
+td.date= model.getAsFormatedDate("created", "M j, Y")
+td.isrc= model.get("isrc")
+td= model.id
+td.actions.ss.cancel-padding
+  .ss.inline-toolbar
+    a.ss.fake.cl-inherit.cl-action-hover(role='download'
+      href="#{model.fileOriginalUrl()}"
+      title="Download WAV File"
+      download="#{model.get('filename')}")
+      i.fa.fa-cloud-download
+    button.ss.fake.cl-action-hover.actioneer(role="upload" title="Upload WAV File")
+      i.inactive.fa.fa-cloud-upload
+      i.active.fa.fa-cog.fa-spin
+    a.ss.cl-inherit.cl-action-hover(href="/#tracks/#{model.id}" role="link" title="Track Link")
+      i.fa.fa-link
+    button.ss.fake.cl-danger-hover(role="delete" title="Delete Track")
+      i.fa.fa-trash-o

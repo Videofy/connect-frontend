@@ -1,0 +1,150 @@
+.player-view {
+  background-color: #fcfcfc;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.player-view.hide {
+  display: none;
+}
+
+.player-view .controls {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  padding: 1em;
+}
+
+.player-view .controls label {
+  cursor: default;
+  margin: 0;
+}
+
+.player-view .controls i {
+  color: inherit;
+  cursor: pointer;
+  margin: 0 0.5em;
+  transition: color 0.25s;
+  vertical-align: middle;
+}
+
+.player-view .controls i:hover,
+.player-view .controls i.active {
+  color: dodgerblue;
+}
+
+.player-view .controls i[disabled] {
+  color: #dfdfdf;
+  pointer-events: none;
+}
+
+.player-view .controls > div {
+  margin-right: 1em;
+}
+
+.player-view .controls > div:last-of-type {
+  margin: 0;
+}
+
+.player-view .actions {
+  flex-shrink: 0;
+  padding: 0.5em 0;
+}
+
+.player-view .actions i[role="play"] {
+  font-size: 1.5em;
+}
+
+.player-view .info {
+  flex: 1;
+  max-width: 200px;
+  min-width: 200px;
+}
+
+.player-view .info .track-title {
+  font-weight: bold;
+}
+
+.player-view .info .track-title,
+.player-view .info .artists {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-view .duration {
+  flex-grow: 1;
+  position: relative;
+}
+
+.player-view .duration .labels{
+  display: flex;
+}
+
+.player-view .duration .labels label {
+  padding: 0;
+}
+
+.player-view .duration .labels .playlist-name {
+  flex: 1;
+  text-align: center;
+}
+
+.player-view .duration .seeked,
+.player-view .duration .time {
+  text-align: left;
+  width: 3em;
+}
+
+.player-view .duration .time {
+  text-align: right;
+}
+
+.player-view .toggle-playlist i {
+  margin-left: 0;
+}
+
+@media (max-width: 600px) {
+  .player-view .controls:not(.more) .duration,
+  .player-view .controls:not(.more) .actions.secondary {
+    display: none;
+  }
+
+  .player-view .controls,
+  .player-view .more.controls.open {
+    padding: 0.5em 0;
+  }
+
+  .player-view .controls > div {
+    margin-right: 0.5em;
+  }
+
+  .player-view .controls .info {
+    margin: 0;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .player-view .more.controls {
+    overflow-y: auto;
+    max-height: 0;
+    padding: 0;
+    transition: max-height 0.25s;
+  }
+
+  .player-view .more.controls.open {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    max-height: 6em;
+  }
+
+  .mobile .player-view .controls i {
+    font-size: 1.5em;
+    margin: 0 0.25em;
+  }
+
+  .player-view .more.controls .duration {
+    margin: 0 1em;
+  }
+}

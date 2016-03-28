@@ -1,0 +1,25 @@
+{
+  "name": "release-page-view",
+  "repo": "monstercat/release-page-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "release-details-view",
+    "release-packages-view",
+    "status-view",
+    "tab-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "contract-collection",
+  "repo": "monstercat/contract-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "super-collection",
+    "contract-model"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

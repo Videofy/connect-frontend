@@ -1,0 +1,20 @@
+if mode == "loading"
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else
+  .contents
+    if mode == "signed-out"
+      nav
+        a(href="/#")
+          .ss.monstercat.white
+    else
+      header.ss.back-header
+        a.ss.back-link(href="#handbook" role="go-home")
+          i.fa.fa-chevron-left
+          | Table of Contents
+        h1.ss.back-title
+          a(href="#handbook") Handbook
+        span
+
+    section.content.ss.page-template
+    footer

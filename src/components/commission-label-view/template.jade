@@ -1,0 +1,23 @@
+table.ss.rows
+  tbody
+    tr
+      td
+        label.ss.heavy Label Split
+      td
+        input.ss.input-ratio(type="text"
+          role='labelRatio'
+          fraction-target='labelFraction'
+          value="#{model.get('labelRatio').toString()}")
+        |  
+        .ss.input-button
+          button.ss.bg-action.hover(role='set-fraction'
+            target-fraction='labelFraction' value='1/4') 1/4
+          button.ss.bg-action.hover(role='set-fraction'
+            target-fraction='labelFraction' value='1/3') 1/3
+          button.ss.bg-action.hover(role='set-fraction'
+            target-fraction='labelFraction' value='1/2') 1/2
+      td
+        label.ss
+          span(role='percentage') #{(model.get('labelRatio').valueOf() * 100).toFixed(2)}
+          | %
+      td(role='chart')

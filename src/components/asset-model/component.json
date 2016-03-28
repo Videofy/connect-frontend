@@ -1,0 +1,19 @@
+{
+  "name": "asset-model",
+  "repo": "monstercat/asset-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "local": [
+    "super-model"
+  ]
+}

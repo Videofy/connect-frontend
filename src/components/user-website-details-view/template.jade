@@ -1,0 +1,32 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else
+  .website
+    label.ss.checkbox
+      | Visible on website.
+      input(type="checkbox" title="Visible on website." property="public")
+
+    .ss.labelfields
+      .field
+        .key
+          label.ss Website Placement Tier
+        .value
+          input.ss(type="text" placeholder="Tier Number" title="Website placement tier must be a number between 1 and 12." property="tier" errornone)
+
+  label.ss.heavy Profile
+  textarea.ss.expand(property="about")
+
+  .bookings
+    label.ss.heavy Bookings
+    textarea.ss.expand.bookings(property="bookings")
+
+  .management
+    label.ss.heavy Management
+    textarea.ss.expand.management(property="managementDetail")
+
+  label.ss.heavy URLs
+  .urls
+
+  label.ss.heavy Picture
+  .picture

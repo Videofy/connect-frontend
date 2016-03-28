@@ -1,0 +1,45 @@
+header
+  nav.ss.table-filters
+    .ss.options
+      if permissions.contracts.create
+        button.ss.bg-action.hover
+          a(href="/#contracts/create")= strings.defaults.add
+    .filter
+      label.ss.results(role="results-count")
+      .ss.search
+        input.ss(type="text"
+          role="filter"
+          placeholder="#{strings.defaults.filter}")
+section
+  table.ss.pane-table
+    thead.ss.hide-below.w500
+      tr
+        th.sortable(sort-on='variables.title') Title
+          i.fa.fa-sort-asc.indicator-asc
+          i.fa.fa-sort-desc.indicator-desc
+        th.sortable(sort-on='variables.type') Type
+          i.fa.fa-sort-asc.indicator-asc
+          i.fa.fa-sort-desc.indicator-desc
+        th.sortable(sort-on='variables.date') Date
+          i.fa.fa-sort-asc.indicator-asc
+          i.fa.fa-sort-desc.indicator-desc
+        th.sortable(sort-on='status') Status
+          i.fa.fa-sort-asc.indicator-asc
+          i.fa.fa-sort-desc.indicator-desc
+        th
+    tbody
+      tr
+        td(colspan=5)
+          .ss.loader
+            i.fa.fa-refresh.fa-spin
+nav.ss.table-pagination.no-pages
+  button.ss.fake(role='page-previous')
+    i.fa.fa-chevron-left
+    span  Previous 
+      span(role='increment')= increment
+  label.ss(role='results') &nbsp;
+  button.ss.fake(role='page-next')
+    span Next 
+      span(role='increment')= increment
+      |  
+    i.fa.fa-chevron-right

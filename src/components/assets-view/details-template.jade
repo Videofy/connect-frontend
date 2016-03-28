@@ -1,0 +1,16 @@
+table.ss.rows
+  tr
+    th= strings.defaults.title
+    td
+      input.ss(type='text' property='title' placeholder='Asset Title')
+  tr
+    th= strings.defaults.date
+    td
+      input.ss(type='date' property='date')
+  tr
+    th= strings.assets.costOfGoods
+    td
+      input.ss(type='number' property='cogs')
+  tr
+    th= strings.defaults.ids
+    td(role='ids-list')

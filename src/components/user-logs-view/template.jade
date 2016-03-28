@@ -1,0 +1,22 @@
+table.ss.bordered
+  thead
+    tr
+      th User
+      th Event
+      th Payment Type
+      th Plan
+      th Amount
+      th Time
+  tbody
+    if !collection || !collection.models.length
+      tr
+        td.ss.center-text(colspan='6') No Logs Available.
+    else
+      each model in collection.models
+        tr
+          td.user-name= model.get("userName")
+          td.event-type= model.get("eventType")
+          td.payment-type= model.get("subscriptionPaymentType")
+          td.plan= model.get("subscriptionplan")
+          td.amount= model.get("subscriptionAmount")
+          td.timestamp= model.getAsFormatedDate('timeStamp', 'M j, Y g:i A')

@@ -1,0 +1,37 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "input.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "release-model",
+    "collection-fsr-plugin",
+    "collection-view-listing",
+    "collection-view-listing-filter",
+    "fsr-render-rows",
+    "input-cancel-plugin",
+    "pane-util",
+    "pane-view",
+    "parse",
+    "release-page-view",
+    "release-row-view",
+    "track-collection",
+    "release-collection",
+    "sort-util",
+    "view-plugin"
+  ],
+  "main": "index.js",
+  "name": "releases-view",
+  "repo": "monstercat/releases-view",
+  "description": "",
+  "version": "0.0.1"
+}

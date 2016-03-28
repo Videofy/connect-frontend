@@ -1,0 +1,27 @@
+{
+  "name": "labels-view",
+  "repo": "monstercat/labels-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "collection-fsr-plugin",
+    "collection-view-listing",
+    "fsr-render-rows",
+    "input-cancel-plugin",
+    "label-page-view",
+    "label-row-view",
+    "pane-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ]
+}

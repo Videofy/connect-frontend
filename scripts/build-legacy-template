@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+file="$1"
+srcDir="$(dirname $file)"
+targDir="$srcDir/../templates/"
+filename="$(basename $file)"
+targ="$targDir/$(echo "$filename" | sed "s/\.jade$/\.gen\.js/")"
+templateName="$(echo "$filename" | sed "s/\.jade//")"
+
+echo "Views.templates[\"$templateName\"] = " > "$targ"
+jade -c -D -p "$file" < "$file" >> "$targ"
+echo ";" >> "$targ"

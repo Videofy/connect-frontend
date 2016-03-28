@@ -1,0 +1,12 @@
+.user-whitelist-view .channel-status {
+  padding-top: 0.5em;
+}
+
+.user-whitelist-view .remove-channel {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.user-whitelist-view .remove-channel a {
+  color: inherit;
+}

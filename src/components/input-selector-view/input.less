@@ -1,0 +1,49 @@
+.input-selector-view {
+  .box-container {
+    display: flex;
+
+    input:disabled {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .c-close, .c-open {
+      flex-shrink: 0;
+      font-size: 1em;
+      padding: 0.35em 0 0 0.5em;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  .choices {
+    background: whitesmoke;
+    border-radius: 0.3em;
+    list-style: none;
+    margin: 0 0 0.5em 0;
+    padding: 0.5em 0;
+
+    li {
+      color: rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0;
+      padding: 0 0.5em;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &.disabled {
+    .box-container {
+      .c-close, .c-open {
+        display: none;
+      }
+    }
+  }
+}

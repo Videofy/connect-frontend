@@ -1,0 +1,16 @@
+{
+  "name": "chart",
+  "repo": "jb55/chart",
+  "description": "chart.js",
+  "version": "0.0.1",
+  "keywords": [
+    "chart"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "Chart.js",
+  "scripts": [
+    "Chart.js"
+  ]
+}

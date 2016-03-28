@@ -1,0 +1,32 @@
+table.ss.bordered
+  thead
+    tr
+      th= strings.defaults.title
+      th= strings.defaults.releaseDate
+      th= strings.defaults.catalogId
+      th= strings.defaults.type
+      th
+  tbody
+    if mode == 'loading'
+      tr
+        td(colspan=5)
+          .ss.loader
+            i.fa.fa-refresh.fa-spin
+    else if mode == 'error'
+      tr
+        td(colspan=5)
+          label.ss.center-text.heavy An error occured.
+    else if !collection.models.length
+      tr
+        td.ss.center-text(colspan=5)
+          label.ss.heavy This track is not associated with any releases.
+    else
+      each model in collection.models
+        tr
+          td= model.get('title')
+          td= model.getAsFormatedDate("releaseDate", "M j, Y")
+          td= model.get('catalogId')
+          td= model.get('type')
+          td
+            a.ss.cl-default(href="/#releases/#{model.id}")
+              i.fa.fa-link

@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "style.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "is-mobile",
+    "is-narrow",
+    "playlists-view",
+    "view-plugin"
+  ],
+  "main": "index.js",
+  "name": "menu-view",
+  "repo": "monstercat/menu-view",
+  "description": "",
+  "version": "0.0.1"
+}

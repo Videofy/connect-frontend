@@ -1,0 +1,40 @@
+td(colspan=9)
+  table.ss.rows
+    tbody
+      tr
+        td
+          label.ss.heavy= strings.defaults.planName
+        td
+          input.ss(type='text', property='planId')
+      tr
+        td
+          label.ss.heavy= strings.defaults.period
+        td
+          input.ss(type='number' property='period' step=1)
+      tr
+        td
+          label.ss.heavy= strings.defaults.channelNum
+        td
+          input.ss(type='number' property='channelNum' step=1)
+      tr
+        td
+          label.ss.heavy= strings.defaults.amount
+        td
+          input.ss(type='number' property='amount')
+      tr
+        td
+          label.ss.heavy= strings.defaults.active
+        td
+          input.ss(type='checkbox' property='active')
+      tr
+        td
+          label.ss.heavy= strings.defaults.environment
+        td
+          select.ss(property='env')
+            option(value='production') Production
+            option(value='development') Development
+            option(value='staging') Staging
+      tr
+        td
+          label.ss.heavy= strings.defaults.userTypes
+        td(role='types')

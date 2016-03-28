@@ -1,0 +1,34 @@
+{
+  "name": "track-page-view",
+  "repo": "monstercat/track-page-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/debug": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "article-collection",
+    "articles-view",
+    "commission-b-collection",
+    "commissions-b-view",
+    "crud-collection",
+    "status-view",
+    "publisher-collection",
+    "tab-view",
+    "track-details-view",
+    "track-releases-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

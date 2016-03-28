@@ -1,0 +1,20 @@
+nav.ss.table-filters
+  .tabs
+  .filter
+    .ss.search
+      input.ss.expand(type="text" role="filter" placeholder="Search" tabindex=1)
+      i.fa.fa-remove
+.ss.loader(role="loader")
+  i.fa.fa-refresh.fa-spin
+.content.hide
+nav.ss.table-pagination.no-pages
+  button.ss.fake(role='page-previous')
+    i.fa.fa-chevron-left
+    span  Previous 
+      span(role='increment')= increment
+  label.ss(role='results') &nbsp;
+  button.ss.fake(role='page-next')
+    span Next 
+      span(role='increment')= increment
+      |  
+    i.fa.fa-chevron-right

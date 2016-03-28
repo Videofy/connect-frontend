@@ -1,0 +1,19 @@
+{
+  "name": "website-details-model",
+  "repo": "monstercat/website-details-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "local": [
+    "super-model"
+  ]
+}

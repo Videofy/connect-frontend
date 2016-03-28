@@ -1,0 +1,39 @@
+{
+  "name": "user-page-view",
+  "repo": "monstercat/user-page-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "article-collection",
+    "website-details-model",
+    "user-subscription-view",
+    "tab-view",
+    "user-account-view",
+    "user-admin-view",
+    "user-billing-view",
+    "user-website-details-view",
+    "view-plugin",
+    "user-logs-view",
+    "user-log-collection",
+    "user-payments-collection",
+    "user-sub-billing",
+    "tab-change-plugin",
+    "subscription-model"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js",
+    "articles-view.js",
+    "articles-template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

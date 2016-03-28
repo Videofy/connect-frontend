@@ -1,0 +1,31 @@
+{
+  "name": "release-details-view",
+  "repo": "monstercat/release-details-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/file-dropper": "*",
+    "tm-components/date-time": "*",
+    "tm-components/wait": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "file-uploader",
+    "input-list-view",
+    "list-manage-view",
+    "parse",
+    "release-tracks-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

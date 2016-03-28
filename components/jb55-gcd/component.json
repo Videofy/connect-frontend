@@ -1,0 +1,14 @@
+{
+  "name": "gcd",
+  "repo": "jb55/gcd",
+  "description": "gcd",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

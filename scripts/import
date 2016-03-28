@@ -1,0 +1,9 @@
+cd $(pwd $(dirname $0))
+rm -rf src
+rm -rf components
+mkdir -p src/components
+rsync -r --delete ../connect/components ./
+rsync -r --delete ../connect/lib/client/backbone/ ./src/backbone
+rsync -r --delete ../connect/lib/client/components/ ./src/components
+cp ../connect/lib/client/connect.coffee ./src
+cp ../connect/lib/client/connect.css ./src

@@ -1,0 +1,19 @@
+{
+  "name": "sort-util",
+  "repo": "monstercat/sort-util",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "jb55/dot-lens": "*",
+    "component/assert": "0.4.0"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

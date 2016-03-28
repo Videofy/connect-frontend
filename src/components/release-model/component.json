@@ -1,0 +1,24 @@
+{
+  "name": "release-model",
+  "repo": "monstercat/release-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/querystring": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "format-quality",
+    "parse",
+    "sort-util",
+    "super-model",
+    "value-matcher-util"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

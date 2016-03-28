@@ -1,0 +1,36 @@
+.slider-view {
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.slider-view .hitbox,
+.slider-view .growth,
+.slider-view .bar {
+  background: rgb(223, 223, 223);
+  border-radius: 0.1em;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.slider-view .hitbox {
+  background: transparent;
+  z-index: 2;
+}
+
+.slider-view .growth {
+  background: rgba(0, 0, 0, 0.1);
+  transition: background 0.25s;
+  z-index: 1;
+}
+
+.slider-view:hover .growth {
+  background: dodgerblue;
+}

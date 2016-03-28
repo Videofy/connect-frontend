@@ -1,0 +1,31 @@
+{
+  "name": "release-packages-view",
+  "repo": "monstercat/release-packages-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "jb55/humanize-string": "*",
+    "tm-components/wait": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "formats",
+    "parse",
+    "sort-util",
+    "crud-collection",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "rows-template.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

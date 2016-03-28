@@ -1,0 +1,62 @@
+{
+  "name": "connect",
+  "dependencies": {
+    "bquery/collection": "0.3.0",
+    "chjj/marked": "*",
+    "component/assert": "*",
+    "component/in-viewport": "*",
+    "component/type": "*",
+    "jb55/ap": "*",
+    "jb55/bluebird": "*",
+    "jb55/codom": "*",
+    "jb55/dot-lens": "*",
+    "jb55/ratio": "*",
+    "melodyk/string-util": "*",
+    "monstercat/commission-breakdown-chart": "*",
+    "monstercat/parse-youtube-user": "*",
+    "tm-components/audio-player": "1.2.1",
+    "tm-components/color": "*",
+    "tm-components/color-picker": "*",
+    "tm-components/date-time": "0.0.7",
+    "tm-components/element-model-binder": "*",
+    "tm-components/enabler": "0.0.3",
+    "tm-components/file-dropper": "*",
+    "tm-components/find-target-node": "*",
+    "tm-components/i18": "1.0.1",
+    "tm-components/node": "*",
+    "twitter/hogan.js": "*",
+    "visionmedia/debug": "*",
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "1.1.0",
+    "yx2zhang-component/legend": "*"
+  },
+  "main": "src/connect.js",
+  "paths": [
+    "src/components"
+  ],
+  "local": [
+    "analytics",
+    "bquery-binders",
+    "container-view",
+    "data-sources",
+    "end-point",
+    "view-routes",
+    "mast-view",
+    "player-view",
+    "renderer",
+    "router",
+    "session",
+    "super-style",
+    "tab-activator",
+    "transfers",
+    "user-complete-details-view",
+    "view-router",
+    "welcome"
+  ],
+  "scripts": [
+    "src/connect.js"
+  ],
+  "styles": [
+    "src/connect.css"
+  ]
+}

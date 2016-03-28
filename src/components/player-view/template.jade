@@ -1,0 +1,31 @@
+if narrow
+  .more.controls(role="more-controls")
+    .actions.secondary
+      i.fa.fa-fw.fa-repeat(title="Loop Playlist" role="repeat")
+      i.fa.fa-fw.fa-random(title="Shuffle" role="shuffle")
+    .duration
+      .labels
+        label.seeked.ss(title="Time Passed") 0:00
+        label.playlist-name.ss.cutoff-text(role="playlistName")
+        label.time.ss(title="Track Length") 0:00
+      .seeker
+.controls
+  .actions.primary
+    i.fa.fa-fw.fa-step-backward(title="Previous Track" role="previous")
+    i.fa.fa-fw.fa-play(title="Play/Pause" role="play")
+    i.fa.fa-fw.fa-step-forward(title="Next Track" role="next")
+  .info
+    label.track-title(role="trackTitle")= strings.player.noTrack
+    label.artists(role="artists")= strings.player.noArtist
+  if !narrow
+    .duration
+      .labels
+        label.seeked.ss(title="Time Passed") 0:00
+        label.playlist-name.ss.cutoff-text(role="playlistName")
+        label.time.ss(title="Track Length") 0:00
+      .seeker
+    .actions.secondary
+      i.fa.fa-fw.fa-repeat(title="Loop Playlist" role="repeat")
+      i.fa.fa-fw.fa-random(title="Shuffle" role="shuffle")
+  .actions.toggle-playlist
+    i.fa.fa-fw(title="Open/Close Playlist" role="togglePlaylist" class= narrow ? "fa-ellipsis-v" : "fa-list-ol")

@@ -1,0 +1,26 @@
+{
+  "name": "update-subscription-view",
+  "repo": "monstercat/update-subscription-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*",
+    "tm-components/enabler": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "view-plugin",
+    "subscription-plan"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles":[
+    "style.css"
+  ]
+}

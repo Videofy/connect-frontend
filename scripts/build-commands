@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -e
+
+__dirname="$(dirname "$0")"
+CYAN="\033[0;36m"
+YELLOW="\033[0;33m"
+GREEN="\033[0;32m"
+RESET="\033[0m"
+. "$__dirname/conc.sh"
+STORE=${STORE:-"/tmp/connect.changed.store"}
+
+fbytes() {
+  wc -l $1 | cut -f1 -d' '
+}
+
+strip_leading() {
+  echo $1 | sed "s/.*lib\/\(.*\)/lib\/\1/g"
+}
+
+build_templates() {
+  local files=${@:-$(find src/components -name '*.jade' | xargs changed -s $STORE)}
+  for file in $files
+  do
+    echo -e "${CYAN}jade${RESET} $(strip_leading $file)"
+    conc "./scripts/build-template $file"
+  done
+}
+
+build_styles() {
+  local files=${@:-$(find src -name '*.less' | xargs changed -s $STORE)}
+  for file in $files
+  do
+    echo -e "${GREEN}less${RESET} $(strip_leading $file)"
+    conc "./scripts/build-less $file"
+  done
+}
+
+build_js() {
+  local files=${@:-$(find src -name '*.coffee' | xargs changed -s $STORE)}
+
+  for file in $files
+  do
+    echo -e "${YELLOW}coffee${RESET} $(strip_leading $file)"
+  done
+
+  if [ ! -z "$files" ]; then
+    coffee -cb $files
+  fi
+}
+
+build_all() {
+  echo "building client templates..."
+  build_templates
+
+  echo "building client less..."
+  build_styles
+
+  echo "building client coffee..."
+  build_js
+
+  for job in `jobs -p`; do wait $job; done
+
+  component build -o client/component
+
+  echo "building monstercat.js"
+  cd client && ./build
+
+  if [ "$NODE_ENV" == "production" ]; then
+    echo -e "${GREEN}min${RESET} minimizing javascript for production"
+    uglifyjs < monstercat.js > monstercat.js.min
+    # this wasn't working on flynn..
+    #echo -e "${GREEN}min${RESET} $(expr $(fbytes monstercat.js) - $(fbytes monstercat.js.min)) bytes saved"
+    cp monstercat.js.min monstercat.js
+    rm monstercat.js.min
+  fi
+
+  echo "building monstercat.css"
+  cd css && ./build
+
+  if [ "$NODE_ENV" == "production" ]; then
+    echo -e "${GREEN}min${RESET} minimizing css for production"
+    lessc -x monstercat.css -o monstercat.css.min
+    echo -e "${GREEN}min${RESET} $(expr $(fbytes monstercat.css) - $(fbytes monstercat.css.min)) bytes saved"
+    cp monstercat.css.min monstercat.css
+    rm monstercat.css.min
+  fi
+}

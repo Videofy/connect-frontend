@@ -1,0 +1,31 @@
+{
+  "name": "user-whitelist-row-view",
+  "repo": "monstercat/user-whitelist-row-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*",
+    "jb55/bluebird": "*",
+    "yx2zhang-component/legend": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "template-renderer",
+    "context-menu-plugin",
+    "row-view-plugin",
+    "whitelist-channels-view",
+    "view-plugin",
+    "user-whitelist",
+    "subscription-model"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "input.css"
+  ]
+}

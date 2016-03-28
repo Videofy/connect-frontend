@@ -1,0 +1,51 @@
+{
+  "name": "contract-create-view",
+  "repo": "monstercat/contract-create-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "chjj/marked": "*",
+    "jb55/dot-lens": "*",
+    "monstercat/hogan-util": "*",
+    "tm-components/date-time":"*",
+    "tm-components/find-target-node":"*",
+    "tm-components/file-dropper": "*",
+    "tm-components/obj-to-dom":"*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "crud-collection",
+    "contract-assets",
+    "contract-model",
+    "contract-sign-view",
+    "file-uploader",
+    "parse",
+    "populate-select",
+    "sort-util",
+    "track-collection",
+    "user-collection",
+    "view-plugin"
+  ],
+  "scripts": [
+    "create-selector.js",
+    "editor-template.js",
+    "editor.js",
+    "index.js",
+    "merge.js",
+    "review.js",
+    "selector-plugin.js",
+    "signatures-template.js",
+    "signatures.js",
+    "template.js",
+    "text.js",
+    "text-template.js",
+    "variable-types.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

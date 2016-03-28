@@ -1,0 +1,12 @@
+.release-tracks-view > table.ss tr > :first-child {
+  width: 50px;
+}
+
+.release-tracks-view input[type='number'].ss {
+  width: 100%;
+  text-align: center;
+}
+
+.release-tracks-view input[type='date'].ss {
+  margin-left: 0.5em;
+}

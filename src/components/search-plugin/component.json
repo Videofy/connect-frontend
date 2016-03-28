@@ -1,0 +1,25 @@
+{
+  "name": "search-plugin",
+  "repo": "monstercat/search-plugin",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "tm-components/point": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "view.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

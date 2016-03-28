@@ -1,0 +1,95 @@
+- var emailDisabled = !!permissions.canAccess('user.update.email') ? null : "disabled"
+- var location      = model.get('location')
+- var hasLocation   = countries.indexOf(location) > -1
+
+table.ss.rows
+  tbody
+    tr
+      td
+        label.ss Email
+      td(colspan=2)
+        input.ss.expand(disabled=emailDisabled
+          type="email"
+          placeholder="example@monstercat.com"
+          title="Email"
+          property="email")
+    tr
+      td
+        label.ss Name
+      td(colspan=2)
+        input.ss.expand(type="text"
+          placeholder="Artist/Display Name"
+          title="Alias name used, such as an artist name or a display name."
+          property="name")
+    tr
+      td
+        label.ss Real Name
+      td(colspan=2)
+        input.ss.expand(type="text"
+          placeholder="First and Last Name"
+          title="First and Last Name"
+          property="realName")
+    tr
+      td
+        label.ss Country
+      td(colspan=2)
+        select.ss.expand(property='location')
+          option(disabled
+            value=''
+            selected=(hasLocation ? undefined : true)) Select One
+          each country in countries
+            option(value='#{country}'
+              selected=(location == country ? true : undefined))= country
+    tr
+      td
+        label.ss Change Password 
+      td.password-toggle 
+        input.ss(type="password"
+          role="password" 
+          placeholder="New Password")
+        span.ss.actioneer.usr-account.show-password(role="show-password")
+          span.inactive
+            i.ss.fa.fa-eye-slash.cl-default
+          span.active
+            i.ss.fa.fa-eye.cl-action
+      td
+        button.ss.bg-action.hover.actioneer(role="change-password")
+          span.inactive Change
+          span.active Change 
+            i.fa.fa-gear.fa-spin
+
+if permissions.canAccess('user.update.twoFactorId', 'self.update.twoFactorId')
+  - var twoFactorEnabled = !!model.get('twoFactorId')
+  label.ss.heavy(role='two-factor-status')= twoFactorEnabled ? strings.twoFactor.enabled : strings.twoFactor.disabled
+  if twoFactorEnabled
+    button.ss.bg-action.hover(role='show-two-factor') Update
+  table.ss.rows(role='two-factor' class=twoFactorEnabled ? 'hide' : undefined)
+    tr
+      td
+        label.ss Country
+      td
+        select.ss(role='country-code')
+          each country in countryCodes
+            option(value='#{country.code}' selected=(country.name === 'United States' ? 'selected' : undefined))= country.name
+    tr
+      td
+        label.ss Phone Number
+      td
+        input.ss(type='tel' role='phone-number' placeholder='Phone number')
+      td
+        button.ss.bg-action.hover.actioneer(role='submit-two-factor')
+          span.inactive= twoFactorEnabled ? 'Update' : 'Enable'
+          i.fa.fa-gear.fa-spin.active
+
+if model.isOfTypes(['artist', 'admin', 'label_admin'])
+  div(role='shop-info')
+    label.ss.heavy Shop Info & Shipping Address
+
+if permissions.canAccess('user.read.statementEmails', 'self.read.statementEmails')
+  label.ss.heavy(title="Additional emails to send statements to.") Additional Statement Emails
+  .s-emails
+
+label.ss.heavy Other Preferences
+
+label.ss.checkbox Hide Non-Licensable Tracks 
+  input(type="checkbox" property="hideNonLicensableTracks")

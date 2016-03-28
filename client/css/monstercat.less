@@ -1,0 +1,352 @@
+
+@infoBarBottomColor: #f1f4f6;
+@infoBarTopColor: #c5cbd4;
+
+@activeTopColor: #54a0ff;
+@activeBottomColor: #3c78c3;
+
+@containerWidth: 75%;
+@panelColor: white;
+@base-dark: 3%;
+@bgcolor: #ececec;
+@wellPadding: 15px;
+@border-thickness: 3px;
+@artSize: 128px;
+@artSizeLarge: 426px;
+@artPolaroid: 138px;
+@artPolaroidSmall: 42px;
+@frontLayer: 10000;
+@linkColor: #828792;
+
+@import "bootstrap/bootstrap.less";
+@import "mixins.less";
+@import "retina.less";
+@import "login.less";
+@import "datepicker.less";
+@import "table.less";
+
+body {
+  font-weight: normal;
+  background-color: @bgcolor;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.modal-open{
+  overflow: hidden;
+}
+
+.indent {
+  margin-left: 10px;
+}
+
+.sublead {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 30px;
+}
+
+.hide {
+  display: none;
+}
+
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+small {
+  font-size: 75%;
+  color: gray;
+  padding-left: 10px;
+}
+
+dd, dt {
+  padding-bottom: 10px;
+}
+
+.name {
+  font-size: 200%;
+}
+
+.labels {
+  font-size: 150%;
+}
+
+.simplebox {
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+  padding: 10px;
+  width: 246px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+  width: auto;
+}
+
+.clickable {
+  cursor: pointer
+}
+
+.clickable:hover {
+  text-decoration: underline;
+}
+
+@artist-box-size: 92px;
+
+.artist {
+  float: left;
+}
+
+.trackName {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-weight: 100;
+  font-size: 200%;
+}
+
+.artist:hover {
+  cursor: pointer;
+}
+
+.album-delete {
+  margin-right: 10px;
+}
+
+.art-thumb {
+  margin-right: 10px;
+  width: 32px;
+  height: 32px;
+  .transition(all .2s ease-out);
+  cursor: pointer;
+}
+
+input.span2.release{
+  width: 85px;
+}
+
+.section {
+  margin-bottom: 10px;
+}
+
+.mar10 {
+  margin: 10px;
+}
+
+.album-art {
+  width: @artSize;
+  height: @artSize;
+  background-size: @artSize @artSize;
+  .transition(all .2s ease-out);
+  cursor: pointer;
+}
+
+.albumEntry-art {
+  width: 64px;
+  height: 64px;
+  background-size: 64px 64px;
+}
+.albumEntry-title {
+  font-size:20px;
+}
+
+.albumEntry-artist {
+  font-size:15px;
+}
+
+.albumArt-edit {
+  margin: 5px;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.track {
+  width: 100%;
+  background-color: white;
+}
+
+.clear {
+  clear: both;
+}
+
+@pad: 10px;
+@sidebar-pad: 300px;
+@box-icon-size: 60px;
+@box-height: @box-icon-size * 1.6;
+@box-border: #ddd;
+@box-shared-pad: 8px;
+
+a:hover {
+  text-decoration: none;
+}
+
+.artist-name {
+  float: left;
+}
+
+.album-info
+{
+  width: @artSize;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+/* Bootstrap override. */
+
+.checkbox.inline.to-right,
+.radio.inline.to-right,
+.checkbox.inline + .checkbox.inline.to-right,
+.radio.inline + .radio.inline.to-right {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.modal.fullsize {
+  top: 2%;
+  left: 2%;
+  width: 96%;
+  height: 96%;
+  margin-left: 0;
+
+  > .modal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  > .modal-body {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 50px 0 60px 0;
+    overflow: hidden;
+    z-index: 0;
+
+    > .modal-body-content {
+      height: 100%;
+      overflow-y: scroll;
+      padding: 1em;
+      box-sizing: border-box;
+    }
+  }
+
+  > .modal-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  &.fade.in {
+    top: 2%;
+  }
+}
+
+//************ui changes code start**********
+//*******************************************
+
+@tbarLayer: 999;
+@tbarHeight: 50px;
+@tbarPadding: 5px;
+@avatarWidth: 38px;
+@avatarHeight: 38px;
+@logoWidth: 32px;
+@logoHeight: 32px;
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.no-resize {
+  resize: none;
+}
+
+.lock-full-width {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.lock-full-height {
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.width-full{
+  width: 100%;
+}
+
+.height-full{
+  height: 100%;
+}
+
+html, body
+{
+  height: 100%;
+}
+
+.info-top-bar{
+  .border-radius(5px 5px 0px 0px);
+  width: 100%;
+  height: 25px;
+  .box-sizing(border-box);
+  border: 1px solid rgba(44,54,86,.14);
+  #gradient >.vertical(@infoBarBottomColor,@infoBarTopColor);
+  z-index: 0;
+}
+
+.release-link-control{
+  padding: 0 4px 0 4px;
+}
+
+.release-link-container {
+  a {
+
+    text-decoration: none !important;
+    &:link {
+      color: @linkColor;
+    }
+    &:active {
+      color: darken(@linkColor, 30%);
+    }
+    &:hover {
+      color: darken(@linkColor, 20%);
+      text-decoration: underline !important;
+    }
+  }
+}
+
+.album-art-large {
+  width: @artSizeLarge;
+  height: @artSizeLarge;
+  background-size: @artSizeLarge @artSizeLarge;
+  z-index: @frontLayer;
+}
+
+.img-polaroid-frame{
+  width: @artPolaroid;
+  height: @artPolaroid;
+}
+
+.img-polaroid-frame-small{
+  width: @artPolaroidSmall;
+  height: @artPolaroidSmall;
+}

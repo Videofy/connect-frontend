@@ -1,0 +1,105 @@
+@color_preactive: #3073ff; //#0066ff;
+@color_ready: #3073ff;
+@color_error: #ff0000;
+@color_white: #ffffff;
+
+.file-upload-view {
+  position: relative;
+
+  .container {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: dashed 0.25em #e2e2e2;
+    border-radius: 0.5em;
+    padding: 0.25em;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.5s, border 0.5s;
+
+    i {
+      color: #ddd;
+      text-shadow: none;
+      transition: color 0.25s;
+    }
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5em;
+    background: transparent;
+  }
+
+  &.big {
+    .container {
+      padding: 0.5em;
+    }
+
+    i {
+      font-size: 2.0em;
+    }
+  }
+
+  &.mini {
+    .container {
+      padding: 0 0.55em;
+      border-width: 1px;
+    }
+  }
+
+  &:hover, 
+  &.active {
+    .container {
+      border-color: @color_preactive;
+
+      i {
+        color: @color_preactive;
+      }
+    }
+  }
+
+  &.working {
+    .container {
+      border-color: @color_preactive;
+      border-style: solid;
+
+      i {
+        visibility: hidden;
+      }
+    }
+
+    .bg {
+      background: @color_preactive;
+    }
+  }
+
+  &.ready {
+    .container {
+      border-color: @color_ready;
+      border-style: solid;
+      background-color: @color_ready;
+
+      i {
+        color: @color_white;
+      }
+    }
+  }
+
+  &.error {
+    .container {
+      border-color: @color_error;
+      border-style: solid;
+      background-color: @color_error;
+
+      i {
+        color: @color_white;
+      }
+    }
+  }
+}

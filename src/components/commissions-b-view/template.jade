@@ -1,0 +1,19 @@
+.ss.input-button
+    select.ss(role='new-type')
+        each val, key in types
+            option(value='#{key}')= val
+    button.ss.bg-action.hover(role="add-commission") Add
+br
+br
+table.ss.pane-table.bordered
+  thead
+    tr
+      th Type
+      th # Users
+      th Is Whole?
+      th Actions
+  tbody
+    tr
+      td(colspan=4)
+        .ss.loader
+          i.fa.fa-refresh.fa-spin

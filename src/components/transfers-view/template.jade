@@ -1,0 +1,23 @@
+.contents
+  if transfers.length
+    table
+      thead
+        tr
+          th Name
+          th Details
+          th Status
+          th 
+      tbody
+        each pack in transfers
+          tr(transfer-id="#{pack.id}")
+            td= pack.name
+            td= pack.details
+            td= pack.status
+            td 
+              if pack.url
+                a(href="#{pack.url}" target="_blank" download="#{pack.filename}")
+                  i.fa.fa-cloud-download
+              else if pack.progress
+                | #{pack.progress}%
+  else
+    p There are no packages or files.

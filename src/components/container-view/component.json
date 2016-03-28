@@ -1,0 +1,27 @@
+{
+  "license": "MIT",
+  "development": {},
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "keywords": [],
+  "styles": [
+    "style.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "local": [
+    "is-mobile",
+    "is-narrow",
+    "menu-view",
+    "toasts-view",
+    "view-plugin"
+  ],
+  "main": "index.js",
+  "name": "container-view",
+  "repo": "monstercat/container-view",
+  "description": "",
+  "version": "0.0.1"
+}

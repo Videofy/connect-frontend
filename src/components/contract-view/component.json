@@ -1,0 +1,29 @@
+{
+  "name": "contract-view",
+  "repo": "monstercat/contract-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "chjj/marked": "*",
+    "tm-components/date-time": "*",
+    "tm-components/obj-to-dom": "*",
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "contract-model",
+    "contract-sign-view",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "signatures-template.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

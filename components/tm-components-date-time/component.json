@@ -1,0 +1,14 @@
+{
+  "name": "date-time",
+  "repo": "tm-components/date-time",
+  "description": "Simple date time functionalities.",
+  "version": "0.0.7",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

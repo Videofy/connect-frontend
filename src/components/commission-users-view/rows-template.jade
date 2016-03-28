@@ -1,0 +1,52 @@
+- var user = users.get(split.userId)
+- var name = user ? user.getNameAndRealName() : split.userId
+- var publisher = publishers ? publishers.get(split.publisherId) : ''
+- var pname = publisher ? publisher.displayTitle() : split.publisherId
+tr(user-id='#{split.userId}')
+    td
+        label.ss= name 
+    if publishers
+        td 
+            if pname
+                label.ss= pname
+            else
+                label.ss (No Publisher)
+    td
+        input.ss.input-ratio(type="text"
+            value="#{split.ratio.toString()}"
+            role='user-split'
+            user-id="#{split.userId}"
+            fraction-target="#{split.userId}"
+            disabled=(!editable))
+        |  
+        .ss.input-button
+          button.ss.bg-action.hover(role='set-fraction'
+            target-fraction="#{split.userId}" value='1/4') 1/4
+          button.ss.bg-action.hover(role='set-fraction'
+            target-fraction="#{split.userId}" value='1/3') 1/3
+          button.ss.bg-action.hover(role='set-fraction'
+            target-fraction="#{split.userId}" value='1/2') 1/2
+          button.ss.bg-action.hover(role='complete-fraction'
+            target-user="#{split.userId}") Rest
+    td(role="percentage")
+        label.ss= (split.ratio.valueOf() * 100).toFixed(2) + "%"
+    td
+        label.ss From
+    td
+        input.ss(type='date'
+            split-date='startDate'
+            user-id='#{split.userId}'
+            disabled=(!editable)
+            value=formatDate(split.startDate))
+    td
+        label.ss To
+    td
+        input.ss(type='date'
+            split-date='endDate'
+            user-id='#{split.userId}'
+            disabled=(!editable)
+            value=formatDate(split.endDate))
+    if editable
+        td
+            button.ss.fake.cl-danger-hover(role="remove-split" user-id="#{split.userId}")
+                i.fa.fa-trash-o

@@ -1,0 +1,9 @@
+.styles-view {
+  background-color: white;
+  max-width: 750px;
+  padding: 1em 1em 8em;
+}
+
+.styles-view .table-filters {
+  background-color: #ececec;
+}

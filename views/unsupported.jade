@@ -1,0 +1,173 @@
+doctype html
+html
+  head
+    title Connect
+    meta(name="viewport" content="width=device-width, user-scalable=no")
+    link(rel="shortcut icon" type="image/ico" href="/favicon.ico")
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet")
+    script(type="text/javascript" src="//use.typekit.net/rcd6avj.js")
+    script(type="text/javascript").
+      try{Typekit.load();}catch(e){}
+    script.
+      window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9";
+      var analyticsWriteKey;
+      if ( analyticsWriteKey = "#{analyticsWriteKey}" )
+        window.analytics.load(analyticsWriteKey);
+      window.analytics.page();
+  style(type="text/css").
+    @font-face {
+      font-family: 'Gotham Bold';
+      src: url('/font/Gotham-Bold.eot'); /* IE9 Compat Modes */
+      src: url('/font/Gotham-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+           url('/font/Gotham-Bold.woff') format('woff'), /* Modern Browsers */
+           url('/font/Gotham-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+           url('/font/Gotham-Bold.svg#6a327a217ddd10461b1acdc4d224fee0') format('svg'); /* Legacy iOS */
+
+      font-style:   normal;
+      font-weight:  700;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: white url('/img/DSC02629.JPG') center no-repeat fixed;
+      background-size: cover;
+      color: white;
+      font-family: "proxima-nova","Gibson-Light","Helvetica Neue","Ubuntu Light",Helvetica,Arial,sans-serif;
+      font-size: 14px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: "Gotham Bold", sans-serif;
+      font-size: 3.5em;
+      line-height: 1;
+      margin: 4rem 0;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 3em;
+      position: relative;
+      z-index: 1;
+    }
+
+    article {
+      margin: 0 auto;
+      max-width: 720px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+
+    .background {
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .slogo {
+      text-align: center;
+    }
+
+    .slogo label {
+      cursor: default;
+      display: inline-block;
+      font-family: "Gotham Bold", sans-serif;
+      font-size: 2em;
+      line-height: 1.4;
+      margin-bottom: 5px;
+      padding: 0 0 0 0.25em;
+      text-transform: uppercase;
+      vertical-align: top;
+    }
+
+    .slogo .monstercat {
+      background: transparent url("/labels/monstercat/icon-white.png") no-repeat center;
+      background-size: contain;
+      display: inline-block;
+      height: 2.5em;
+      width: 2.5em;
+    }
+
+    .warning {
+      font-size: 1em;
+      margin: 4em 0 0;
+    }
+
+    .warning i {
+      display: inline-block;
+      font-size: 1.6em;
+      margin-bottom: 1rem;
+    }
+
+    .warning p {
+      font-size: 1.1em;
+      margin: 0 auto;
+      max-width: 480px;
+    }
+
+    .choices {
+      margin-top: 3em;
+    }
+
+    .browser-logo {
+      display: inline-block;
+      background: url("/img/browser-icons.png") no-repeat left center;
+      background-size: auto 75px;
+      margin: 0 1em;
+      height: 75px;
+      margin: 0 1em;
+      width: 75px;
+      vertical-align: top;
+    }
+
+    .browser-logo.firefox {
+      background-position: -87px 0;
+    }
+
+    .browser-logo.safari {
+      background-position: -244px 0;
+    }
+
+    @media (max-width: 450px) {
+      h1 {
+        font-size: 2.8em;
+      }
+
+      section {
+        padding: 3em 1em;
+      }
+
+      .browser-logo {
+        margin: 0 0.7em;
+      }
+    }
+
+  body
+    .background
+    section
+      .slogo
+        .monstercat
+        label Connect
+      article
+        h1 Welcome to
+          br
+          | Monstercat Connect
+        .warning
+          i.fa.fa-warning
+          p Monstercat Connect is a music label platform. 
+            br
+            | Unfortunately your browser is not yet supported. Please use one of the supported desktop browsers below.
+          .choices
+            a.browser-logo.chrome(href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank")
+            a.browser-logo.firefox(href="https://www.mozilla.org/en-US/firefox/new/" target="_blank")
+            a.browser-logo.safari(href="http://support.apple.com/downloads/#safari" target="_blank")

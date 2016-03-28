@@ -1,0 +1,27 @@
+if collection.models.length
+  each model in collection.models
+    tr(publisher='#{model.id}')
+      td
+        input.ss(type='text'
+          role='property'
+          property='name'
+          value="#{model.get('name') || ''}")
+      td
+        input.ss(type='text'
+          role='property'
+          property='contact'
+          value="#{model.get('contact') || ''}")
+      td
+        input.ss(type='text'
+          role='property'
+          property='email'
+          value="#{model.get('email') || ''}")
+      td
+        input.ss(type='text'
+          role='property'
+          property='address'
+          value="#{model.get('address') || ''}")
+else
+  tr
+    td.ss.center-text(colspan=4)
+      label.ss.heavy No publishers listed.

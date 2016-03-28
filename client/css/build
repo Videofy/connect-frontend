@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+MYTHD="../component/myth.css"
+
+LESS="monstercat.less
+bootstrap/*.less
+"
+
+CSS="font-awesome/css/font-awesome.min.css
+fonts.css
+jasny-bootstrap.css
+${MYTHD}
+"
+
+myth "../component/build.css" $MYTHD
+
+CSS_COMPILED=`mktemp /tmp/tmp.XXXXXXXXX`
+LESS_COMPILED=`mktemp /tmp/tmp.XXXXXXXXX`
+BOTH=`mktemp /tmp/tmp.XXXXXXXXX`
+
+cat $CSS > $CSS_COMPILED
+lessc -x monstercat.less $LESS_COMPILED
+cat $LESS_COMPILED $CSS_COMPILED > "monstercat.css"
+
+rm -f $CSS_COMPILED $LESS_COMPILED $MYTHD

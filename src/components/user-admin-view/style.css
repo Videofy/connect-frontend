@@ -1,0 +1,11 @@
+.user-admin-view table.rows tr td:first-child {
+  vertical-align: top;
+}
+
+.user-admin-view .list-manage-view label {
+  width: 200px;
+}
+
+.user-admin-view .input-list-view table.rows tr td {
+  padding-bottom: 0.5em;
+}

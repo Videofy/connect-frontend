@@ -1,0 +1,33 @@
+h5 User Breakdown
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else
+  p.ss.msg.bg-warning(role='error') Values do not add up. Please revise allocations.
+  .split
+    div(role="chart")
+    div
+      table.ss.rows
+        tbody
+      div
+        if editable
+          if !publishers
+            .search-input(role='search-users')
+              input.ss(role='search-input' type='text' placeholder='User or Account Name')
+            |  
+            button.ss.bg-action.hover(role="add-split") Add
+          else
+            table.ss.rows
+              tbody
+                tr
+                  td
+                    .search-input(role='search-users')
+                      input.ss(role='search-input' type='text' placeholder='User or Account Name')
+                  td
+                    select.ss(role='publisher')
+                      option(value='' selected disabled) Select Publisher
+                      option(value='') (No Publisher)
+                      each publisher in publishers.models
+                        option(value="#{publisher.id}")= publisher.displayTitle()
+                  td
+                    button.ss.bg-action.hover(role='add-split') Add

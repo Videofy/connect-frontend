@@ -1,0 +1,19 @@
+{
+  "name": "backbone-promises",
+  "repo": "monstercat/backbone-promises",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "jb55/bluebird": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "parse"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

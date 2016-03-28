@@ -1,0 +1,20 @@
+.sub-survey-view {
+  background-color: white;
+  height: 100%;
+  max-width: 720px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.survey-frame{
+  border: none;
+  width: 525px;
+  height: 100%;
+}
+
+.survey-content{
+  height: 600px;
+}

@@ -1,0 +1,18 @@
+{
+  "name": "label-view",
+  "repo": "monstercat/label-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "signature_pad",
+  "repo": "tm-components/signature_pad",
+  "description": "A signature pad.",
+  "version": "1.4.2",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "src/signature_pad.js",
+  "scripts": [
+    "src/signature_pad.js"
+  ]
+}

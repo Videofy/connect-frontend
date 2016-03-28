@@ -1,0 +1,29 @@
+{
+  "name": "commissions-b-view",
+  "repo": "monstercat/commissions-b-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/debug": "*",
+    "visionmedia/jade": "*",
+    "jb55/ratio": "*",
+    "tm-components/node": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "commission-b-view",
+    "collection-fsr-plugin",
+    "parse",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "capsule-template.js",
+    "capsule.js",
+    "empty-template.js",
+    "template.js"
+  ]
+}

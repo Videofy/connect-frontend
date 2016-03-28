@@ -1,0 +1,13 @@
+- var cls = (moreClass || "") + " btn btn-" + size + " dropdown-toggle download"
+- var styl = style || null
+button(data-toggle="dropdown" class=cls style=styl)
+  i.fa.fa-cloud-download
+ul.dropdown-menu.pull-right.download
+  li
+    a(data-format="mp3" data-bitrate="128" target="_blank" download) MP3 (128)
+  li
+    a(data-format="mp3" data-bitrate="320" target="_blank" download) MP3 (320)
+  li
+    a(data-format="wav" target="_blank" download) WAV
+  li
+    a(data-format="flac" target="_blank" download) FLAC

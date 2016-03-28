@@ -1,0 +1,26 @@
+td.artwork
+  .release-thumbnail-view(style="width: 64px; height: 64px;")
+    img(src='#{model.coverUrl(64)}')
+td.release-details
+  strong.show.release-title= model.get("title")
+  span.show.artist-names= model.get("renderedArtists") || ""
+td.type= model.get("type")
+td.catalog-number= model.get("catalogId") || ""
+td= model.id
+td.release-date= model.getAsFormatedDate("released")
+td.ss.center-text(role='package-status' package-status='unknown')
+  i.dirty.fa.fa-exclamation.ss.cl-danger(
+    title='This release needs to be re-packaged.')
+  i.unknown.fa.fa-question-circle(
+    title='The status is unknown.')
+  i.finished.fa.fa-check(
+    title='This release has been packaged.')
+td.ss.actions.cancel-padding
+  .ss.inline-toolbar
+    button.ss.fake.cl-action-hover(role="download")
+      i.fa.fa-cloud-download
+    button.ss.fake
+      a.ss.cl-action-hover(href="/#releases/#{model.id}" role="link")
+        i.fa.fa-link
+    button.ss.fake.cl-danger-hover.hide(role="delete")
+      i.fa.fa-trash-o

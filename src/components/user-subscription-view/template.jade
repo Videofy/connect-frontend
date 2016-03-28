@@ -1,0 +1,80 @@
+p.ss.msg.bg-info.hide How about that tuna cat?
+if mode == "loading"
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else if mode == 'error'
+  .ss.center-text
+    p.ss.heavy= error
+    p= strings.phrases.tryAgain
+else
+  .manage-subscription-view
+    .manage-plan
+      p.ss.msg.bg-error.hide An unknown error occured.
+      label.ss.heavy= strings.subscription.yourPlan
+      .ss.labelfields
+        .field
+          .key
+            .ss.plan-info
+              span.plan-name= planName
+              if mode == "active" || mode == "canceling"
+                span (
+                if dealPrice
+                  span.plan-price.strike= planPrice
+                  span.deal-price= dealPrice
+                else
+                  span.plan-price= planPrice
+                span )
+              if mode == "active" || mode == "canceling"
+                .payment-date
+                  span.next-payment= paymentDate
+                  if mode == "canceling"
+                    span.cancel-text=  cancelNote
+          if mode == "active"
+            if goldUser
+              .value
+                button.ss.bg-action.margin(role="edit-plan-btn")= strings.defaults.edit
+            else
+              .value
+                button.ss.bg-action.margin(role="cancel-plan-btn")= strings.defaults.cancel
+      .update-subscription
+    if mode == "active"  
+      .manage-payment-method(role="manage-payment")
+        label.ss.heavy= strings.subscription.paymentMethod
+        .ss.labelfields
+          .field
+            .key
+              .ss.payment-method
+                span(role="payment-method") 
+            .value
+              button.ss.margin.bg-action(role="edit-payment-btn")= strings.defaults.edit
+        .update-payment-method
+
+    if mode == "canceling"
+      .renew-sub(role="renew-sub")
+        span(role="renew-text-1")= strings.subscription.renew
+        span  with
+        button.ss.margin(role="renew-stripe")= strings.subscription.creditCard
+        button.ss.margin(role="renew-paypal")= strings.subscription.paypal
+        span(role="renew-text-2")= renewText
+
+    if mode == "inactive"
+      .renew-sub(role="renew-sub")
+        span(role="renew-text-1")= strings.subscription.renew
+        select.ss.type-select.margin
+          if goldUser
+            option(value="gold")= strings.userTypes.gold
+            option(value="licensee")= strings.userTypes.licensee
+          else
+            option(value="licensee")= strings.userTypes.licensee
+            option(value="gold")= strings.userTypes.gold
+        span  with   
+        button.ss.margin(role="renew-stripe")= strings.subscription.creditCard
+        button.ss.margin(role="renew-paypal")= strings.subscription.paypal
+        span(role="renew-text-2")= renewText
+
+    if referral
+      .ss.table-filters
+        .options.credit
+          span= strings.subscription.remainingCredit
+          span= credit
+      p= strings.subscription.creditApplyMsg

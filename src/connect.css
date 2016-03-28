@@ -1,0 +1,134 @@
+
+/* Base */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.connect {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.connect.error {
+    color: black;
+    font-weight: bold;
+    padding: 1em;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+pre,
+code {
+  background-color: white;
+  border: 0;
+  color: inherit;
+  font-family: monospace;
+  padding: 0;
+}
+
+/* Buttons */
+
+.btn-invisible {
+  border: none;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Page */
+
+.page-padding {
+  padding: 1em;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Table Results */
+
+.results-count {
+  margin: 0 0.5em;
+  font-weight: bold;
+  line-height: 2.2;
+}
+
+.results-count:first-child {
+  margin-left: 0;
+}
+
+/* Pane Table */
+
+.pane-table-filter {
+  margin-bottom: 0.5em;
+}
+
+.pane-table > thead th.sortable {
+  cursor: pointer;
+}
+
+.pane-table > tbody > tr.pane-row:hover > td {
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.pane-table > tbody > tr.pane > td {
+  background: #fff;
+}
+
+/* Temporary Fixes */
+
+.img-polaroid-frame {
+  position: relative;
+}
+
+.img-polaroid-frame .img-polaroid {
+  position: absolute;
+}
+
+.img-polaroid-frame .img-polaroid .album-art {
+  max-width: none;
+}
+
+.img-polaroid-frame .img-polaroid .album-art-large {
+  max-width: none;
+}
+
+/* User Complete View */
+
+.connect .user-complete-details-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}

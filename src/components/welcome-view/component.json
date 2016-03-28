@@ -1,0 +1,30 @@
+{
+  "name": "welcome-view",
+  "repo": "monstercat/welcome-view",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*",
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "context-menu-plugin",
+    "parse",
+    "presenter-view",
+    "scroller",
+    "signin-view",
+    "subscription-plan",
+    "view-plugin"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

@@ -1,0 +1,59 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else if mode == 'error'
+  .ss.center-text
+    p.ss.heavy= error
+    p= strings.phrases.tryAgain
+else
+  nav.ss.table-filters
+    .options
+      if canCreate
+        .ss.input-button
+          input.ss(type="text" role="release-title" placeholder="#{strings.releases.newPlaceholder}")
+          button.ss.bg-action.hover(role="add")= strings.defaults.add
+      
+      select.ss(role="release-types-filter" filter="type")
+        option(value='')= strings.defaults.allTypes
+          each value, key in strings.releaseTypes
+            option(value='#{key}')= value
+    .filter
+      label.ss.results(role="results-count")
+      .ss.search
+        input.ss(type="text" role="filter" placeholder="#{strings.defaults.filter}" tabindex=1)
+        i.fa.fa-remove(role="cancel-filter")
+  section
+    div
+      table.ss.pane-table
+        thead
+          tr
+            th
+            th.sortable(sort-on="title")= strings.defaults.title
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th.sortable(sort-on="type")= strings.defaults.type
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th.sortable(sort-on="catalogId")= strings.defaults.catalogNumber
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th= strings.defaults.identifier 
+            th.sortable(sort-on="releaseDate")= strings.defaults.releaseDate
+              i.fa.fa-sort-asc.indicator-asc
+              i.fa.fa-sort-desc.indicator-desc
+            th.ss.center-text
+              i.fa.fa-flag
+            th= strings.defaults.actions
+        tbody
+
+  nav.ss.table-pagination.no-pages
+    button.ss.fake(role='page-previous')
+      i.fa.fa-chevron-left
+      span  Previous 
+        span(role='increment')= increment
+    label.ss(role='results') &nbsp;
+    button.ss.fake(role='page-next')
+      span Next 
+        span(role='increment')= increment
+        |  
+      i.fa.fa-chevron-right

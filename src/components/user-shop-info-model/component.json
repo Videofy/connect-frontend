@@ -1,0 +1,19 @@
+{
+  "name": "user-shop-info-model",
+  "repo": "monstercat/user-shop-info-model",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/superagent": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "local": [
+    "super-model"
+  ]
+}

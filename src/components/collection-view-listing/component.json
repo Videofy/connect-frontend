@@ -1,0 +1,19 @@
+{
+  "name": "collection-view-listing",
+  "repo": "monstercat/collection-view-listing",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter":"*",
+    "tm-components/key-value-map":"*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

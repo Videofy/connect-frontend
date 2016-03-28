@@ -1,0 +1,97 @@
+.commercial-subscription-view p.sub-title {
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0 1em 0 0;
+}
+
+.commercial-subscription-view p.ss.msg.bg-error {
+  line-height: 1.25;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0.35em 0.5em;
+}
+
+.commercial-subscription-view button[role='status'] {
+  display: inline-block;
+  margin-right: 1em;
+  cursor: default;
+}
+
+.commercial-subscription-view button[role='status'] > span {
+  margin-left: 0.5em;
+}
+
+.commercial-subscription-view button[role='status']:hover {
+  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.commercial-subscription-view button[role='status'].active {
+  background-color: #42d342;
+  color: white;
+  font-weight: normal;
+}
+
+.commercial-subscription-view button[role='status'].active:hover {
+  background-color: #42d342;
+  color: white;
+}
+
+.commercial-subscription-view .ss.table-filters {
+  align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.commercial-subscription-view .ss.table-filters button {
+  margin-left: 0;
+}
+
+.commercial-subscription-view .ss.table-filters .options > button {
+  flex-shrink: initial;
+  margin-left: 0;
+}
+
+.commercial-subscription-view .ss.table-filters .filter {
+  display: flex;
+}
+
+.commercial-subscription-view .ss.margin {
+  margin-left: 5px;
+}
+
+@media (max-width: 800px) {
+  .commercial-subscription-view .manage-subscription-view button {
+    padding: 0.3em;
+  }
+}
+
+.commercial-subscription-view .plan-price.strike {
+  text-decoration: line-through;
+}
+
+.commercial-subscription-view .options.credit{
+  font-family: "Gotham Bold";
+}
+
+.commercial-subscription-view .add-credit{
+  color: #6bbd7a;
+}
+
+.manage-subscription-view .ss.labelfields .field .key{
+  vertical-align: middle;
+}
+
+.manage-subscription-view .plan-info{
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.manage-subscription-view .plan-name{
+  font-weight: bold;
+  line-height: normal;
+}
+
+.manage-subscription-view .payment-method{
+  color: rgba(0, 0, 0, 0.7);
+}
+

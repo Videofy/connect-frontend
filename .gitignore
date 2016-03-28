@@ -1,0 +1,11 @@
+*.log
+node_modules
+.DS_Store
+
+client/component
+client/monstercat.js
+client/css/monstercat.css
+client/js/bQuery.js
+
+src/connect.js
+src/backbone/views/templates

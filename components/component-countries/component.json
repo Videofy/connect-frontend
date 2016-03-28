@@ -1,0 +1,15 @@
+{
+  "name": "countries",
+  "description": "List of countries and their associated codes",
+  "version": "1.0.1",
+  "keywords": [
+    "country",
+    "countries",
+    "list"
+  ],
+  "dependencies": {},
+  "scripts": [
+    "index.js"
+  ],
+  "repo": "https://raw.githubusercontent.com/component/countries"
+}

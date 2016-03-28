@@ -1,0 +1,29 @@
+.content
+  if label && labels && labels.length > 1
+    .label-switch
+      .btn-group
+        button.btn.dropdown-toggle(data-toggle="dropdown")
+          span.text(style="float: left")= label.get("name")
+          | 
+          span.caret.indent
+        ul.dropdown-menu
+          each label, i in labels
+            li
+              a(href="/#switch-label/#{label.id}")= label.get("name")
+  if sections
+    each section, i in sections
+      if i != 0
+        hr
+      if section.role
+        div(role="#{section.role}")
+      else if section.length
+        ul.menu-set
+          each item, n in section
+            li(role="list-item")
+              a.item(item-index="#{n}" section-index="#{i}"
+                href=(item.url ? "#{item.url}" : undefined)
+                route=(item.route ? "#{item.route}" : undefined)
+                title=(item.title ? "#{item.title}" : undefined)
+                target=(item.target ? "#{item.target}" : undefined))
+                i.fa.fa-fw(class="fa-#{item.icon}")
+                span #{item.name}

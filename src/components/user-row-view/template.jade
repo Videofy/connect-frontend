@@ -1,0 +1,13 @@
+td= model.getNameAndRealName() || ''
+td= model.get('email')
+td= model.get('type').map(function (type){ return strings.userTypes[type] || type}).join(", ")
+td= model.id
+td= model.getAsFormatedDate("created")
+td= model.getAsFormatedDate("lastSeen", "M j Y, H:i") || "Unknown"
+td.ss.actions.cancel-padding
+  .ss.inline-toolbar
+    a.ss.cl-inherit.cl-action-hover(href="/#community/#{model.id}" role="link" title="Link to user.")
+      i.fa.fa-link
+    if canDelete
+      button.ss.fake.cl-danger-hover(role="delete" title="Delete user.")
+        i.fa.fa-trash-o

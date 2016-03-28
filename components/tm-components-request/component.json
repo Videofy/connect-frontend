@@ -1,0 +1,16 @@
+{
+  "name": "request",
+  "repo": "tm-components/request",
+  "description": "Because nobody likes jQuery for ajax.",
+  "version": "0.0.3",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

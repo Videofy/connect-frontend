@@ -1,0 +1,14 @@
+td
+  i(role="status-icon")
+  i(role="refresh").fa.fa-refresh.fa-spin.hide
+td
+  label.ss(role="channel-type"
+    option="name"
+    style= model.get('fixed') ? "" : "cursor: pointer;")
+td
+  input.ss.expand(type="text"
+    role="channel-name"
+    placeholder=(model.get('name') == "twitch" ? "Name" : "Channel Id"))
+td
+  button.ss.fake(role='remove-channel')
+    i.fa.fa-trash-o

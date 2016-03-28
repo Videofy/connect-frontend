@@ -1,0 +1,44 @@
+.presenter-view {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.25s;
+  width: 100%;
+  z-index: 9999;
+}
+
+.presenter-view.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.presenter-view.flexi {
+  display: flex;
+  flex-direction: column;
+}
+.presenter-view.flexi .v-center {
+  dispaly: flex;
+  flex-direction: row;
+}
+
+.presenter-view.flexi .v-pre,
+.presenter-view.flexi .v-post,
+.presenter-view.flexi .h-pre,
+.presenter-view.flexi .h-post {
+  flex: 1;
+}
+
+.presenter-view.flexi .v-center,
+.presenter-view.flexi .h-center {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.presenter-view.flexi .content {
+  display: inline-block;
+}

@@ -1,0 +1,36 @@
+if mode == "loading"
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else
+  .ss.table-filters.view-selectors
+    .options
+      i.fa.fa-th-large(role="grid-view"
+        class=(style == 'grid' ? 'active' : undefined))
+      i.fa.fa-th-list(role="list-view"
+        class=(style == 'list' ? 'active' : undefined))
+  .releases(role="releases"
+    class=(style == 'grid' ? 'grid-view' : 'list-view'))
+    table
+      tbody
+        each release in releases
+          - var tks = release.numTracks > 1 ? "Tracks" : "Track"
+          tr(release-id="#{release._id}")
+            td.art
+              img(src="#{release.coverArt}"
+                draggable="true"
+                role="open-release")
+              if !release.released
+                i.fa.fa-exclamation-circle.ss.cl-attention.indicator-unreleased(title=strings.phrases.adminReleaseMsg)
+            td
+              div.details
+                label.ss.heavy(role='open-release')= release.title
+                label.ss(role= mobile ? 'open-release' : '')= release.queryables.date
+                label.ss(role= mobile ? 'open-release' : '')= release.queryables.artists
+                label.ss(role= mobile ? 'open-release' : '')= release.numTracks + " " + tks
+            td.ss.inline-toolbar
+              button.ss.fake(role='play-release')
+                i.fa.fa-fw.fa-play.status-paused
+                i.fa.fa-fw.fa-volume-up.status-playing
+              if release.downloadable
+                button.ss.fake(role='download-release')
+                  i.fa.fa-fw.fa-cloud-download
