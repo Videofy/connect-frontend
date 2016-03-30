@@ -98,7 +98,7 @@ v.set "getAdmin", ->
 
     items.push
       name: strings["users"] or "Users"
-      icon: "group"
+      icon: "user"
       route: "community"
       url: "#community"
 

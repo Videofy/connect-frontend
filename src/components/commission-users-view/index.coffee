@@ -21,9 +21,12 @@ getRatios = (model, users)->
   ]
   remainder = Ratio(1).minus(r)
   splits.forEach (split)->
+    name = split.userId
+    if user = users.get(split.userId)
+      name = user.get('name')
     arr.push
       value: Ratio(split.ratio).times(remainder)
-      label: users.get(split.userId).get('name')
+      label: name
   arr
 
 updateDisplay = (el, user, ratio)->

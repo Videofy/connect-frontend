@@ -117,6 +117,7 @@ class Connect
     if missing = user.getMissingFields()
       completeView = new UserCompleteView
         model: user
+        permissions: @session.permissions
       completeView.render()
       @el.appendChild(completeView.el)
       completeView.on 'close', ->

@@ -1,0 +1,66 @@
+if mode == 'loading'
+  .ss.loader
+    i.fa.fa-refresh.fa-spin
+else if mode == 'error'
+  .ss.center-text
+    p.ss.heavy= error
+    p= strings.phrases.tryAgain
+else
+  if subscription
+    table.ss.rows
+      tr
+        th Plan
+        td= subscription.getPlanName(model)
+      tr
+        th Paying
+        td
+          if model.requiresSubscription(subscription)
+            i.fa.fa-exclamation.ss.cl-danger
+          else
+            i.fa.fa-check
+      tr
+        th Status
+        td= subscription.getSubscriptionStatus(model)
+
+  table.ss.bordered
+    thead
+      tr
+        th Vendor
+        th Identity
+        th Whitelisted
+    tbody
+      - var whitelist = model.get('whitelist') || []
+      if !whitelist.length
+        tr
+          td(colspan=3)
+            p.ss.center-text.heavy No items.
+      else
+        each item in whitelist 
+          tr
+            td= item.name
+            td= item.identity
+            td
+              if item.whitelisted
+                i.fa.fa-check
+              else
+                i.fa.fa-exclamation.ss.cl-danger
+  br
+
+  table.ss.bordered
+    thead
+      tr
+        th Date
+        th User
+        th Log
+    tbody
+      - var logs = model.get('whitelistChangeLog') || []
+      if !logs.length
+        tr
+          td(colspan=3)
+            p.ss.center-text.heavy No items.
+      else
+        each item in logs 
+          tr
+            td= item.timeStamp
+            td= item.changerName
+            td= item.change

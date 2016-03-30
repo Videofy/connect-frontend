@@ -1,6 +1,6 @@
 {
-  "name": "user-whitelist-body-view",
-  "repo": "monstercat/user-whitelist-body-view",
+  "name": "user-whitelist-info-view",
+  "repo": "monstercat/user-whitelist-info-view",
   "description": "",
   "version": "0.0.1",
   "keywords": [],
@@ -16,10 +16,6 @@
   ],
   "scripts": [
     "index.js",
-    "row-template.js",
     "template.js"
-  ],
-  "styles": [
-    "style.css"
   ]
 }

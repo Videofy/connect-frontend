@@ -25,7 +25,8 @@
     "user-payments-collection",
     "user-sub-billing",
     "tab-change-plugin",
-    "subscription-model"
+    "subscription-model",
+    "user-whitelist-info-view"
   ],
   "scripts": [
     "index.js",

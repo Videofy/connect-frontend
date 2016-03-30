@@ -46,7 +46,7 @@ v.set "render", ->
   @n.bind("[role='open-transfers']", "click", onOpenTransfersClick.bind(@))
 
 v.set "setLabel", (label)->
-  @setLogo("/img/monstercat-black-icon.png")
+  @setLogo("/labels/monstercat/icon.png")
 
 v.set "setLogo", (source)->
   @el.querySelector(".mast-logo").style.backgroundImage = "url('#{source}')"

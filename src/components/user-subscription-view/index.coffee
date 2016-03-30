@@ -95,14 +95,6 @@ v.set 'renderReferralView', ->
   @referralView.render()
   @el.appendChild(@referralView.el)
 
-v.set "getPaymentDate", ->
-  periodEndFormated = @model.getAsFormatedDate("subscriptionPeriodEnd")
-  status = @getSubscriptionStatus()
-  if status is 'active'
-    return "Next payment on #{periodEndFormated} "
-  else
-    return "Subscription ends on #{periodEndFormated} "
-
 v.set "getCredit", ->
   newCredit = if @model.get('subscriptionCreditNew') then @model.get('subscriptionCreditNew') else  0
   appliedCredit = if @model.get 'subscriptionCreditApplied' then @model.get 'subscriptionCreditApplied' else 0
@@ -117,18 +109,18 @@ v.set "render", ->
       userTypes = @user.get('type') or ['golden', 'subscriber']
       subPlan.getPlansByUserTypes { userTypes: userTypes }, (err, plans)=>
         @plans = plans
-        @plan = @getPlan()
+        @plan = @model.getPlan()
         subscriber = @user.get("subscriber")
-        subStatus = @getSubscriptionStatus()
+        subStatus = @model.getSubscriptionStatus(@user)
         goldUser = if "golden" in userTypes then true else false
         cancelNote = if @user.isOfTypes("golden") then cancelText["golden"] else cancelText["licensee"]
 
         @renderer.locals.mode = subStatus
         @renderer.locals.credit = "$#{@getCredit()/100}"
-        @renderer.locals.planName = @getPlanName()
+        @renderer.locals.planName = @model.getPlanName(@user, @plan)
         @renderer.locals.planPrice = @plan.description if @plan
         @renderer.locals.dealPrice = @getDealPrice()
-        @renderer.locals.paymentDate = @getPaymentDate()
+        @renderer.locals.paymentDate = @model.getPaymentDate(@user)
         @renderer.locals.referral = @permissions.user.referral
         @renderer.locals.goldUser = goldUser
         @renderer.locals.cancelNote = cancelNote
@@ -213,26 +205,6 @@ v.set "syncSubscription", ->
       return @displayError(res?.body?.error or "An error occured.")
     @respond.bind(@)
 
-v.set 'getPlanName', ->
-  status = @getSubscriptionStatus()
-  if status is 'inactive'
-    planName = "Subscription Inactive"
-  else
-    planName = @displayPlanName(@plan)
-
-  return planName
-
-v.set 'getSubscriptionStatus', ->
-  active = !@user.requiresSubscription(@model)
-  canceling = @model.get('subscriptionCanceling') or false
-
-  if !active or !@user.get("subscriber")
-    return 'inactive'
-  else if canceling
-    return 'canceling'
-  else
-    return 'active'
-
 v.set "setPaymentMethod", ()->
   method = @model.get('subscriptionPaymentType')
   if method is 'stripe'
@@ -246,17 +218,6 @@ v.set "setPaymentMethod", ()->
   else
     paymentInfo = @model.get('subscriptionPaymentType')
     @n.setText(sel.paymentMethod, paymentName[paymentInfo])
-
-v.set "displayPlanName", (plan)->
-  type = if @user.isOfTypes("golden") then "Gold" else "Licensee"
-  channel = if @user.isOfTypes("golden") then "" else "#{plan.channelNum} channels"
-
-  if plan.period > 1
-    duration = "#{plan.period} Months"
-  else
-    duration = "#{plan.period} Month"
-
-  return "Monstercat #{type} Subscription #{channel} #{duration} "
 
 v.set 'getDealPrice', ->
   curAmount = @model.get('subscriptionCurrentAmount')
@@ -277,28 +238,11 @@ v.set 'getStatusText', ->
   else
     return "Inactive"
 
-v.set 'getPlan', ()->
-  planId = @model.get("subscriptionPlan")
-
-  if @model.get("subscriptionPlanDetails") and @model.get("subscriptionPlanDetails").planId
-    result = @model.get("subscriptionPlanDetails")
-  else if planId
-    result = _.find @plans, (plan)-> plan.planId is planId
-  else
-    result = @getBasePlan()
-
-  return result
-
-v.set 'getBasePlan', ->
-  result = _.find @plans, (plan)->
-    return "#{plan.channelNum}" is '2' and "#{plan.period}" is '1'
-
-  return result
 
 v.set "addSubscription", (e)->
   role = e.target.getAttribute('role')
   type = if role is 'renew-stripe' then 'stripe' else 'paypal'
-  myPlan = @getPlan()
+  myPlan = @model.getPlan()
 
   validCard = if (card? and card.last4) then true else false
 

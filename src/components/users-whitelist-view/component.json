@@ -6,7 +6,6 @@
   "keywords": [],
   "dependencies": {
     "tm-components/download-string": "*",
-    "visionmedia/superagent": "*",
     "visionmedia/jade": "*"
   },
   "development": {},
@@ -14,17 +13,15 @@
   "main": "index.js",
   "local": [
     "collection-fsr-plugin",
-    "collection-view-listing",
-    "collection-view-listing-filter",
     "fsr-render-rows",
     "input-cancel-plugin",
     "pane-util",
     "pane-view",
     "sort-util",
-    "template-renderer",
+    "subscription-model",
     "user-collection",
+    "user-page-view",
     "user-whitelist-row-view",
-    "user-whitelist-body-view",
     "user-whitelist",
     "view-plugin"
   ],

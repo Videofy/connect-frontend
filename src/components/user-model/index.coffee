@@ -83,11 +83,8 @@ class UserModel extends SuperModel
     @isOfTypes(["subscriber"])
 
   requiresSubscription: (subscription)->
-    subActive = if subscription then subscription.get('subscriptionActive') else @get('subscriptionActive')
-    if !@isSubscriber() or subActive
-      return false
-    else
-      return true
+    return false unless @isSubscriber()
+    if subscription then !subscription.get('subscriptionActive') else !@get('subscriptionActive')
 
   # NOTE Questionable logic use subscriber user type instead.
   freeSubscription: ->

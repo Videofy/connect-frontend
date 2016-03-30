@@ -12,6 +12,7 @@ SubBillingView             = require("user-sub-billing")
 tabChange                  = require("tab-change-plugin")
 WebsiteDetailsModel        = require("website-details-model")
 UserArticlesView           = require('./articles-view')
+UserWhitelistView          = require('user-whitelist-info-view')
 ArticleCollection          = require('article-collection')
 view                       = require("view-plugin")
 
@@ -32,17 +33,14 @@ v.init (opts={})->
     opts.subscription = subscriptionModel
     @billingCollection = new UserPaymentsCollection null, subscription: subscriptionModel
 
-  getSubscriptionView = =>
-    subOpts = _.extend _.clone(opts),
-      model: subscriptionModel
-      user: @model
-      permissions: opts.permissions
-    new UserSubscriptionView(subOpts)
+  subOpts = _.extend _.clone(opts),
+    model: subscriptionModel
+    user: @model
 
   wopts = _.extend _.clone(opts),
+    _id: @model.get('websiteDetailsId')
+    user: @model
     model: new WebsiteDetailsModel
-      _id: @model.get('websiteDetailsId')
-    user: opts.model
 
   @tabs = new TabView
   @tabs.active = "account"
@@ -72,12 +70,19 @@ v.init (opts={})->
         model: @model
         collection: @logsCollection
 
-  if @permissions.user.subscription and @model.isSubscriber()
+  if @permissions.canAccess('user.subscription', 'self.subscription') and @model.isSubscriber()
     tabSections.subscription =
       title: "Subscription"
-      view: getSubscriptionView()
+      view: new UserSubscriptionView(subOpts)
 
-  if @permissions.user.subBilling and @model.isSubscriber()
+  if @permissions.canAccess('user.read.whitelist') and @model.isOfTypes('licensee')
+    tabSections.whitelist =
+      title: "Whitelist"
+      view: new UserWhitelistView _.extend _.clone(opts),
+            model: @model
+            subscription: subscriptionModel
+
+  if @permissions.canAccess('user.subBilling', 'self.billing') and @model.isSubscriber()
     tabSections.subBilling =
       title: "Billing History"
       view: new SubBillingView

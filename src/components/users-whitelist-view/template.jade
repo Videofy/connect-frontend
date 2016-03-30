@@ -9,17 +9,12 @@ else
   nav
     .ss.table-filters
       .options
-        select.ss(role="subscriber-filter" filter="type")
-          option(value='')= strings.defaults.all
-          each value, key in strings.subscriberTypes
-            option(value='#{key}')= value
-        select.ss(role="channel-state-filter" filter="whitelist")
-          option(value='')= strings.defaults.channelStateFilter
-          each value, key in strings.channelStates
-            option(value='#{key}')= value
-        label.actives-only= strings.defaults.paid
-          input.ss.checkbox(type="checkbox"
-            role="actives-only")
+        .ss.input-button
+          select.ss(role="download-picker")
+            option(value="download-youtubes")= strings.defaults.youtubeIdentities
+            option(value="download-twitchs")= strings.defaults.twitchIdentities
+            option(value="download-emails")= strings.defaults.emails
+          button.ss.bg-action.hover(role="download")= strings.defaults.download
       .filter
         label.ss.results(role="results-count")
         .ss.search
@@ -28,15 +23,6 @@ else
             placeholder="#{strings.defaults.filter}"
             tabindex=1)
           i.fa.fa-remove(role="cancel-filter")
-    .ss.table-filters
-      .options
-        button.ss(role="mark-whitelisted")= strings.whitelist.markWhitelisted
-        .ss.input-button
-          select.ss(role="download-picker")
-            option(value="download-youtubes")= strings.defaults.youtubeIdentities
-            option(value="download-twitchs")= strings.defaults.twitchIdentities
-            option(value="download-emails")= strings.defaults.emails
-          button.ss.bg-action.hover(role="download")= strings.defaults.download
   section
     div
       table.ss.pane-table
@@ -48,15 +34,11 @@ else
             th.sortable(sort-on='email')= strings.defaults.email
               i.fa.fa-sort-asc.indicator-asc
               i.fa.fa-sort-desc.indicator-desc
-            th.sortable.ss.center-text(sort-on='paid')= strings.defaults.paid
-              i.fa.fa-sort-asc.indicator-asc
-              i.fa.fa-sort-desc.indicator-desc
+            th= strings.subscription.subscriptionStatus
+            th= strings.subscription.whitelistStatus
             th.sortable(sort-on='created')= strings.defaults.joinDate
               i.fa.fa-sort-asc.indicator-asc
               i.fa.fa-sort-desc.indicator-desc
-            th= strings.defaults.youtubeIdentities
-            th= strings.defaults.twitchIdentities
-            th= strings.defaults.actions
         tbody
 
   nav.ss.table-pagination.no-pages

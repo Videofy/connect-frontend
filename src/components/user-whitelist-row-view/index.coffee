@@ -8,6 +8,12 @@ rowView               = require("row-view-plugin")
 onClickLink = (e)->
   e.stopPropagation()
 
+isWhitelistActive = (user)->
+  result = true
+  (user.whitelist or []).forEach (item)->
+    result = false unless item.active
+  result
+
 UserWhitelistRowView = v = bQuery.view()
 
 v.use view
@@ -21,55 +27,24 @@ v.ons
   "click [role='link']": onClickLink
 
 v.init (opts={})->
+  { @subscription } = opts
   @model.on "change", @render.bind(@)
-  @subscriptionModel = new SubscriptionModel
 
-  if @model.get('subscriptionModelId')
-    @subscriptionModel.set('_id', @model.get('subscriptionModelId'))
-
-  @setChannelsView()
-  @model.on "updatedWhitelist", =>
-    @setChannelsView()
-    @renderChannelsView()
-
-v.set 'setChannelsView', ()->
-  @youtubeChannelsView = new WhitelistChannelsView
-    model: @model
-    collection: @model.youtubeCollection
-    subscription: @subscriptionModel
-
-  @twitchChannelsView = new WhitelistChannelsView
-    model: @model
-    collection: @model.twitchCollection
-    subscription: @subscriptionModel
-
-  @channels =
-    "yt-channels": @youtubeChannelsView
-    "twitch-channels": @twitchChannelsView
+  unless @subscription
+    @subscription = new SubscriptionModel
+      _id: @model.get('subscriptionModelId')
 
 v.set "getSubscriptionModel", (next)->
-  return next() unless @subscriptionModel.get('_id')
+  return next() unless @subscription.get('_id')
 
-  @subscriptionModel.fetch
+  @subscription.fetch
     success: next
 
 v.set "render", ->
   @getSubscriptionModel ()=>
-    @renderer.locals.inactive = @model.requiresSubscription(@subscriptionModel)
+    @renderer.locals.inactive = @model.requiresSubscription(@subscription)
+    @renderer.locals.subscriptionActive = not @model.requiresSubscription(@subscription)
+    @renderer.locals.whitelistActive = isWhitelistActive(@model)
     @renderer.render()
-    @renderChannelsView()
-
-v.set 'renderChannelsView', ->
-  ytEl = @el.querySelector("td.yt-channels")
-  twchEl = @el.querySelector("td.twitch-channels")
-
-  ytEl.innerHTML = ""
-  twchEl.innerHTML = ""
-
-  ytEl.appendChild(@youtubeChannelsView.el)
-  twchEl.appendChild(@twitchChannelsView.el)
-
-  @youtubeChannelsView.render() if @youtubeChannelsView
-  @twitchChannelsView.render() if @twitchChannelsView
 
 module.exports = v.make()
