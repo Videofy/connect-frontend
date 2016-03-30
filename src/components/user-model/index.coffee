@@ -105,6 +105,7 @@ class UserModel extends SuperModel
   setSignatureImage: (data, done)->
     request
     .put(@signatureUrl)
+    .withCredentials()
     .send
       data: data
     .end (err, res)->
@@ -115,6 +116,7 @@ class UserModel extends SuperModel
 
     request
     .get(@signatureUrl)
+    .withCredentials()
     .end (err, res)->
       return done(err) if err = parse.superagent(err, res)
       return done(null, null) unless url = res.body.url
@@ -141,6 +143,7 @@ class UserModel extends SuperModel
     done ?= ->
     request
     .post("#{@url()}/reinvite")
+    .withCredentials()
     .end (err, res)=>
       done(parse.superagent(err, res), res)
 

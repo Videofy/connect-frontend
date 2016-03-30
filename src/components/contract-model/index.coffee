@@ -145,7 +145,8 @@ class ContractModel extends SuperModel
       key = value.assetType + 'Id'
       article[key].push(value.connectId) if article[key]
 
-    req = request.post(@url())
+    req = request.post(@url()).withCredentials()
+
     req.accept('application/json')
     req.field('article', JSON.stringify(article))
     req.field('contract', JSON.stringify(contract))
@@ -172,6 +173,7 @@ class ContractModel extends SuperModel
     sig.copy = @attributes.render
     sig.returnUrl = getReturnUrl()
     request.post(@url() + '/sign')
+      .withCredentials()
       .send(sig)
       .end (err, res)=>
         if err = parse.superagent(err, res)
@@ -181,6 +183,7 @@ class ContractModel extends SuperModel
 
   cancel: (done)->
     request.post(@url() + '/cancel')
+      .withCredentials()
       .end (err, res)=>
         if err = parse.superagent(err, res)
           return done(err)

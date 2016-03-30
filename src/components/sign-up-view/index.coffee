@@ -5,6 +5,7 @@ request          = require("superagent")
 userWhitelist    = require("user-whitelist")
 passwordToggle   = require("password-toggle-plugin")
 view             = require("view-plugin")
+eurl             = require('end-point').url
 
 sel =
   error: "[role='error']"
@@ -26,7 +27,7 @@ onClickSwitchType = (e)->
     if istwitch then strings.youtubeDesc else strings.twitchDesc)
 
 onKeyUp = (e)->
-  @onClickCreate(e) if e.keyCode is 13
+  @create(e) if e.keyCode is 13
 
 onChangeWhitelist = (name)->
   return ( e ) ->
@@ -79,7 +80,8 @@ v.set "render", ->
   return unless @code
 
   request
-  .post '/user/get-info'
+  .post(eurl('/user/get-info'))
+  .withCredentials()
   .send code: @code
   .end ( err, res ) =>
     error = err if err
@@ -157,7 +159,8 @@ v.set "create", ->
   @n.evaluateClass("waiting", true)
 
   request
-  .post("/user/verify")
+  .post(eurl("/user/verify"))
+  .withCredentials()
   .send(opts)
   .end (err, res)=>
     @n.evaluateClass("waiting", false)

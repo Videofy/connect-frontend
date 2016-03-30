@@ -28,6 +28,7 @@ files = (opts, done)->
   opts.method ?= 'post'
   req = request[opts.method](opts.url)
     .set("Cache-Control", "no-cache")
+    .withCredentials()
   for file, i in opts.files
     req.attach("file#{i}", file, file.name)
   req.on 'progress', (e)-> # To trigger progress event after end is called.

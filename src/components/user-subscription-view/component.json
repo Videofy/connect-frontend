@@ -12,6 +12,7 @@
   "license": "MIT",
   "main": "index.js",
   "local": [
+    "end-point",
     "subscription-payment-view",
     "update-subscription-view",
     "user-model",

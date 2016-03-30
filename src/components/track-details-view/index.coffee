@@ -7,6 +7,7 @@ view           = require('view-plugin')
 wait           = require('wait')
 sort           = require('sort-util')
 populate       = require('populate-select')
+eurl           = require('end-point').url
 
 onClickIsrc = (e)->
   el = e.currentTarget
@@ -27,7 +28,8 @@ onClickBpm = (e)->
   el.classList.add('active')
   input = @n.getEl('[property="bpm"]')
   request
-  .post "/api/track/#{@model.id}/calculate/bpm"
+  .post(eurl("/api/track/#{@model.id}/calculate/bpm"))
+  .withCredentials()
   .end wait 750, @, (err, res)=>
     el.disabled = false
     el.classList.remove('active')
@@ -44,7 +46,8 @@ onClickLength = (e)->
   el.classList.add('active')
   input = @n.getEl('[property="duration"]')
   request
-  .post "/api/track/#{@model.id}/calculate/duration"
+  .post(eurl("/api/track/#{@model.id}/calculate/duration"))
+  .withCredentials()
   .end wait 750, @, (err, res)->
     el.disabled = false
     el.classList.remove('active')

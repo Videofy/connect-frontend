@@ -104,7 +104,7 @@ v.set "render", ->
   @renderer.locals.countryCodes = callingCodes.map((country)-> {name: country.name, code: parseInt(country.dial_code)})
   @renderer.render()
 
-  if @whitelist?
+  if @whitelistView?
     @whitelistCollection.toPromise().then =>
       @whitelistView.render()
     @el.appendChild(@whitelistView.el)

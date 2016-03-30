@@ -7,6 +7,7 @@ View                     = require("view-plugin")
 subPlan                  = require("subscription-plan")
 request                  = require("superagent")
 parse                    = require('parse')
+eurl                     = require('end-point').url
 
 sel =
   cancel: "[role='cancel-plan-btn']"
@@ -167,7 +168,8 @@ v.set "respond", (err, res ,next)->
 
 v.set "addPaypalSubscription", (plan)->
   request
-  .post("/subscription/paypal/sign-up/licensee")
+  .post(eurl("/subscription/paypal/sign-up/licensee"))
+  .withCredentials()
   .send
     plan: plan
   .end (err, res) =>
@@ -181,7 +183,8 @@ v.set "addPaypalSubscription", (plan)->
 
 v.set "charge", (token, plan)->
   request
-  .post("/subscription/stripe/sign-up/licensee")
+  .post(eurl("/subscription/stripe/sign-up/licensee"))
+  .withCredentials()
   .send
     returnUrl: "#{location.protocol}//#{location.host}/#sign-up/:code"
     plan: plan
@@ -192,14 +195,16 @@ v.set "charge", (token, plan)->
 
 v.set "cancel", ->
   request
-  .post("/subscription/cancel/#{@model.id}")
+  .post(eurl("/subscription/cancel/#{@model.id}"))
+  .withCredentials()
   .end (err, res)=>
     @respond err, res, =>
       @router.navigate("/subscription/survey", trigger: true)
 
 v.set "syncSubscription", ->
   request
-  .get("/user/sync-subscription/#{@user.id}")
+  .get(eurl("/user/sync-subscription/#{@user.id}"))
+  .withCredentials()
   .end (err, res)=>
     if res.status isnt 200
       return @displayError(res?.body?.error or "An error occured.")

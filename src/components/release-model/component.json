@@ -12,6 +12,7 @@
   "license": "MIT",
   "main": "index.js",
   "local": [
+    "end-point",
     "format-quality",
     "parse",
     "sort-util",

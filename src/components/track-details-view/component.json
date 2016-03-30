@@ -14,6 +14,7 @@
   "license": "MIT",
   "main": "index.js",
   "local": [
+    "end-point",
     "input-list-view",
     "label-view",
     "list-manage-view",

@@ -5,6 +5,7 @@ scrollTo          = require("scroller")
 SigninView        = require("signin-view")
 subPlan           = require("subscription-plan")
 View              = require("view-plugin")
+eurl              = require('end-point').url
 
 sel =
   goldEmail: "[role='gold-email']"
@@ -259,7 +260,7 @@ v.set "getEmail", ->
 
 v.set "validateCode", (code, done)->
   request
-  .post("/subscription/validate-referral-code")
+  .post(eurl("/subscription/validate-referral-code"))
   .send
     referralCode: code
   .end (err, res)=>
@@ -294,7 +295,7 @@ v.set "onClickSignUp", (e)->
     return alert(err) if err
     @n.evaluateClass("waiting", true)
     request
-    .post("/subscription/mixcomp/sign-up")
+    .post(eurl("/subscription/mixcomp/sign-up"))
     .send
       returnUrl: "#{location.protocol}//#{location.host}/#sign-up/:code"
       userEmail: userEmail
@@ -313,11 +314,13 @@ v.set "onClickPayPal", (e)->
     plan = @getPaymentConfig()
 
     request
-    .post("/subscription/paypal/sign-up/licensee")
+    .post(eurl("/subscription/paypal/sign-up/licensee"))
     .send
       plan: plan
       userEmail: userEmail
       referralCode: code
+      approvedRedirectUrl: "#{window.location.origin}/#sign-up"
+      cancelledRedirectUrl: "#{window.location.origin}/#returned"
     .end ( err, res ) =>
       if err = parse.superagent(err, res)
         @n.evaluateClass("waiting", false)
@@ -353,7 +356,7 @@ v.set "onStripeToken", ( token, plan )->
     return alert(err) if err
 
     request
-    .post("/subscription/stripe/sign-up/licensee")
+    .post(eurl("/subscription/stripe/sign-up/licensee"))
     .send
       returnUrl: "#{location.protocol}//#{location.host}/#sign-up/:code"
       stripeToken: token

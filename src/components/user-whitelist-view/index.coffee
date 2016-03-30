@@ -149,6 +149,7 @@ v.on "click #{sel.add}", ->
   next = =>
     request
     .post("/subscription/addChannel/#{@subscription.id}")
+    .withCredentials()
     .end ( err, res ) =>
       err = errorParser.superagent(err, res)
       return alert(err) if err

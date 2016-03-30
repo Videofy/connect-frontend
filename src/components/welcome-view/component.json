@@ -13,6 +13,7 @@
   "main": "index.js",
   "local": [
     "context-menu-plugin",
+    "end-point",
     "parse",
     "presenter-view",
     "scroller",

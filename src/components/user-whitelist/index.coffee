@@ -87,6 +87,7 @@ userWhitelist.updateWhitelist = (params, done)->
   { whitelist, user } = params
   request
   .post("/user/update/whitelist/#{user.id}")
+  .withCredentials()
   .send(whitelist)
   .end ( err, res ) =>
     return done(err, res)

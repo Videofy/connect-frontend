@@ -9,6 +9,7 @@ view                       = require("view-plugin")
 addLabelAdmin = ->
   request
     .post("/label/#{@model.id}/create-admin")
+    .withCredentials()
     .send
       email: @n.getValue("[role='label-admin-email']")
       password: @n.getValue("[role='label-admin-password']")

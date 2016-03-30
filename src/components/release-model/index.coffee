@@ -5,6 +5,7 @@ request       = require('superagent')
 sort          = require('sort-util')
 SuperModel    = require('super-model')
 matcher       = require('value-matcher-util')
+eurl          = require('end-point').url
 
 class ReleaseModel extends SuperModel
 
@@ -108,7 +109,8 @@ class ReleaseModel extends SuperModel
 
   package: (done)->
     request
-      .post "/api/package/release/#{@id}"
+      .post(eurl("/api/package/release/#{@id}"))
+      .withCredentials()
       .end (err, res)->
         done(parse.superagent(err, res), res)
 
@@ -118,9 +120,9 @@ class ReleaseModel extends SuperModel
     str = "?#{querystring.stringify(query)}"
 
     if not packageId
-      return "/api/release/#{@id}/download#{str}"
+      return "#{url()}/download#{str}"
 
-    "/album/package/#{packageId}#{str}"
+    eurl("/album/package/#{packageId}#{str}")
 
   isReleased: ->
     return no if @get('showToAdminsOnly')
