@@ -10,6 +10,7 @@
   "license": "MIT",
   "main": "index.js",
   "local": [
+    "end-point",
     "whitelist-item-model",
     "super-collection"
   ],

@@ -63,6 +63,13 @@ class UserModel extends SuperModel
     return arr.join(separator) if separator
     arr
 
+  isWhitelisted: ->
+    whitelist = @get('whitelist') or []
+    flag = true
+    whitelist.forEach (item)->
+      flag = false if item.active and not item.whitelisted
+    flag
+
   getNameAndRealName: (formatting="")->
     obj = @attributes
     name = obj.name

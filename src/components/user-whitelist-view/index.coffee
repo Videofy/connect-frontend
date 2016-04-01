@@ -20,9 +20,6 @@ v.init (opts={})->
   @user = opts.user
   @subscription = opts.subscription
 
-  @user.on "change", =>
-    @updateView()
-
 v.set 'addNewView', (el, model)->
   @newView.showContextMenu() if @newView
   @newView = null
@@ -42,9 +39,15 @@ v.collection
       subscription: @subscription
       i18: @i18
 
-    newItem.on 'updateWhitelist', (test)=> @updateWhitelist()
-    newItem.on 'removeChannel', (model, view)=> @removeChannel(model, view)
-    newItem.on 'updateChannel', (err)=> @displayError(err)
+    newItem.on 'removeChannel', (err)=>
+      return @displayError(err) if err
+      @removeChannel()
+
+    newItem.on 'updateChannel', (err, model, view)=>
+      return @displayError(err) if err
+      @user.fetch
+        success: (model, res, opt)=>
+          @updateWhitelistView ()=> @updateView()
 
     @newView = newItem if @newChannel
     @newChannel =false
@@ -66,19 +69,19 @@ v.set 'whitelisted', (err)->
 
 v.set 'updateView', ->
   return if not el = @n.getEl("[role='status']")
-  status = @whitelisted()
+  whitelisted = @whitelisted()
 
   requires = @user.requiresSubscription(@subscription)
   canceling = @subscription?.get('subscriptionCanceling')
+  activeChannels = _.find @collection.models, (i)-> i.get('active')
 
-  @n.evaluateClass(el, "hide", (@user.get("whitelist") or []).length is 0)
-  @n.evaluateClass(el, "fa-check-circle", status)
-  @n.evaluateClass(el, "fa-warning", !status and !requires)
+  @n.evaluateClass(el, "hide", !activeChannels)
+  @n.evaluateClass(el, "fa-check-circle", whitelisted)
+  @n.evaluateClass(el, "fa-warning", !whitelisted and !requires)
   @n.evaluateClass(el, "fa-exclamation-circle", requires)
 
   if @user.get('subscriber')
     @el.querySelector(sel.add).disabled = if requires or canceling then true else false
-    @el.querySelector(sel.save).disabled = if requires or canceling then true else false
     addChannelText = "Add Channel for $4.99/MONTH"
     @n.setText(sel.add, addChannelText)
   else
@@ -91,47 +94,12 @@ v.set 'updateView', ->
     title = "You need to renew your subscription for whitelisting to take effect."
   el.setAttribute("title", title)
 
-v.set 'updateWhitelist', (done)->
-  whitelist = []
-
-  _.each @collection.models, (model)->
-    channel = model.get('identity')
-
-    if channel
-      item =
-        name: model.get 'name'
-        identity: channel
-        active: model.get('active')
-        whitelisted: model.get('whitelisted')
-
-      whitelist.push item
-
-  @displayLoading(true)
-  @displayError(null)
-
-  params =
-    whitelist: whitelist
-    user: @user
-
-  userWhitelist.updateWhitelist params, (err, res)=>
-    @displayLoading(false)
-    err = errorParser.superagent(err, res)
-    return @displayError(err) if err
-    if res.status isnt 200
-      err = res.body?.error or "An error occured."
-      return @displayError(err)
-    @user.fetch({ success: ()=>
-      return done() if done
-    })
-
-v.set 'updateWhitelistView', ->
+v.set 'updateWhitelistView', (cb)->
   whitelist = @el.querySelector(sel.container)
   whitelist.innerHTML = ""
   @collection.reset()
-  @collection.fetch()
-
-v.on "click #{sel.save}", ->
-  @updateWhitelist => @updateWhitelistView()
+  @collection.fetch
+    success: => cb?()
 
 v.set 'updatePlan', (channelNum, period, userTypes)->
   subPlan.getPlan { channelNum: channelNum, period: period, userTypes: userTypes }, (err, plan)=>
@@ -141,9 +109,9 @@ v.set 'updatePlan', (channelNum, period, userTypes)->
       if res.body.approvalUrl
         window.location.replace(res.body.approvalUrl)
       else
-        @user.fetch({ success: ()=>
-          @updateWhitelistView()
-        })
+        @user.fetch
+          success: ()=>
+            @updateWhitelistView ()=> @updateView()
 
 v.on "click #{sel.add}", ->
   next = =>
@@ -160,7 +128,7 @@ v.on "click #{sel.add}", ->
       else
         @user.fetch
           success: =>
-            @updateWhitelistView()
+            @updateWhitelistView ()=> @updateView()
 
   unless @user.get('subscriber')
     return next()
@@ -168,33 +136,10 @@ v.on "click #{sel.add}", ->
   if confirm("Confirm adding channel for 4.99$/MONTH") # TODO remove hardcode
     next()
 
-v.set 'hasTwitch', ->
-  twitchChannels = _.filter @collection.models, (model)->
-    model.attributes.name is 'twitch'
-
-  if twitchChannels.length <= 1
-    return false
-  else
-    return true
-
-v.set 'removeChannel', (model, view)->
-  return alert("Can't remove more channels") if @collection.models.length <= 2
-
-  if @user.get 'subscriber'
-    if !@hasTwitch() and model.get('name') is 'twitch'
-      return alert("Can't remove the Twitch channel slot")
-
-    @updateWhitelist ()=>
-      planId = @subscription.get("subscriptionPlan")
-      subPlan.getPlan { planId: planId }, (err, oldPlan)=>
-        @updatePlan(oldPlan.channelNum - 1, oldPlan.period, oldPlan.userTypes)
-  else
-    model.destroy()
-    view.remove()
-    channelNumber = @user.get('channelNumber') or 2
-    chanelNumber = Math.max(2, channelNumber-1)
-    @user.set 'channelNumber', channelNumber
-    @user.save()
+v.set 'removeChannel', ->
+  planId = @subscription.get("subscriptionPlan")
+  subPlan.getPlan { planId: planId }, (err, oldPlan)=>
+    @updatePlan(oldPlan.channelNum - 1, oldPlan.period, oldPlan.userTypes)
 
 module.exports = v.make()
 

@@ -1,16 +1,19 @@
-- var whitelisted = model.get("whitelistStatus") == "whitelisted"
-td.realname= model.get("realName")
-td.email= model.get("email")
-td.active.ss.center-text(role="subscription-status")
-  if model.isSubscriber()
-    if subscriptionActive
+td= model.get("realName")
+td= model.get("email")
+td.ss.center-text
+  if subscription 
+    if subscription.get('subscriptionActive') == true
       i.fa.fa-check
     else
-      i.fa.fa-exclamation.ss.cl-danger
-td.active.ss.center-text(role="whitelist-status")
-  if whitelistActive
+      i.fa.fa-times
+  else
+    label(title='No subscription, not applicable.') N/A
+td.ss.center-text
+  if (model.get('whitelist') || []).length === 0
+    label(title='No whitelist identities, not applicable.') N/A
+  else if model.isWhitelisted()
     i.fa.fa-check
   else
-    i.fa.fa-exclamation.ss.cl-danger
-td.period= model.getAsFormatedDate("created")
+    i.fa.fa-times
+td= model.getAsFormatedDate("created")
 

@@ -102,6 +102,9 @@ v.set "render", ->
   @renderer.locals.trialAccess = yes if @model.get('trialAccessEndDate')
   @renderer.locals.trialAccessEndDate = @model.getDateStr("trialAccessEndDate")
   @renderer.locals.countryCodes = callingCodes.map((country)-> {name: country.name, code: parseInt(country.dial_code)})
+
+  @renderer.locals.trialAccess = yes if @model.get 'trialAccessEndDate'
+  @renderer.locals.trialAccessEndDate = @model.getAsFormatedDate("trialAccessEndDate")
   @renderer.render()
 
   if @whitelistView?

@@ -10,12 +10,12 @@ else
     table.ss.rows
       tr
         th Plan
-        td= subscription.getPlanName(model)
+        td= subscription.get('subscriptionPlan')
       tr
         th Paying
         td
           if model.requiresSubscription(subscription)
-            i.fa.fa-exclamation.ss.cl-danger
+            i.fa.fa-times
           else
             i.fa.fa-check
       tr
@@ -27,7 +27,7 @@ else
       tr
         th Vendor
         th Identity
-        th Whitelisted
+        th.ss.center-text Whitelisted
     tbody
       - var whitelist = model.get('whitelist') || []
       if !whitelist.length
@@ -39,11 +39,11 @@ else
           tr
             td= item.name
             td= item.identity
-            td
+            td.ss.center-text
               if item.whitelisted
                 i.fa.fa-check
               else
-                i.fa.fa-exclamation.ss.cl-danger
+                i.fa.fa-times
   br
 
   table.ss.bordered

@@ -1,5 +1,6 @@
 SuperCollection = require('super-collection')
 SuperModel      = require('super-model')
+eurl            = require('end-point').url
 
 class UserPaymentsCollection extends SuperCollection
 
@@ -9,6 +10,6 @@ class UserPaymentsCollection extends SuperCollection
     throw Error('You must provide a subscription.') unless opts.subscription
     @subscription = opts.subscription
 
-  url: ->"/subscription/payments/#{ @subscription.id }"
+  url: -> eurl("/subscription/payments/#{ @subscription.id }")
 
 module.exports = UserPaymentsCollection

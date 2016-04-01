@@ -16,6 +16,7 @@ sel =
   btn:
     remove: '[role="remove-channel"]'
   status: '[role="status-icon"]'
+  loading: '[role="loading"]'
 
 v.use View
   tagName: 'tr'
@@ -40,9 +41,10 @@ v.set "render", ->
 v.set "updateView", ->
   active = !@user.requiresSubscription(@subscription)
   canceling = @subscription?.get('subscriptionCanceling')
-  @n.setText(sel.channelType,
-    @i18.strings.channelTypes[@model.get 'name'])
-  @n.setText(sel.channelName, @model.get 'identity')
+  unless @loading
+    @n.setText(sel.channelType,
+      @i18.strings.channelTypes[@model.get 'name'])
+    @n.setText(sel.channelName, @model.get 'identity')
 
   if @user.isSubscriber()
     hideRemove = !active or canceling
@@ -51,10 +53,12 @@ v.set "updateView", ->
     @n.evaluateClass(sel.btn.remove, "hide", @model.get('identity'))
 
   state = userWhitelist.getState(@model.get('active'), @model.get('whitelisted'))
-  iconClass = userWhitelist.getIcons()[state]
   stateIcon = @el.querySelector(sel.status)
-  stateIcon.className = iconClass
+  stateIcon.className = userWhitelist.getIcons()[state]
   stateIcon.setAttribute("title", userWhitelist.state[state].tipPublic)
+
+  @n.evaluateClass(sel.status, "hide", @loading)
+  @n.evaluateClass(sel.loading, "hide", !@loading)
 
 v.use ContextMenu
   name: "optionMenu"
@@ -81,14 +85,18 @@ v.set "onSelectContextMenu", (item, menu)->
 v.set 'displayError', (err, el)->
   @n.evaluateClass(el, "ok", !err)
   @n.evaluateClass(el, "error", err?)
-  @trigger 'updateChannel', err
 
 v.set 'onChangeChannel', (e)->
   el = @n.getEl(sel.channelName)
-  id = e.currentTarget.value
-  @model.set('identity', id)
-  userWhitelist.validate @model.get('name'), id, (err)=>
-    @displayError(err, el)
+  newChannel = e.currentTarget.value
+  userWhitelist.validate @model.get('name'), newChannel, (err)=>
+    return @displayError(err, el) if err
+    @loading = true
+    @updateView()
+    @model.updateChannel @user.id, newChannel, @model.get('name'), (err, res)=>
+      @loading = false
+      return @displayError(err, el) if err
+      @trigger 'updateChannel', err
 
 v.on 'mouseover .channel-status', ->
   @trigger 'showLegend'
@@ -101,12 +109,18 @@ v.set 'openChannelSelect', ->
   select.onclick()
 
 v.on "click #{sel.btn.remove}", (e)->
- if confirm("Confirm to remove channel and downgrade the subscription plan.")
-   if @model.get 'identity'
-     @model.set 'active', false
-     @trigger 'removeChannel', @model, @
-   else
-     @trigger 'removeChannel', @model, @
+  return alert("Can't remove more channels") if @collection.models.length <= 2
+
+  if !@hasTwitch() and @model.get('name') is 'twitch'
+    return alert("Can't remove the Twitch channel slot")
+
+  if confirm("Confirm to remove channel and downgrade the subscription plan.")
+    @loading = true
+    @updateView()
+    @model.removeChannel @user.id, @model.get('name'), (err, res)=>
+      @loading = false
+      return @displayError(err, el) if err
+      @trigger 'removeChannel', err
 
 v.set 'hasTwitch', ->
   twitchChannels = _.filter @collection.models, (model)-> model.attributes.name is 'twitch'
