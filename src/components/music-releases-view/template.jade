@@ -12,19 +12,26 @@ else
     class=(style == 'grid' ? 'grid-view' : 'list-view'))
     table
       tbody
+        - var today = new Date()
+        - today.setHours(0); today.setMinutes(0); today.setSeconds(0)
         each release in releases
           - var tks = release.numTracks > 1 ? "Tracks" : "Track"
+          - var prereleased = release.predate && release.predate < release.date && today < release.date
           tr(release-id="#{release._id}")
             td.art
               img(src="#{release.coverArt}"
                 draggable="true"
                 role="open-release")
-              if !release.released
+              if !release.released && !prereleased
                 i.fa.fa-exclamation-circle.ss.cl-attention.indicator-unreleased(title=strings.phrases.adminReleaseMsg)
             td
               div.details
                 label.ss.heavy(role='open-release')= release.title
-                label.ss(role= mobile ? 'open-release' : '')= release.queryables.date
+                label.ss(role= mobile ? 'open-release' : '')
+                  if prereleased 
+                    = release.queryables.predate + " (Pre-Release)"
+                  else
+                    = release.queryables.date
                 label.ss(role= mobile ? 'open-release' : '')= release.queryables.artists
                 label.ss(role= mobile ? 'open-release' : '')= release.numTracks + " " + tks
             td.ss.inline-toolbar

@@ -1,6 +1,7 @@
 request       = require('superagent')
 parse         = require('parse')
 SuperModel    = require('super-model')
+eurl          = require('end-point').url
 
 class WhiteListItem extends SuperModel
   idAttribute: "_id"
@@ -9,7 +10,7 @@ class WhiteListItem extends SuperModel
 
   updateChannel: (userId, newChannel, channelType, done)->
     request
-      .put("/user/whitelistChannel/#{userId}")
+      .put(eurl("/user/whitelistChannel/#{userId}"))
       .send
         oldChannelId: @id
         newChannel: newChannel
@@ -19,7 +20,7 @@ class WhiteListItem extends SuperModel
 
   removeChannel: (userId, channelType, done)->
     request
-      .del("/user/whitelistChannel/#{userId}")
+      .del(eurl("/user/whitelistChannel/#{userId}"))
       .send
         channelId: @id
         channelType: channelType

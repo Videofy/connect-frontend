@@ -50,6 +50,9 @@ v.init (opts={})->
     download: 'Download'
     streaming: 'Streaming'
     publishing: 'Publishing'
+    mechanical: 'Mechanical'
+  cmobj.defaultDates =
+    start: new Date(@model.get('created'))
 
   @tabs = new TabView
   @tabs.set

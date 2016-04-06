@@ -1,4 +1,5 @@
 view = require("view-plugin")
+eurl = require("end-point").url
 v = bQuery.view()
 
 v.init (opts={})->
@@ -7,6 +8,8 @@ v.init (opts={})->
 v.use view
   className: "user-payments-view"
   template: require("./template")
+  locals:
+    eurl: eurl
 
 v.set "render", ->
   @renderer.locals.mode = 'loading'

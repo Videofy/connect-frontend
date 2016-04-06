@@ -4,7 +4,7 @@ InputBinder    = require('input-binder')
 
 module.exports = (config)-> (v)->
   v.init (opts={})->
-    {@i18, @evs, @sse, @permissions} = opts
+    {@i18, @evs, @sse, @permissions, @router} = opts
     @n = new Enabler(@el)
 
     if config.binder

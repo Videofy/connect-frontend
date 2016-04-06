@@ -52,22 +52,32 @@ class Commission extends SuperModel
     split.ratio = ratio
     sfn.call(@, splits, done)
 
-  addSplits: (splits, publisherId, done)->
+  addSplits: (splits, publisherId, dates, done)->
     return unless splits.length
     toadd = splits.map (split)=>
-      @createSplit(split.ratio, split.userId, publisherId)
+      @createSplit(split.ratio, split.userId, publisherId, dates)
     splits = @get('splits').concat(toadd)
     sfn.call @, splits, (err, model)->
       done(err, model, toadd)
 
-  createSplit: (ratio, userId, publisherId)->
+  createSplit: (ratio, userId, publisherId, dates)->
+    dates = {} unless dates?
+    unless dates.start instanceof Date
+      today = new Date()
+      today.setHours(0)
+      today.setMinutes(0)
+      today.setSeconds(0)
+      dates.start = today
+    unless dates.end instanceof Date
+      future = new Date(dates.start)
+      future.setFullYear(future.getFullYear() + 10)
+      dates.end = future
     userId: userId
     publisherId: publisherId
     ratio: ratio.toString()
     value: ratio.valueOf()
-
-  addSplit: (ratio, userId, publisherId, done)->
-    @addSplits(ratio, [userId], publisherId, done)
+    startDate: dates.start
+    endDate: dates.end
 
   removeSplit: (userId, done)->
     splits = @get('splits')

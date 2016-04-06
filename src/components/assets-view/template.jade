@@ -18,13 +18,14 @@ section
           th.sortable(sort-on='title')= strings.defaults.title
             i.fa.fa-sort-asc.indicator-asc
             i.fa.fa-sort-desc.indicator-desc
+          th= strings.defaults.id
           th.sortable(sort-on='date')= strings.defaults.date
             i.fa.fa-sort-asc.indicator-asc
             i.fa.fa-sort-desc.indicator-desc
           th= strings.defaults.actions
       tbody
         tr
-          td(colspan=3)
+          td(colspan=4)
             .ss.loader
               i.fa.fa-refresh.fa-spin
 

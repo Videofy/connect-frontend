@@ -40,6 +40,14 @@ toPromise = (isModel)-> (force)->
   promise.toPromise = -> promise
   promise
 
+simpleSave = (obj, done)->
+  @save obj,
+    patch: true
+    error: (model, res, opts)->
+      done(parse.backbone.error(res), model, res, opts)
+    success: (model, res, opts)->
+      done(null, model, res, opts)
+
 fetchIfNew = ( success, failure ) ->
   if @isNew() and not @isFetchingNew
     @isFetchingNew = true
@@ -82,4 +90,5 @@ module.exports = backbonePromises =
   addModelMethods: (obj)->
     addSharedMethods(obj)
     obj.toPromise = toPromise(true)
+    obj.simpleSave = simpleSave
 

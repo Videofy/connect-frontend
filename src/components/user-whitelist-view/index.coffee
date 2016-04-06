@@ -89,7 +89,7 @@ v.set 'updateView', ->
 
   title = "Whitelisting is active."
   if !status and !requires
-    title = "Your identities are being processed for whitelisting."
+    title = "Your identities have been whitelisted."
   else if requires
     title = "You need to renew your subscription for whitelisting to take effect."
   el.setAttribute("title", title)

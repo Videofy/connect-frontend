@@ -118,11 +118,17 @@ v.use fsr
           subscription: subscription
 
 v.set 'setFilter', (needle)->
-  @filter = fsr.createFilter(needle, [
+  filter = fsr.createFilter(needle, [
     'email'
     'name'
     'created'
   ])
+  @filter = (model)=>
+    whitelist = model.get('whitelist') or []
+    for el, i in whitelist
+      if el.identity is needle
+        return true
+    filter(model)
 
 v.set 'setSort', (field, mode)->
   sort =

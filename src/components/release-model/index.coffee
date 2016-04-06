@@ -120,7 +120,7 @@ class ReleaseModel extends SuperModel
     str = "?#{querystring.stringify(query)}"
 
     if not packageId
-      return "#{url()}/download#{str}"
+      return "#{@url()}/download#{str}"
 
     eurl("/album/package/#{packageId}#{str}")
 

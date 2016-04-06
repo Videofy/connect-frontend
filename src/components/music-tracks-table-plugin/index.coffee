@@ -48,10 +48,12 @@ getTracks = (user, releases, tracks, label, filter)->
     rids.forEach (id) ->
       release = releases.get(id)
       return if not release or (filter and not filter(release, track))
-      date = new Date(release.attributes.releaseDate or
-        release.attributes.released or 0)
+      date = new Date(release.attributes.releaseDate)
       date.format = formatDateTime
-      trackNumber = (_.find track.attributes.albums, (item)-> item.albumId is release.id).trackNumber
+      rinfo = track.getReleaseInfo(release)
+      trackNumber = rinfo.trackNumber
+      predate = new Date(rinfo.preReleaseDate)
+      predate.format = formatDateTime
       genres = getTrackGenres(track)
       duration = formatDuration(track.attributes.duration * 1000)
       arr.push
@@ -64,6 +66,7 @@ getTracks = (user, releases, tracks, label, filter)->
         genres: genres
         genreColor: getGenreColor(track, label)
         date: date
+        predate: predate
         track: track
         duration: duration
         bpm: Math.round(track.attributes.bpm) || undefined

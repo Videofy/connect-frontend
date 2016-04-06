@@ -150,7 +150,7 @@ v.set 'typeChange', (e)->
   userTypes = if gold then ["subscriber", "golden"] else ["subscriber", "licensee"]
   subPlan.getPlansByUserTypes { userTypes: userTypes }, (err, plans)=>
     @plans = plans
-    plan = @getBasePlan()
+    plan = @model.getBasePlan()
     @n.setText(sel.renewText2, " for #{plan.description}.")
 
 v.set "displayError", (error)->
@@ -172,6 +172,8 @@ v.set "addPaypalSubscription", (plan)->
   .withCredentials()
   .send
     plan: plan
+    approvedRedirectUrl: "#{window.location.origin}/#profile"
+    cancelledRedirectUrl: "#{window.location.origin}/#returned"
   .end (err, res) =>
     @n.evaluateClass("waiting", false)
     return alert(err) if err

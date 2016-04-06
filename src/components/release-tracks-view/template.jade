@@ -5,10 +5,11 @@ table.ss.bordered
       th= strings.defaults.title
       th= strings.defaults.artists
       th= strings.defaults.preReleaseDate
+      th= strings.defaults.free
       th
   tbody
     tr
-      td.ss.center-text(colspan=5)
+      td.ss.center-text(colspan=6)
         if mode == 'loading'
           .ss.loader
             i.fa.fa-refresh.fa-spin

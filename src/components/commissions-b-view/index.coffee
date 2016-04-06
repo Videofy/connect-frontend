@@ -46,6 +46,7 @@ v.use fsr
         users: @users
         accounts: @accounts
         publishers: @publishers
+        defaultDates: @defaultDates
       capsule = new Capsule(opts)
       tbody.appendChild(capsule.el)
 
@@ -53,7 +54,7 @@ v.ons
   'click [role="add-commission"]': onClickAdd
 
 v.init (opts={})->
-  { @users, @accounts, @publishers, @types } = opts
+  { @users, @accounts, @publishers, @types, @defaultDates } = opts
   throw Error('Collection not provided.') unless @collection
   throw Error('Users not provided.') unless @users
   throw Error('Accounts not provided.') unless @accounts

@@ -75,28 +75,34 @@ class Track extends SuperModel
       album.albumId is id
 
   getPosition: (release)->
-    album = Track.getAlbum(release, @attributes.albums)
-    album.trackNumber
+    return -1 unless release = @getReleaseInfo(release)
+    release.trackNumber
 
-  setPosition: (release, position, opts)->
-    albums = @attributes.albums or []
-    album = Track.getAlbum(release, @attributes.albums)
+  setPosition: (release, position, done)->
+    @setReleaseInfo(release, trackNumber: position, done)
 
-    if !album
-      album = { albumId: getId(release) }
-      albums.push(album)
+  removeFromRelease: (ro, done)->
+    releases = @get('albums')
+    release = Track.getAlbum(ro, releases)
+    if release
+      index = releases.indexOf(release)
+      releases.splice(index, 1) if index >= 0
+      return @simpleSave(albums: releases, done) if done?
+      return @set('albums', releases)
+    return done(Error('Release not found.')) if done?
 
-    album.trackNumber = position
+  setReleaseInfo: (ro, obj, done)->
+    releases = @get('albums') or []
+    release = Track.getAlbum(ro, releases)
+    if !release
+      release = {albumId: getId(ro)}
+      releases.push(release)
+    _.extend(release, _.omit(obj, "_id"))
+    return @simpleSave(albums: releases, done) if done?
+    @set('albums', releases)
 
-    if position is -1
-      index = albums.indexOf(album)
-      albums.splice(index, 1) if index >= 0
-
-    return @save(albums: albums, opts)  if opts
-    @set('albums', albums)
-
-  removeFromRelease: (release, opts)->
-    @setPosition(release, -1, opts)
+  getReleaseInfo: (ro)->
+    Track.getAlbum(ro, @get('albums'))
 
   uploadUrl: ->
     @fileOriginalUrl()

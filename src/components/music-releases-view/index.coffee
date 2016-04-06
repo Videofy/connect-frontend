@@ -23,7 +23,8 @@ getReleases = (releases, tracks)->
   arr = releases.models.map (release)->
     tks = getReleaseTracks(release, tracks)
     o = _.clone(release.attributes)
-    o.date = new Date(o.releaseDate or o.released)
+    o.date = new Date(o.releaseDate)
+    o.predate = new Date(o.preReleaseDate)
     o.numTracks = tks.length
     o.coverArt = release.coverUrl(128)
     o.released = release.isReleased()
@@ -34,6 +35,7 @@ getReleases = (releases, tracks)->
       genres: getReleaseGenres(tks)
       artists: o.renderedArtists
       date: DateTime.format("F j, Y", o.date)
+      predate: DateTime.format("F j, Y", o.predate)
       type: o.type
     o
 

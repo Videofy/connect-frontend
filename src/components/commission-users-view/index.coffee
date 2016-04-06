@@ -65,17 +65,14 @@ onClickAdd = (e)->
       ratio: new Ratio(0)
     }]
 
-  @model.addSplits splits, publisherId, (err, model, splits)=>
+  @model.addSplits splits, publisherId, @defaultDates, (err, model, splits)=>
     return @toast(err.message, 'error') if err
     names = splits
       .map((split)=> @users.get(split.userId).get('name'))
       .join(', ')
-
     @toast("Successfully added users #{names} to commissions.",
         "success")
-
     @renderUsers()
-
     @n.getEl('[role="search-input"]')?.value = ''
     publishSel?.selectedIndex = 0
     @resetSearchInputValue(target)
@@ -130,7 +127,6 @@ v.use search
         results = search.searchCollection(@userOrAccounts, ['name'], filter).map (model)->
           text: model.get('name')
           value: model.id
-
         done(results)
 
 v.use(fractionize())
@@ -143,7 +139,11 @@ v.ons
   "click [role='complete-fraction']": onClickCompleteFraction
 
 v.init (opts={})->
-  { @users, @viewOnly, @publishers, @accounts } = opts
+  { @users,
+    @viewOnly,
+    @publishers,
+    @accounts,
+    @defaultDates } = opts
   throw Error('No users collection.') unless @users
   throw Error('No accounts collection.') unless @accounts
   @chart = new Chart

@@ -119,7 +119,7 @@ v.on "click #{sel.btn.remove}", (e)->
     @updateView()
     @model.removeChannel @user.id, @model.get('name'), (err, res)=>
       @loading = false
-      return @displayError(err, el) if err
+      return @displayError(err, @el) if err
       @trigger 'removeChannel', err
 
 v.set 'hasTwitch', ->

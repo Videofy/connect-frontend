@@ -22,7 +22,7 @@ else
       else
         each model in collection.models
           - var amount = '$' + model.get("amount")/100
-          - var dlLink = '/subscription/download/invoice/' + model.get("transactionId")
+          - var dlLink = eurl('/subscription/download/invoice/' + model.get("transactionId"))
           - var query = '?paymentType=' + model.get("paymentType")
           tr
             td.payment-date= model.getAsFormatedDate("invoiceDate")

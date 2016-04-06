@@ -66,10 +66,14 @@ v.init (opts={})->
   { @users, @accounts } = opts
 
 v.set 'setFilter', (needle)->
-  @filter = fsr.createFilter(needle, [
+  filter = fsr.createFilter(needle, [
     'title'
     '_id'
   ])
+  @filter = (model)=>
+    ids = model.get('ids') or []
+    return true if ids.indexOf(needle) > -1
+    filter(model)
 
 v.set 'setSort', (field='date', mode='desc')->
   sort =

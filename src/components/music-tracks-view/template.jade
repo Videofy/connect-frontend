@@ -1,3 +1,5 @@
+- var today = new Date()
+- today.setHours(0); today.setMinutes(0); today.setSeconds(0)
 table
   thead.ss.hide-below.w500
     tr
@@ -28,6 +30,7 @@ table
         i.fa.fa-sort-desc.desc
   tbody
     each track in tracks
+      - var prereleased = track.predate && track.predate < track.date && today < track.date
       tr(track-id="#{track.id}"
         release-id="#{track.queryables.rid}"
         role="play")
@@ -53,13 +56,21 @@ table
           = track.title
           if showLicenseInfo && !track.licensable
             i.fa.fa-exclamation-circle.disabled-track.ss.cl-warning(role="disabled-track")
-          if !track.released
+          if !track.released && !prereleased
             i.fa.fa-exclamation-circle.ss.cl-attention.unreleased-track(title=strings.phrases.adminTrackMsg)
           i.fa.fa-chevron-circle-down.hide-below.w1024(role="options" title="More options.")
         td(draggable="true").artists.ss.hide-below.w500= track.artists
-        td(draggable="true").ss.hide-below.w500= track.release
+        td(draggable="true").ss.hide-below.w500
+          if prereleased
+            = track.release + " (Pre-Release)"
+          else
+            = track.release
         td(draggable="true").ss.hide-below.w500.align-right= track.trackNumber
         td(draggable="true").ss.hide-below.w500.align-right= track.duration
         td(draggable="true").ss.hide-below.w500.align-right= track.bpm
         td(draggable="true").ss.hide-below.w500= track.genres.join(", ")
-        td(draggable="true").ss.hide-below.w500= track.date.format()
+        td(draggable="true").ss.hide-below.w500
+          if prereleased 
+            = track.predate.format()
+          else
+            = track.date.format()

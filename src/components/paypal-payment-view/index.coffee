@@ -31,7 +31,10 @@ class PaypalPaymentView extends Backbone.View
       request
       .post(eurl("/subscription/paypal/sign-up/licensee"))
       .withCredentials()
-      .send({ plan: plan })
+      .send
+        plan: plan
+        approvedRedirectUrl: "#{window.location.origin}/#profile"
+        cancelledRedirectUrl: "#{window.location.origin}/#returned"
       .end (err, res) =>
         err = parse.superagent(err, res)
         return alert(err) if err

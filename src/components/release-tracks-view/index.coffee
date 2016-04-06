@@ -36,36 +36,24 @@ onClickAdd = (e)->
   select = @n.getEl('[role="select-track"]')
   id = select.options[select.selectedIndex].value
   return unless track = @tracks.get(id)
-  track.setPosition @model, @mytracks.models.length + 1,
-    wait: true
-    patch: true
-    error: (model, res, opts)=>
-      @toast parse.backbone.error(res).message, 'error'
-    success: (model, res, opts)=>
+  track.setPosition @model, @mytracks.models.length + 1, (err, model)=>
+      return @toast(err.message, 'error') if err
       @mytracks.add(model)
       select.selectedIndex = 0
       @renderRows()
 
 onClickRemove = (e)->
   track = getTrack(e.currentTarget, @mytracks)
-  track.removeFromRelease @model,
-    wait: true
-    patch: true
-    error: (model, res, opts)=>
-      @toast(parse.backbone.error(res).message, 'error')
-    success: (model, res, opts)=>
+  track.removeFromRelease @model, (err, model)=>
+      return @toast(err.message, 'error') if err
       @mytracks.remove(model)
       @renderRows()
 
 onChangePosition = (e)->
   position = parseInt(e.currentTarget.value)
   return unless track = getTrack(e.currentTarget, @mytracks)
-  track.setPosition @model, position,
-    wait: true
-    patch: true
-    error: (model, res, opts)=>
-      @toast(parse.backbone.error(res).message, 'error')
-    success: (model, res, opts)=>
+  track.setPosition @model, position, (err)=>
+      return @toast(err.message, 'error') if err
       @renderRows()
 
 onClickTogglePredate = (e)->
@@ -90,6 +78,12 @@ onChangePredate = (e)->
     return @toast(err.message, 'error') if err
     syncPreReleaseDate.call(@)
 
+onChangeFree = (e)->
+  target = e.currentTarget
+  track = @mytracks.get(target.getAttribute('track-id'))
+  track.setReleaseInfo @model, isFree: !!target.checked, (err)=>
+    @toast(err.message, 'error') if err
+
 ReleaseTracksView = v = bQuery.view()
 
 v.ons
@@ -98,6 +92,7 @@ v.ons
   'change [role="track-position"]': onChangePosition
   'click [role="toggle-predate"]': onClickTogglePredate
   'change [role="predate"]': onChangePredate
+  'change [role="isfree"]': onChangeFree
 
 v.use player
   ev: 'click [role="play-track"]'
