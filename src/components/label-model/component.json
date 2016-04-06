@@ -4,11 +4,14 @@
   "description": "",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "visionmedia/superagent": "*"
+  },
   "development": {},
   "license": "MIT",
   "main": "index.js",
   "local": [
+    "parse",
     "super-model"
   ],
   "scripts": [

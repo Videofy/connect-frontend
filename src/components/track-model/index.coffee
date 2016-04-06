@@ -5,6 +5,7 @@ formatquality        = require('format-quality')
 request              = require('superagent')
 SuperModel           = require('super-model')
 purl                 = require('url').parse
+eurl                 = require('end-point').url
 
 getApp = (url)->
   b = purl(url).hostname.split('.')
@@ -113,19 +114,15 @@ class Track extends SuperModel
   fileUrl: (release, format, quality, method)->
     throw Error("You must provide a release.") unless release
     throw Error("You must provide an audio format.") unless format
-
     method = "download" if method isnt "stream"
     release = release.id if "string" isnt typeof release
-
     query = formatquality(format, quality)
     query.method = method
     query.track = @id
-
-    "/api/release/#{release}/download?#{querystring.stringify(query)}"
+    eurl("/api/release/#{release}/download?#{querystring.stringify(query)}")
 
   playLink: (release)->
-    entry = _.find @attributes.albums, (release)->
-      release.albumId is release
+    entry = @getReleaseInfo(release)
     return @fileUrl(release, 'mp3', 128, 'stream') unless entry?
     "https://s3.amazonaws.com/data.monstercat.com/blobs/#{entry.streamHash}"
 

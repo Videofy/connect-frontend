@@ -3,29 +3,14 @@ GenreEditorView            = require("genre-editor-view")
 ListManageView             = require("list-manage-view")
 parse                      = require('parse')
 Ratio                      = require('ratio')
-request                    = require("superagent")
 view                       = require("view-plugin")
 
 addLabelAdmin = ->
-  request
-    .post("/label/#{@model.id}/create-admin")
-    .withCredentials()
-    .send
-      email: @n.getValue("[role='label-admin-email']")
-      password: @n.getValue("[role='label-admin-password']")
-    .end (err, res)=>
-      if err or res.status != 201
-        text = if err then "An error occured while making the request."
-        else JSON.parse(res.text).message
-        @evs.trigger "toast",
-          time: 2500
-          text: text
-          theme: "error"
-      else
-        @evs.trigger "toast",
-          time: 2500
-          text: "The label admin has been created."
-          theme: "success"
+  email = @n.getValue("[role='label-admin-email']")
+  password = @n.getValue("[role='label-admin-password']")
+  @model.createAdmin email, password, (err)=>
+    return @toast(err.message, "error") if err
+    @toast "The label admin as been created.", "success"
 
 onChangeLabelCommission = (e)->
   el = e.currentTarget

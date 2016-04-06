@@ -2,7 +2,7 @@ if permissions.user.reinvite
   button.ss.bg-action.hover.actioneer(role="resend-invite") Resend Invite Email
 if permissions.user.impersonate
   |  
-  a(href="/api/user/#{model.id}/impersonate")
+  a(href="#{model.impersonateUrl()")
     button.ss
       i.fa.fa-eye
       |  Impersonate

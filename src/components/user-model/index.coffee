@@ -1,3 +1,4 @@
+eurl          = require('end-point').url
 parse         = require('parse')
 request       = require('superagent')
 SuperModel    = require("super-model")
@@ -27,7 +28,12 @@ getWhitelist = (whitelist, name)->
 class UserModel extends SuperModel
 
   urlRoot: '/api/user'
-  signatureUrl: '/api/self/signature'
+
+  signatureUrl: ->
+    eurl("#{model.url()}/signature")
+
+  impersonateUrl: ->
+    eurl("#{model.url()}/impersonate")
 
   initialize: (params, opts)->
     return unless params
@@ -111,7 +117,7 @@ class UserModel extends SuperModel
 
   setSignatureImage: (data, done)->
     request
-    .put(@signatureUrl)
+    .put(@signatureUrl())
     .withCredentials()
     .send
       data: data
@@ -122,7 +128,7 @@ class UserModel extends SuperModel
     done ?= ->
 
     request
-    .get(@signatureUrl)
+    .get(@signatureUrl())
     .withCredentials()
     .end (err, res)->
       return done(err) if err = parse.superagent(err, res)
