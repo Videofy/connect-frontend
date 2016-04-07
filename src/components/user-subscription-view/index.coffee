@@ -110,7 +110,7 @@ v.set "render", ->
       userTypes = @user.get('type') or ['golden', 'subscriber']
       subPlan.getPlansByUserTypes { userTypes: userTypes }, (err, plans)=>
         @plans = plans
-        @plan = @model.getPlan()
+        @plan = @model.getPlan(plans)
         subscriber = @user.get("subscriber")
         subStatus = @model.getSubscriptionStatus(@user)
         goldUser = if "golden" in userTypes then true else false
@@ -150,8 +150,8 @@ v.set 'typeChange', (e)->
   userTypes = if gold then ["subscriber", "golden"] else ["subscriber", "licensee"]
   subPlan.getPlansByUserTypes { userTypes: userTypes }, (err, plans)=>
     @plans = plans
-    plan = @model.getBasePlan()
-    @n.setText(sel.renewText2, " for #{plan.description}.")
+    plan = @model.getBasePlan(plans)
+    @n.setText(sel.renewText2, " for #{plan?.description}.")
 
 v.set "displayError", (error)->
   @n.evaluateClass(sel.msg.error, "hide", !error)
@@ -249,7 +249,7 @@ v.set 'getStatusText', ->
 v.set "addSubscription", (e)->
   role = e.target.getAttribute('role')
   type = if role is 'renew-stripe' then 'stripe' else 'paypal'
-  myPlan = @model.getPlan()
+  myPlan = @model.getPlan(@plans)
 
   validCard = if (card? and card.last4) then true else false
 

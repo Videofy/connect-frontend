@@ -30,10 +30,10 @@ class UserModel extends SuperModel
   urlRoot: '/api/user'
 
   signatureUrl: ->
-    eurl("#{model.url()}/signature")
+    eurl("#{@url()}/signature")
 
   impersonateUrl: ->
-    eurl("#{model.url()}/impersonate")
+    eurl("#{@url()}/impersonate")
 
   initialize: (params, opts)->
     return unless params

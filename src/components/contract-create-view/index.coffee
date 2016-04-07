@@ -33,7 +33,7 @@ v.init (opts={})->
   throw Error('No router provided.') unless @router
 
   @users = new UserCollection null, fields: ['name', 'realName', 'type', 'email']
-  @tracks = new TrackCollection null, fields: ['title', 'artistsTitle']
+  @tracks = new TrackCollection null, fields: ['title', 'artistsTitle', 'artists']
   @model = new ContractModel
   @model.setup()
 

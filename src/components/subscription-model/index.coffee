@@ -43,20 +43,21 @@ class SubscriptionModel extends SuperModel
 
     return planName
 
-  getPlan: ->
+  getPlan: (plans)->
+    plans = plans or []
     planId = @get("subscriptionPlan")
 
     if @get("subscriptionPlanDetails") and @get("subscriptionPlanDetails").planId
       result = @get("subscriptionPlanDetails")
     else if planId
-      result = _.find @plans, (plan)-> plan.planId is planId
+      result = _.find plans, (plan)-> plan.planId is planId
     else
-      result = @getBasePlan()
+      result = @getBasePlan(plans)
 
     return result
 
-  getBasePlan: ->
-    result = _.find @plans, (plan)->
+  getBasePlan: (plans)->
+    result = _.find plans, (plan)->
       return "#{plan.channelNum}" is '2' and "#{plan.period}" is '1'
 
     return result
