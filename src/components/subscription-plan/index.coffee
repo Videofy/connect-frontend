@@ -1,5 +1,6 @@
 eurl    = require('end-point').url
 request = require("superagent")
+parse         = require('parse')
 
 ex = subscriptionPlan = module.exports
 
@@ -24,6 +25,7 @@ subscriptionPlan.setPlan = (params, done)->
   .send
     plan: plan
   .end ( err, res ) =>
+    err = parse.superagent(err, res)
     return done(err, res)
 
 subscriptionPlan.getPlansByUserTypes = (params, done)->

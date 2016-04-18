@@ -24,4 +24,4 @@ if mode == 'view'
       option(value='' selected disabled) Select One
       each track in tracks
         option(value="#{track.id}")= track.displayTrackArtistTitle()
-    button.ss.bg-action.hover(role='add-track') Add
+    button.ss.bg-action.hover(role='add-track' editable='track.update.albums') Add

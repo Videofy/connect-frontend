@@ -34,18 +34,19 @@ class SubscriptionModel extends SuperModel
 
     return "Monstercat #{type} Subscription #{channel} #{duration} "
 
-  getPlanName: (user)->
+  getPlanName: (user, plans)->
     status = @getSubscriptionStatus(user)
     if status is 'inactive'
       planName = "Subscription Inactive"
     else
-      planName = @displayPlanName(user, @getPlan())
+      planName = @displayPlanName(user, @getPlan(plans))
 
     return planName
 
   getPlan: (plans)->
     plans = plans or []
     planId = @get("subscriptionPlan")
+    return @getBasePlan(plans) unless @get("subscriptionActive")
 
     if @get("subscriptionPlanDetails") and @get("subscriptionPlanDetails").planId
       result = @get("subscriptionPlanDetails")

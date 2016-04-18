@@ -168,4 +168,12 @@ class UserModel extends SuperModel
     .end (err, res)=>
       done(parse.superagent(err, res))
 
+  removeClaims: (vid, done)->
+    request.post("#{@url()}/remove-claims")
+    .send
+      userId: @id
+      videoId: vid
+    .end (err, res)=>
+      done(parse.superagent(err, res), res.body)
+
 module.exports = UserModel

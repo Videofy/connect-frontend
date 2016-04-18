@@ -9,11 +9,12 @@ UserLogsView               = require("user-logs-view")
 UserLogsCollection         = require("user-log-collection")
 UserPaymentsCollection     = require("user-payments-collection")
 SubBillingView             = require("user-sub-billing")
-tabChange                  = require("tab-change-plugin")
+ClaimsView                 = require("user-claims-view")
 WebsiteDetailsModel        = require("website-details-model")
 UserArticlesView           = require('./articles-view')
 UserWhitelistView          = require('user-whitelist-info-view')
 ArticleCollection          = require('article-collection')
+tabChange                  = require("tab-change-plugin")
 view                       = require("view-plugin")
 
 UserPageView = v = bQuery.view()
@@ -24,8 +25,6 @@ v.use view
 
 v.init (opts={})->
   throw Error('Model required.') unless @model
-
-  @logsCollection = new UserLogsCollection null, user: @model if @permissions.user.logs
 
   if @model.isSubscriber()
     subscriptionModel = opts.subscription or new SubscriptionModel
@@ -64,16 +63,25 @@ v.init (opts={})->
           by:
             key: 'userId'
             value: @model.id
-    logs:
+
+  if @permissions.canAccess('user.logs')
+    tabSections.logs =
       title: "User Logs"
       view: new UserLogsView
         model: @model
-        collection: @logsCollection
+        collection: new UserLogsCollection null, user: @model
 
   if @permissions.canAccess('user.subscription', 'self.subscription') and @model.isSubscriber()
     tabSections.subscription =
       title: "Subscription"
       view: new UserSubscriptionView(subOpts)
+
+  if @permissions.canAccess('self.removeClaims') and @model.isSubscriber()
+    tabSections.claims =
+      title: "Claims"
+      view: new ClaimsView
+        model: @model
+        i18: @i18
 
   if @permissions.canAccess('user.read.whitelist') and @model.isOfTypes('licensee')
     tabSections.whitelist =
@@ -112,7 +120,6 @@ v.set "onTypeChange", ->
   @tabs.hide("admin", !@permissions.canAccess('user.read.type'))
   @tabs.hide("billing", !@permissions.canAccess('self.read.paymentType', 'user.read.paymentType'))
   @tabs.hide("website", !@permissions.canAccess('websiteDetails.update'))
-  @tabs.hide("logs", !@permissions.canAccess('user.logs'))
   @tabs.hide("docs", !@permissions.canAccess('statements.view'))
 
 module.exports = v.make()

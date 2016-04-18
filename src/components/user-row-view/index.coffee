@@ -1,6 +1,7 @@
 parse = require('parse')
 view  = require('view-plugin')
 rowView = require('row-view-plugin')
+disabler = require('disabler-plugin')
 
 onClickLink = (e)->
   e.stopPropagation()
@@ -24,6 +25,9 @@ v.use view
   template: require("./template")
   locals: ->
     canDelete: @permissions.canAccess('user.destroy')
+
+v.use disabler
+  attribute: 'editable'
 
 v.use rowView
 

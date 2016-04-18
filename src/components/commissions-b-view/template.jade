@@ -2,7 +2,7 @@
     select.ss(role='new-type')
         each val, key in types
             option(value='#{key}')= val
-    button.ss.bg-action.hover(role="add-commission") Add
+    button.ss.bg-action.hover(role="add-commission" editable="commission.create") Add
 br
 br
 table.ss.pane-table.bordered

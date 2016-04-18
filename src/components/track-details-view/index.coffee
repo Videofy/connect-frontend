@@ -8,6 +8,7 @@ wait           = require('wait')
 sort           = require('sort-util')
 populate       = require('populate-select')
 eurl           = require('end-point').url
+disabler       = require('disabler-plugin')
 
 onClickIsrc = (e)->
   el = e.currentTarget
@@ -78,6 +79,9 @@ v.use view
   binder: 'property'
   locals: ->
     genres: @label.get('genres').map (genre)-> genre.name
+
+v.use disabler
+  attribute: 'editable'
 
 v.ons
   'click [role="generate-isrc"]': onClickIsrc

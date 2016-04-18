@@ -16,6 +16,7 @@
   "local": [
     "commission-b-view",
     "collection-fsr-plugin",
+    "disabler-plugin",
     "parse",
     "view-plugin"
   ],

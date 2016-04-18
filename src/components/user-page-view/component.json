@@ -26,6 +26,7 @@
     "user-sub-billing",
     "tab-change-plugin",
     "subscription-model",
+    "user-claims-view",
     "user-whitelist-info-view"
   ],
   "scripts": [

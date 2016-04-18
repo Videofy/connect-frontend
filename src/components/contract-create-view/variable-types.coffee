@@ -9,6 +9,7 @@ module.exports =
       user: User
       track: Track
       date: Date
+      array: Array
 
     for k, v of map
       return k if obj instanceof v
@@ -26,4 +27,7 @@ module.exports =
       return new User
     if type is 'track'
       return new Track
+    if type is 'array'
+      return []
+
     return undefined

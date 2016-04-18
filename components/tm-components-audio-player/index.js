@@ -141,7 +141,9 @@ AudioPlayer.prototype.play = function ( index ) {
 
   if (this.restartCount > 0) {
     this.audio = this.createAudio(source) 
-    this.audio.currentTime = this.currentTime; // set currentTime when song gets restarted
+    if (this.audio.readyState !== 0) {
+      this.audio.currentTime = this.currentTime; // set currentTime when song gets restarted
+    }
     this.emit("restart");
   }
 
@@ -151,6 +153,7 @@ AudioPlayer.prototype.play = function ( index ) {
   return true;
 
 };
+
 
 AudioPlayer.prototype.getIndex = function(index) {
   index = index == null ? this.index : index;
@@ -172,17 +175,14 @@ AudioPlayer.prototype.pause = function () {
   this.emit("pause", this.getTempItem());
 };
 
-AudioPlayer.prototype.getEventData = function (){
-  data = this.temp
-  data.playedTime = this.audio.currentTime;
-  return data
-}
-
 AudioPlayer.prototype.stop = function () {
   if ( !this.audio || this.audio.error ) return;
-  this.emit("stop", this.getEventData());
+  this.emit("beforeStop");
+  this.emit("stop", this.getTempItem());
+  if (this.audio.readyState !== 0) {
+    this.audio.currentTime = 0.0;
+  }
   this.audio.pause();
-  this.audio.currentTime = 0.0;
 };
 
 AudioPlayer.prototype.next = function () {

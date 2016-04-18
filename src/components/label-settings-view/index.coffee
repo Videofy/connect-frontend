@@ -4,6 +4,7 @@ ListManageView             = require("list-manage-view")
 parse                      = require('parse')
 Ratio                      = require('ratio')
 view                       = require("view-plugin")
+disabler                       = require("disabler-plugin")
 
 addLabelAdmin = ->
   email = @n.getValue("[role='label-admin-email']")
@@ -30,6 +31,9 @@ LabelSettingsView = v = bQuery.view()
 v.use view
   className: "label-details-view"
   template: require("./template")
+
+v.use disabler
+  attribute: 'editable'
 
 v.ons
   "click [role='add-label-admin']": addLabelAdmin

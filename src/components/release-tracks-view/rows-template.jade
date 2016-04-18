@@ -14,19 +14,19 @@ else
         input.ss(type="number"
           role='track-position'
           step="1"
-          value= track.getPosition(release.id))
+          value= track.getPosition(release.id) editable='release.update')
       td= track.get('title')
       td= track.get('artistsTitle')
       td
         input.ss(type='checkbox'
                   checked=!!pdate
                   role='toggle-predate'
-                  track-id=track.id)
+                  track-id=track.id editable='release.update')
         input.ss(type='date'
                   role='predate'
                   value=(pdate ? format('Y-m-d', new Date(pdate)) : undefined)
                   class=(!pdate ? 'hide' : undefined)
-                  track-id=track.id)
+                  track-id=track.id editable='release.update')
       td
         input.ss(type='checkbox'
                  checked=!!track.getReleaseInfo(release).isFree
@@ -39,5 +39,5 @@ else
             i.active.fa.fa-pause
           a.ss.cl-inherit(href="/#tracks/#{track.id}")
             i.fa.fa-link
-          button.ss.fake.cl-danger-hover(role='remove-track')
+          button.ss.fake.cl-danger-hover(role='remove-track' editable='track.update.albums')
             i.fa.fa-trash-o

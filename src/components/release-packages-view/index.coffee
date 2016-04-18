@@ -7,6 +7,7 @@ rows            = require('./rows-template')
 sort            = require('sort-util')
 view            = require('view-plugin')
 wait            = require('wait')
+disabler        = require('disabler-plugin')
 
 releaseEvs = ['failed', 'packaged', 'progress', 'new', 'upload-failed', 'uploaded', 'finished']
 releaseEvsPrefix = 'release-package-'
@@ -63,6 +64,9 @@ v.ons
 v.use view
   className: 'release-packages-view'
   template: require('./template')
+
+v.use disabler
+  attribute: 'editable'
 
 v.init (opts={})->
   throw Error('A release model must be provided.') unless @model

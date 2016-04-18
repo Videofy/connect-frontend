@@ -1,6 +1,6 @@
 {
-  "name": "user-row-view",
-  "repo": "monstercat/user-row-view",
+  "name": "user-claims-view",
+  "repo": "monstercat/user-claims-view",
   "description": "",
   "version": "0.0.1",
   "keywords": [],
@@ -11,9 +11,6 @@
   "license": "MIT",
   "main": "index.js",
   "local": [
-    "disabler-plugin",
-    "parse",
-    "row-view-plugin",
     "view-plugin"
   ],
   "scripts": [

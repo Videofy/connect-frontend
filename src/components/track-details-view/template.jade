@@ -8,13 +8,13 @@ else
         th
           label.ss.heavy= strings.defaults.title
         td
-          input.ss(type='text' property='title')
+          input.ss(type='text' property='title' editable='track.update.title')
 
       tr
         th
           label.ss.heavy= strings.defaults.artistsTitle
         td
-          input.ss(type='text' property='artistsTitle')
+          input.ss(type='text' property='artistsTitle' editable='track.update.artistsTitle')
 
       tr
         th
@@ -51,20 +51,20 @@ else
         th
           label.ss.heavy= strings.trackDetails.debutDate
         td
-          input.ss(type='date', property='created')
+          input.ss(type='date', property='created' editable='track.update.created')
 
       tr
         th
           label.ss.heavy= strings.defaults.iswc
         td
-          input.ss(type='text' property='iswc')
+          input.ss(type='text' property='iswc' editable='track.update.iswc')
 
       tr
         th
           label.ss.heavy= strings.defaults.isrc
         td
           .ss.input-button
-            input.ss(type='text' property='isrc')
+            input.ss(type='text' property='isrc' editable='track.update.isrc')
             button.ss.bg-action.hover.actioneer(role='generate-isrc')
               span.inactive Generate
               i.active.fa.fa-gear.fa-spin
@@ -80,7 +80,7 @@ else
           label.ss.heavy= strings.trackDetails.bpm
         td
           .ss.input-button
-            input.ss(type='number' property='bpm')
+            input.ss(type='number' property='bpm' editable='track.update.bpm')
             button.ss.bg-action.hover.actioneer(role='calculate-bpm')
               span.inactive Calculate
               i.active.fa.fa-gear.fa-spin
@@ -90,7 +90,7 @@ else
           label.ss.heavy= strings.trackDetails.trackLength
         td
           .ss.input-button
-            input.ss(type='number' property='duration')
+            input.ss(type='number' property='duration' editable='track.update.duration')
             button.ss.bg-action.hover.actioneer(role='calculate-length')
               span.inactive Calculate
               i.active.fa.fa-gear.fa-spin
@@ -110,7 +110,7 @@ else
         th
           label.ss.heavy Licensable
         td
-          input.ss(type='checkbox' property='licensable') 
+          input.ss(type='checkbox' property='licensable' editable='track.update.licensable') 
 
       tr
         th
@@ -135,4 +135,4 @@ else
 
 .lyrics-wrapper
   label.ss.heavy Lyrics
-  textarea.ss.expand.w520(property='lyrics')
+  textarea.ss.expand.w520(property='lyrics' editable='track.update.lyrics')

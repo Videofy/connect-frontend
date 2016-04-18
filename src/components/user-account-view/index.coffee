@@ -93,6 +93,7 @@ v.init (opts={})->
       subscription: @subscription
       collection: @whitelistCollection
       i18: @i18
+      permissions: @permissions
     # Why does external view logic exist here?
     @whitelistView.on 'add:collection:view', (collection, el, model)=>
       @whitelistView.addNewView(el, model)

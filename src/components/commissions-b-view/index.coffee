@@ -1,9 +1,10 @@
-Capsule = require('./capsule')
-empty   = require('./empty-template')
-fsr     = require('collection-fsr-plugin')
-parse   = require('parse')
-Ratio   = require('ratio')
-view    = require("view-plugin")
+Capsule  = require('./capsule')
+empty    = require('./empty-template')
+fsr      = require('collection-fsr-plugin')
+parse    = require('parse')
+Ratio    = require('ratio')
+view     = require('view-plugin')
+disabler = require('disabler-plugin')
 
 onClickAdd = ->
   r = new Ratio('1/2')
@@ -49,6 +50,9 @@ v.use fsr
         defaultDates: @defaultDates
       capsule = new Capsule(opts)
       tbody.appendChild(capsule.el)
+
+v.use disabler
+  attribute: 'editable'
 
 v.ons
   'click [role="add-commission"]': onClickAdd

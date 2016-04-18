@@ -1,10 +1,11 @@
-parse  = require('parse')
-player = require('private-player-plugin')
-rows   = require('./rows-template')
-sort   = require('sort-util')
-view   = require('view-plugin')
-dt     = require('date-time')
+parse           = require('parse')
+player          = require('private-player-plugin')
+rows            = require('./rows-template')
+sort            = require('sort-util')
+view            = require('view-plugin')
+dt              = require('date-time')
 TrackCollection = require('track-collection')
+disabler        = require('disabler-plugin')
 
 sortTitle = sort.model.bind(null, 'stringsInsensitive', 'title')
 
@@ -103,6 +104,9 @@ v.use view
   template: require('./template')
   locals: ->
     tracks: @tracks.models.concat().sort(sortTitle)
+
+v.use disabler
+  attribute: 'editable'
 
 v.init (opts={})->
   { @tracks, @player } = opts

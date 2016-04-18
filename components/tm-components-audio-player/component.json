@@ -1,7 +1,8 @@
 {
   "name": "audio-player",
+  "repo": "tm-components/audio-player",
   "description": "Play a bunch of songs in a row.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "keywords": [
     "audio",
     "player"
@@ -12,7 +13,5 @@
   },
   "scripts": [
     "index.js"
-  ],
-  "repository": "tm-components/audio-player",
-  "resolved": "cdd84e1b52454fe8cb4eab6a9ffdd2f4e5d80d57"
+  ]
 }

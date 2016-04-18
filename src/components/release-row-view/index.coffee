@@ -2,6 +2,7 @@ bound                = require('bquery-binders')
 releasemenu          = require("release-context-menu-plugin")
 view                 = require("view-plugin")
 rowView              = require("row-view-plugin")
+disabler             = require('disabler-plugin')
 
 onClickLink = (e)->
   e.stopPropagation()
@@ -46,6 +47,8 @@ v.use releasemenu
   from: "ReleaseRowView"
   getRelease: -> @model
 
+v.use disabler
+  attribute: 'editable'
 v.set 'render', ->
   @renderer.render()
   @updateActions()

@@ -6,12 +6,12 @@ table.ss.rows
       td
         label.ss Email
       td
-        input.ss(type="email" placeholder="example@monstercat.com" role="label-admin-email")
+        input.ss(type="email" placeholder="example@monstercat.com" role="label-admin-email" editable="user.typesManaged.admin")
     tr
       td
         label.ss Password
       td
-        input.ss(type="password" role="label-admin-password")
+        input.ss(type="password" role="label-admin-password" editable="user.typesManaged.admin")
 button.ss.bg-action.hover(role="add-label-admin")= strings.defaults.add
 
 hr

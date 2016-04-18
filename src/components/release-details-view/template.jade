@@ -11,12 +11,12 @@ else
       th
         label.ss.heavy= strings.defaults.title
       td
-        input.ss(type="text" property="title")
+        input.ss(type="text" property="title" editable='release.update.title')
     tr
       th
         label.ss.heavy= strings.defaults.artists
       td
-        input.ss(type="text" property="renderedArtists")
+        input.ss(type="text" property="renderedArtists" editable='release.update.renderedArtists')
     tr
       th
         label.ss.heavy= strings.defaults.type
@@ -29,24 +29,24 @@ else
       th
         label.ss.heavy= strings.defaults.releaseDate
       td
-        input.ss.heavy(type="date" property="releaseDate")
+        input.ss.heavy(type="date" property="releaseDate" editable='release.update.releaseDate')
     tr
       th
         label.ss.heavy= strings.defaults.preReleaseDate
       td
         - var pdate = model.get('preReleaseDate')
         input.ss.heavy(type="date" property="preReleaseDate"
-          value=(pdate ? format('Y-m-d', new Date(pdate)) : undefined))
+          value=(pdate ? format('Y-m-d', new Date(pdate)) : undefined) editable='release.update.preReleaseDate')
     tr
       th
         label.ss.heavy= strings.defaults.catalogId
       td
-        input.ss(type="text" property="catalogId")
+        input.ss(type="text" property="catalogId" editable='release.update.catalogId')
     tr
       th
         label.ss.heavy= strings.defaults.upc
       td
-        input.ss(type="text" property="upc")
+        input.ss(type="text" property="upc" editable='release.update.upc')
     tr
       th
         label.ss.heavy= strings.defaults.coverArt
@@ -54,7 +54,7 @@ else
         .ss.input-button
           button.ss.bg-action.hover(role="view-art" disabled=(model.hasArt() ? undefined : 'disabled'))
             span.inactive View
-          button.ss.bg-action.hover.actioneer(role="upload-cover-art")
+          button.ss.bg-action.hover.actioneer(role="upload-cover-art" editable='release.update.coverArt')
             span.inactive Upload
             i.active.fa.fa-gear.fa-spin
     tr
@@ -69,21 +69,21 @@ else
       th
         label.ss.heavy= strings.releaseDetails.visibleWebsite
       td
-        input(type="checkbox" property="showOnWebsite")
+        input(type="checkbox" property="showOnWebsite" editable='release.update.showOnWebsite')
     tr
       th
         label.ss.heavy= strings.releaseDetails.visibleAdmin
       td
-        input(type="checkbox" property="showToAdminsOnly")
+        input(type="checkbox" property="showToAdminsOnly" editable='release.update.showToAdminsOnly')
     tr
       th
         label.ss.heavy= strings.releaseDetails.visibleFree
       td
-        input(type="checkbox" property="showAsFree")
+        input(type="checkbox" property="showAsFree" editable='release.update.showAsFree')
     tr(role='playlist')
       th
         label.ss.heavy= strings.releaseDetails.playlist
       td
-        input.ss(type="text" property="playlistId")
+        input.ss(type="text" property="playlistId" editable='release.update.playlistId')
 
   div(role='tracks')

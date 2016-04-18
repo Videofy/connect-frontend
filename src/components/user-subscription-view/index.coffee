@@ -118,7 +118,7 @@ v.set "render", ->
 
         @renderer.locals.mode = subStatus
         @renderer.locals.credit = "$#{@getCredit()/100}"
-        @renderer.locals.planName = @model.getPlanName(@user, @plan)
+        @renderer.locals.planName = @model.getPlanName(@user, @plans)
         @renderer.locals.planPrice = @plan.description if @plan
         @renderer.locals.dealPrice = @getDealPrice()
         @renderer.locals.paymentDate = @model.getPaymentDate(@user)
@@ -245,12 +245,10 @@ v.set 'getStatusText', ->
   else
     return "Inactive"
 
-
 v.set "addSubscription", (e)->
   role = e.target.getAttribute('role')
   type = if role is 'renew-stripe' then 'stripe' else 'paypal'
   myPlan = @model.getPlan(@plans)
-
   validCard = if (card? and card.last4) then true else false
 
   if role is 'renew-stripe'

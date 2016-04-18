@@ -74,7 +74,8 @@ class Session
         email: email
         password: password
       .end ( err, res ) =>
-        return done(res.body, res) if res.status isnt 200
+        return done(err) if err
+        return done(res?.body, res) if res?.status isnt 200
         @loadAndAuthenticate(done.bind(null, err, res))
 
   verifyToken: (token, done)->
