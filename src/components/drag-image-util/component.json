@@ -1,6 +1,6 @@
 {
-  "name": "music-tracks-plugin",
-  "repo": "monstercat/music-tracks-plugin",
+  "name": "drag-image-util",
+  "repo": "monstercat/drag-image-util",
   "description": "",
   "version": "0.0.1",
   "keywords": [],
@@ -9,11 +9,7 @@
   "development": {},
   "license": "MIT",
   "main": "index.js",
-  "local": [
-    "drag-image-util",
-    "playlist-model",
-    "track-context-menu-plugin"
-  ],
+  "local": [],
   "scripts": [
     "index.js"
   ]

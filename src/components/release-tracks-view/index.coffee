@@ -6,6 +6,7 @@ view            = require('view-plugin')
 dt              = require('date-time')
 TrackCollection = require('track-collection')
 disabler        = require('disabler-plugin')
+dragImageUtil   = require('drag-image-util')
 
 sortTitle = sort.model.bind(null, 'stringsInsensitive', 'title')
 
@@ -85,6 +86,31 @@ onChangeFree = (e)->
   track.setReleaseInfo @model, isFree: !!target.checked, (err)=>
     @toast(err.message, 'error') if err
 
+onDragStart = (e)->
+  e = e.originalEvent
+  id = e.target.parentElement?.getAttribute('track-id')
+  return unless id
+
+  tracks = [
+    track: @tracks.get(id)
+    release: @model
+  ]
+
+  tids = tracks.map (item)-> item.track.id
+  rids = tracks.map (item)-> item.release.id
+
+  e.dataTransfer.setData("text/track-ids", tids.join(","))
+  e.dataTransfer.setData("text/release-ids", rids.join(","))
+  e.dataTransfer.setDragImage(dragImageUtil.tracks(tracks), 20, 20)
+  @evs.trigger("openplaylist")
+  @evs.trigger("dragtracks:start", tracks)
+  @isDragging = true
+
+onDragEnd = (e)->
+  return unless @isDragging
+  delete @isDragging
+  @evs.trigger("dragtracks:end")
+
 ReleaseTracksView = v = bQuery.view()
 
 v.ons
@@ -94,6 +120,8 @@ v.ons
   'click [role="toggle-predate"]': onClickTogglePredate
   'change [role="predate"]': onChangePredate
   'change [role="isfree"]': onChangeFree
+  'dragstart td[draggable]': onDragStart
+  'dragend td[draggable]': onDragEnd
 
 v.use player
   ev: 'click [role="play-track"]'

@@ -139,13 +139,14 @@ v.set "signin", ->
   @n.evaluateClass("[role='signin']", "active", true)
 
   resp = (err, res)->
+    @n.evaluateClass("[role='signin']", "active", false)
     # 209 response, need two-factor token
-    if res.status is 209
+    if res?.status is 209
       @displayForm("two-factor")
       return @displayMessage("token", res?.body?.message or @i18.strings.signin.twoFactorMsg)
 
-    @n.evaluateClass("[role='signin']", "active", false)
     return @displayError(err.message) if err
+
     saveCredentials(email, password)
     @router.reload()
 

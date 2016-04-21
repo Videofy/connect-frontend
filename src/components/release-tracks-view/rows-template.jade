@@ -10,14 +10,14 @@ else
   each track in tracks
     - var pdate = track.getPreReleaseDate(release.id)
     tr(track-id="#{track.id}")
-      td
+      td(draggable="true")
         input.ss(type="number"
           role='track-position'
           step="1"
           value= track.getPosition(release.id) editable='release.update')
-      td= track.get('title')
-      td= track.get('artistsTitle')
-      td
+      td(draggable="true")= track.get('title')
+      td(draggable="true")= track.get('artistsTitle')
+      td(draggable="true")
         input.ss(type='checkbox'
                   checked=!!pdate
                   role='toggle-predate'
@@ -27,12 +27,12 @@ else
                   value=(pdate ? format('Y-m-d', new Date(pdate)) : undefined)
                   class=(!pdate ? 'hide' : undefined)
                   track-id=track.id editable='release.update')
-      td
+      td(draggable="true")
         input.ss(type='checkbox'
                  checked=!!track.getReleaseInfo(release).isFree
                  role='isfree'
                  track-id=track.id)
-      td
+      td(draggable="true")
         .ss.inline-toolbar
           button.ss.fake.actioneer(role='play-track')
             i.inactive.fa.fa-play-circle

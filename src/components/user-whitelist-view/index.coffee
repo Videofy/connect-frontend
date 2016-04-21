@@ -121,6 +121,8 @@ v.on "click #{sel.add}", ->
     request
     .post("/subscription/addChannel/#{@subscription.id}")
     .withCredentials()
+    .send
+      approvedRedirectUrl: "#{window.location.origin}/#profile"
     .end ( err, res ) =>
       err = errorParser.superagent(err, res)
       return alert(err) if err

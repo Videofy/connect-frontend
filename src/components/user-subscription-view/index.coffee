@@ -208,6 +208,7 @@ v.set "syncSubscription", ->
   .get(eurl("/user/sync-subscription/#{@user.id}"))
   .withCredentials()
   .end (err, res)=>
+    return @displayError(err.message or err) if err
     if res.status isnt 200
       return @displayError(res?.body?.error or "An error occured.")
     @respond.bind(@)

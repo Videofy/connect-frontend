@@ -1,5 +1,6 @@
 PlaylistModel = require("playlist-model")
 TrackContextMenu = require("track-context-menu-plugin")
+dragImageUtil = require("drag-image-util")
 
 find = (el)->
   target = el
@@ -19,26 +20,6 @@ getTrack = (el, tracks)->
 
 makeId = (tid, rid)->
   "#{tid}:#{rid}"
-
-draw = (tracks)->
-  txt = "#{tracks.length} Track"
-
-  if tracks.length > 1
-    txt += "s"
-  else if tracks.length is 1
-    txt += " (#{tracks[0].track.attributes.title})"
-
-  cvs = document.createElement("canvas")
-  cvs.width = 800
-  ctx = cvs.getContext("2d")
-  ctx.fillStyle = "black"
-  ctx.font = "10pt proxima-nova"
-  ctx.textBaseline = "top"
-  ctx.fillText(txt, 0 , 0)
-
-  img = document.createElement("img")
-  img.src = cvs.toDataURL()
-  img
 
 selectKeyDown = (e)->
   return e.metaKey if (navigator.platform == "MacIntel")
@@ -160,7 +141,7 @@ module.exports = (config={})-> (v)->
 
     e.dataTransfer.setData("text/track-ids", tids.join(","))
     e.dataTransfer.setData("text/release-ids", rids.join(","))
-    e.dataTransfer.setDragImage(draw(tracks), 20, 20)
+    e.dataTransfer.setDragImage(dragImageUtil.tracks(tracks), 20, 20)
     @evs.trigger("openplaylist")
     @evs.trigger("dragtracks:start", tracks)
     @isDragging = true

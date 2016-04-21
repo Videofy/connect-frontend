@@ -24,6 +24,7 @@ subscriptionPlan.setPlan = (params, done)->
   .withCredentials()
   .send
     plan: plan
+    approvedRedirectUrl: "#{window.location.origin}/#profile"
   .end ( err, res ) =>
     err = parse.superagent(err, res)
     return done(err, res)

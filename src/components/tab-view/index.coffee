@@ -40,7 +40,7 @@ v.set "setTab", (key, force)->
     @content = content
 
   while content.firstChild
-    content.firstChild.remove()
+    content.removeChild(content.firstChild)
 
   item = @config[key]
   if not item.rendered
