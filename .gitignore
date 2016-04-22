@@ -1,5 +1,6 @@
 *.log
 node_modules
+changed.store
 .DS_Store
 
 client/component

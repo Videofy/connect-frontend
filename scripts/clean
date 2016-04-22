@@ -9,6 +9,6 @@ echo "cleaning client js..."
 find src -name '*.coffee' | sed "s/\.coffee$/\.js/" | xargs rm -f
 rm -f client/bQuery.js
 rm -f client/monstercat.js
-rm -f /tmp/connect.changed.store
+rm -f changed.store
 echo "cleaning component build..."
 rm -rf client/component

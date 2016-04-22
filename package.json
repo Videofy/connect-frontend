@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "./scripts/clean && ./scripts/build-all",
     "component": "component install --dev",
     "start": "node server/index",
     "watch": "node scripts/watch",
