@@ -18,8 +18,7 @@ strip_leading() {
 }
 
 build_templates() {
-  local files=${@:-$(find src/components -name '*.jade' | xargs changed -s $STORE)}
-  for file in $files
+  for file in `find src/components -name '*.jade' | xargs changed -s $STORE`
   do
     echo -e "${CYAN}jade${RESET} $(strip_leading $file)"
     conc "./scripts/build-template $file"
@@ -27,8 +26,7 @@ build_templates() {
 }
 
 build_styles() {
-  local files=${@:-$(find src -name '*.less' | xargs changed -s $STORE)}
-  for file in $files
+  for file in `find src -name '*.less' | xargs changed -s $STORE`
   do
     echo -e "${GREEN}less${RESET} $(strip_leading $file)"
     conc "./scripts/build-less $file"
@@ -36,9 +34,7 @@ build_styles() {
 }
 
 build_js() {
-  local files=${@:-$(find src -name '*.coffee' | xargs changed -s $STORE)}
-
-  for file in $files
+  for file in `find src -name '*.coffee' | xargs changed -s $STORE`
   do
     echo -e "${YELLOW}coffee${RESET} $(strip_leading $file)"
   done
