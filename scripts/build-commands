@@ -7,7 +7,8 @@ YELLOW="\033[0;33m"
 GREEN="\033[0;32m"
 RESET="\033[0m"
 . "$__dirname/conc.sh"
-STORE=${STORE:-"$__dirname/../changed.store"}
+STORE="$__dirname/../changed.store"
+echo $STORE
 
 fbytes() {
   wc -l $1 | cut -f1 -d' '
