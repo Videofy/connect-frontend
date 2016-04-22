@@ -18,7 +18,7 @@ strip_leading() {
 }
 
 build_templates() {
-  for file in `find src/components -name '*.jade' | xargs changed -s $STORE`
+  for file in $(find src/components -name '*.jade' | xargs changed -s $STORE)
   do
     echo -e "${CYAN}jade${RESET} $(strip_leading $file)"
     conc "./scripts/build-template $file"
@@ -26,7 +26,7 @@ build_templates() {
 }
 
 build_styles() {
-  for file in `find src -name '*.less' | xargs changed -s $STORE`
+  for file in $(find src -name '*.less' | xargs changed -s $STORE)
   do
     echo -e "${GREEN}less${RESET} $(strip_leading $file)"
     conc "./scripts/build-less $file"
@@ -34,14 +34,11 @@ build_styles() {
 }
 
 build_js() {
-  for file in `find src -name '*.coffee' | xargs changed -s $STORE`
+  for file in $(find src -name '*.coffee' | xargs changed -s $STORE)
   do
     echo -e "${YELLOW}coffee${RESET} $(strip_leading $file)"
+    coffee -cb "$file"
   done
-
-  if [ ! -z "$files" ]; then
-    coffee -cb $files
-  fi
 }
 
 build_all() {
@@ -54,7 +51,7 @@ build_all() {
   echo "building client coffee..."
   build_js
 
-  for job in `jobs -p`; do wait $job; done
+  for job in $(jobs -p); do wait $job; done
 
   component build -o client/component
 
