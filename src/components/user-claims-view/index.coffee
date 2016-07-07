@@ -24,9 +24,13 @@ v.on "click #{sel.removeChannel}", (e)->
     @n.evaluateClass(sel.loading, "hide", true)
 
     if removedClaims and !err
-      claimsIds = _.map removedClaims, (item)-> item.id
-      claimIds = claimsIds.join(',')
-      info = "Claims #{claimIds} on your video has been removed."
+      if(removedClaims.length > 0)
+        claimsIds = _.map removedClaims, (item)-> item.id
+        claimIds = claimsIds.join(',')
+        len = claimsIds.length
+        info = "The claim" + (if len == 1 then "" else "s") + "  #{claimIds} on your video " + (if len == 1 then "has" else "have") + " been removed."
+      else
+        info = "No claims were found on that video."
       @n.evaluateClass(sel.info, "hide", false)
       @n.setText(sel.info, info)
 

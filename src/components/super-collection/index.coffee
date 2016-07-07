@@ -60,6 +60,26 @@ class SuperCollection extends Backbone.Collection
 
     models
 
+  addIds: (ids)->
+    promise = new Promise (resolve, reject) =>
+      ids = [ids] unless Array.isArray(ids)
+      models = ids.filter((id)=>!@get(id)).map (id)=> new @model(_id: id)
+      unless models.length
+        return resolve()
+
+      fetched = 0
+      check = (err)=>
+        return reject(err) if err
+        fetched++
+        if fetched is models.length
+          @add(models)
+          resolve()
+
+      models.forEach (model)=>
+        model.sfetch(check)
+
+    promise
+
 backbonePromises.addCollectionMethods(SuperCollection.prototype)
 
 module.exports = SuperCollection

@@ -1,16 +1,18 @@
 SuperModel    = require("super-model")
 formatquality = require("format-quality")
 querystring   = require("querystring")
-
+  
 getIndex = (items, track, release)->
   trackId = track.id or track
   releaseId = release.id or release
   items.indexOf _.find items, (item, index, arr)->
     item.trackId is trackId and item.releaseId is releaseId
 
+tracksPerDownloadPart = 50
 class PlaylistModel extends SuperModel
 
   urlRoot: '/api/playlist'
+  tracksPerDownloadPart: tracksPerDownloadPart
 
   defaults: ->
     name: "Unsaved Playlist"
@@ -19,6 +21,9 @@ class PlaylistModel extends SuperModel
   initialize: (opts={})->
     @tracks = []
     @releases = []
+
+  getDownloadParts: (numTracks)->
+    @downloadParts = Math.ceil(numTracks / @tracksPerDownloadPart)
 
   # Expects a backbone collection of backbone track and release models.
   # This method will grab all tracks from the collection that are
@@ -101,11 +106,14 @@ class PlaylistModel extends SuperModel
     @set("tracks", items.slice())
     return true
 
-  downloadUrl: (format, quality)->
+  downloadUrl: (format, quality, page=1)->
     query = formatquality(format, quality)
     query.method = 'download'
+    query.page = page
 
     str = "?#{querystring.stringify(query)}"
     "#{@url()}/download#{str}"
+
+PlaylistModel.tracksPerDownloadPart = tracksPerDownloadPart
 
 module.exports = PlaylistModel

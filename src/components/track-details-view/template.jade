@@ -8,7 +8,7 @@ else
         th
           label.ss.heavy= strings.defaults.title
         td
-          input.ss(type='text' property='title' editable='track.update.title')
+          input.ss(type='text' property='title' editable='track.update.title' validation='title')
 
       tr
         th
@@ -18,7 +18,7 @@ else
 
       tr
         th
-          label.ss.heavy= strings.defaults.artists
+          label.ss.heavy(validation='artists')= strings.defaults.artists
         td(list-target='artists')
           i.fa.fa-refresh.fa-spin
 
@@ -64,7 +64,7 @@ else
           label.ss.heavy= strings.defaults.isrc
         td
           .ss.input-button
-            input.ss(type='text' property='isrc' editable='track.update.isrc')
+            input.ss(type='text' property='isrc' editable='track.update.isrc' validation='isrc')
             button.ss.bg-action.hover.actioneer(role='generate-isrc')
               span.inactive Generate
               i.active.fa.fa-gear.fa-spin
@@ -96,7 +96,7 @@ else
               i.active.fa.fa-gear.fa-spin
       tr
         th
-          label.ss.heavy= strings.defaults.genres
+          label.ss.heavy(validation="genres")= strings.defaults.genres
         td(list-target='genres')
           i.fa.fa-refresh.fa-spin
 

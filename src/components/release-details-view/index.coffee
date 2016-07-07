@@ -7,6 +7,7 @@ view                 = require('view-plugin')
 wait                 = require('wait')
 dt                   = require('date-time')
 disabler             = require('disabler-plugin')
+validation           = require('validation-plugin')
 
 iv = bQuery.view()
 
@@ -57,6 +58,8 @@ v.use view
       link: @model.coverUrl(null, @label.get('name'))
       src: @model.coverUrl(128, @label.get('name'))
     format: dt.format
+
+v.use validation()
 
 v.use disabler
   attribute: 'editable'

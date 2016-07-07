@@ -15,13 +15,17 @@ div(role='paypal-email-info')
 label.ss.heavy Payment Option
 
 label.ss.radio
+  | None
+  input.ss(type="radio" property="paymentType", value="None")
+
+label.ss.radio
   | PayPal
   input.ss(type="radio" property="paymentType" value="PayPal")
-
+git
 label.ss.radio
   | Wire Transfer (Subject to a $25 CAD fee.)
   input.ss(type="radio" property="paymentType" value="Wire")
 
 label.ss.radio
-  | Direct Deposit (Available only to Canadians.)
+  | Direct Deposit (Available only to Canadians and Americans.)
   input.ss(type="radio" property="paymentType" value="Direct")

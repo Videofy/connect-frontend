@@ -69,16 +69,22 @@ if permissions.canAccess('user.update.twoFactorId', 'self.update.twoFactorId')
         label.ss Country
       td
         select.ss(role='country-code')
-          each country in countryCodes
-            option(value='#{country.code}' selected=(country.name === 'United States' ? 'selected' : undefined))= country.name
+          each option in countryCodes
+            option(value='#{option.code}' selected=(option.name === location || (option.name == 'United States' && location == 'United States of America') ? 'selected' : undefined))= option.name
     tr
       td
         label.ss Phone Number
       td
+        input.ss.country-code-preview(role='country-code-preview' size='1' type='tel' disabled)
+        |  
         input.ss(type='tel' role='phone-number' placeholder='Phone number')
       td
         button.ss.bg-action.hover.actioneer(role='submit-two-factor')
           span.inactive= twoFactorEnabled ? 'Update' : 'Enable'
+          i.fa.fa-gear.fa-spin.active
+        | 
+        button.ss.bg-attention.hover.actioneer(class=twoFactorEnabled ? "" : "hide" role='disable-two-factor')
+          span.inactive Disable
           i.fa.fa-gear.fa-spin.active
 
 if model.isOfTypes(['artist', 'admin', 'label_admin'])

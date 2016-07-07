@@ -104,46 +104,44 @@ v.set "getCredit", ->
 v.set "render", ->
   @renderer.locals.mode = "loading"
   @renderer.render()
+  showform = (sub, res, opts)=>
+    @syncSubscription()
+    userTypes = @user.get('type') or ['golden', 'subscriber']
+    subPlan.getPlansByUserTypes { userTypes: userTypes }, (err, plans)=>
+      @plans = plans
+      @plan = @model.getPlan(plans)
+      subscriber = @user.get("subscriber")
+      subStatus = @model.getSubscriptionStatus(@user)
+      goldUser = if "golden" in userTypes then true else false
+      cancelNote = if @user.isOfTypes("golden") then cancelText["golden"] else cancelText["licensee"]
+
+      @renderer.locals.mode = subStatus
+      @renderer.locals.credit = "$#{@getCredit()/100}"
+      @renderer.locals.planName = @model.getPlanName(@user, @plans)
+      @renderer.locals.planPrice = @plan.description if @plan
+      @renderer.locals.dealPrice = @getDealPrice()
+      @renderer.locals.paymentDate = @model.getPaymentDate(@user)
+      @renderer.locals.referral = @permissions.user.referral
+      @renderer.locals.goldUser = goldUser
+      @renderer.locals.cancelNote = cancelNote
+      @renderer.locals.renewText = " for #{@plan?.description}"
+      @renderer.render()
+
+      if subStatus is 'active'
+        @setPaymentMethod()
+        @paymentView.render()
+        @n.getEl(sel.updatePaymentSec).appendChild(@paymentView.el)
+        @updateSubscriptionView.render()
+        @n.getEl(sel.updateSubscriptionSec).appendChild(@updateSubscriptionView.el)
+        @updateSubscriptionView.on 'cancelSubscription', ()=>
+          @onClickCancel()
+
+        @n.evaluateClass(sel.updatePaymentSec, "hide", true)
+        @n.evaluateClass(sel.updateSubscriptionSec, "hide", true)
+        @renderReferralView() if @permissions.user.referral
   @model.fetch
-    success: (sub)=>
-      @syncSubscription()
-      userTypes = @user.get('type') or ['golden', 'subscriber']
-      subPlan.getPlansByUserTypes { userTypes: userTypes }, (err, plans)=>
-        @plans = plans
-        @plan = @model.getPlan(plans)
-        subscriber = @user.get("subscriber")
-        subStatus = @model.getSubscriptionStatus(@user)
-        goldUser = if "golden" in userTypes then true else false
-        cancelNote = if @user.isOfTypes("golden") then cancelText["golden"] else cancelText["licensee"]
-
-        @renderer.locals.mode = subStatus
-        @renderer.locals.credit = "$#{@getCredit()/100}"
-        @renderer.locals.planName = @model.getPlanName(@user, @plans)
-        @renderer.locals.planPrice = @plan.description if @plan
-        @renderer.locals.dealPrice = @getDealPrice()
-        @renderer.locals.paymentDate = @model.getPaymentDate(@user)
-        @renderer.locals.referral = @permissions.user.referral
-        @renderer.locals.goldUser = goldUser
-        @renderer.locals.cancelNote = cancelNote
-        @renderer.locals.renewText = " for #{@plan?.description}"
-        @renderer.render()
-
-        if subStatus is 'active'
-          @setPaymentMethod()
-          @paymentView.render()
-          @n.getEl(sel.updatePaymentSec).appendChild(@paymentView.el)
-          @updateSubscriptionView.render()
-          @n.getEl(sel.updateSubscriptionSec).appendChild(@updateSubscriptionView.el)
-          @updateSubscriptionView.on 'cancelSubscription', ()=>
-            @onClickCancel()
-
-          @n.evaluateClass(sel.updatePaymentSec, "hide", true)
-          @n.evaluateClass(sel.updateSubscriptionSec, "hide", true)
-          @renderReferralView() if @permissions.user.referral
-     error: (model, res)=>
-       @renderer.locals.mode = 'error'
-       @renderer.locals.error = 'An error occured.'
-       @renderer.render()
+    success: showform
+    error: showform # Don't error out. Error occurs if subscription doesn't exist, we still need to show the form
 
 v.set 'typeChange', (e)->
   gold = if e.target.value is 'gold' then true else false

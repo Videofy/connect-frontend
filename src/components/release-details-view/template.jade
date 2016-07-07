@@ -11,12 +11,12 @@ else
       th
         label.ss.heavy= strings.defaults.title
       td
-        input.ss(type="text" property="title" editable='release.update.title')
+        input.ss(type="text" property="title" editable="release.update.title" validation="title")
     tr
       th
         label.ss.heavy= strings.defaults.artists
       td
-        input.ss(type="text" property="renderedArtists" editable='release.update.renderedArtists')
+        input.ss(type="text" property="renderedArtists" editable="release.update.renderedArtists" validation="renderedArtists")
     tr
       th
         label.ss.heavy= strings.defaults.type
@@ -29,7 +29,7 @@ else
       th
         label.ss.heavy= strings.defaults.releaseDate
       td
-        input.ss.heavy(type="date" property="releaseDate" editable='release.update.releaseDate')
+        input.ss.heavy(type="date" property="releaseDate" editable="release.update.releaseDate" validation="releaseDate")
     tr
       th
         label.ss.heavy= strings.defaults.preReleaseDate
@@ -46,10 +46,10 @@ else
       th
         label.ss.heavy= strings.defaults.upc
       td
-        input.ss(type="text" property="upc" editable='release.update.upc')
+        input.ss(type="text" property="upc" editable="release.update.upc" validation="upc")
     tr
       th
-        label.ss.heavy= strings.defaults.coverArt
+        label.ss.heavy(validation="imageHashSum")= strings.defaults.coverArt
       td
         .ss.input-button
           button.ss.bg-action.hover(role="view-art" disabled=(model.hasArt() ? undefined : 'disabled'))
@@ -59,7 +59,7 @@ else
             i.active.fa.fa-gear.fa-spin
     tr
       th
-        label.ss.heavy= strings.releaseDetails.links
+        label.ss.heavy(validation="urls")= strings.releaseDetails.links
       td(role="links")
     tr
       th
@@ -86,4 +86,9 @@ else
       td
         input.ss(type="text" property="playlistId" editable='release.update.playlistId')
 
-  div(role='tracks')
+  div
+    div(role='tracks')
+    div
+      label.ss.heavy= strings.releaseDetails.description
+      textarea.ss.expand(property="description" editable='release.update.description')
+    

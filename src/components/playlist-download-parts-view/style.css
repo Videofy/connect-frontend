@@ -1,0 +1,61 @@
+.presenter-view.playlist-download-parts .content {
+  background: white;
+  border-radius: 0.5em;
+  box-shadow: 0em 0em 5em rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  width: 500px;
+}
+
+.presenter-view.playlist-download-parts .content .playlist-download-parts-view {
+  padding: 1em;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.presenter-view.playlist-download-parts h2 {
+  margin-top: 0px;
+}
+
+.presenter-view.playlist-download-parts a.download-part {
+  width: 49%;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  margin: 0 0 1% 0;
+  padding: 1% 0;
+  color: #fff;
+  display: block;
+  float: left;
+}
+
+.presenter-view.playlist-download-parts a.download-part:nth-child(2n) {
+  float: right;
+}
+
+.presenter-view.playlist-download-parts a.download-part .name {
+  font-size: 1.3em;
+  display: block;
+  font-weight: bold;
+}
+
+.presenter-view.playlist-download-parts a.download-part .subtitle {
+  color: #eee;
+  display: block;
+}
+
+@media (max-width: 500px) {
+  .presenter-view.playlist-download-parts .content {
+    width: 90%;
+    box-sizing: border-box;
+  }
+
+  .presenter-view.playlist-download-parts a.download-part {
+    width: 100%;
+    float: none;
+  }
+
+  .presenter-view.playlist-download-parts a.download-part:nth-child(2n) {
+    float: none;
+  }
+}

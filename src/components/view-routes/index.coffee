@@ -1,28 +1,27 @@
-AccountsView       = require('accounts-view')
-AssetsView         = require('assets-view')
-ContractsView      = require('contracts-view')
-ContractCreateView = require('contract-create-view')
-ContractView       = require("contract-view")
-DashboardView = require('dashboard-view')
-ErrorView = require("error-view")
-ForgotPasswordView = require("forgot-password-view")
-GeneralPageView = require("general-page-view")
-HandbookView = require("handbook-view")
-LabelPageView = require("label-page-view")
-LabelsView = require("labels-view")
-MusicView = require("music-view")
-ReleasesView = require("releases-view")
-SignUpView = require("sign-up-view")
-StatementsView = require("statements-view")
-StylesView = require("styles-view")
-TracksView = require("tracks-view")
-UserInviteView = require("user-invite-view")
-UserPageView = require('user-page-view')
-UsersView = require('users-view')
-UsersWhitelistView = require("users-whitelist-view")
-VerifyView = require("verify-view")
-WelcomeView = require("welcome-view")
-SurveyView = require("survey-view")
+AccountsView        = require('accounts-view')
+AssetsView          = require('assets-view')
+ContractsView       = require('contracts-view')
+ContractCreateView  = require('contract-create-view')
+ContractView        = require("contract-view")
+ErrorView           = require("error-view")
+ForgotPasswordView  = require("forgot-password-view")
+GeneralPageView     = require("general-page-view")
+HandbookView        = require("handbook-view")
+LabelPageView       = require("label-page-view")
+LabelsView          = require("labels-view")
+MusicView           = require("music-view")
+ReleasesView        = require("releases-view")
+SignUpView          = require("sign-up-view")
+StatementsView      = require("statements-view")
+StylesView          = require("styles-view")
+TracksView          = require("tracks-view")
+UserInviteView      = require("user-invite-view")
+UserPageView        = require('user-page-view')
+UsersView           = require('users-view')
+UsersWhitelistView  = require("users-whitelist-view")
+VerifyView          = require("verify-view")
+WelcomeView         = require("welcome-view")
+SurveyView          = require("survey-view")
 
 redirect = (name, operative, session)-> ->
   # Allow:
@@ -116,10 +115,8 @@ module.exports = (scrollTarget, session, getOpts)->
 
     dashboard:
       auth: yes
-      create: ->
-        opts = getOpts()
-        opts.collection = opts.dataSources.newsStream
-        new DashboardView(opts)
+      redirect: ->
+        '/music'
       pattern: /^dashboard\/?$/
 
     error:

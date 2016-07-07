@@ -1,5 +1,8 @@
 
 function isInputElement ( el ) {
+  if(!el) {
+    return false;
+  }
   var tag = el.tagName.toLowerCase();
   return tag === "input" || tag === "textarea";
 }

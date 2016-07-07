@@ -1,0 +1,19 @@
+{
+  "name": "playlist-download-parts-plugin",
+  "repo": "monstercat/playlist-download-parts-plugin",
+  "description": "a plugin for opening playlist download modals",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+  	"presenter-view",
+  	"playlist-download-parts-view"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -1,0 +1,7 @@
+h2= "Download " + playlist.get('name')
+p This playlist has too many tracks to download as one file. You'll have to download it in parts.
+.links
+	each link in links
+		a.download-part.bg-action.ss.btn.hover(href=link.url, download=true, target="_blank")
+			span.name= link.name
+			span.subtitle= link.subtitle

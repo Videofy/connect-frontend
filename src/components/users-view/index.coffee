@@ -33,6 +33,7 @@ v.init (opts={})->
     'type',
     'created',
     'subscriptionModelId',
+    'websiteDetailsId',
     'lastSeen']
 
 v.set "open", (needle="")->

@@ -39,8 +39,7 @@ table
         td.details.ss.hide-above.w500
           span
             = track.artists + " - " + track.title
-            if showLicenseInfo && !track.licensable
-              i.fa.fa-exclamation-circle.disabled-track.ss.cl-warning(role="disabled-track")
+          if showLicenseInfo && !track.licensable
           span= track.release + " - #" + track.trackNumber
         td.ss.actions.ss.hide-above.w500
           i.fa.fa-play.fa-fw.ss.mobile-only(role="play-mobile")
@@ -54,12 +53,14 @@ table
           i.fa.fa-volume-up.ss.hide-below.w1024.mobile-only(status="playing" title="Currently Playing")
           i.fa.fa-volume-off.ss.hide-below.w1024.mobile-only(status="paused" title="Currently Paused")
           = track.title
-          if showLicenseInfo && !track.licensable
-            i.fa.fa-exclamation-circle.disabled-track.ss.cl-warning(role="disabled-track")
           if !track.released && !prereleased
             i.fa.fa-exclamation-circle.ss.cl-attention.unreleased-track(title=strings.phrases.adminTrackMsg)
           i.fa.fa-chevron-circle-down.hide-below.w1024(role="options" title="More options.")
-        td(draggable="true").artists.ss.hide-below.w500= track.artists
+          if showLicenseInfo && !track.licensable
+            .unlicensable(role="disabled-track")
+              i.fa.fa-exclamation-circle.disabled-track.ss.cl-warning
+              = 'This track is not available to use for licensing.'
+        td(draggable="true").artists.ss.hide-below.w500= track.artistsTitle
         td(draggable="true").ss.hide-below.w500
           if prereleased
             = track.release + " (Pre-Release)"

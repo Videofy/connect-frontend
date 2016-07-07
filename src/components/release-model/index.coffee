@@ -72,30 +72,30 @@ class ReleaseModel extends SuperModel
     warnings = []
 
     map =
-      imageHashSum: undefined
+      imageHashSum: [undefined, '']
       releaseDate: undefined
-      renderedArtists: undefined
-      title: undefined
-      upc: undefined
+      renderedArtists: [undefined, '']
+      title: [undefined, '']
+      upc: [undefined, '']
 
     details =
       imageHashSum:
-        field: "Cover Art"
+        field: "imageHashSum"
         message: "Cover Art must be supplied."
       releaseDate:
-        field: "Release Date"
+        field: "releaseDate"
         message: "A release date must be specified."
       renderedArtists:
-        field: "Artists"
+        field: "renderedArtists"
         message: "A release requires a rendered artist."
       title:
-        field: "Release Title"
+        field: "title"
         message: "A title is required."
       upc:
-        field: "UPC"
+        field: "upc"
         message: "A UPC is required."
       urls:
-        field: "links"
+        field: "urls"
         message: "A soundcloud link is required for the release to appear on the monstercat.com site."
 
     Object.keys(map).forEach (key) =>
@@ -106,6 +106,7 @@ class ReleaseModel extends SuperModel
       warnings.push(details.urls)
 
     done(null, warnings)
+    @trigger('geterrors', warnings)
 
   package: (done)->
     request

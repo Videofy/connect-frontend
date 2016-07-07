@@ -140,12 +140,15 @@ v.set "signin", ->
 
   resp = (err, res)->
     @n.evaluateClass("[role='signin']", "active", false)
+
+    return @displayError('Server error encountered.') if !err and !res
+
+    return @displayError(err.message) if err
+
     # 209 response, need two-factor token
     if res?.status is 209
       @displayForm("two-factor")
       return @displayMessage("token", res?.body?.message or @i18.strings.signin.twoFactorMsg)
-
-    return @displayError(err.message) if err
 
     saveCredentials(email, password)
     @router.reload()

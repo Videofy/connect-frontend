@@ -22,6 +22,7 @@
     "parse",
     "populate-select",
     "sort-util",
+    "validation-plugin",
     "view-plugin"
   ],
   "scripts": [

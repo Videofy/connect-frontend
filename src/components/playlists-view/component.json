@@ -14,9 +14,11 @@
     "context-menu-plugin",
     "drag-detector",
     "drag-tracks-toggle-plugin",
+    "dropper-data",
     "formats",
     "playlist-model",
-    "view-plugin"
+    "view-plugin",
+    "playlist-download-parts-plugin"
   ],
   "scripts": [
     "index.js",

@@ -1,12 +1,14 @@
-ContextMenu      = require("context-menu-plugin")
-DragDetector     = require("drag-detector")
-DragTracksToggle = require("drag-tracks-toggle-plugin")
-formats          = require("formats")
-mobile           = require("is-mobile")
-PlaylistModel    = require("playlist-model")
-PresenterView    = require("presenter-view")
-TrackCreditView  = require("track-credit-view")
-View             = require("view-plugin")
+ContextMenu                   = require("context-menu-plugin")
+DragDetector                  = require("drag-detector")
+DragTracksToggle              = require("drag-tracks-toggle-plugin")
+formats                       = require("formats")
+mobile                        = require("is-mobile")
+PlaylistModel                 = require("playlist-model")
+TrackCreditView               = require("track-credit-view")
+PresenterView                 = require("presenter-view")
+PlaylistDownloadPartsPlugin   = require('playlist-download-parts-plugin')
+View                          = require("view-plugin")
+dropperData                   = require("dropper-data")
 
 isPlaylistSame = (a, b)->
   a and b and (a is b or (a.id and a.id is b.id))
@@ -72,6 +74,8 @@ v.use ContextMenu
   ev: "click [role='download']"
 
 v.use DragTracksToggle()
+
+v.use PlaylistDownloadPartsPlugin()
 
 v.ons
   "click [role='rename']": onClickRename
@@ -141,12 +145,27 @@ v.set "grabAndRenderTracks", ->
       @renderer.locals.mode = "loading"
       @renderer.render()
 
-    @playlist.grabTracks(@tracks, @releases)
-    .then => @releases.toPromise()
+    tids = (@playlist.get('tracks') or []).map (track)-> track.trackId
+    rids = (@playlist.get('tracks') or []).map (track)-> track.releaseId
+    grabAndRender = (pl) => 
+      @playlist.grabTracks(@tracks, @releases)
+      .then =>
+        @renderer.locals.mode = "view"
+        @renderer.render()
+        @renderTracks()
+
+    @tracks.toPromise()
     .then =>
-      @renderer.locals.mode = "view"
-      @renderer.render()
-      @renderTracks()
+      @releases.toPromise()
+    .then =>
+      @tracks.addIds(tids)
+    .then =>
+      @releases.addIds(rids)
+    .then => 
+      grabAndRender(@playlist)
+    .catch (err)=> 
+      console.warn('Error when grabbing tracks or releases: ' + err)
+      grabAndRender(@playlist)
   else
     @renderTracks()
 
@@ -201,6 +220,7 @@ v.set "renderTracks", ->
     tracks.push track
 
   @renderer.locals.tracks = tracks
+  @renderer.locals.downloadParts = @playlist.getDownloadParts(@playlist.tracks.length)
   @renderer.render()
 
   tracksEl = @n.getEl("[role='tracks']")
@@ -236,6 +256,14 @@ v.set "updatePlayer", ->
   @playlist.grabTracks(@tracks, @releases).then =>
     @player.set(@playlist.getPlayerItems())
     @player.playlist = @playlist
+
+v.set "savePlaylist", (message) ->
+  return if not @playlist and not @playlist.isNew()
+
+  return if not name = prompt(message, @playlist.get('name'))
+  @playlist.set('name', name)
+  @playlist.save()
+  @playlists.add(@playlist)
 
 v.set "setPlaylist", (playlist)->
   if @playlist
@@ -298,14 +326,9 @@ v.set "onClickTrack", (e)->
     @player.play(parseInt(index))
     @evs.trigger "closeplaylist" if index and mobile()
 
-v.set "onClickSave", ->
-  return if not @playlist and not @playlist.isNew()
 
-  if name = prompt(@i18.strings.playlist.newMsg,
-                    @playlist.get("name"))
-    @playlist.set("name", name)
-    @playlist.save()
-    @playlists.add(@playlist)
+v.set "onClickSave", (e)->
+  @savePlaylist(@i18.strings.playlist.newMsg)
 
 v.set "onClickClear", ->
   return if not confirm("Are you sure you want to remove all tracks from this playlist?")
@@ -337,11 +360,7 @@ v.set "onDrag", (e)->
 v.set "onDrop", (e)->
   e.preventDefault()
 
-  tids = e.dataTransfer.getData("text/track-ids").split(",")
-  rids = e.dataTransfer.getData("text/release-ids").split(",")
-  tracks = (tids.map (id)=> @tracks.get(id)).filter (track)-> !!track
-  releases = (rids.map (id)=> @releases.get(id)).filter (release)-> !!release
-
+  { tracks, releases } = dropperData(e)
   return if not tracks.length or tracks.length isnt releases.length
 
   created = false
@@ -369,12 +388,22 @@ v.set "onOpenContextMenu", (source, menu)->
 v.set "openPlaylistContextMenu", (source, menu)->
   return unless @playlist?
 
-  items = formats.defaults.map (format)=>
-    name: format.name
-    anchor:
-      download: true
-      url: @playlist.downloadUrl(format.type, format.quality)
-      target: "_blank"
+  if @playlist.isNew()
+    return @savePlaylist(@i18.strings.playlist.newMsgToDownload)
+
+  if @playlist.getDownloadParts(@playlist.tracks.length) > 1
+    items = formats.defaults.map (format)=>
+      name: format.name
+      action: "openDownloadParts"
+      formatType: format.type
+      formatQuality: format.quality
+  else
+    items = formats.defaults.map (format)=>
+      name: format.name
+      anchor:
+        download: true
+        url: @playlist.downloadUrl(format.type, format.quality)
+        target: "_blank"
 
   menu.setItems(items)
 
@@ -418,6 +447,8 @@ v.set "onSelectContextMenu", (item)->
     @openCredits(item.track, item.release)
   else if item.action is "remove"
     @removeTrackById(item.trackId, item.releaseId)
+  else if item.action is "openDownloadParts"
+    @openDownloadParts(item.formatType, item.formatQuality, @playlist)
 
 # WARNING Duplicate Code
 v.set "openCredits", (track, release)->

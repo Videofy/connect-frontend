@@ -32,6 +32,9 @@ v.set 'render', ->
   @model.toPromise().then =>
     @collection.add(@model)
     @renderIt()
+  .catch (err) =>
+    @renderer.locals.mode = 'error'
+    @renderer.render()
 
 v.set 'renderIt', ->
   if @model?

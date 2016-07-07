@@ -29,7 +29,6 @@ else
         th Identity
         th.ss.center-text Whitelisted
     tbody
-      - var whitelist = model.get('whitelist') || []
       if !whitelist.length
         tr
           td(colspan=3)

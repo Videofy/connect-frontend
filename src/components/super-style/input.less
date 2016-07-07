@@ -127,6 +127,14 @@ input[type="tel"].ss {
   }
 }
 
+input.ss.required {
+  border: solid 1px red;
+}
+
+.ss.required:not(input) {
+  color: red;
+}
+
 select.ss,
 input[type].ss {
   &:hover,

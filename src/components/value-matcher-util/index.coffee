@@ -7,6 +7,8 @@ module.exports = util =
 
     if (k1IsObj and k2 is undefined) or (k2IsObj and k1 is undefined)
       return true
+    if Array.isArray(k1) and not k2IsObj
+      return k1.some (v1)-> v1 is k2
     if k1IsObj and k2IsObj
       return util.valsMatch(k1, k2, Object.keys(k1)[0])
     if k1 is k2 then return true else return false

@@ -10,5 +10,8 @@ td
     role="channel-name"
     placeholder=(model.get('name') == "twitch" ? "Name" : "Channel Id"))
 td
+  if model.get('name') == 'youtube' && model.get('active')
+    a(href="#{user.url()}/whitelist-license/#{model.get('identity')}" target="_blank") View License
+td
   button.ss.fake(role='remove-channel')
     i.fa.fa-trash-o

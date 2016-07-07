@@ -11,20 +11,44 @@ wait                    = require("wait")
 request                 = require('superagent')
 callingCodes            = require('country-calling-codes')
 
+sel =
+  disable: '[role="disable-two-factor"]'
+  status: '[role="two-factor-status"]'
+  submit: '[role="submit-two-factor"]'
+  country: '[role="country-code"]'
+  countryCodePreview: '[role="country-code-preview"]'
+  number: '[role="phone-number"]'
+  show: '[role="show-two-factor"]'
+
 onSubmitTwoFactor = (e)->
-  number = @n.getEl('[role="phone-number"]')?.value
-  countryCode = @n.getEl(['[role="country-code"]'])?.value
-  @n.evaluateClass("[role='submit-two-factor']", "active", yes)
+  number = @n.getEl(sel.number)?.value
+  countryCode = @n.getEl(sel.country)?.value
+  @n.evaluateClass(sel.submit, "active", yes)
   @model.setTwoFactor number, countryCode, (err)=>
-    @n.evaluateClass("[role='submit-two-factor']", "active", no)
-    return @toast(err.message, 'error') if err
-    @toast('Two Factor settings updated.')
-    @n.getEl('[role="two-factor-status"]')?.textContent = @i18.strings.twoFactor.enabled
-    @n.getEl('[role="submit-two-factor"] > span')?.textContent = 'Update'
+    @n.evaluateClass(sel.submit, "active", no)
+    return @toast(err.message, "error") if err
+    @toast("Two Factor settings updated.")
+    @n.getEl(sel.status)?.textContent = @i18.strings.twoFactor.enabled
+    @n.getEl("#{sel.submit} > span")?.textContent = "Update"
+    @n.evaluateClass(sel.disable, "hide", no)
+
+onDisableTwoFactor = (e)->
+  @n.evaluateClass(sel.disable, "active", yes)
+  @model.disableTwoFactor (err)=>
+    @n.evaluateClass(sel.disable, "active", no)
+    return @toast(err.message, "error") if err
+    @toast("Two Factor settings updated.")
+    @n.getEl(sel.status)?.textContent = @i18.strings.twoFactor.disabled
+    @n.getEl("#{sel.submit} > span")?.textContent = "Enable"
+    @n.evaluateClass(sel.disable, "hide", yes)
 
 onClickShowTwoFactor = (e)->
   @n.evaluateClass("[role='two-factor']", "hide", no)
-  @n.evaluateClass("[role='show-two-factor']", "hide", yes)
+  @n.evaluateClass(sel.show, "hide", yes)
+
+onChangeTwoFactorCountry = (e)->
+  countryCode = @n.getEl(sel.country)?.value
+  preview = @$(sel.countryCodePreview).val('+' + countryCode)
 
 UserAccountView = v = bQuery.view()
 
@@ -63,8 +87,10 @@ v.on "click [role='change-password']", (e)->
       @toast(parse.backbone.error(res).message, 'error')
 
 v.ons
-  'click [role="submit-two-factor"]': onSubmitTwoFactor
-  'click [role="show-two-factor"]': onClickShowTwoFactor
+  "click #{sel.submit}": onSubmitTwoFactor
+  "click #{sel.show}": onClickShowTwoFactor
+  "click #{sel.disable}": onDisableTwoFactor
+  "change #{sel.country}": onChangeTwoFactorCountry
 
 v.init (opts={})->
   @subscription = opts.subscription
@@ -107,6 +133,8 @@ v.set "render", ->
   @renderer.locals.trialAccess = yes if @model.get 'trialAccessEndDate'
   @renderer.locals.trialAccessEndDate = @model.getAsFormatedDate("trialAccessEndDate")
   @renderer.render()
+
+  @$(sel.country).trigger('change')
 
   if @whitelistView?
     @whitelistCollection.toPromise().then =>

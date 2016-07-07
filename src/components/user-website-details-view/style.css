@@ -5,3 +5,8 @@
 .user-website-details-view .urls input.ss {
   margin-bottom: 0.5em;
 }
+
+.select-years label {
+  margin-right: 1em;
+  display: inline-block;
+}

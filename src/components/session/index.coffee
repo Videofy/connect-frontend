@@ -1,6 +1,7 @@
 Emitter = require("emitter")
 request = require("superagent")
 lens    = require('dot-lens')
+parse   = require('parse')
 
 canAccessPath = (obj, path)->
   f = lens(path)
@@ -74,7 +75,8 @@ class Session
         email: email
         password: password
       .end ( err, res ) =>
-        return done(res?.body or err, res) if res?.status isnt 200 or err
+        return done(err, res) if err = parse.superagent(err, res)
+          
         @loadAndAuthenticate(done.bind(null, err, res))
 
   verifyToken: (token, done)->
@@ -100,10 +102,10 @@ class Session
       .post(@url("/signout"))
       .withCredentials()
       .end ( err, res ) =>
-        success = res.status is 200
-        if success
+        err = parse.superagent(err, res)
+        unless err
           @set()
           @events.emit("unauthenticated")
-        done(success)
+        done(err)
 
 module.exports = Session

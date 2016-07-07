@@ -3,6 +3,10 @@ if collection.models.length
     tr(publisher='#{model.id}')
       td
         input.ss(type='text'
+          disabled
+          value="#{model.id}")
+      td
+        input.ss(type='text'
           role='property'
           property='name'
           value="#{model.get('name') || ''}")
@@ -23,5 +27,5 @@ if collection.models.length
           value="#{model.get('address') || ''}")
 else
   tr
-    td.ss.center-text(colspan=4)
+    td.ss.center-text(colspan=5)
       label.ss.heavy No publishers listed.

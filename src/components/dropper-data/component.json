@@ -1,0 +1,18 @@
+{
+  "name": "dropper-data",
+  "repo": "monstercat/dropper-data",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/jade": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [],
+  "scripts": [
+    "index.js"
+  ],
+  "styles": []
+}

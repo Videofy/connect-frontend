@@ -20,6 +20,7 @@
     "list-manage-view",
     "parse",
     "release-tracks-view",
+    "validation-plugin",
     "view-plugin"
   ],
   "scripts": [

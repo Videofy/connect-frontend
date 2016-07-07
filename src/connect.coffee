@@ -14,6 +14,7 @@ Transfers        = require("transfers")
 UserCompleteView = require('user-complete-details-view')
 ViewRouter       = require("view-router")
 welcome          = require("welcome")
+shortcuts        = require("shortcuts")
 
 getVolume = ->
   return 1 if not store = window.localStorage
@@ -51,6 +52,8 @@ class Connect
     @dataSources = new DataSources
     @i18 = new I18
     @router = new Router(@)
+
+    shortcuts(@ap)
 
     @session = new Session
       urlRoot: EndPoint.base
@@ -152,7 +155,7 @@ class Connect
 
   signout: ->
     @trigger("signout")
-    @session.destroy ( success ) =>
-      @router.open("/") if success
+    @session.destroy ( err ) =>
+      @router.open("/") unless err
 
 module.exports = Connect

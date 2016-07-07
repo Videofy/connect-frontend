@@ -15,9 +15,11 @@
     "context-menu-plugin",
     "drag-detector",
     "drag-tracks-toggle-plugin",
+    "dropper-data",
     "formats",
     "is-mobile",
     "playlist-model",
+    "playlist-download-parts-plugin",
     "presenter-view",
     "track-credit-view",
     "view-plugin"

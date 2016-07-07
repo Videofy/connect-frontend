@@ -4,6 +4,7 @@ TabView                    = require("tab-view")
 UserAccountView            = require("user-account-view")
 UserAdminView              = require("user-admin-view")
 UserBillingView            = require("user-billing-view")
+UserDiscordView            = require("user-discord-view")
 UserWebsiteDetailsView     = require("user-website-details-view")
 UserLogsView               = require("user-logs-view")
 UserLogsCollection         = require("user-log-collection")
@@ -37,7 +38,6 @@ v.init (opts={})->
     user: @model
 
   wopts = _.extend _.clone(opts),
-    _id: @model.get('websiteDetailsId')
     user: @model
     model: new WebsiteDetailsModel
 
@@ -63,6 +63,11 @@ v.init (opts={})->
           by:
             key: 'userId'
             value: @model.id
+    discord:
+      title: "Discord"
+      view: new UserDiscordView
+        model: @model
+        i18: @i18
 
   if @permissions.canAccess('user.logs')
     tabSections.logs =
@@ -76,7 +81,7 @@ v.init (opts={})->
       title: "Subscription"
       view: new UserSubscriptionView(subOpts)
 
-  if @permissions.canAccess('self.removeClaims') and @model.isSubscriber()
+  if @permissions.canAccess('self.claims') and @model.isSubscriber()
     tabSections.claims =
       title: "Claims"
       view: new ClaimsView
@@ -118,9 +123,10 @@ v.set "render", ->
 v.set "onTypeChange", ->
   return if not @el.firstChild
   @tabs.hide("admin", !@permissions.canAccess('user.read.type'))
-  @tabs.hide("billing", !@permissions.canAccess('self.read.paymentType', 'user.read.paymentType'))
-  @tabs.hide("website", !@permissions.canAccess('websiteDetails.update'))
+  @tabs.hide("billing", !@permissions.canAccess('self.read.paymentType', 'user.read.paymentType') or !@model.isOfTypes("artist"))
+  @tabs.hide("website", !@permissions.canAccess('website.update') || !@model.isOfTypes("artist"))
   @tabs.hide("docs", !@permissions.canAccess('statements.view'))
+  @tabs.hide("discord", !@permissions.canAccess('self.discord'))
 
 module.exports = v.make()
 

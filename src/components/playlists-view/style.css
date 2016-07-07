@@ -102,6 +102,10 @@
   opacity: 0.5;
 }
 
+.playlists-view > p.not-subscribed {
+  padding-left: 10px;
+}
+
 @media (max-width: 1024px) {
   .mobile .playlists-view > ul > li > .description label,
   .mobile .playlists-view > ul > li > .actions > i {

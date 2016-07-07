@@ -18,6 +18,7 @@
     "user-account-view",
     "user-admin-view",
     "user-billing-view",
+    "user-discord-view",
     "user-website-details-view",
     "view-plugin",
     "user-logs-view",

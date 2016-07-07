@@ -13,6 +13,19 @@ else
           label.ss Website Placement Tier
         .value
           input.ss(type="text" placeholder="Tier Number" title="Website placement tier must be a number between 1 and 12." property="tier" errornone)
+      .field
+        .key
+          label.ss Vanity URI
+        .value
+          input.ss(type="text" placeholder="pegboard-nerds" property="vanityUri")
+    
+    if years
+      label.ss.heavy Appears in Years
+      .select-years
+        each val in years
+          label.ss
+            input(type="checkbox" role="markYear" value="#{val.year}" checked=(val.checked ? "checked" : undefined)) 
+            = val.year
 
   label.ss.heavy Profile
   textarea.ss.expand(property="about")

@@ -1,6 +1,8 @@
 td= model.get('title')
 td= (model.get('ids') || [''])[0]
-td= model.getAsFormatedDate('date')
+td
+    -d = model.getAsFormatedDate('date')
+    = d ? d : 'N/A'
 td
   button.ss.fake.cl-danger-hover(role='delete')
     i.fa.fa-trash-o

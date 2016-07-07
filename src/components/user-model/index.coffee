@@ -14,6 +14,8 @@ requiredFields =
   ]
   artist:[
     'name'
+  ]
+  payPal: [
     'paypalEmail'
   ]
   contractable: [
@@ -112,7 +114,10 @@ class UserModel extends SuperModel
 
   getMissingFields: ->
     fields = requiredFields.all
-    fields = fields.concat(requiredFields.artist) if @isOfTypes('artist')
+    if @isOfTypes('artist')
+      fields = fields.concat(requiredFields.artist) 
+      if @get('paymentType') == 'PayPal'
+        fields = fields.concat(requiredFields.payPal)
     UserModel.getMissingFields(@attributes, fields)
 
   setSignatureImage: (data, done)->
@@ -152,6 +157,14 @@ class UserModel extends SuperModel
       return false
     true
 
+  syncYouTube: (done)->
+    done ?= ->
+    request
+    .post("#{@url()}/youtube-sync")
+    .withCredentials()
+    .end (err, res)=>
+      done(parse.superagent(err, res), res)
+
   resendInvite: (done)->
     done ?= ->
     request
@@ -165,6 +178,11 @@ class UserModel extends SuperModel
     .send
       number: number
       countryCode: code
+    .end (err, res)=>
+      done(parse.superagent(err, res))
+
+  disableTwoFactor: (done)->
+    request.put("#{@url()}/two-factor/disable")
     .end (err, res)=>
       done(parse.superagent(err, res))
 

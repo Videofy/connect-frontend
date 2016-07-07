@@ -10,6 +10,11 @@ onClickResendInvite = (e)->
     return @toast(err, 'error') if err
     @toast("Invite resent.")
 
+onClickYouTubeSync = (e)->
+  @model.syncYouTube (err, res)=>
+    return @toast(err, 'error') if err
+    @toast('YouTube channel synced')
+
 v.use view
   className: "user-admin-view"
   template: require("./template")
@@ -58,6 +63,7 @@ v.init (opts={})->
 
 v.ons
   'click [role="resend-invite"]': onClickResendInvite
+  'click [role="youtube-sync"]': onClickYouTubeSync
 
 v.set "render", ->
   @renderer.render()

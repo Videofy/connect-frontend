@@ -25,7 +25,7 @@ v.ons
   "click a.item": onClickItem
 
 v.init (opts={})->
-  { @getSections, @dataSources, @router } = opts
+  { @getSections, @dataSources, @router, @user, @subscription } = opts
 
   @playlists = new PlaylistsView
     collection: @dataSources.playlists
@@ -34,6 +34,8 @@ v.init (opts={})->
     player: opts.player
     tracks: @dataSources.tracks
     releases: @dataSources.releases
+    user: @user
+    subscription: @subscription
 
   @router.on "route", onRoute.bind(@)
   @evs.on "openmenu", @open.bind(@)

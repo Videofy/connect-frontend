@@ -62,6 +62,7 @@ getTracks = (user, releases, tracks, label, filter)->
         release: release.attributes.title
         trackNumber: trackNumber
         artists: release.attributes.renderedArtists
+        artistsTitle: track.attributes.artistsTitle
         genre: track.attributes.genre
         genres: genres
         genreColor: getGenreColor(track, label)

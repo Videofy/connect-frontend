@@ -13,6 +13,7 @@
   "license": "MIT",
   "main": "index.js",
   "local": [
+    "parse"
   ],
   "scripts": [
     "index.js"

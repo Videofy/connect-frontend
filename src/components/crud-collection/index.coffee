@@ -40,9 +40,8 @@ module.exports = (config={})->
     getQueryString: (query)->
       obj = _.clone(query or @query or {})
 
-      if @by?
-        obj.by_key = @by.key
-        obj.by_value = @by.value
+      if @by?.key and @by?.value
+        obj.filters = "#{@by.key},#{@by.value}"
 
       if @list?
         obj.ids = @list.join(',')

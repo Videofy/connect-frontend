@@ -23,12 +23,12 @@ if models.length
             title="Open PDF"
             target="_blank")
             i.fa.fa-file-pdf-o
-          if permissions.contracts.add
+          if permissions.contracts.create
             a.ss.fake.cl-inherit.cl-action-hover(
               href="/#contracts/create/#{model.id}"
               title="Create a copy of this contract.")
               i.fa.fa-copy
-          if permissions.contracts.cancel
+          if permissions.contracts.update && !model.isCanceled()
             button.ss.fake.cl-danger-hover(
               role='cancel'
               title="Cancel the contract."

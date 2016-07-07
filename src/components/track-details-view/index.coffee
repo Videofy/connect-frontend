@@ -9,6 +9,7 @@ sort           = require('sort-util')
 populate       = require('populate-select')
 eurl           = require('end-point').url
 disabler       = require('disabler-plugin')
+validation     = require('validation-plugin')
 
 onClickIsrc = (e)->
   el = e.currentTarget
@@ -82,6 +83,8 @@ v.use view
 
 v.use disabler
   attribute: 'editable'
+
+v.use validation()
 
 v.ons
   'click [role="generate-isrc"]': onClickIsrc

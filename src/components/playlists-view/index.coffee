@@ -1,8 +1,11 @@
-ContextMenu      = require("context-menu-plugin")
-DragDetector     = require("drag-detector")
-DragTracksToggle = require("drag-tracks-toggle-plugin")
-View             = require("view-plugin")
-Formats          = require("formats")
+ContextMenu                   = require("context-menu-plugin")
+DragDetector                  = require("drag-detector")
+DragTracksToggle              = require("drag-tracks-toggle-plugin")
+View                          = require("view-plugin")
+Formats                       = require("formats")
+dropperData                   = require("dropper-data")
+PlaylistDownloadPartsPlugin   = require('playlist-download-parts-plugin')
+PlaylistModel                 = require('playlist-model')
 
 getIndex = (el)->
   parseInt(el.getAttribute("index"))
@@ -26,15 +29,24 @@ v.use ContextMenu
 
 v.use DragTracksToggle()
 
+v.use PlaylistDownloadPartsPlugin()
+
 v.init (opts={})->
-  { @user, @player, @tracks, @releases } = opts
+  { @user, @player, @tracks, @releases, @user, @subscription } = opts
 
   @player.on "change", @onChangePlayer.bind(@)
   @collection.on "add change", => @render()
 
 v.set "render", ->
+  if @user.requiresSubscription(@subscription)
+    @renderer.locals.subscribed = false
+    @renderer.locals.playlists = []
+    @renderer.render()
+    return
+
   # TODO show loading...
   @collection.toPromise().then =>
+    @renderer.locals.subscribed = true
     @renderer.locals.playlists = @collection.map (item)-> item.attributes
     @renderer.render()
     @registerDragging()
@@ -108,14 +120,8 @@ v.set "onDrop", (e)->
   id = e.target.getAttribute("playlist-id")
   return if not playlist = @collection.get(id)
 
-  # Duplicate code, refactor!
-  tids = e.dataTransfer.getData("text/track-ids").split(",")
-  rids = e.dataTransfer.getData("text/release-ids").split(",")
-  tracks = (tids.map (id)=> @tracks.get(id)).filter (track)-> !!track
-  releases = (rids.map (id)=> @releases.get(id)).filter (release)-> !!release
-
+  { tracks, releases } = dropperData(e)
   return if not tracks.length or tracks.length isnt releases.length
-  # End duplicate code.
 
   tracks.forEach (track, index, arr)-> 
     playlist.addTrack(track, releases[index])
@@ -156,16 +162,26 @@ v.set "onOpenContextMenu", (source)->
       action: 'id'
       name: "Get Id"
 
-    for format, i in Formats.defaults
-      items.push
-        action: "download"
-        name: format.name
-        separated: if i is 0 then true else false
-        format: format
-        anchor:
-          download: true
-          url: playlist.downloadUrl(format.type, format.quality)
-          target: "_blank"
+    parts = playlist.getDownloadParts(playlist.get('tracks').length)
+
+    if parts > 1
+      for format, i in Formats.defaults
+        items.push
+          name: format.name
+          action: "openDownloadParts"
+          format: format
+          playlist: playlist
+    else
+      for format, i in Formats.defaults
+        items.push
+          action: "download"
+          name: format.name
+          separated: if i is 0 then true else false
+          format: format
+          anchor:
+            download: true
+            url: playlist.downloadUrl(format.type, format.quality)
+            target: "_blank"
 
   @contextMenu.setItems(items)
 
@@ -173,10 +189,12 @@ v.set "onSelectContextMenu", (item)->
   id = item.el?.getAttribute('playlist-id')
   action = item.action
   @renamePlaylist(item.el) if action is "rename"
+  @openDownloadParts(item.format.type, item.format.quality, item.playlist) if action is "openDownloadParts"
   @deletePlaylist(item.el) if action is "delete"
   @makePublic(id, yes) if action is 'public'
   @makePublic(id, no) if action is 'private'
   window.alert('Playlist ID: ' + id) if action is 'id'
+
 
 v.set "makePublic", (id, value)->
   return unless playlist = @collection.get(id)

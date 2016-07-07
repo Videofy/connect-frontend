@@ -3,8 +3,15 @@
   span
   label.ss.cutoff-text(role="playlist-name") Now Playing
   .ss.inline-toolbar.back-link
-    button.ss.fake.cl-danger-hover(role="download" title="Download Playlist")
+    button.ss.fake.cl-danger-hover(role="download" title="Download Tracks")
       i.fa.fa-cloud-download
+    if downloadPages > 1
+      -p = 1
+      select(role="download-page")
+        while p <= downloadPages
+          option(value=p) Page #{p}
+          -p++
+
     button.ss.fake.cl-action-hover(role="rename" title="Rename Playlist")
       i.fa.fa-pencil-square-o
     button.ss.fake.cl-action-hover(role="save" title="Save Playlist")
@@ -43,7 +50,7 @@ div.table-container
           class=(track.lost ? "lost" : undefined))
           if track.lost
             td= track.index + 1
-            td(colspan='4') Track Not Found
+            td(colspan='4') #{track.trackId} - #{track.releaseId}
             td.actions
               i.fa.fa-chevron-circle-down(role="options"
                 index="#{track.index}")

@@ -12,8 +12,12 @@ v.init (opts={})->
 v.set 'render', ->
   @renderer.locals.mode = 'loading'
   @renderer.locals.subscription = @subscription
+  @renderer.locals.whitelist = (@model.get('whitelist') || []).filter (item)->
+    item.active and item.identity
+    
   @renderer.locals.fmtdt = datetime
   @renderer.render()
+
   @model.sfetch (err)=>
     if err
       @renderer.locals.mode = 'error'

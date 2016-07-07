@@ -330,23 +330,32 @@ v.set "onClickPayPal", (e)->
 
 v.set "onClickStripe", (e)->
   e.preventDefault()
-  return if !@getEmail()
-  @getReferralCode (err, code)=>
+  return if !userEmail = @getEmail()
+
+  request
+  .get(eurl("/user/email-exists"))
+  .query
+    email: userEmail
+  .end (err, res) =>
     return alert(err) if err
+    return alert ('Email already taken') if(res.body.exists)
 
-    @n.evaluateClass("waiting", true)
-    plan = @getPaymentConfig()
+    @getReferralCode (err, code)=>
+      return alert(err) if err
 
-    stripeHandler = StripeCheckout.configure
-      key: plan.key
-      image: plan.image
-      token: (token)=> @onStripeToken(token, plan)
+      @n.evaluateClass("waiting", true)
+      plan = @getPaymentConfig()
 
-    stripeHandler.open
-      name: plan.name
-      description: plan.description
-      closed: =>
-        @n.evaluateClass("waiting", false) unless @sendingToken
+      stripeHandler = StripeCheckout.configure
+        key: plan.key
+        image: plan.image
+        token: (token)=> @onStripeToken(token, plan)
+
+      stripeHandler.open
+        name: plan.name
+        description: plan.description
+        closed: =>
+          @n.evaluateClass("waiting", false) unless @sendingToken
 
 v.set "onStripeToken", ( token, plan )->
   @n.evaluateClass("waiting", true)

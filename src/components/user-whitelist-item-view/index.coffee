@@ -35,6 +35,7 @@ v.set 'showContextMenu', ->
   @optionMenu.open(position.left + 10, position.top + 10, select)
 
 v.set "render", ->
+  @renderer.locals.user = @user
   @renderer.render()
   @updateView()
 

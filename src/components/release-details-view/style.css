@@ -2,7 +2,7 @@
   display: flex;
 }
 
-.release-details-view > [role='tracks'] {
+.release-details-view > div {
   flex: 1;
   padding-left: 1em;
 }

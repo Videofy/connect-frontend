@@ -27,7 +27,6 @@ v.set 'addNewView', (el, model)->
 v.set "render", ->
   @renderer.locals.whitelistLicense = @permissions.canAccess('self.whitelistLicense')
   @renderer.locals.user = @user
-  console.warn(!!@user)
   @renderer.render()
   @updateView()
 

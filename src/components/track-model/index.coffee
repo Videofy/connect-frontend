@@ -33,7 +33,9 @@ class Track extends SuperModel
     request
       .get("#{@url()}/errors")
       .end (err, res)=>
-        done(parse.superagent(err, res), res?.body?.errors or [])
+        errors = res?.body?.errors or []
+        done(parse.superagent(err, res), errors)
+        @trigger('geterrors', errors)
 
   featuringJoined: ->
     _.chain(@get('featuring') or [])

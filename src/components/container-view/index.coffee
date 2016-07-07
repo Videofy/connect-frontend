@@ -21,6 +21,7 @@ v.init (opts={})->
     player: opts.player
     router: opts.router
     user: opts.user
+    subscription: opts.subscription
 
   @toastsView = new ToastsView(opts)
 
@@ -128,12 +129,6 @@ v.set "getDefaults", ->
     url: "#profile"
 
   items.push
-    name: strings["dashboard"] or "Dashboard"
-    icon: "dashboard"
-    route: "dashboard"
-    url: "#dashboard"
-
-  items.push
     name: strings["music"] or "Music"
     icon: "headphones"
     route: "music"
@@ -163,7 +158,10 @@ v.set "getFunctions", ->
   items.push
     name: strings['help'] or "Feedback"
     icon: "question"
-    callback: -> window.Intercom?('show')
+    callback: => 
+      if !window.Intercom
+        return @toast('Error loading Intercom. Try disabling adblock.', 'error')
+      window.Intercom?('show')
 
   items.push
     name: strings["handbook"] or "Handbook"
