@@ -187,7 +187,7 @@ class UserModel extends SuperModel
       done(parse.superagent(err, res))
 
   removeClaims: (vid, done)->
-    request.post("#{@url()}/remove-claims")
+    request.post("#{@url()}/remove-claims-connect")
     .send
       userId: @id
       videoId: vid
