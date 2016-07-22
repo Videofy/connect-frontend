@@ -37,6 +37,11 @@
             "youtube": "YouTube",
             "youtubeDesc": "YouTube Channel ID"
         },
+        "claims": {
+            "removeYoutubeClaims": "Remote YouTube copyright claims",
+            "vid": "YouTube Video ID",
+            "remove": "Remove Claims"
+        },
         "commissions": {
             "copyUserSplits": "Copy User Splits from Download Commissions",
             "endDate": "End Date",
