@@ -83,7 +83,7 @@ v.init (opts={})->
 
   if @permissions.canAccess('self.claims') and @model.isSubscriber()
     tabSections.claims =
-      title: "Claims"
+      title: "Remove YouTube Claims"
       view: new ClaimsView
         model: @model
         i18: @i18
