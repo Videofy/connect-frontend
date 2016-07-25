@@ -35,7 +35,7 @@ class UserModel extends SuperModel
     eurl("#{@url()}/signature")
 
   impersonateUrl: ->
-    eurl("#{@url()}/impersonate")
+    url = @url() + '/impersonate'
 
   initialize: (params, opts)->
     return unless params
