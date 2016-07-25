@@ -22,7 +22,9 @@
             "whitelist_manager": "White List Manager",
             "user_manager": "User Manager",
             "contract_manager": "Contract Manager",
-            "admin_readonly": "Admin (Read Only)"
+            "admin_readonly": "Admin (Read Only)",
+            "website_manager": "Website Manager",
+            "commission_manager": "Commission Manager"
         },
         "assets": {
             "costOfGoods": "Cost of Goods"
