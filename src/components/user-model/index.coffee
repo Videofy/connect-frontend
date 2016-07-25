@@ -188,6 +188,7 @@ class UserModel extends SuperModel
 
   removeClaims: (vid, done)->
     request.post("#{@url()}/remove-claims-connect")
+    .withCredentials()
     .send
       userId: @id
       videoId: vid

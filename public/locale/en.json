@@ -40,7 +40,7 @@
             "youtubeDesc": "YouTube Channel ID"
         },
         "claims": {
-            "removeYoutubeClaims": "Remote YouTube copyright claims",
+            "removeYoutubeClaims": "Remove YouTube copyright claims",
             "vid": "YouTube Video ID",
             "remove": "Remove Claims"
         },
