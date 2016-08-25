@@ -50,10 +50,7 @@ v.ons
   "click [role='go-details']": "onClickGoDetails"
   "click [role='go-gold']": "onClickGoGold"
   "click [role='go-license']": "onClickGoLicense"
-  "click [role='go-pricing']": "onClickGoPricing"
   "click [role='scroll-up']": "onClickScrollUp"
-  "click [role='show-gold-form']": "onClickShowGoldForm"
-  "click [role='show-license-form']": "onClickShowLicenseForm"
   "click [role='mix-signUp']": "onClickSignUp"
   "change [role='channels']": "onChangeChannel"
 
@@ -233,24 +230,6 @@ v.set "getPlans", (done)->
     (err, plans)=>
       return alert(err) if err
       return done(null, plans)
-
-v.set "onClickShowGoldForm", (e)->
-  @gold = true
-  @userType = ['golden', 'subscriber']
-  @getPlans (err, plans)=>
-    @plans = plans
-    @resetForms()
-    @displayForm(@n.getEl("[role='gold-form']"))
-    @n.evaluateClass(@n.getEl("[role='show-gold-form-btn']"), "hide", true)
-
-v.set "onClickShowLicenseForm", (e)->
-  @gold = false
-  @userType = ['licensee', 'subscriber']
-  @getPlans (err, plans)=>
-    @plans = plans
-    @resetForms()
-    @displayForm(@n.getEl("[role='license-form']"))
-    @n.evaluateClass(@n.getEl("[role='show-license-form-btn']"), "hide", true)
 
 v.set "getEmail", ->
   email = if @gold then @n.getValue(sel.goldEmail) else @n.getValue(sel.licenseEmail)

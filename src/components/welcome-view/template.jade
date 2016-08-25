@@ -12,11 +12,11 @@ mixin more-license-info-1
 
   p Content creators want easy, affordable access to high-quality licensed music. The Monstercat License Program is our solution, while still fairly supporting the original artists who have created the music.
 
-  p Similar services charge high monthly fees, but are not comparable due to limits on usage. Monstercat however, offers our entire downloadable catalogue of unique music with unlimited access for a low monthly price. With this program in place, all YouTube and Twitch content creators have a means to use our music in their work. We believe in Creators supporting Creators.
+  p Similar services charge high monthly fees, but are not comparable due to limits on usage. Monstercat however, offers our entire downloadable catalogue of unique music with unlimited access for a low monthly price. With this program in place, all content creators have a means to use our music in their work. We believe in Creators supporting Creators.
 
 mixin more-license-info-2
   h2 What do I receive with a Monstercat License?
-  p Included with the Monstercat License is access to Monstercat Connect, our platform that lets creators download and stream the Monstercat catalog (800+ songs) of current and future singles, EPs and albums. The license grants the right for 100% monetization of your content on YouTube and Twitch!
+  p The license grants the right for 100% monetization of your content on a channel of your choice!
 
 nav
   .slogo(role="scroll-up")
@@ -29,7 +29,6 @@ nav
     else
       button.ss.hide-below.w500(role="go-gold") Gold
       button.ss.hide-below.w500(role="go-license") License
-    button(role="go-pricing") Pricing
     if license
       button
         a(href="/#handbook/faq" target="_blank") FAQ
@@ -48,7 +47,8 @@ nav
         if mixcomp && trialPeriod
           button.welcomer.gold(role="go-pricing") Get #{trialPeriod} Free Trial
         else
-          button.welcomer.gold(role="go-pricing") Join Now for $9.99/Month
+          a(href="https://www.monstercat.com/sign-up")
+            button.welcomer.gold Join Now for $5/Month
     else if license
       .center.license
         .center.content
@@ -59,10 +59,9 @@ nav
             br
             span Creators
           p.tagline
-            span Unlimited Access to Monstercat Music;
-            br
-            span Soundtrack and Monetize Your Content
-          button.welcomer.radical(role="show-license-form") Subscribe
+            span Monetize Your Content
+          a(href="https://www.monstercat.com/sign-up")
+            button.welcomer.radical Subscribe
     else
       .center.all
         .center.content
@@ -71,8 +70,8 @@ nav
             br
             span The Ultimate Label Platform
           .ss.dual
-            button.welcomer(role="go-gold") The Gold Membership
-            button.welcomer(role="go-license") The Monstercat License
+            button.welcomer(role="go-gold") Gold Membership
+            button.welcomer(role="go-license") Whitelist Subscription
     .post
     button(role="go-details") More Details
       br
@@ -88,13 +87,14 @@ nav
       article.gold-details
         .constrict
           h2 What is Gold?
-          p Monstercat Gold is a subscription service that grants you unlimited access to all of Monstercat's current and future releases. This includes full downloadable access to the entire Monstercat catalog.
+          p Monstercat Gold is a subscription service that grants you unlimited download access to all of Monstercat's current and future releases.
           if all
             a(href="/#gold")
               button.details-button.ss.bg-custom.hover
                 i.fa.fa-external-link
                 | Learn More
-            button.details-button.ss.bg-custom.hover(role="show-gold-form") Get Gold
+            a(href="https://www.monstercat.com/sign-up")
+              button.details-button.ss.bg-custom.hover(role="show-gold-form") Get Gold
       .banner.banner2
     if gold || mixcomp
       article
@@ -104,15 +104,16 @@ nav
     if all || license
       article.license-details
         .constrict
-          h2 What is a Monstercat License?
-          p A Monstercat License is a monthly subscription that allows content creators to utilize the Monstercat Catalog on YouTube and Twitch. This removes all existing and future Content ID matches allowing content creators to earn 100% of their channel advertising royalties.
-          p A portion of your License subscription goes directly to the artists for each track you stream or download! We believe in generating new revenue streams for artists and this is a great way to fairly support content creators and musicians alike!
+          h2 What is a Whitelist License?
+          p A Monstercat Whitelist License is a monthly subscription that allows content creators to utilize the Monstercat Catalog on one of YouTube, Twitch or Beam. Each channel will require its own license. This removes all existing and future Content ID matches allowing content creators to earn 100% of their channel advertising royalties.
+          p A portion of your Whitelist License subscription goes directly to the artists for each track you stream or download! We believe in generating new revenue streams for artists and this is a great way to fairly support content creators and musicians alike!
           if all
             a(href="/#license")
               button.details-button.ss.bg-custom.hover
                 i.fa.fa-external-link
                 | Learn More
-            button.details-button.ss.bg-custom.hover(role="show-license-form") Get A License
+            a(href="https://www.monstercat.com/sign-up")
+              button.details-button.ss.bg-custom.hover Get A License
       .banner.banner4
     if license
       article
@@ -154,14 +155,15 @@ nav
                   li Direct e-mail support
                 span.customize(role="show-gold-form-btn" class=(gold ? "hide" : undefined))
                   if mixcomp && trialPeriod
-                    span.ss.bg-custom.hover Regular Price $9.99/Month
+                    span.ss.bg-custom.hover Regular Price $5/Month
                   else
-                    button.ss.bg-custom.hover(role="show-gold-form") $9.99/Month
+                    a(href="https://www.monstercat.com/sign-up")
+                      button.ss.bg-custom.hover Sign up at monstercat.com
                 .customize(role="gold-form" class=(all ? "hide" : undefined))
                   if mixcomp && trialPeriod
                     span.customize #{trialPeriod} Free trial with referral code!
                   else
-                    span.customize(role="gold-price") $9.99/Month
+                    span.customize(role="gold-price") $5/Month
                   .ss.labelfields
                     .field
                       .key
@@ -203,15 +205,15 @@ nav
           if all || license
             .license
               .wrap
-                h3 License Subscription
+                h3 Whitelist License Subscription
                 ul
-                  li 100% Monetize your YouTube &amp; Twitch content while subscribed
-                  li Unlimited download and streaming access to the Monstercat catalog (800+ full songs)
+                  li 100% Monetize your content on a channel of your choice while subscribed
                   li Access to the Monstercat Connect platform
-                  li Playlist your music directly within the platform. Perfect for Twitch streaming and YouTube video planning.
+                  li Playlist your music directly within the platform. Perfect for Twitch or Beam streaming and YouTube video planning.
                   li Direct e-mail support
                 span.customize(role="show-license-form-btn")
-                  button.ss.bg-custom.hover(role="show-license-form") $14.99/Month+
+                  a(href="https://www.monstercat.com/sign-up")
+                    button.ss.bg-custom.hover(role="show-license-form") Sign up at monstercat.com
                 .customize.hide(role="license-form")
                   span.customize Customize Your Plan
                     span.cost(role='price') $14.99/Month
