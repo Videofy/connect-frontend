@@ -160,6 +160,7 @@ v.set "renderPlans", ->
     @renderer.locals.options = @planOptions
     @renderer.locals.mode = @getMode(@userType)
     @renderer.locals.goldTitle = @renderer.locals.mode in goldAccess
+    @renderer.locals.signupLink = "https://www.monstercat.com/sign-up?redirect=%2faccount%2fservices"
 
     if @codeDetails and @codeDetails.trialDates
       @renderer.locals.trialPeriod = "#{@codeDetails.trialDates} days"

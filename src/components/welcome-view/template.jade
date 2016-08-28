@@ -47,7 +47,7 @@ nav
         if mixcomp && trialPeriod
           button.welcomer.gold(role="go-pricing") Get #{trialPeriod} Free Trial
         else
-          a(href="https://www.monstercat.com/sign-up")
+          a(href="#{signupLink}")
             button.welcomer.gold Join Now for $5/Month
     else if license
       .center.license
@@ -60,7 +60,7 @@ nav
             span Creators
           p.tagline
             span Monetize Your Content
-          a(href="https://www.monstercat.com/sign-up")
+          a(href="#{signupLink}")
             button.welcomer.radical Subscribe
     else
       .center.all
@@ -93,7 +93,7 @@ nav
               button.details-button.ss.bg-custom.hover
                 i.fa.fa-external-link
                 | Learn More
-            a(href="https://www.monstercat.com/sign-up")
+            a(href="#{signupLink}")
               button.details-button.ss.bg-custom.hover(role="show-gold-form") Get Gold
       .banner.banner2
     if gold || mixcomp
@@ -112,7 +112,7 @@ nav
               button.details-button.ss.bg-custom.hover
                 i.fa.fa-external-link
                 | Learn More
-            a(href="https://www.monstercat.com/sign-up")
+            a(href="#{signupLink}")
               button.details-button.ss.bg-custom.hover Get A License
       .banner.banner4
     if license
@@ -157,7 +157,7 @@ nav
                   if mixcomp && trialPeriod
                     span.ss.bg-custom.hover Regular Price $5/Month
                   else
-                    a(href="https://www.monstercat.com/sign-up")
+                    a(href="#{signupLink}")
                       button.ss.bg-custom.hover Sign up at monstercat.com
                 .customize(role="gold-form" class=(all ? "hide" : undefined))
                   if mixcomp && trialPeriod
@@ -212,7 +212,7 @@ nav
                   li Playlist your music directly within the platform. Perfect for Twitch or Beam streaming and YouTube video planning.
                   li Direct e-mail support
                 span.customize(role="show-license-form-btn")
-                  a(href="https://www.monstercat.com/sign-up")
+                  a(href="#{signupLink}")
                     button.ss.bg-custom.hover(role="show-license-form") Sign up at monstercat.com
                 .customize.hide(role="license-form")
                   span.customize Customize Your Plan
