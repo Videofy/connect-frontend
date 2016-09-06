@@ -8,7 +8,8 @@ class SubscriptionRequiredView extends Backbone.View
     @renderer = new TemplateRenderer
       view: @
       template: require("./template")
-
+    @el.addEventListener "click", =>
+      @el.classList.toggle("hide")
   render: ->
     @renderer.render()
 

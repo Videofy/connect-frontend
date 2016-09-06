@@ -17,3 +17,5 @@ module.exports = (config={})-> (v)->
           target: "_blank"
 
       menu.setItems(items)
+    select: (item)->
+      @evs.trigger("download", item)

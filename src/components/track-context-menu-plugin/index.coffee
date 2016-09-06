@@ -105,3 +105,5 @@ module.exports = (config={})-> (v)->
         @addTrackToCurrentPlaylist(track.track, track.release)
     else if item.action is "copy-batch"
       @openCreditsForTracks(item.tracks)
+    else if item.action is "download"
+      @evs.trigger("download", item)

@@ -59,6 +59,10 @@ v.init (opts={})->
       title: "Podcasts"
       view: new MusicPodcastsView(opts)
 
+  @evs.on "download", =>
+    unless @user.get('goldService') or @permissions.canAccess('catalog.download')
+      @requireView.el.classList.remove("hide")
+
 v.use tabChange
   page: "profile"
   onQuery: (view, needle, reset)->
@@ -73,10 +77,9 @@ v.set "render", ->
   @tabs.render()
   @n.getEl(".tabs").appendChild(@tabs.el)
 
-  if @user.requiresSubscription(@subscription)
-    @requireView.render()
-    @el.appendChild(@requireView.el)
-    @el.style.overflow = "hidden" # Move to CSS
+  @requireView.render()
+  @el.appendChild(@requireView.el)
+  @requireView.el.classList.add("hide")
 
   @tracks.toPromise().then =>
     onFinishLoad.call(@)

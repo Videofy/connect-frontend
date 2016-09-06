@@ -1,15 +1,12 @@
 label Playlists
-if subscribed
-  ul(role="items")
-    each playlist, i in playlists
-      li(index="#{i}" playlist-id="#{playlist._id}")
-        .description(title="#{playlist.tracks.length} Tracks")
-          label
-            i.fa.fa-fw.fa-volume-up
-            = playlist.name
-        .actions
-          i.fa.fa-chevron-circle-down(role="options")
-    li.add-playlist
-      i.fa.fa-fw.fa-plus-circle(role="add" title="Create a new playlist.")
-else
-  p.not-subscribed You need to <a href="#/profile/subscription">renew your subscription</a> to view your playlists.
+ul(role="items")
+  each playlist, i in playlists
+    li(index="#{i}" playlist-id="#{playlist._id}")
+      .description(title="#{playlist.tracks.length} Tracks")
+        label
+          i.fa.fa-fw.fa-volume-up
+          = playlist.name
+      .actions
+        i.fa.fa-chevron-circle-down(role="options")
+  li.add-playlist
+    i.fa.fa-fw.fa-plus-circle(role="add" title="Create a new playlist.")
