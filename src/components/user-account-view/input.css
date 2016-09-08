@@ -1,0 +1,8 @@
+.user-account-view .s-emails input.ss {
+  margin-bottom: 0.5em;
+}
+a.external-services {
+  border-radius: 0.25em;
+  padding: 0.35em 0.5em;
+  font-weight: bold;
+}
