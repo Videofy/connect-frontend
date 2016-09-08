@@ -13,7 +13,8 @@ onClickResendInvite = (e)->
 onClickYouTubeSync = (e)->
   @model.syncYouTube (err, res)=>
     return @toast(err, 'error') if err
-    @toast('YouTube channel synced')
+    console.log('res', res)
+    @toast('YouTube channel synced', 'success')
 
 v.use view
   className: "user-admin-view"

@@ -163,7 +163,7 @@ class UserModel extends SuperModel
     .post("#{@url()}/youtube-sync")
     .withCredentials()
     .end (err, res)=>
-      done(parse.superagent(err, res), res)
+      done(parse.superagent(err, res), res.body)
 
   resendInvite: (done)->
     done ?= ->
