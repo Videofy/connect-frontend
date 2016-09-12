@@ -12,6 +12,7 @@
             "golden": "Golden",
             "label_admin": "Admin",
             "licensee": "Licensee",
+            "licensee_legacy": "Licensee Legacy",
             "manager": "Manager",
             "network": "Network",
             "subscriber": "Subscriber",

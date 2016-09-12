@@ -56,7 +56,7 @@ v.init (opts={})->
     getOptions: ->
       Object.keys(types).map (key)=>
         value: key
-        text: types[key]
+        text: types[key] or key
   @typeSelector.on 'viewadd', fn("type")
   @typeSelector.on 'viewremove', fn("type")
 
