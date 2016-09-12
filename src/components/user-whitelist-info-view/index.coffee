@@ -22,6 +22,7 @@ onClickGrant = (e)->
     identity: @$(sel.identity).val()
     userId: @model.get('_id')
     paidInFull: true
+    amountRemaining: 0
     whitelisted: true
 
   # TODO: This should be in the user model, which uses its own internal whitelist collection
