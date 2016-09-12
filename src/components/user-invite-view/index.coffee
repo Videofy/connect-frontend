@@ -19,8 +19,6 @@ required =
     email: false
 
 validate = (attrs)->
-  return [Error('Missing the user\'s type.')] if !attrs.type?
-
   if 'artist' in attrs.type
     map = required['artist']
   else

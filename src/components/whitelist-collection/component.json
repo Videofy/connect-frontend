@@ -1,0 +1,19 @@
+{
+  "name": "whitelist-collection",
+  "repo": "monstercat/whitelist-collection",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "local": [
+    "whitelist-model",
+    "crud-collection"
+  ],
+  "scripts": [
+    "index.js"
+  ]
+}

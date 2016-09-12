@@ -27,14 +27,17 @@ v.use view
 v.init (opts={})->
   { @label, @user } = opts
   @collection = new UserCollection null, fields: [
-    'name',
-    'realName',
-    'email',
-    'type',
-    'created',
-    'subscriptionModelId',
-    'websiteDetailsId',
-    'lastSeen']
+    'name'
+    'realName'
+    'email'
+    'type'
+    'created'
+    'subscriptionModelId'
+    'goldService'
+    'currentGoldSubscription'
+    'websiteDetailsId'
+    'lastSeen'
+  ]
 
 v.set "open", (needle="")->
   @setFilter(needle)

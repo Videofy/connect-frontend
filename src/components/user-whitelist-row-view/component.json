@@ -19,7 +19,8 @@
     "whitelist-channels-view",
     "view-plugin",
     "user-whitelist",
-    "subscription-model"
+    "subscription-model",
+    "parse"
   ],
   "scripts": [
     "index.js",

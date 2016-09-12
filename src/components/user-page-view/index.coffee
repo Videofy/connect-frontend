@@ -88,7 +88,7 @@ v.init (opts={})->
         model: @model
         i18: @i18
 
-  if @permissions.canAccess('user.read.whitelist') and @model.isOfTypes('licensee')
+  if @permissions.canAccess('user.read.whitelist')
     tabSections.whitelist =
       title: "Whitelist"
       view: new UserWhitelistView _.extend _.clone(opts),

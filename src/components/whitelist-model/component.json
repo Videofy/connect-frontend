@@ -1,23 +1,20 @@
 {
-  "name": "user-model",
-  "repo": "monstercat/user-model",
+  "name": "whitelist-model",
+  "repo": "monstercat/whitelist-model",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [],
   "dependencies": {
     "visionmedia/superagent":"*",
-    "visionmedia/debug":"*"
+    "visionmedia/debug": "*"
   },
   "development": {},
   "license": "MIT",
   "main": "index.js",
   "local": [
     "end-point",
-    "binary-downloader",
     "parse",
-    "super-model",
-    "whitelist-collection",
-    "whitelist-model"
+    "super-model"
   ],
   "scripts": [
     "index.js"

@@ -13,8 +13,19 @@ onClickResendInvite = (e)->
 onClickYouTubeSync = (e)->
   @model.syncYouTube (err, res)=>
     return @toast(err, 'error') if err
-    console.log('res', res)
     @toast('YouTube channel synced', 'success')
+
+giveGold = (e)->
+  @model.giveGold (err, res)=>
+    return @toast(err, 'error') if err
+    @toast(@model.get('name') + ' has been given free Gold.', 'success')
+    @render()
+
+revokeGold = (e)->
+  @model.revokeGold (err, res)=>
+    return @toast(err, 'error') if err
+    @toast(@model.get('name') + '\'s gold has been removed', 'success')
+    @render()
 
 v.use view
   className: "user-admin-view"
@@ -65,6 +76,8 @@ v.init (opts={})->
 v.ons
   'click [role="resend-invite"]': onClickResendInvite
   'click [role="youtube-sync"]': onClickYouTubeSync
+  'click [role="give-gold"]': giveGold
+  'click [role="revoke-gold"]' : revokeGold
 
 v.set "render", ->
   @renderer.render()

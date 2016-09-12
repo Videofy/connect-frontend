@@ -12,7 +12,11 @@
   "license": "MIT",
   "main": "index.js",
   "local": [
-    "view-plugin"
+    "view-plugin",
+    "fsr-render-rows",
+    "collection-fsr-plugin",
+    "whitelist-collection",
+    "user-whitelist-row-view"
   ],
   "scripts": [
     "index.js",
