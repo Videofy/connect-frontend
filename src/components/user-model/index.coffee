@@ -1,11 +1,12 @@
-eurl          = require('end-point').url
-parse         = require('parse')
-request       = require('superagent')
-SuperModel    = require("super-model")
-WhitelistItem = require('whitelist-item-model')
-{ downloadBinaryToBase64 } = require('binary-downloader')
+eurl                        = require('end-point').url
+parse                       = require('parse')
+request                     = require('superagent')
+SuperModel                  = require("super-model")
+WhitelistCollection         = require('whitelist-collection')
+WhitelistModel              = require('whitelist-model')
+{ downloadBinaryToBase64 }  = require('binary-downloader')
+debug                       = require('debug')('mc-connect:user-model')
 
-WhitelistCollection = Backbone.Collection.extend { model: WhitelistItem }
 
 requiredFields =
   all: [
@@ -24,8 +25,6 @@ requiredFields =
     'location'
   ]
 
-getWhitelist = (whitelist, name)->
-  _.filter whitelist, (item)-> item.name is name
 
 class UserModel extends SuperModel
 
@@ -39,11 +38,14 @@ class UserModel extends SuperModel
 
   initialize: (params, opts)->
     return unless params
-    @setUpChannels(params)
-    @youtubeCollection = new WhitelistCollection @ytChannels
-    @twitchCollection = new WhitelistCollection @twitchChannels
+    #@setUpChannels(params)
+
+  addWhitelist: (params, done)->
+    params.userId = @id
+    whitelist = new WhitelistModel(params).save (err, obj)->
 
   updateWhitelist: ->
+    debug('updateWhitelist is deprecated')
     params = { whitelist: @get 'whitelist' }
     @setUpChannels(params)
     @youtubeCollection.reset @ytChannels
@@ -51,11 +53,22 @@ class UserModel extends SuperModel
     @trigger 'updatedWhitelist'
 
   setUpChannels: (params)->
+    debug('setUpChannels is depcrcated')
+    return no
     @whitelist = @getWhitelist(params)
     @ytChannels = getWhitelist(@whitelist, 'youtube')
     @twitchChannels = getWhitelist(@whitelist, 'twitch')
 
-  getWhitelist: (params)->
+  getWhitelists: ->
+    if !@whitelistCollection
+      @whitelistCollection = new WhitelistCollection null,
+        by:
+          key: 'userId'
+          value: @id
+    @whitelistCollection
+
+  getWhitelistDEP: (params)->
+    debug('this is old news')
     @whitelist = _.map params.whitelist, (item)=>
       item.userId = @id
       return item
@@ -72,6 +85,7 @@ class UserModel extends SuperModel
     arr
 
   isWhitelisted: ->
+    debug('isWhitelisted deprecated')
     whitelist = @get('whitelist') or []
     flag = true
     whitelist.forEach (item)->
@@ -96,6 +110,24 @@ class UserModel extends SuperModel
 
   isSubscriber: ->
     @isOfTypes(["subscriber"])
+
+  hasGoldService: ->
+    @get('goldService')
+
+  hasFreeGold: ->
+    @hasGoldService() and !@get('currentGoldSubscription')
+
+  giveGold: (done)->
+    return done(Error('This user already has free gold.')) if @hasGoldService()
+    obj =
+      goldService: yes
+    @simpleSave obj, done
+
+  revokeGold: (done)->
+    return done(Error('This user doesn\'t have free gold to revoke.')) if !@hasFreeGold()
+    obj =
+      goldService: no
+    @simpleSave obj, done
 
   requiresSubscription: (subscription)->
     return false unless @isSubscriber()

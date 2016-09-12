@@ -6,60 +6,39 @@ else if mode == 'error'
     p.ss.heavy= error
     p= strings.phrases.tryAgain
 else
-  if subscription
-    table.ss.rows
+  if permissions.whitelist.grant
+    table
       tr
-        th Plan
-        td= subscription.get('subscriptionPlan')
+        td Vendor
+          td.vendor-select
+            select.ss.expand(role="switch-vendor", name="grant-vendor")
+              option(value="YouTube") YouTube
+              option(value="Twitch") Twitch
+              option(value="Beam") Beam
       tr
-        th Paying
+        td Identity
         td
-          if model.requiresSubscription(subscription)
-            i.fa.fa-times
-          else
-            i.fa.fa-check
+          input.ss.expand(name="grant-identity",
+                          type="text"
+                          placeholder="Username"
+                          twitch-placeholder="Username"
+                          youtube-placeholder="Channel ID")
       tr
-        th Status
-        td= subscription.getSubscriptionStatus(model)
+        td
+        td
+          button.ss.bg-action(role="grant-whitelist") Grant Free Whitelist
 
-  table.ss.bordered
-    thead
-      tr
-        th Vendor
-        th Identity
-        th.ss.center-text Whitelisted
-    tbody
-      if !whitelist.length
-        tr
-          td(colspan=3)
-            p.ss.center-text.heavy No items.
-      else
-        each item in whitelist 
-          tr
-            td= item.name
-            td= item.identity
-            td.ss.center-text
-              if item.whitelisted
-                i.fa.fa-check
-              else
-                i.fa.fa-times
-  br
+    br
+    br
 
-  table.ss.bordered
-    thead
-      tr
-        th Date
-        th User
-        th Log
-    tbody
-      - var logs = model.get('whitelistChangeLog') || []
-      if !logs.length
+    table.ss.bordered.whitelists.fsr
+      thead
         tr
-          td(colspan=3)
-            p.ss.center-text.heavy No items.
-      else
-        each item in logs 
-          tr
-            td= item.timeStamp
-            td= item.changerName
-            td= item.change
+          th Vendor
+          th Identity
+          th Paid
+          th Remaining
+          th.ss.center-text Whitelisted
+          th
+
+      tbody

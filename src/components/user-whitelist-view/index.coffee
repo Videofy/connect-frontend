@@ -1,6 +1,5 @@
 request           = require("superagent")
 subPlan           = require("subscription-plan")
-userWhitelist     = require("user-whitelist")
 view              = require("view-plugin")
 errorParser       = require('parse')
 WhitelistItemView = require("user-whitelist-item-view")

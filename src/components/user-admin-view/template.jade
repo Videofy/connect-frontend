@@ -11,7 +11,15 @@ if permissions.user.impersonate
     i.fa.fa-refresh
     |  Sync YouTube
 
-
+  |  
+  if !model.hasGoldService()
+    button.ss.bg-action.hover.actioneer(role="give-gold") 
+      i.fa.fa-credit-card
+      |  Give Gold Subscription
+  if model.hasFreeGold()
+    button.ss.bg-action.hover.actioneer(role="revoke-gold") 
+      i.fa.fa-minus-circle
+      |  Revoke Free Gold
 
 br
 br

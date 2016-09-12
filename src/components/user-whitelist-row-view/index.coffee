@@ -4,9 +4,24 @@ view                  = require("view-plugin")
 WhitelistChannelsView = require("whitelist-channels-view")
 SubscriptionModel     = require('subscription-model')
 rowView               = require("row-view-plugin")
+parse                 = require("parse")
 
-onClickLink = (e)->
+onClickDelete = (e)->
   e.stopPropagation()
+  msg = @i18.strings.defaults.destroyMsg.replace(/\{.+\}/, 'this whitelist ' + @model.get('identity'))
+  return unless window.confirm(msg)
+
+  if @model.hasSubscription()
+    return unless window.confirm(@i18.strings.whitelist.confirmDeleteSubscription)
+
+  @model.destroy
+    wait: true
+    # Neither of these toasts work and I don't know why
+    # This destroy also doesn't update the parent table view to remove the item
+    success: (model, res, obj)=>
+      @toast('Whitelist removed', 'success')
+    error: (model, res, obj)=>
+      @toast(parse.backbone.error(err).message, 'error')
 
 UserWhitelistRowView = v = bQuery.view()
 
@@ -18,21 +33,12 @@ v.use view
 v.use rowView
 
 v.ons
-  "click [role='link']": onClickLink
+  "click [role='delete']": onClickDelete
 
 v.init (opts={})->
-  { @subscription } = opts
-  @model.on "change", @render.bind(@)
-  return unless @model.get('subscriptionModelId') and !@subscription
-  @subscription = new SubscriptionModel
-    _id: @model.get("subscriptionModelId")
 
 v.set "render", ->
-  @renderer.locals.subscription = @subscription
-  if @subscription
-    @subscription.sfetch (err)=>
-      @renderer.render()
-  else
-    @renderer.render()
+  @renderer.locals.model = @model
+  @renderer.render()
 
 module.exports = v.make()

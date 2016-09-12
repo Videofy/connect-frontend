@@ -5,7 +5,11 @@ module.exports = (config)->
   throw Error('createRow was not provided.') unless createRow
 
   (opts)->
-    return unless tbody = @n.getEl('tbody')
+    tbody = @n.getEl('.fsr tbody')
+    tbody = @n.getEl('tbody') unless tbody
+    return unless tbody
+
+    empty = opts.empty || empty
 
     while tbody.firstChild
       tbody.removeChild(tbody.firstChild)
