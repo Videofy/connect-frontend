@@ -12,9 +12,10 @@ UserPaymentsCollection     = require("user-payments-collection")
 SubBillingView             = require("user-sub-billing")
 ClaimsView                 = require("user-claims-view")
 WebsiteDetailsModel        = require("website-details-model")
-UserArticlesView           = require('./articles-view')
-UserWhitelistView          = require('user-whitelist-info-view')
-ArticleCollection          = require('article-collection')
+UserArticlesView           = require("./articles-view")
+UserWhitelistView          = require("user-whitelist-info-view")
+WhitelistCollection        = require("whitelist-collection")
+ArticleCollection          = require("article-collection")
 tabChange                  = require("tab-change-plugin")
 view                       = require("view-plugin")
 
@@ -40,6 +41,9 @@ v.init (opts={})->
   wopts = _.extend _.clone(opts),
     user: @model
     model: new WebsiteDetailsModel
+
+  @whitelists = new WhitelistCollection
+  @whitelists.urlRoot = '/api/self/whitelist'
 
   @tabs = new TabView
   @tabs.active = "account"
@@ -68,6 +72,7 @@ v.init (opts={})->
       view: new UserDiscordView
         model: @model
         i18: @i18
+        whitelists: @whitelists
 
   if @permissions.canAccess('user.logs')
     tabSections.logs =
@@ -113,6 +118,8 @@ v.set "render", ->
   @renderer.locals.mode = 'loading'
   @renderer.render()
   @model.toPromise(true).then =>
+    @whitelists.toPromise().then =>
+      @onTypeChange()
     @renderer.locals.mode = 'view'
     @renderer.render()
     @tabs.render()
@@ -126,7 +133,7 @@ v.set "onTypeChange", ->
   @tabs.hide("billing", !@permissions.canAccess('self.read.paymentType', 'user.read.paymentType') or !@model.isOfTypes("artist"))
   @tabs.hide("website", !@permissions.canAccess('website.update') || !@model.isOfTypes("artist"))
   @tabs.hide("docs", !@permissions.canAccess('statements.view'))
-  @tabs.hide("discord", !@permissions.canAccess('self.discord'))
+  @tabs.hide("discord", !(@model.hasGoldService() or @whitelists?.models?.length))
 
 module.exports = v.make()
 

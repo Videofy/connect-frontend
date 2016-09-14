@@ -28,7 +28,8 @@
     "tab-change-plugin",
     "subscription-model",
     "user-claims-view",
-    "user-whitelist-info-view"
+    "user-whitelist-info-view",
+    "whitelist-collection"
   ],
   "scripts": [
     "index.js",

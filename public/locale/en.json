@@ -222,6 +222,9 @@
             "noPackages": "No packages found."
         },
         "phrases": {
+            "discord": "Join the monstercat discord channel.",
+            "discordGold": "Join Gold Channel",
+            "discordLicensee": "Join Licensee Channel",
             "tryAgain": "Please refresh the page to try again.",
             "adminReleaseMsg": "You can see this release because you are an admin.",
             "adminTrackMsg": "You can see this track because you are an admin.",

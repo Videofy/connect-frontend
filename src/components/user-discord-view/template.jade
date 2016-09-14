@@ -1,2 +1,4 @@
 label.ss.heavy= strings.phrases.discord
-a.btn.btn-normal.ss.bg-action.hover.actioneer(href=url, target="_blank" role="button") Join
+each link in links
+  a.btn.btn-normal.ss.bg-action.hover.actioneer(href=link.url, target="_blank")= link.text
+  |  
