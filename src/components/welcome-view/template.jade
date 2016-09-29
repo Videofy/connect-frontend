@@ -96,7 +96,7 @@ nav
             a(href="#{signupLinkGold}")
               button.details-button.ss.bg-custom.hover(role="show-gold-form") Get Gold
       .banner.banner2
-    if gold || mixcomp
+    if mixcomp
       article
         .constrict
           +more-gold-info
@@ -153,13 +153,10 @@ nav
                   li Playlist your music directly within Connect
                   li Access to the Monstercat Connect platform
                   li Direct e-mail support
-                span.customize(role="show-gold-form-btn" class=(gold ? "hide" : undefined))
-                  if mixcomp && trialPeriod
-                    span.ss.bg-custom.hover Regular Price $5/Month
-                  else
-                    a(href="#{signupLinkGold}")
-                      button.ss.bg-custom.hover Sign up at monstercat.com
-                .customize(role="gold-form" class=(all ? "hide" : undefined))
+                span.customize(role="show-gold-form-btn")
+                  a(href="#{signupLinkGold}")
+                    button.ss.bg-custom.hover Sign up at monstercat.com
+                .customize(role="gold-form" class="hide")
                   if mixcomp && trialPeriod
                     span.customize #{trialPeriod} Free trial with referral code!
                   else
