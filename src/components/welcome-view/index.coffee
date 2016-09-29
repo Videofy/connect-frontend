@@ -80,6 +80,9 @@ v.set "open", (@url)->
       @n.evaluateClass(@el, "goldie", @gold)
       @render()
   else
+    if(@needle == 'license')
+      return window.location.replace('https://www.monstercat.com/licensing')
+
     @userType = @getTypeFromNeedle(@needle)
     @gold = @isGold(@userType)
     @n.evaluateClass(@el, "goldie", @gold)
@@ -160,7 +163,8 @@ v.set "renderPlans", ->
     @renderer.locals.options = @planOptions
     @renderer.locals.mode = @getMode(@userType)
     @renderer.locals.goldTitle = @renderer.locals.mode in goldAccess
-    @renderer.locals.signupLink = "https://www.monstercat.com/sign-up?redirect=%2faccount%2fservices"
+    @renderer.locals.signupLinkWhitelist = "https://www.monstercat.com/account/services"
+    @renderer.locals.signupLinkGold = "https://www.monstercat.com/account/services?gold"
 
     if @codeDetails and @codeDetails.trialDates
       @renderer.locals.trialPeriod = "#{@codeDetails.trialDates} days"
