@@ -47,7 +47,7 @@ nav
         if mixcomp && trialPeriod
           button.welcomer.gold(role="go-pricing") Get #{trialPeriod} Free Trial
         else
-          a(href="#{signupLink}")
+          a(href="#{signupLinkGold}")
             button.welcomer.gold Join Now for $5/Month
     else if license
       .center.license
@@ -60,7 +60,7 @@ nav
             span Creators
           p.tagline
             span Monetize Your Content
-          a(href="#{signupLink}")
+          a(href="#{signupLinkWhitelist}")
             button.welcomer.radical Subscribe
     else
       .center.all
@@ -93,10 +93,10 @@ nav
               button.details-button.ss.bg-custom.hover
                 i.fa.fa-external-link
                 | Learn More
-            a(href="#{signupLink}")
+            a(href="#{signupLinkGold}")
               button.details-button.ss.bg-custom.hover(role="show-gold-form") Get Gold
       .banner.banner2
-    if gold || mixcomp
+    if mixcomp
       article
         .constrict
           +more-gold-info
@@ -108,11 +108,11 @@ nav
           p A Monstercat Whitelist License is a monthly subscription that allows content creators to utilize the Monstercat Catalog on one of YouTube, Twitch or Beam. Each channel will require its own license. This removes all existing and future Content ID matches allowing content creators to earn 100% of their channel advertising royalties.
           p A portion of your Whitelist License subscription goes directly to the artists for each track you stream or download! We believe in generating new revenue streams for artists and this is a great way to fairly support content creators and musicians alike!
           if all
-            a(href="/#license")
+            a(href="https://www.monstercat.com/licensing/content-creators")
               button.details-button.ss.bg-custom.hover
                 i.fa.fa-external-link
                 | Learn More
-            a(href="#{signupLink}")
+            a(href="#{signupLinkWhitelist}")
               button.details-button.ss.bg-custom.hover Get A License
       .banner.banner4
     if license
@@ -153,13 +153,10 @@ nav
                   li Playlist your music directly within Connect
                   li Access to the Monstercat Connect platform
                   li Direct e-mail support
-                span.customize(role="show-gold-form-btn" class=(gold ? "hide" : undefined))
-                  if mixcomp && trialPeriod
-                    span.ss.bg-custom.hover Regular Price $5/Month
-                  else
-                    a(href="#{signupLink}")
-                      button.ss.bg-custom.hover Sign up at monstercat.com
-                .customize(role="gold-form" class=(all ? "hide" : undefined))
+                span.customize(role="show-gold-form-btn")
+                  a(href="#{signupLinkGold}")
+                    button.ss.bg-custom.hover Sign up at monstercat.com
+                .customize(role="gold-form" class="hide")
                   if mixcomp && trialPeriod
                     span.customize #{trialPeriod} Free trial with referral code!
                   else
@@ -212,7 +209,7 @@ nav
                   li Playlist your music directly within the platform. Perfect for Twitch or Beam streaming and YouTube video planning.
                   li Direct e-mail support
                 span.customize(role="show-license-form-btn")
-                  a(href="#{signupLink}")
+                  a(href="#{signupLinkWhitelist}")
                     button.ss.bg-custom.hover(role="show-license-form") Sign up at monstercat.com
                 .customize.hide(role="license-form")
                   span.customize Customize Your Plan
