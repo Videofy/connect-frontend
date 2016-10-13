@@ -11,27 +11,28 @@ header
           role="filter"
           placeholder="#{strings.defaults.filter}")
 section
-  table.ss.pane-table
-    thead.ss.hide-below.w500
-      tr
-        th.sortable(sort-on='variables.title') Title
-          i.fa.fa-sort-asc.indicator-asc
-          i.fa.fa-sort-desc.indicator-desc
-        th.sortable(sort-on='variables.type') Type
-          i.fa.fa-sort-asc.indicator-asc
-          i.fa.fa-sort-desc.indicator-desc
-        th.sortable(sort-on='variables.date') Date
-          i.fa.fa-sort-asc.indicator-asc
-          i.fa.fa-sort-desc.indicator-desc
-        th.sortable(sort-on='status') Status
-          i.fa.fa-sort-asc.indicator-asc
-          i.fa.fa-sort-desc.indicator-desc
-        th
-    tbody
-      tr
-        td(colspan=5)
-          .ss.loader
-            i.fa.fa-refresh.fa-spin
+  div
+    table.ss.pane-table
+      thead.ss.hide-below.w500
+        tr
+          th.sortable(sort-on='variables.title') Title
+            i.fa.fa-sort-asc.indicator-asc
+            i.fa.fa-sort-desc.indicator-desc
+          th.sortable(sort-on='variables.type') Type
+            i.fa.fa-sort-asc.indicator-asc
+            i.fa.fa-sort-desc.indicator-desc
+          th.sortable(sort-on='variables.date') Date
+            i.fa.fa-sort-asc.indicator-asc
+            i.fa.fa-sort-desc.indicator-desc
+          th.sortable(sort-on='status') Status
+            i.fa.fa-sort-asc.indicator-asc
+            i.fa.fa-sort-desc.indicator-desc
+          th
+      tbody
+        tr
+          td(colspan=5)
+            .ss.loader
+              i.fa.fa-refresh.fa-spin
 nav.ss.table-pagination.no-pages
   button.ss.fake(role='page-previous')
     i.fa.fa-chevron-left
