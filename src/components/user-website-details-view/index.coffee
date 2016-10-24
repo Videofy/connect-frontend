@@ -19,6 +19,7 @@ getYears = (years)->
       year: y
       checked: years.indexOf(y) > -1
     y--
+  arr.push(year: 1989, checked: years.indexOf(1989) > -1)
   arr
 
 onMarkYear = (e)->
