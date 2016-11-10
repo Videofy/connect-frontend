@@ -78,18 +78,19 @@ module.exports = (config={})-> (v)->
         track: info.track
         release: info.release
 
-      for format, i in Formats.defaults
-        items.push
-          action: "download"
-          name: format.name
-          separated: if i is 0 then true else false
-          format: format
-          track: info.track
-          release: info.release
-          anchor:
-            url: info.track.fileUrl(info.release, format.type, format.quality)
-            download: "#{info.track.get("artistsTitle")} - #{info.track.get("title")}.#{format.type}"
-            target: "_blank"
+      if info.track.attributes.downloadable
+        for format, i in Formats.defaults
+          items.push
+            action: "download"
+            name: format.name
+            separated: if i is 0 then true else false
+            format: format
+            track: info.track
+            release: info.release
+            anchor:
+              url: info.track.fileUrl(info.release, format.type, format.quality)
+              download: "#{info.track.get("artistsTitle")} - #{info.track.get("title")}.#{format.type}"
+              target: "_blank"
 
     @contextMenu.setItems(items)
 

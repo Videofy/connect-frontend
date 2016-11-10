@@ -8,7 +8,7 @@
         if release._id
           .meta-text
             label(role="title")= release.title
-              if release.downloadable
+              if release.downloadable == true
                 .actions
                   i.fa.fa-cloud-download(role="download" title="Download Release")
             label(role="release-date")= release.date.format()

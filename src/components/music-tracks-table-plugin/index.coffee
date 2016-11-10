@@ -60,6 +60,7 @@ getTracks = (user, releases, tracks, label, filter)->
         id: track.id
         title: track.attributes.title
         release: release.attributes.title
+        inEarlyAccess: release.attributes.inEarlyAccess
         trackNumber: trackNumber
         artists: release.attributes.renderedArtists
         artistsTitle: track.attributes.artistsTitle

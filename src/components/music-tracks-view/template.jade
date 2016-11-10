@@ -53,6 +53,10 @@ table
           i.fa.fa-volume-up.ss.hide-below.w1024.mobile-only(status="playing" title="Currently Playing")
           i.fa.fa-volume-off.ss.hide-below.w1024.mobile-only(status="paused" title="Currently Paused")
           = track.title
+          if track.inEarlyAccess
+            em &nbsp;(Early streaming for 
+              a(href="https://www.monstercat.com/gold" target="_blank") Gold
+              | )
           if !track.released && !prereleased
             i.fa.fa-exclamation-circle.ss.cl-attention.unreleased-track(title=strings.phrases.adminTrackMsg)
           i.fa.fa-chevron-circle-down.hide-below.w1024(role="options" title="More options.")
