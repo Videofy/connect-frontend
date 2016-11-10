@@ -106,11 +106,18 @@ v.set "displayBtn", (btn) ->
     btn is "error" or btn is "loading")
 
 v.set "onAudioError", ->
+  msg = @i18.strings.player.error
+  msg += ' ' + @n.getEl("[role='trackTitle']").getAttribute("title") + ' by ' + @n.getEl("[role='artists']").getAttribute("title")
   @evs.trigger "toast",
-    text: @i18.strings.player.error
+    text: msg
     theme: "error"
     time: 2500
   @displayBtn("error")
+
+  if @player.getIndex() >= @player.items.length - 1
+    @player.play(0)
+  else
+    @player.next()
 
 v.set "toggle", ->
   @el.classList.toggle("open")
