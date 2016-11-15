@@ -22,6 +22,7 @@ onClickAdd = (e)->
     type: "Single"
     showToAdminsOnly: yes
     showOnWebsite: no
+    freeDownloadForUsers: no
   ,
     wait: true
     error: (model, res, opts)=>

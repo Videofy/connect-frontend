@@ -248,6 +248,7 @@
             "visibleAdmin": "Visible to Admins Only",
             "visibleFree": "Visible as Free ",
             "visibleWebsite": "Visible on Website",
+            "freeDownloadForUsers": "Free download if logged in.",
             "playlist": "Playlist Id"
         },
         "releaseTypes": {
