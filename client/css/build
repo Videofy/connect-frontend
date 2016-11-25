@@ -12,7 +12,8 @@ jasny-bootstrap.css
 ${MYTHD}
 "
 
-myth "../component/build.css" $MYTHD
+#myth "../component/build.css" $MYTHD
+postcss --use postcss-cssnext "../component/build.css" -o $MYTHD
 
 CSS_COMPILED=`mktemp /tmp/tmp.XXXXXXXXX`
 LESS_COMPILED=`mktemp /tmp/tmp.XXXXXXXXX`
