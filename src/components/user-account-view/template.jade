@@ -59,33 +59,10 @@ table.ss.rows
             i.fa.fa-gear.fa-spin
 
 if permissions.canAccess('user.update.twoFactorId', 'self.update.twoFactorId')
-  - var twoFactorEnabled = !!model.get('twoFactorId')
-  label.ss.heavy(role='two-factor-status')= twoFactorEnabled ? strings.twoFactor.enabled : strings.twoFactor.disabled
-  if twoFactorEnabled
-    button.ss.bg-action.hover(role='show-two-factor') Update
-  table.ss.rows(role='two-factor' class=twoFactorEnabled ? 'hide' : undefined)
-    tr
-      td
-        label.ss Country
-      td
-        select.ss(role='country-code')
-          each option in countryCodes
-            option(value='#{option.code}' selected=(option.name === location || (option.name == 'United States' && location == 'United States of America') ? 'selected' : undefined))= option.name
-    tr
-      td
-        label.ss Phone Number
-      td
-        input.ss.country-code-preview(role='country-code-preview' size='1' type='tel' disabled)
-        |  
-        input.ss(type='tel' role='phone-number' placeholder='Phone number')
-      td
-        button.ss.bg-action.hover.actioneer(role='submit-two-factor')
-          span.inactive= twoFactorEnabled ? 'Update' : 'Enable'
-          i.fa.fa-gear.fa-spin.active
-        | 
-        button.ss.bg-attention.hover.actioneer(class=twoFactorEnabled ? "" : "hide" role='disable-two-factor')
-          span.inactive Disable
-          i.fa.fa-gear.fa-spin.active
+  label.ss.heavy Two Factor Authentication
+  a.ss.bg-action.hover.external-services(href="https://www.monstercat.com/account#two-factor" target="_blank")
+    = "Manage Two Factor on Monstercat.com "
+    i.fa.fa-external-link
 
 if model.isOfTypes(['artist', 'admin', 'label_admin'])
   div(role='shop-info')
@@ -102,5 +79,5 @@ label.ss.checkbox Hide Non-Licensable Tracks
 
 label.ss.heavy Licenses & Subscriptions
 a.ss.bg-action.hover.external-services(href="https://www.monstercat.com/account/services" target="_blank")
-  = "Manage Subscriptions "
+  = "Manage Subscriptions on Monstercat.com "
   i.fa.fa-external-link

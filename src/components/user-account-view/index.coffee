@@ -12,43 +12,9 @@ request                 = require('superagent')
 callingCodes            = require('country-calling-codes')
 
 sel =
-  disable: '[role="disable-two-factor"]'
-  status: '[role="two-factor-status"]'
-  submit: '[role="submit-two-factor"]'
   country: '[role="country-code"]'
   countryCodePreview: '[role="country-code-preview"]'
   number: '[role="phone-number"]'
-  show: '[role="show-two-factor"]'
-
-onSubmitTwoFactor = (e)->
-  number = @n.getEl(sel.number)?.value
-  countryCode = @n.getEl(sel.country)?.value
-  @n.evaluateClass(sel.submit, "active", yes)
-  @model.setTwoFactor number, countryCode, (err)=>
-    @n.evaluateClass(sel.submit, "active", no)
-    return @toast(err.message, "error") if err
-    @toast("Two Factor settings updated.")
-    @n.getEl(sel.status)?.textContent = @i18.strings.twoFactor.enabled
-    @n.getEl("#{sel.submit} > span")?.textContent = "Update"
-    @n.evaluateClass(sel.disable, "hide", no)
-
-onDisableTwoFactor = (e)->
-  @n.evaluateClass(sel.disable, "active", yes)
-  @model.disableTwoFactor (err)=>
-    @n.evaluateClass(sel.disable, "active", no)
-    return @toast(err.message, "error") if err
-    @toast("Two Factor settings updated.")
-    @n.getEl(sel.status)?.textContent = @i18.strings.twoFactor.disabled
-    @n.getEl("#{sel.submit} > span")?.textContent = "Enable"
-    @n.evaluateClass(sel.disable, "hide", yes)
-
-onClickShowTwoFactor = (e)->
-  @n.evaluateClass("[role='two-factor']", "hide", no)
-  @n.evaluateClass(sel.show, "hide", yes)
-
-onChangeTwoFactorCountry = (e)->
-  countryCode = @n.getEl(sel.country)?.value
-  preview = @$(sel.countryCodePreview).val('+' + countryCode)
 
 UserAccountView = v = bQuery.view()
 
@@ -86,12 +52,6 @@ v.on "click [role='change-password']", (e)->
       finish()
       @toast(parse.backbone.error(res).message, 'error')
 
-v.ons
-  "click #{sel.submit}": onSubmitTwoFactor
-  "click #{sel.show}": onClickShowTwoFactor
-  "click #{sel.disable}": onDisableTwoFactor
-  "change #{sel.country}": onChangeTwoFactorCountry
-
 v.init (opts={})->
   @subscription = opts.subscription
 
@@ -108,21 +68,6 @@ v.init (opts={})->
     shopOpts.model = new UserShopInfoModel _id: @model.get('shopInfoId')
     shopOpts.user = @model
     @shop = new UserShopInfoView(shopOpts)
-
-  if @permissions.canAccess('self.read.whitelist', 'user.read.whitelist')
-    # TODO Remove this external logic.
-    @whitelistCollection = new UserWhitelistCollection null,
-      user: @model
-
-    @whitelistView = new UserWhitelistView
-      user: @model
-      subscription: @subscription
-      collection: @whitelistCollection
-      i18: @i18
-      permissions: @permissions
-    # Why does external view logic exist here?
-    @whitelistView.on 'add:collection:view', (collection, el, model)=>
-      @whitelistView.addNewView(el, model)
 
 v.set "render", ->
   @renderer.locals.countries = countries.map((country)-> country.name)
