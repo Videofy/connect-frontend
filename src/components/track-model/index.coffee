@@ -32,6 +32,7 @@ class Track extends SuperModel
     return done(Error('Model has not been saved to the server.')) if @isNew()
     request
       .get("#{@url()}/errors")
+      .withCredentials()
       .end (err, res)=>
         errors = res?.body?.errors or []
         done(parse.superagent(err, res), errors)
@@ -189,6 +190,7 @@ class Track extends SuperModel
     done ?= ->
     request
     .patch "#{@url()}/generate-isrc"
+    .withCredentials()
     .end (err, res)=>
       if err = parse.superagent(err, res)
         done(err)
