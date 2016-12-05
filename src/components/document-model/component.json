@@ -1,6 +1,6 @@
 {
-  "name": "document-collection",
-  "repo": "monstercat/document-collection",
+  "name": "document-model",
+  "repo": "monstercat/document-model",
   "description": "",
   "version": "0.0.1",
   "keywords": [],
@@ -10,8 +10,8 @@
   "license": "MIT",
   "main": "index.js",
   "local": [
-    "super-collection",
-    "document-model"
+    "super-model",
+    "end-point"
   ],
   "scripts": [
     "index.js"
