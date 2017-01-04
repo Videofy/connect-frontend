@@ -18,8 +18,13 @@ getYears = (years)->
     arr.push
       year: y
       checked: years.indexOf(y) > -1
+      text: String(y)
     y--
-  arr.push(year: 1989, checked: years.indexOf(1989) > -1)
+  # featured
+  arr.push
+    year: 0
+    checked: years.indexOf(0) > -1
+    text: "Featured"
   arr
 
 onMarkYear = (e)->
@@ -30,7 +35,10 @@ onMarkYear = (e)->
   if enabled
     years.push(year)
   else
-    years.splice(years.indexOf(year), 1, 0)
+    index = years.indexOf(year)
+    while index != -1
+      years.splice(index, 1)
+      index = years.indexOf(year)
   @model.simpleSave years: years, (err, model, res, opts)=>
     @toast(err.message, 'error') if err
 
