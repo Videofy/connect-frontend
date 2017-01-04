@@ -30,7 +30,7 @@ else
         each val in years
           label.ss
             input(type="checkbox" role="markYear" value="#{val.year}" checked=(val.checked ? "checked" : undefined)) 
-            = val.year
+            = val.text
 
   label.ss.heavy Profile
   textarea.ss.expand(property="about")
