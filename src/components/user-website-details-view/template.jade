@@ -10,11 +10,6 @@ else
     .ss.labelfields
       .field
         .key
-          label.ss Website Placement Tier
-        .value
-          input.ss(type="text" placeholder="Tier Number" title="Website placement tier must be a number between 1 and 12." property="tier" errornone)
-      .field
-        .key
           label.ss Name
         .value
           input.ss(type="text" placeholder="Name On Website" property="name")
@@ -23,6 +18,13 @@ else
           label.ss Vanity URI
         .value
           input.ss(type="text" placeholder="pegboard-nerds" property="vanityUri")
+      .field
+        .key
+          label.ss Profile Image URL 
+        .value
+          input.ss(type="text"
+          placeholder="https://assets.monstercat.com/artists-profile-images/"
+          property="profileImageUrl")
     
     if years
       label.ss.heavy Appears in Years
@@ -46,9 +48,6 @@ else
   label.ss.heavy URLs
   .urls
 
-  label.ss.heavy Picture
-  .picture
-  
   label.ss.heavy Picture Position
   .ss.labelfields
     .field
