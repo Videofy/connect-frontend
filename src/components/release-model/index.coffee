@@ -94,16 +94,10 @@ class ReleaseModel extends SuperModel
       upc:
         field: "upc"
         message: "A UPC is required."
-      urls:
-        field: "urls"
-        message: "A soundcloud link is required for the release to appear on the monstercat.com site."
 
     Object.keys(map).forEach (key) =>
       if matcher.valsMatch(map, @attributes, key)
         warnings.push(details[key])
-
-    unless _.detect(@get('urls') or [], (url)-> url.match(/soundcloud/i))
-      warnings.push(details.urls)
 
     done(null, warnings)
     @trigger('geterrors', warnings)
