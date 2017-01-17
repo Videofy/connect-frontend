@@ -74,7 +74,7 @@ v.init (opts={})->
     property: "urls"
     placeholder: "URL"
 
-  @imageView = new UserProfileImageView(opts)
+  # @imageView = new UserProfileImageView(opts)
 
 v.set "render", ->
   @renderer.locals.mode = 'loading'
@@ -83,9 +83,9 @@ v.set "render", ->
     @renderer.locals.years = getYears(@model.get('years'))
     @renderer.locals.mode = 'view'
     @renderer.render()
-    @imageView.render()
+    # @imageView.render()
     @urlsView.render()
     @n.getEl(".urls").appendChild(@urlsView.el)
-    @n.getEl(".picture").appendChild(@imageView.el)
+    # @n.getEl(".picture").appendChild(@imageView.el)
 
 module.exports = v.make()
