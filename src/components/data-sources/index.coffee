@@ -1,6 +1,5 @@
 AssetCollection             = require('asset-collection')
 AccountCollection           = require('account-collection')
-ContractCollection          = require('contract-collection')
 DocumentCollection          = require('document-collection')
 eurl                        = require('end-point').url
 LabelCollection             = require('labels-collection')
@@ -20,7 +19,6 @@ class DataSources
   constructor: ->
     @accounts     = new AccountCollection
     @assets       = new AssetCollection
-    @contracts    = new ContractCollection
     @newsStream   = new NewsStreamCollection
     @label        = new LabelModel
     @labels       = new LabelCollection

@@ -1,8 +1,5 @@
 AccountsView        = require('accounts-view')
 AssetsView          = require('assets-view')
-ContractsView       = require('contracts-view')
-ContractCreateView  = require('contract-create-view')
-ContractView        = require("contract-view")
 ErrorView           = require("error-view")
 ForgotPasswordView  = require("forgot-password-view")
 GeneralPageView     = require("general-page-view")
@@ -70,35 +67,6 @@ module.exports = (scrollTarget, session, getOpts)->
         opts.collection = opts.dataSources.users
         new UsersView(opts)
       pattern: /^community(?:\/|\/((?!create).*))?$/
-
-    contractCreate:
-      auth: ["admin", "admin_readonly", "label_admin"]
-      create: ->
-        opts = getOpts()
-        ds = opts.dataSources
-        opts.collection = ds.contracts
-        opts.tracks = ds.tracks
-        opts.user = ds.user
-        opts.users = ds.users
-        new ContractCreateView(opts)
-      pattern: /^contracts\/create(?:\/|\/(.*))?$/
-
-    contractView:
-      auth: ["admin", "admin_readonly", "label_admin", "artist"]
-      create: ->
-        opts = getOpts()
-        opts.collection = opts.dataSources.contracts
-        new ContractView(opts)
-      pattern: /^contracts\/view\/(.*)$/ 
-
-    contracts:
-      auth: ["admin", "admin_readonly", "label_admin", "artist"]
-      create: ->
-        opts = getOpts()
-        opts.collection = opts.dataSources.contracts
-        new ContractsView(opts)
-      pattern: /^contracts\/?$/
-
     createUser:
       auth: ["admin", "label_admin"]
       create: ->

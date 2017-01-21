@@ -134,13 +134,6 @@ v.set "getDefaults", ->
     route: "music"
     url: "#music"
 
-  if perms.canAccess('contracts.read')
-    items.push
-      name: strings["contracts"] or "Contracts"
-      icon: "qrcode"
-      route: "contracts"
-      url: "#contracts"
-
   if perms.canAccess('statements.view')
     items.push
       icon: "inbox"

@@ -11,9 +11,6 @@
   "local": [
     "accounts-view",
     "assets-view",
-    "contract-create-view",
-    "contract-view",
-    "contracts-view",
     "error-view",
     "forgot-password-view",
     "general-page-view",

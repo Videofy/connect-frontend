@@ -12,7 +12,6 @@
   "local": [
     "account-collection",
     "asset-collection",
-    "contract-collection",
     "document-collection",
     "end-point",
     "label-collection",
