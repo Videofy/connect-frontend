@@ -34,7 +34,7 @@ class UserModel extends SuperModel
     eurl("#{@url()}/signature")
 
   impersonateUrl: ->
-    url = @url() + '/impersonate'
+    url = @url() + '/impersonate?returnUrl=' + encodeURIComponent("#{location.protocol}//#{location.host}")
 
   initialize: (params, opts)->
     return unless params
@@ -200,7 +200,7 @@ class UserModel extends SuperModel
   resendInvite: (done)->
     done ?= ->
     request
-    .post("#{@url()}/reinvite")
+    .get("#{@url()}/reinvite?returnUrl=" + encodeURIComponent("#{location.protocol}//#{location.host}/#verify/:code"))
     .withCredentials()
     .end (err, res)=>
       done(parse.superagent(err, res), res)
