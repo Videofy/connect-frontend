@@ -27,5 +27,9 @@ label.ss.radio
   input.ss(type="radio" property="paymentType" value="Wire")
 
 label.ss.radio
-  | Direct Deposit (Available only to Canadians and Americans.)
-  input.ss(type="radio" property="paymentType" value="Direct")
+  | Direct Deposit - Canada
+  input.ss(type="radio" property="paymentType" value="ACH-CAD")
+
+label.ss.radio
+  | Direct Deposit - United States 
+  input.ss(type="radio" property="paymentType" value="ACH-USD")
