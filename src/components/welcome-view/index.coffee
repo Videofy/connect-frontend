@@ -100,6 +100,12 @@ v.set 'getCode', (code, done)->
     return done(err, res.body.code)
 
 v.set "render", ->
+  @renderer.locals.options = @planOptions
+  @renderer.locals.mode = @getMode(@userType)
+  @renderer.locals.goldTitle = @renderer.locals.mode in goldAccess
+  @renderer.locals.signupLinkWhitelist = "https://www.monstercat.com/account/services"
+  @renderer.locals.signupLinkGold = "https://www.monstercat.com/account/services?gold"
+  @renderer.render()
   @presenter.attach()
   @banners = @el.querySelectorAll(".banner")
   @step = step.bind(@)
