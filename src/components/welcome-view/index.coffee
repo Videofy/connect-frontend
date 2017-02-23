@@ -70,23 +70,13 @@ v.set "open", (@url)->
   if @needle is "sign-in"
     return @openSignin()
 
-  if @needle is 'referral'
-    @getCode @code, (err, code)=>
-      return alert("An error occurred. Please visit later.") if err
-      return alert("Invalid referral code #{@code} is provided!") unless code
-      @userType = code.userType.split(',')
-      @codeDetails = code
-      @gold = @isGold(@userType)
-      @n.evaluateClass(@el, "goldie", @gold)
-      @render()
-  else
-    if(@needle == 'license')
-      return window.location.replace('https://www.monstercat.com/licensing')
+  if(@needle == 'license')
+    return window.location.replace('https://www.monstercat.com/licensing')
 
-    @userType = @getTypeFromNeedle(@needle)
-    @gold = @isGold(@userType)
-    @n.evaluateClass(@el, "goldie", @gold)
-    @render()
+  @userType = @getTypeFromNeedle(@needle)
+  @gold = @isGold(@userType)
+  @n.evaluateClass(@el, "goldie", @gold)
+  @render()
 
 v.set 'isGold', (userType)->
   goldTypes = ["golden", "mixcomp" ]
@@ -110,7 +100,6 @@ v.set 'getCode', (code, done)->
     return done(err, res.body.code)
 
 v.set "render", ->
-  @renderPlans()
   @presenter.attach()
   @banners = @el.querySelectorAll(".banner")
   @step = step.bind(@)
