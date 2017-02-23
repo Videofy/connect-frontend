@@ -94,8 +94,7 @@ v.set "submit", ->
   return alert('Please fill out all fields.') if validate(attrs)
 
   if @n.getEl('[role="send-invite"]')?.checked
-    type = if 'subscriber' in @userTypes then 'sign-up' else 'verify'
-    attrs.returnUrl = "#{location.protocol}//#{location.host}/##{type}/:code"
+    attrs.returnUrl = "https://www.monstercat.com/verify/:code"
 
   if @el.querySelector("[property='trialLength']")?.value
     attrs.trialAccessEndDate = @getTrialEndDate()
