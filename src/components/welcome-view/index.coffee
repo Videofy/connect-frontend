@@ -105,6 +105,7 @@ v.set "render", ->
   @renderer.locals.goldTitle = @renderer.locals.mode in goldAccess
   @renderer.locals.signupLinkWhitelist = "https://www.monstercat.com/account/services"
   @renderer.locals.signupLinkGold = "https://www.monstercat.com/account/services?gold"
+  @renderer.locals.referralCodeOpen = referralCodeOpen
   @renderer.render()
   @presenter.attach()
   @banners = @el.querySelectorAll(".banner")
